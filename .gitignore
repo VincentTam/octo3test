@@ -8,3 +8,5 @@ vendor
 _deploy.yml
 Gemfile.lock
 .deploy/
+*.swp
+*~
