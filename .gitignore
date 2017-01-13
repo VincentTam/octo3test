@@ -7,3 +7,4 @@ bin
 vendor
 _deploy.yml
 Gemfile.lock
+.deploy/
