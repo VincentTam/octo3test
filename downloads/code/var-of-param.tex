@@ -1,0 +1,240 @@
+%        File: var-of-param.tex
+%     Created: Sat Oct 26 11:00 AM 2013 H
+% Last Change: Sat Oct 26 11:00 AM 2013 H
+%
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper]{geometry}
+\usepackage[sumlimits]{amsmath}
+\usepackage{mathtools}
+\usepackage[]{url}
+\usepackage[]{hyperref}
+\renewcommand{\theequation}{\roman{equation}}
+\newcommand{\ud}{\,\mathrm{d}}
+\author{Vincent Tam}
+\title{Explanation to Wikipedia's Variation of Parameter}
+\begin{document}
+\maketitle
+Wikipedia's explanation is too concise. \cite{wiki13}
+
+First, you have
+\begin{equation}
+  y^{(n)}(x)+\sum_{k=0}^{n-1} a_k(x)y^{(k)}(x)=b(x).
+  \label{eq:non-homo}
+\end{equation}
+Here, $y$ means the general solution of \eqref{eq:non-homo}.
+
+I just use the notations in Wikipedia: For $i$ between 1 and $n$,
+inclusive, $y_i$ is the solution of the homogenous equation
+\begin{equation}
+  y_i^{(n)}(x)+\sum_{k=0}^{n-1} a_k(x)y_i^{(k)}(x)=0.
+  \label{eq:homo}
+\end{equation}
+Unlike Wikipedia, in equation \eqref{eq:homo}, the $i$ under the
+summation sign is changed to $k$ so as to avoid confusion of symbols.
+In other words, \textbf{we use $i$ to represent $c_i(x)$ and $y_i(x)$,
+while using $k$ to represent the coefficient of the terms in
+\eqref{eq:non-homo} (i.e. $a_k(x)$) and the derivatives of $y_i(x)$ of
+different orders. (i.e. $y_i^{(k)}(x)$}\\
+Let $y_p$ be the particular solution for the non-homogeneous ODE.
+
+We make an educated guess like this:
+\begin{equation}
+  \boxed{y_p(x)=\sum_{i=1}^{n} c_i(x) y_i(x)}
+  \label{eq:part-def}
+\end{equation}
+where $c_i(x)$ is a differentiable function for each $i$.\\
+By doing so, we have created $n$ unknowns (that is, $c_i(x),i=1,\dots
+n$), and they are also known as \emph{freedom}. We may make use of the
+freedom like this:
+\begin{equation}
+  y_p'(x)=\left[ \sum_{i=1}^{n} c_i'(x) y_i(x) \right]+\left[
+  \sum_{i=1}^{n} c_i(x) y_i'(x) \right]
+  \label{eq:part-d1}
+\end{equation}
+Continuing the differentiation gives complicated expression, so we use
+our freedom to give some restrictions on $c_i(x),i=1,\dots n$. i.e. We
+set
+\begin{equation}
+  \boxed{\sum_{i=1}^{n} c_i'(x) y_i(x)=0}
+  \label{eq:part-d1-restr}
+\end{equation}
+
+Why is there such a condition? It is because we want to simplify
+\eqref{eq:part-d1} by ruling out \emph{something}. (i.e. setting
+something to \emph{zero}) What is \emph{something}?
+\begin{enumerate}
+  \item $y_i(x)=0 \text{ or } y_i'(x)=0 \text{ or } c_i(x)=0$ for each
+    $i=1,\dots n$\\
+    They are clearly unreasonable restrictions.
+  \item $c_i'(x)=0$ for each $i=1,\dots n$\\
+    Then $c_i(x)$ is a constant function for each $i=1,\dots n$. In
+    other words, $y_p(x)=\sum_{i=1}^{n} c_i(x) y_i(x)$ is just linear
+    combinations of $y_i(x)$. Remembering that $y_i(x)$ are denoted as
+    the solution of \eqref{eq:homo}, we conclude that this restriction
+    can't be accepted.
+\end{enumerate}
+
+Being too ``strong'', the above guesses fails. Thus, what we need to
+rule out is \emph{either} one of the middle bracket in
+\eqref{eq:part-d1}. Why \emph{must} it be the first one?
+
+Otherwise assume that 
+\begin{equation}
+  \sum_{i=1}^{n} c_i(x) y_i'(x)=0,
+  \label{eq:part-d1-restr0-e1}
+\end{equation}
+which leads us to
+\begin{equation}
+  y_p'(x)=\sum_{i=1}^{n} c_i'(x) y_i(x)
+  \label{eq:part-d1-restr0-d1a}
+\end{equation}
+
+Continue the above process of differentiating $y_p(x)$.
+\begin{equation}
+  y_p''(x)=\left[ \sum_{i=1}^{n} c_i''(x) y_i(x) \right]+\left[
+  \sum_{i=1}^{n} c_i'(x) y_i'(x) \right]
+  \label{eq:part-d1-restr0-d2}
+\end{equation}
+Making assumptions similar to \eqref{eq:part-d1-restr0-e1}, we have
+\begin{equation}
+  \sum_{i=1}^{n} c_i'(x) y_i'(x)=0\text{; and}
+  \label{eq:part-d1-restr0-e2}
+\end{equation}
+\begin{equation}
+  y_p''(x)=\sum_{i=1}^{n} c_i''(x) y_i(x)
+  \label{eq:part-d1-restr0-d2a}
+\end{equation}
+
+From \eqref{eq:part-d1-restr0-e1} and \eqref{eq:part-d1-restr0-e2}, we
+know that if we carry out the process repeatedly, we get a system of
+``linear'' equations with ``unknowns '' $y_i'(x)$ (which is actually
+known since $y_i(x)$ have been found out from \eqref{eq:homo}.) The
+most insensible thing of this ``system'' is the ``coefficient matrix''
+with entries $c_i^{(k)}$ on the $k$-th row and the $i$-th column. For
+the sake of clarity, the ``system'' is illustrated below.
+\begin{equation*}
+  \left\{\begin{aligned}
+    c_1(x) y_1'(x) &+ c_2(x) y_2'(x) &+ \dots &+ c_n(x) y_n'(x) &= 0\\
+    c_1'(x) y_1'(x) &+ c_2'(x) y_2'(x) &+ \dots &+ c_n'(x) y_n'(x) &=
+    0\\ \vdots\\ c_1^{(k)}(x) y_1'(x) &+ c_2^{(k)}(x) y_2'(x) &+ \dots
+    &+ c_n^{(k)}(x) y_n'(x) &= 0
+  \end{aligned}\right.
+  \tag{*}
+  \label{eq:part-d1-restr0-sys}
+\end{equation*}
+
+We don't care about the range of $k$ such that the R.H.S. of the
+last equation in the above system is zero, as well as the missing
+equation which can be yielded after substituting $y_p^{(k)}(x)$ (for
+example, equations \eqref{eq:part-d1-restr0-d1a} and
+\eqref{eq:part-d1-restr0-d2a}) into \eqref{eq:non-homo}
+
+Therefore, equations \eqref{eq:part-d1-restr0-e1} to
+\eqref{eq:part-d1-restr0-sys} are all \emph{wrong}. Instead, we should
+have
+\begin{equation}
+  \boxed{y_p'(x)=\sum_{i=1}^{n} c_i(x) y_i'(x)}
+  \label{eq:part-d1a}
+\end{equation}
+\begin{equation}
+  y_p''(x)=\left[ \sum_{i=1}^{n} c_i'(x) y_i'(x) \right]+\left[
+  \sum_{i=1}^{n} c_i(x) y_i''(x) \right]
+  \label{eq:part-d2}
+\end{equation}
+Again, we set
+\begin{equation}
+  \boxed{\sum_{i=1}^{n} c_i'(x) y_i'(x)=0}
+  \label{eq:part-d2-restr}
+\end{equation}
+so that
+\begin{equation}
+  \boxed{y_p''(x)=\sum_{i=1}^{n} c_i(x) y_i''(x).}
+  \label{eq:part-d2a}
+\end{equation}
+
+For each $1 \le k \le n-1$, we have
+\begin{equation}
+  \boxed{\sum_{i=1}^{n} c_i'(x) y_i^{(k-1)}(x)=0}
+  \label{eq:part-dk-restr}
+\end{equation}
+and
+\begin{equation}
+  \boxed{y_p^{(k)}(x)=\sum_{i=1}^{n} c_i(x) y_i^{(k)}(x).}
+  \label{eq:part-dka}
+\end{equation}
+
+Why \emph{can't} we apply \eqref{eq:part-dk-restr} and
+\eqref{eq:part-dka} to the case of $k=n$?\\
+Differentiating \eqref{eq:part-dka} with respect to $x$, we get
+\begin{equation}
+  y_p^{(n)}(x)=\left[ \sum_{i=1}^{n} c_i'(x) y_i^{(n-1)}(x)
+  \right]+\left[ \sum_{i=1}^{n} c_i(x) y_i^{(n)}(x) \right]
+  \label{eq:part-dn}
+\end{equation}
+Recall from \eqref{eq:non-homo} that we have
+\begin{equation}
+  y_p^{(n)}(x)+\sum_{k=0}^{n-1} a_k(x) y_p^{(k)}(x)=b(x).
+  \label{eq:sub1}
+\end{equation}
+Substitute \eqref{eq:part-dka} and \eqref{eq:part-dn} into
+\eqref{eq:sub1},
+\begin{flalign*}
+  &\left[ \sum_{i=1}^{n} c_i'(x) y_i^{(n-1)}(x) \right]+\left[
+  \sum_{i=1}^{n} c_i(x) y_i^{(n)}(x) \right]+\\
+  &\quad \left\{ \sum_{k=0}^{n-1} a_k(x) \left[ \sum_{i=1}^{n} c_i(x)
+  y_i^{(k)}(x) \right] \right\}=b(x).&\\
+  &\left[ \sum_{i=1}^{n} c_i'(x) y_i^{(n-1)}(x) \right]+\left[
+  \sum_{i=1}^{n} c_i(x) y_i^{(n)}(x) \right]+\\
+  &\quad \left\{ \sum_{i=1}^{n} c_i(x) \left[ \sum_{k=0}^{n-1} a_k(x)
+  y_i^{(k)}(x) \right] \right\}=b(x).\nonumber&\\
+  &\left[ \sum_{i=1}^{n} c_i'(x) y_i^{(n-1)}(x) \right]+\left\{
+  \sum_{i=1}^{n} c_i(x) \left[ y_i^{(n)}+\sum_{k=0}^{n-1} a_k(x)
+  y_i^{(k)}(x) \right] \right\}=b(x)\\
+  &\left[ \sum_{i=1}^{n} c_i'(x) y_i^{(n-1)}(x) \right]+\left[
+  \sum_{i=1}^{n} c_i(x) (0) \right]=b(x)
+\end{flalign*}
+Thus, we have
+\begin{equation}
+  \boxed{\sum_{i=1}^{n} c_i'(x) y_i^{(n-1)}(x)=b(x)}
+  \label{eq:part-dn-restr}
+\end{equation}
+From equations \eqref{eq:part-dk-restr} and \eqref{eq:part-dn-restr},
+\begin{equation*}
+  \left\{\begin{aligned}
+    c_1'(x) y_1(x) &+ c_2'(x) y_2(x) &+ \dots &+ c_n'(x) y_n(x) &= 0\\
+    c_1'(x) y_1'(x) &+ c_2'(x) y_2'(x) &+ \dots &+ c_n'(x) y_n'(x) &=
+    0\\
+    \vdots\\
+    c_1'(x) y_1^{(n-2)}(x) &+ c_2'(x) y_2^{(n-2)}(x) &+ \dots &+
+    c_n'(x) y_n^{(n-2)}(x) &= 0\\
+    c_1'(x) y_1^{(n-1)}(x) &+ c_2'(x) y_2^{(n-1)}(x) &+ \dots &+
+    c_n'(x) y_n^{(n-1)}(x) &= b(x)
+  \end{aligned}\right.
+  \tag{$\heartsuit$}
+  \label{eq:part-sys}
+\end{equation*}
+
+By Cramer's Rule,
+\[
+  c_i'(x)=\frac{W_i(x)}{W(x)},
+\]
+where $W(x)$ is the Wronskian of $y_i(x)$ and $W_i(x)$ is the
+determinant of replacing the $i$-th column of $W(x)$ by
+$(0,0,\dots,0,b(x))$. Hence,
+\begin{equation}
+  c_i(x)=\int \frac{W_i(x)}{W(x)} \ud x.
+  \label{eq:ans}
+\end{equation}
+Substitute \eqref{eq:ans} into \eqref{eq:part-def},
+\[
+  \boxed{y_p(x)=\sum_{i=1}^{n} y_i(x) \int \frac{W_i(x)}{W(x)} \ud x}
+\]
+\begin{thebibliography}{9}
+  \bibitem[wiki12]{wiki13}
+    Variation of Parameters. (n.d.). In \emph{Wikipedia}. Retrieved
+    October 26, 2013, from
+    \url{https://en.wikipedia.org/wiki/Variation_of_parameters}
+\end{thebibliography}
+\end{document}
+
+% vim:tw=70:wrap

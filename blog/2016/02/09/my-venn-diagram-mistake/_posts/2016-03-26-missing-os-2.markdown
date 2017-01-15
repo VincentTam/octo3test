@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Missing OS (2)"
+date: 2016-03-26 21:48:09 +0800
+categories: [M$ Win*]
+comments: true
+---
+
+I saw a similar error *again*.  After pressing any key, the M\$ Win\*
+logo appeared.  I *don't* think that I'll find out anything about this
+error since I've other things to do.
+
+<picture class="fancybox" title="No operating system found">
+  <source srcset="/images/posts/BoD/20160322-125447.jpg"
+    media="(min-width: 3270px)"></source> 
+  <img alt="No operating system found" width="300"
+    src="/images/posts/BoD/20160322-125447s.jpg" />
+</picture>

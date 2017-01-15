@@ -1,135 +1,1547 @@
-<!DOCTYPE html>
-<html lang="en">
 
-  <head>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	Ubuntu on Windows 10 Custom Display
+      
+    
+    
+      
+        
+        
+           | Comments
+     ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Your awesome title</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search resu...">
-
   
-  <link rel="stylesheet" href="/octo3test/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
-  <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/octo3test/feed.xml">
+  <link rel="canonical" href="https://vincenttam.github.io/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
 
-  
-  <link href='/octo3test/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
 </head>
-
-  <body>
-
-    <header class="site-header" role="banner">
-
-  <div class="wrapper">
-
-    <a class="site-title" href="/octo3test/">Your awesome title</a>
-
-    <nav class="site-nav">
-      <span class="menu-icon">
-        <svg viewBox="0 0 18 15" width="18px" height="15px">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </span>
-
-      <div class="trigger">
-        
-          
-          <a class="page-link" href="/octo3test/about/">About</a>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      </div>
-    </nav>
-
-  </div>
-
-</header>
-
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
   
   
-
-
-  <ul class="post-list">
+  
+    <article>
+      <header>
     
-      <li>
-        <span class="post-meta">Jan 13, 2017</span>
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
 
-        <h2>
-          <a class="post-link" href="/octo3test/jekyll/update/2017/01/13/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p><em>Same</em> as some of my recent posts: get <code class="highlighter-rouge">jekyll serve</code> working to watch
+for changes during a preview of <a href="/blog2/">my Jekyll-bootstrap blog</a>.</p>
+
+<p>Since I found the <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Ruby gems setup</a> too <em>difficult</em>, I switched to
+<a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Ubuntu on Windows 10</a> after reading <a href="https://gorails.com/setup/windows/10">a Ruby setup guide</a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>The default display settings <em>didn’t</em> look great, so I installed
+<a href="http://font.ubuntu.com/">Ubuntu Mono font</a>.  Unluckily, one <em>can’t</em> type Chinese
+characters, and the bottom line of <a href="https://tmux.github.io/">tmux</a> keeps jumping up from time
+to time.  Most importantly, the copy and paste function <em>isn’t</em>
+convenient to use: every time I need to paste something, I have to
+move the mouse to the top of the window, then right click and select
+“Modify” → “Paste”.  That’s too slow when compared to <code class="highlighter-rouge">&lt;S-Ins&gt;</code> in
+<a href="https://mintty.github.io/">mintty</a> which is shipped with <a href="https://git-for-windows.github.io/">Git for Windows</a>.</p>
+
+<p>However, on <abbr title="Windows Linux Subsystem">WLS</abbr>, aptitude takes good care of package dependencies.
+That’s <em>much better</em> for installing necessary stuff for blogging with
+frameworks like <a href="https://jekyllrb.com/">Jekyll</a>.</p>
+
+<p><strong>How can I run <abbr title="Windows Linux Subsystem">WLS</abbr> using a mintty shell?</strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Use <a href="https://github.com/goreliu/wsl-terminal">wsl-terminal</a>.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>Firstly, I’ve revised the use of <code class="highlighter-rouge">chown</code>, <code class="highlighter-rouge">chgrp</code> and <code class="highlighter-rouge">chmod</code>, and
+learnt the function of <code class="highlighter-rouge">umask</code>.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">u</code>, <code class="highlighter-rouge">g</code>, <code class="highlighter-rouge">o</code> stand for “user”, “group” and “others” respectively.</li>
+  <li>The rights to <code class="highlighter-rouge">r</code>, <code class="highlighter-rouge">w</code>, <code class="highlighter-rouge">x</code> can be <code class="highlighter-rouge">+</code> or <code class="highlighter-rouge">-</code>.</li>
+  <li>Put them together: <code class="highlighter-rouge">chmod og-w [target-dir]</code>.</li>
+</ul>
+
+<p>Unfortunately, the Windows 10 bash creates folders and files with
+permissions 777 and 666 respectively.  The comments for
+<a href="https://github.com/Microsoft/BashOnWindows/issues/352">Microsoft/BashOnWindows#352</a> solved this problem: instead of
+putting <code class="highlighter-rouge">umask 022</code> in <code class="highlighter-rouge">/etc/profile</code> or <code class="highlighter-rouge">~/.profile</code>, it should be
+added in <code class="highlighter-rouge">~/.bashrc</code> because the login mechanism on <abbr title="Windows Linux Subsystem">WLS</abbr> is <em>different</em>
+from a usual GNU/Linux OS.  I think the profiles <em>aren’t</em> process
+during <abbr title="Windows Linux Subsystem">WLS</abbr> startup after having added a simple statement for echoing a
+few words in <code class="highlighter-rouge">~/.profile</code>.  Lilred’s method is even better.</p>
+
+<p>Secondly, I’ve learnt the meaning of <code class="highlighter-rouge">eval</code>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>user@OWNER-PC:~$ ssh-agent
+SSH_AUTH_SOCK=/tmp/ssh-xiwtTnVlI90S/agent.6636; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=5764; export SSH_AGENT_PID;
+echo Agent pid 5764;
+user@OWNER-PC:~$ ssh-add
+Could not open a connection to your authentication agent.
+</code></pre>
+</div>
+
+<p>From <a href="http://stackoverflow.com/a/17848593/3184351">user456814’s answer</a> on a Stack Overflow question
+about SSH authentication agent, we can see that <code class="highlighter-rouge">ssh-agent</code> returns
+the commands to be copied, pasted and ran in the terminal.  The
+command <code class="highlighter-rouge">eval</code> saves these steps by taking the output as the command
+input.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/11/windows-10-time-sync-error/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/11/windows-10-time-sync-error/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/11/windows-10-time-sync-error/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I’ve tried adding a custom inbound rule in my firewall so as to allow
+<abbr title="Network Time Protocol">NTP</abbr> access via UDP port 123 after reading a post about
+<a href="http://www.ehow.com/how_7241410_unblock-network-time-protocol.html">firewall settings for <abbr title="Network Time Protocol">NTP</abbr></a>, with the aid of another post about
+<a href="http://www.tomshardware.co.uk/faq/id-3114787/open-firewall-ports-windows.html">detailed steps for opening ports</a> on Windows 10.  Before that,
+I had already done all <a href="https://www.organicweb.com.au/20209/general-technology/windows10-time/">steps in services.msc</a> to allow
+automatic startup of the Windows Time service.  Finally, I <em>manually</em>
+adjusted the time.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/11/shortened-github-urls-for-this-site/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/11/shortened-github-urls-for-this-site/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I want to include a link to a <a href="https://gist.github.com">Gist</a> in an <a href="http://octopress.org">Octopress</a> codeblock.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>In the syntax for a codeblock, the link is too long.  This can cause
+problems in a graphical frontend of <a href="https://git-scm.com/">Git</a>, such as gitk.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>I found a <a href="https://github.com/blog/985-git-io-github-url-shortener">post about GitHub URL Shortener</a> by accident.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ curl -i https://git.io -F "url=https://github.com/vincenttam" -F "code=vtam"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   293  100    29  100   264     40    367 --:--:-- --:--:-- --:--:--   375HT
+TP/1.1 100 Continue
+
+HTTP/1.1 201 Created
+Server: Cowboy
+Connection: keep-alive
+Date: Tue, 10 Jan 2017 22:50:08 GMT
+Status: 201 Created
+Content-Type: text/html;charset=utf-8
+Location: https://git.io/vtam
+Content-Length: 29
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Runtime: 0.111560
+X-Node: 6a832541-d7fa-4b2b-9a4b-1e3355ad0eab
+X-Revision: 4fdc60de6311e6a3aa31e19bc7b3aad7e85d33a6
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Via: 1.1 vegur
+
+https://github.com/vincenttam
+</code></pre>
+</div>
+
+<p>In fact, <a href="https://git.io">git.io</a> is much <em>simpler</em> for users who
+<em>don’t</em> type commands.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>I created three short URLs with this tool.</p>
+
+<ol>
+  <li><a href="https://git.io/vtam">https://git.io/vtam</a> for my GitHub account</li>
+  <li><a href="https://git.io/vtblog">https://git.io/vtblog</a> for this blog</li>
+  <li><a href="https://git.io/vb2">https://git.io/vb2</a> for <em>Blog 2</em></li>
+</ol>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>In the <a href="/blog/2016/12/12/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-4/">previous post in this series</a>, I included three <a href="http://www.vim.org">Vim</a>
+editor commands.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>As I’ve already typed hundreds of lines of source code, I feel tired
+and I often <em>make mistakes</em> while typing those commands despite these
+two command mode mappings in my <code class="highlighter-rouge">~/.vimrc</code>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">More efficient recall from Vim command history</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">" Practical Vim Tip 34: Avoid cursors when rcl'g cmd from hist</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">p</span><span class="p">&gt;</span> <span class="p">&lt;</span>Up<span class="p">&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">cnoremap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">n</span><span class="p">&gt;</span> <span class="p">&lt;</span>Down<span class="p">&gt;</span></div></div></pre></div></figure>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Convert these three commands into a shell script.  Since I’m using
+<a href="http://www.vim.org/scripts/script.php?script_id=1984">FuzzyFinder</a>, I assume that the current working directory
+(as shown by <code class="highlighter-rouge">:pwd</code>) is the root of the local repository for the
+<a href="http://octopress.org">Octopress</a> blog.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Script for Octopress editing within Vim</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#!/bin/sh</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">sed <span class="s1">'1,8d'</span> <span class="nv">$1</span> | kramdown &gt; temp.html~
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">cat <span class="o">&#x7b;</span>temp,script<span class="o">&#x7d;</span>.html~ &gt; tempmj.html~
+</div></div></pre></div></figure>
+
+<ol>
+  <li>The YAML header is chopped off since I just want to verify the
+[kramdown] syntax.</li>
+  <li>I appended <code class="highlighter-rouge">~</code> after the file extension names <code class="highlighter-rouge">.html</code> since I had
+added <code class="highlighter-rouge">*~</code> in my <code class="highlighter-rouge">.gitignore</code> and I <em>didn’t</em> want these files
+(including this shell script) to be tracked by Git.</li>
+  <li>I created a symbolic link on Windows 10 with <code class="highlighter-rouge">mklink</code> in <code class="highlighter-rouge">cmd</code>.
+(ran as admin)  Other options are more <em>complicated</em>:
+    - Graphical programs: more disk space is consumed for programs
+        rarely used which have command line alternatives.
+    - Windows Power Shell: this method <em>won’t</em> work for Home
+        edition.  (That’s my case.)  I’m quite satisfied by the
+        current edition and I <em>don’t</em> see any reason to spend
+        a thousand dollar and a whole day to have it changed to Pro
+        version for functionalities that are too advanced for me.</li>
+</ol>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>While I was writing this post, I used</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -e "\[kramdown\]" %:h/*.markdown
+</code></pre>
+</div>
+
+<p>in the current buffer in order to quickly retrieve the links to
+websites to which I had previously referred.  To escape the square
+brackets and the search pattern, the flag <code class="highlighter-rouge">-e</code> is added in between the
+utility name and the pattern string.  I tried using marks, but I had
+forgotten the difference between a mark named with a small letter and
+a capital letter.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mark</th>
+      <th>Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>small</td>
+      <td>local</td>
+    </tr>
+    <tr>
+      <td>capital</td>
+      <td>global</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="motivation">Motivation</h2>
+
+<p>Same as the background in <a href="/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/">my previous article</a>.</p>
+
+<h2 id="background">Background</h2>
+
+<p>I uninstalled Ruby 2.0 in the Control Panel, and then installed
+version 2.3.3 from <a href="https://rubyinstaller.org/">RubyInstaller for Windows</a></p>
+
+<h2 id="problem-1-redcloth-installation-failure">Problem 1: RedCloth installation failure</h2>
+
+<h3 id="error-message">Error message</h3>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Gem::InstallError: The 'RedCloth' native gem requires installed build tools.
+
+Please update your PATH to include build tools or download the DevKit
+from 'http://rubyinstaller.org/downloads' and follow the instructions
+at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
+
+An error occurred while installing RedCloth (4.2.9), and Bundler cannot
+continue.
+Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
+</code></pre>
+</div>
+
+<p>The error message is similar to <a href="http://stackoverflow.com/a/36274233/280189">Joe’s gem install error</a>.
+The only difference is that I was installing <a href="http://redcloth.org/">RedCloth</a> 4.9.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>This failure is due to the absence of a valid path to
+<a href="https://rubyinstaller.org/add-ons/devkit/">RubyInstaller Development Kit</a>.  I tried manually adding the
+path to the folder for binary executables (default to
+<code class="highlighter-rouge">C:\RubyDevKit\bin</code>) to <code class="highlighter-rouge">PATH</code>, but it’s <em>unsuccessful</em>.  I googled
+“Please update your PATH to include build tools” and found
+<a href="http://stackoverflow.com/a/36274233/280189">his question</a>, whose third answer explained the function
+of <code class="highlighter-rouge">devkitvar.bat</code>.  This batch script actually prepended the path of
+<em>two</em> folders into <code class="highlighter-rouge">PATH</code>.  One is stated above; one is
+<code class="highlighter-rouge">C:\RubyDevKit\mingw\bin</code>.  Running this batch file changes <code class="highlighter-rouge">PATH</code>
+<em>temporarily</em>.  A manual configuration in the Control Panel allowed
+the system to detect <a href="https://rubyinstaller.org/add-ons/devkit/">DevKit</a>, and this problem was thus
+solved.</p>
+
+<h3 id="related-gems">Related gems</h3>
+
+<h4 id="already-installed">Already installed</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: right">Version Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rake</td>
+      <td style="text-align: right">10.4.2</td>
+    </tr>
+    <tr>
+      <td>bundler</td>
+      <td style="text-align: right">1.13.7</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="being-installed">Being installed</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: right">Version Number</th>
+      <th style="text-align: center">With native extensions?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RedCloth</strong></td>
+      <td style="text-align: right">4.2.9</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><strong>wdm</strong></td>
+      <td style="text-align: right">0.1.0</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>blankslate</td>
+      <td style="text-align: right">2.1.2.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>chunky_png</td>
+      <td style="text-align: right">1.3.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>coffee-script-source</td>
+      <td style="text-align: right">1.9.1</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>colorator</td>
+      <td style="text-align: right">0.1</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>execjs</td>
+      <td style="text-align: right">2.4.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>fast-stemmer</td>
+      <td style="text-align: right">1.0.2</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>ffi</td>
+      <td style="text-align: right">1.9.6</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>hitimes</td>
+      <td style="text-align: right">1.2.2</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>jekyll-gist</td>
+      <td style="text-align: right">1.1.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>jekyll-paginate</td>
+      <td style="text-align: right">1.1.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>jekyll-sitemap</td>
+      <td style="text-align: right">0.8.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>kramdown</td>
+      <td style="text-align: right">1.6.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>liquid</td>
+      <td style="text-align: right">2.6.2</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>mercenary</td>
+      <td style="text-align: right">0.3.5</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>multi_json</td>
+      <td style="text-align: right">1.11.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>posix-spawn</td>
+      <td style="text-align: right">0.3.10</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>rack</td>
+      <td style="text-align: right">1.6.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>rb-fsevent</td>
+      <td style="text-align: right">0.9.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>redcarpet</td>
+      <td style="text-align: right">3.2.2</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>safe_yaml</td>
+      <td style="text-align: right">1.0.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>sass</td>
+      <td style="text-align: right">3.4.13</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>stringex</td>
+      <td style="text-align: right">1.4.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>tilt</td>
+      <td style="text-align: right">1.4.1</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>yajl-ruby</td>
+      <td style="text-align: right">1.2.1</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="problem-2-wdm-installation-failure">Problem 2: wdm installation failure</h2>
+
+<p>I put the <a href="#wdm" class="cliwide">error message from wdm</a> in a popup dialog.</p>
+
+<div id="wdm" class="noscr">
+<pre class="cli"><code>Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/.........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Installing hitimes 1.2.2 with native extensions
+Using chunky_png 1.3.4
+Installing fast-stemmer 1.0.2 with native extensions
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Installing posix-spawn 0.3.10 with native extensions
+Installing yajl-ruby 1.2.1 with native extensions
+Installing redcarpet 3.2.2 with native extensions
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Installing wdm 0.1.0 with native extensions
+Using bundler 1.13.7
+Installing parslet 1.5.0
+Installing timers 4.0.1
+Installing classifier-reborn 2.0.3
+Installing coffee-script 2.3.0
+Installing compass-core 1.0.3
+Installing compass-import-once 1.0.5
+Installing jekyll-sass-converter 1.3.0
+Installing sass-globbing 1.0.0
+Installing rb-inotify 0.9.5
+Installing haml 4.0.6
+Installing pygments.rb 0.6.2
+Installing rack-protection 1.5.3
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+C:/Ruby23-x64/bin/ruby.exe -r ./siteconf20170109-8020-1n4s35m.rb extconf.rb
+checking for main() in -lkernel32... yes
+checking for windows.h... yes
+checking for ruby.h... yes
+checking for HAVE_RUBY_ENCODING_H... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make "DESTDIR=" clean
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make "DESTDIR="
+generating wdm_ext-x64-mingw32.def
+compiling entry.c
+In file included from entry.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from entry.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from entry.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from entry.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling memory.c
+In file included from memory.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from memory.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from memory.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from memory.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling monitor.c
+In file included from monitor.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from monitor.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling queue.c
+In file included from queue.c:3:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/vadefs.h:13:0,
+from
+4-mingw32/include/_mingw_stdarg.h:14,
+from
+4-mingw32/include/stdarg.h:140,
+from
+c:\rubydevkit\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.7.2/include/stdarg.h:1,
+                 from queue.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from queue.c:3:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from queue.c:3:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_change.c
+In file included from rb_change.c:4:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdlib.h:9,
+                 from rb_change.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_change.c:4:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_change.c:4:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_monitor.c
+In file included from rb_monitor.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from rb_monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_monitor.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+rb_monitor.c: In function 'rb_monitor_run_bang':
+rb_monitor.c:508:9: warning: implicit declaration of function
+'rb_thread_blocking_region' [-Wimplicit-function-declaration]
+compiling utils.c
+In file included from utils.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from utils.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from utils.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from utils.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling wdm.c
+In file included from wdm.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from wdm.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from wdm.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from wdm.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+linking shared-object wdm_ext.so
+rb_monitor.o: In function `rb_monitor_run_bang':
+C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\wdm-0.1.0\ext\wdm/rb_monitor.c:508:
+undefined reference to `rb_thread_blocking_region'
+collect2.exe: error: ld returned 1 exit status
+make: *** [wdm_ext.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0 for inspection.
+Results logged to
+.out
+
+An error occurred while installing wdm (0.1.0), and Bundler cannot continue.
+Make sure that `gem install wdm -v '0.1.0'` succeeds before bundling.
+</code></pre></div>
+
+<p>From the line</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+</code></pre>
+</div>
+
+<p>I found <a href="https://github.com/Maher4Ever/wdm/issues/18">wdm issue #18</a>, but I <em>failed</em> to notice that the
+problem had been resolved.  I later knew that from
+<a href="https://github.com/jekyll/jekyll/issues/3721">Jekyll issue #3721</a>.</p>
+
+<p>After changing the version number of <a href="https://rubygems.org/gems/wdm">wdm</a> to 0.1.1, I could proceed
+further.  <a href="#wdmfixed" class="cliwide">The system output</a> was fine.</p>
+
+<div id="wdmfixed" class="noscr">
+<pre class="cli"><code>Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ gem install wdm -v '0.1.1'
+Building native extensions.  This could take a while...
+Successfully installed wdm-0.1.1
+Parsing documentation for wdm-0.1.1
+Installing ri documentation for wdm-0.1.1
+Done installing documentation for wdm after 0 seconds
+1 gem installed
+Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Resolving dependencies...
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Using hitimes 1.2.2
+Using chunky_png 1.3.4
+Using fast-stemmer 1.0.2
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Using posix-spawn 0.3.10
+Using yajl-ruby 1.2.1
+Using redcarpet 3.2.2
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Using wdm 0.1.1 (was 0.1.0)
+Using bundler 1.13.7
+Using parslet 1.5.0
+Using timers 4.0.1
+Using classifier-reborn 2.0.3
+Using coffee-script 2.3.0
+Using compass-core 1.0.3
+Using compass-import-once 1.0.5
+Using jekyll-sass-converter 1.3.0
+Using sass-globbing 1.0.0
+Using rb-inotify 0.9.5
+Using haml 4.0.6
+Using pygments.rb 0.6.2
+Using rack-protection 1.5.3
+Installing toml 0.1.2
+Installing celluloid 0.16.0
+Installing jekyll-coffeescript 1.0.1
+Installing compass 1.0.3
+Installing sinatra 1.4.5
+Installing listen 2.8.5
+Installing jekyll-watch 1.2.1
+Installing jekyll 2.5.3
+Installing octopress-hooks 2.6.0
+Installing octopress-date-format 2.0.2
+Bundle complete! 14 Gemfile dependencies, 50 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+Post-install message from compass:
+    Compass is charityware. If you love it, please donate on our behalf at http:
+//umdf.org/compass Thanks!
+</code></pre></div>
+
+<h2 id="problem-3-i-have-a-row-with-justin">Problem 3: I have a row with Justin.</h2>
+
+<p>When I ran <code class="highlighter-rouge">rake preview</code>, the follow line appeared.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>bash: /c/Ruby23-x64/bin/rake: C:/Users/Justin/Projects/rubyinstaller/sandbox/rub
+y23_mingw/bin/ruby.exe: bad interpreter: No such file or directory
+</code></pre>
+</div>
+
+<p>I searched “rake install justin projects” on <a href="google.com">Google</a>.
+You may follow <a href="http://stackoverflow.com/a/36925869/280189">griest’s advice</a> to have this problem
+fixed.  If this link were unluckily dead in the future, you might
+leave a comment below after getting rid of Justin at the first line of
+<code class="highlighter-rouge">/c/Ruby23-x64/bin/rake</code>.</p>
+
+<h2 id="result">Result</h2>
+
+<p><a href="http://octopress.org">Octopress</a> did work on my machine.  Then I re-ran <code class="highlighter-rouge">bundle install</code>
+under the local repository for <a href="/blog2/">my another blog</a>, but the
+<a href="/blog/2016/08/20/jekyll-serve-error/"><em>same</em> Celluloid error</a> <em>re-appeared</em>.  I <em>don’t</em> know how to
+perform a <a href="https://talk.jekyllrb.com/t/error-while-trying-to-run-jekyll-serve/933/10">celluloid downgrade</a> to version 16.0 under that
+repository.  The version number for <a href="https://rubygems.org/gems/celluloid/versions/0.17.3">Celluloid</a> was <em>generated</em> by the
+system—I <em>didn’t</em> type it in <code class="highlighter-rouge">Gemfile.lock</code>.  As a result, I
+switched to <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Ubuntu on Windows 10</a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/">Upgraded to Git for Windows 2.11</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>This <a href="https://git-for-windows.github.io/">Git for Windows</a> upgrade from v2.8 to v2.11 is an
+<em>unsuccessful</em> attempt to fix a <a href="/blog/2016/08/28/jekyll-serve-error-2/">Jekyll preview error</a> on
+<a href="/blog2/">my another blog</a> triggered by the command <code class="highlighter-rouge">jekyll serve</code> for
+local preview.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>After the update, I can no longer input letters with accents.  Since
+the name of some mathematical theorems have accents, like l’Hôpital’s
+Rule.  It would be very inconvenient if the internation keyboard
+<em>can’t</em> be used in Git Bash.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>In Git Bash, <code class="highlighter-rouge">locale</code> returns several lines.  The first one says
+<code class="highlighter-rouge">LANG=C</code>.  After viewing the list with <code class="highlighter-rouge">locale -a</code>, I’ve finally
+chosen the most common option with the character encoding UTF-8.  To
+make this change permanent for one user, add the last line into
+<code class="highlighter-rouge">~/.bashrc</code>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://bit.ly/2iAnlq9</span><a class="code-highlight-caption-link" href="http://bit.ly/2iAnlq9">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Change Locale Permanently</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.utf8</div></div></pre></div></figure>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>Many popular <abbr title="Universal Resource Locator">URL</abbr> shorteners like <a href="bit.ly">Bitly</a> and
+<a href="goo.gl">Google <abbr title="Universal Resource Locator">URL</abbr> Shortener</a> <em>won’t</em> afftect my SEO, so I can use
+shortened URLs in the <a href="https://daringfireball.net/projects/markdown/">markdown</a> syntax for
+<a href="http://octopress.org/docs/plugins/codeblock/">Octopress codeblocks</a> to save disk space.<sup id="fnref:seo"><a href="#fn:seo" class="footnote">1</a></sup></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:seo">
+      <p><a href="http://davidamerland.com/seo-tips/371-do-url-shorteners-impact-your-seo.html"><em>Do URL Shorteners Impact your SEO?</em></a> by David Amerland.&nbsp;<a href="#fnref:seo" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/">A Comment for New Users on Math.SE</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>Mathematics learners ask questions on
+<a href="http://math.stackexchange.com/">Mathematics Stack Exchange</a> to get an answer from others
+<em>without</em> geographical or time restrictions, unlike teachers in
+schools.  Users answer questions to gain virtual points called
+<em>reputation</em>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Among them, many are new users who <em>don’t</em> use <a href="https://www.mathjax.org/">MathJax</a> while typing
+their questions.  As a result, the output is <em>difficult</em> to read.
+This discourages users from answering those questions, so we would
+have <em>less</em> answers to read.  Since we can sometimes benefit from
+alternative solutions, it’s better to post a question that is clear
+enough to attract others to offer an answer.  We can downvote those
+poorly rendered questions, but I think it’s a bit cruel to do so on
+the very first post from new users.  Therefore, I choose to leave a
+comment which suggests them to use <a href="https://www.latex-project.org/">$\rm \LaTeX$</a>.  They often
+say they <em>don’t</em> know how to use it.  To avoid responses like that, I
+include a link to the <a href="http://meta.math.stackexchange.com/q/5020/290189">MathJax guide on Meta Math.SE</a>.</p>
+
+<blockquote>
+  <p>Please use <a href="http://meta.math.stackexchange.com/q/5020/290189">$\rm \LaTeX$</a>.</p>
+</blockquote>
+
+<p>However, it’s tedious to type the <a href="http://math.stackexchange.com/help/formatting">markdown</a> source code
+every time I want to leave this comment.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>I’ll include the code below, so that it can be simply copied and
+pasted next time.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Comments for those who *don't* use $\rm \LaTeX$</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">Please use [$\rm \LaTeX$](http://meta.math.stackexchange.com/q/5020/290189).</div></div></pre></div></figure>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/07/avoided-a-duplicate-question/">Avoided a Duplicate Question</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/07/avoided-a-duplicate-question/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/07/avoided-a-duplicate-question/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/07/avoided-a-duplicate-question/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>I encountered the following math problem, so I typed in on
+<a href="http://math.stackexchange.com/">Mathematics Stack Exchange</a>.  Then, a list of similar posts
+appeared.</p>
+
+<blockquote>
+  <p>Let $E = {1,\dots,p}$, where $p$ is a prime number.  $G$ is a
+transitive subgroup of $S_p$, and $H$ is a nontrivial normal
+subgroup of $G$.  Show that $H$ acts transitively on $E$.</p>
+
+  <p>I notice that $\lvert G \cdot x \rvert = \lvert E \rvert = p$
+because $G$ acts transitively on $E$.  Now, I try to show the same
+for $H$, but I am stuck at $\lvert H \cdot x \rvert$.  May I say
+that for all $g \in G$, $\lvert gH \cdot x \rvert = \lvert H \cdot x
+\rvert$?  Why can’t $H$ fix $x$?</p>
+</blockquote>
+
+<p><strong>Is it a possible duplicate of another question?</strong></p>
+
+<h2 id="reason-to-think-about-this">Reason to think about this</h2>
+
+<p>If the answer is yes, then my post is going to be quickly flagged as
+duplicate by experienced users on this site, especially those who are
+strong at abstract algebra, and I’ll lose reputation for that.</p>
+
+<h2 id="answer">Answer</h2>
+
+<p>I’ve really found <a href="http://math.stackexchange.com/q/152924/290189">the <em>same</em> problem</a> on Mathematics
+Stack Exchange by luck.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>I viewed this question four days ago.  When I tried to access it again
+tonight from my web browsing history, I found this a bit hard.
+Therefore, as a post on Mathematics Meta stack Exchange suggests,
+<a href="http://meta.math.stackexchange.com/q/662/290189"><em>Vote early, vote often</em></a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection/">Windows Security Popup during Public Wi-Fi Connection</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>After an upgrade to M$ Win* 10, I connected to my campus’ public
+Wi-Fi.<sup id="fnref:pp"><a href="#fn:pp" class="footnote">1</a></sup></p>
+
+<h2 id="problem">Problem</h2>
+
+<p>I mistakenly thought that it’s the <em>same</em> as the one described in
+<em>Windows Security popup window pops up each time any connection is
+made</em> on <a href="http://superuser.com/q/479113">Super User</a>.</p>
+
+<!-- more -->
+
+<h2 id="failed-attempt-to-solve-this-problem">Failed attempt to solve this problem</h2>
+
+<h3 id="with-m-ie">With M$ IE</h3>
+
+<p>Googling “windows security login popup”, one will find the question
+<em>“Windows Security” popup asking me to enter my login information when
+visiting campus website</em> on <a href="https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/windows-security-popup-asking-me-to-enter-my-login/530deb46-0962-e011-8dfc-68b599b31bf5">M$ Community site</a>.  Follow the
+steps described in the first answer from Azam, a support engineer.</p>
+
+<h3 id="without-m-ie"><em>Without</em> M$ IE</h3>
+
+<p>To save disk space, I <em>don’t</em> keep M$ IE due to M$ Edge, which was
+shipped with the M$ Win* 10 upgrade, and in which the security tab
+is <em>absent</em>.</p>
+
+<p>To set a custom security level for Internet options <em>without M$ IE</em>,
+open the same window by clicking Control Panel → Network and Internet
+→ Internet Options.  The button “Custom level” will then appear.
+However, under “User authentication”, there’s <em>no</em> checkboxes.  I only
+saw a group of four radio buttons.</p>
+
+<p>In order to find out the right choice, I appended “custom security
+level” in the previous Google query.  According to
+<a href="https://www.sysaid.com/Sysforums/posts/list/2159.page">a similar page on SysAid</a>, I’ve chosen “Automatic log-on with
+current user name and password”.</p>
+
+<h2 id="true-cause-of-the-problem">True cause of the problem</h2>
+
+<p>Actually, the popup window prompts for the user name and password for
+<em>another</em> Wi-Fi network with a similar name to which I’m going to
+connect.  After typing the right user name and password, I can connect
+to the Internet.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>Although Windows Security popup window is the main focus of this blog,
+I’ve learnt something quite different from it because of the article
+<em>Windows 10 Settings You Should Change Right Away</em> available on
+<a href="http://www.laptopmag.com/articles/windows-10-settings-to-change">Laptop Mag</a> found during this process.  The <abbr title="User account control">UAC</abbr> is really
+important: by prompting for user’s confirmation during the
+installation of a new software, one will be aware of the apps
+installed on the machine.  Though many users claim that those who
+oppose the disablement of <abbr title="User account control">UAC</abbr> are “misinformed”, I take the words of a
+preferred user who says that M$ Win* 10 would become unstable if
+it’s been turned off.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:pp">
+      <p>c.f. <a href="/blog/2016/08/28/jekyll-serve-error-2/"><em>Jekyll Serve Error (2)</em></a>&nbsp;<a href="#fnref:pp" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://math.stackexchange.com/review/first-posts/739067">A Failed Review</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/31/a-failed-review/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/31/a-failed-review/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/31/a-failed-review/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The problem is of the <em>same type</em> of the one described in
+<a href="http://meta.math.stackexchange.com/q/11307/290189"><em>Try to comment: Fail review audit</em></a> on Meta Mathematics
+Stack Exchange.  As a result, I’m <em>not</em> going to post my problem again
+so as not to create <a href="http://meta.math.stackexchange.com/q/11608/290189">another duplicate question</a>.</p>
+
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/2/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
       </li>
     
   </ul>
+</section>
+  
+</aside>
 
-  <p class="rss-subscribe">subscribe <a href="/octo3test/feed.xml">via RSS</a></p>
-
-</div>
-
-      </div>
-    </main>
-
-    <footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Your awesome title</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>
-            
-              Your awesome title
-            
-            </li>
-            
-            <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
-            
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          
-          <li>
-            <a href="https://github.com/jekyll"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg></span><span class="username">jekyll</span></a>
-          </li>
-          
-
-          
-          <li>
-            <a href="https://twitter.com/jekyllrb"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg></span><span class="username">jekyllrb</span></a>
-          </li>
-          
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</p>
-      </div>
     </div>
-
   </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
-</footer>
 
-  </body>
 
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
 </html>

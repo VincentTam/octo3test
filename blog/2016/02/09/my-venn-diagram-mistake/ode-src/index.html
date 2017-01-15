@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Source Code of My ODE Notes - Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+
+  
+  
+    Source Code of My ODE Notes
+    
+    
+  
+  
+  Explanation to Wikipedia's Variation of Parameters%        File: var-of-param.tex
+%     C...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/about/ode-src/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Source Code of My ODE Notes</h1>
+    
+    <p class="meta"></p>
+  </header>
+  
+  <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Explanation to Wikipedia's Variation of Parameters</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">%        File: var-of-param.tex</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">%     Created: Sat Oct 26 11:00 AM 2013 H</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% Last Change: Sat Oct 26 11:00 AM 2013 H</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">%</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="p">&#x7b;</span>article<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[a4paper]</span><span class="p">&#x7b;</span>geometry<span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[sumlimits]</span><span class="p">&#x7b;</span>amsmath<span class="p">&#x7d;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>mathtools<span class="p">&#x7d;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[]</span><span class="p">&#x7b;</span>url<span class="p">&#x7d;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[]</span><span class="p">&#x7b;</span>hyperref<span class="p">&#x7d;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\renewcommand</span><span class="p">&#x7b;</span><span class="k">\theequation</span><span class="p">&#x7d;&#x7b;</span><span class="k">\roman</span><span class="p">&#x7b;</span>equation<span class="p">&#x7d;&#x7d;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\newcommand</span><span class="p">&#x7b;</span><span class="k">\ud</span><span class="p">&#x7d;&#x7b;</span><span class="k">\,\mathrm</span><span class="p">&#x7b;</span>d<span class="p">&#x7d;&#x7d;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\author</span><span class="p">&#x7b;</span>Vincent Tam<span class="p">&#x7d;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\title</span><span class="p">&#x7b;</span>Explanation to Wikipedia's Variation of Parameter<span class="p">&#x7d;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\maketitle</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">Wikipedia's explanation is too concise. <span class="k">\cite</span><span class="p">&#x7b;</span>wiki13<span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">First, you have
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>(x)+<span class="k">\sum</span><span class="p">_&#x7b;</span>k=0<span class="p">&#x7d;^&#x7b;</span>n-1<span class="p">&#x7d;</span> a<span class="p">_</span>k(x)y<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x)=b(x).
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:non-homo<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">Here, <span class="p">$</span><span class="nb">y</span><span class="p">$</span> means the general solution of <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:non-homo<span class="p">&#x7d;</span>.
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">I just use the notations in Wikipedia: For <span class="p">$</span><span class="nb">i</span><span class="p">$</span> between 1 and <span class="p">$</span><span class="nb">n</span><span class="p">$</span>,
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">inclusive, <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="p">$</span> is the solution of the homogenous equation
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>i<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>(x)+<span class="k">\sum</span><span class="p">_&#x7b;</span>k=0<span class="p">&#x7d;^&#x7b;</span>n-1<span class="p">&#x7d;</span> a<span class="p">_</span>k(x)y<span class="p">_</span>i<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x)=0.
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:homo<span class="p">&#x7d;</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">Unlike Wikipedia, in equation <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:homo<span class="p">&#x7d;</span>, the <span class="p">$</span><span class="nb">i</span><span class="p">$</span> under the
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">summation sign is changed to <span class="p">$</span><span class="nb">k</span><span class="p">$</span> so as to avoid confusion of symbols.
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">In other words, <span class="k">\textbf</span><span class="p">&#x7b;</span>we use <span class="p">$</span><span class="nb">i</span><span class="p">$</span> to represent <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> and <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span>,
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">while using <span class="p">$</span><span class="nb">k</span><span class="p">$</span> to represent the coefficient of the terms in
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:non-homo<span class="p">&#x7d;</span> (i.e. <span class="p">$</span><span class="nb">a</span><span class="p">_</span><span class="nb">k</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span>) and the derivatives of <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> of
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">different orders. (i.e. <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="p">^&#x7b;</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="p">&#x7d;</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$&#x7d;</span><span class="k">\\</span>
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">Let <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">p</span><span class="p">$</span> be the particular solution for the non-homogeneous ODE.
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">We make an educated guess like this:
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span>y<span class="p">_</span>p(x)=<span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i(x)<span class="p">&#x7d;</span>
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-def<span class="p">&#x7d;</span>
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">where <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> is a differentiable function for each <span class="p">$</span><span class="nb">i</span><span class="p">$</span>.<span class="k">\\</span>
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">By doing so, we have created <span class="p">$</span><span class="nb">n</span><span class="p">$</span> unknowns (that is, <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">,i</span><span class="o">=</span><span class="m">1</span><span class="nb">,</span><span class="nv">\dots</span><span class="nb">
+&lt;/div&gt;&lt;/div&gt;<div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line">n&lt;/span&gt;<span class="p">$</span>), and they are also known as <span class="k">\emph</span><span class="p">&#x7b;</span>freedom<span class="p">&#x7d;</span>. We may make use of the
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">freedom like this:
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p'(x)=<span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i'(x) y_i(x) \right]</span>+<span class="k">\left</span>[
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i'(x) <span class="k">\right</span>]
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1<span class="p">&#x7d;</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line">Continuing the differentiation gives complicated expression, so we use
+</div></div><div data-line="55" class="code-highlight-row numbered"><div class="code-highlight-line">our freedom to give some restrictions on <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">,i</span><span class="o">=</span><span class="m">1</span><span class="nb">,</span><span class="nv">\dots</span><span class="nb"> n</span><span class="p">$</span>. i.e. We
+</div></div><div data-line="56" class="code-highlight-row numbered"><div class="code-highlight-line">set
+</div></div><div data-line="57" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="58" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span><span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i(x)=0<span class="p">&#x7d;</span>
+</div></div><div data-line="59" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr<span class="p">&#x7d;</span>
+</div></div><div data-line="60" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="61" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="62" class="code-highlight-row numbered"><div class="code-highlight-line">Why is there such a condition? It is because we want to simplify
+</div></div><div data-line="63" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1<span class="p">&#x7d;</span> by ruling out <span class="k">\emph</span><span class="p">&#x7b;</span>something<span class="p">&#x7d;</span>. (i.e. setting
+</div></div><div data-line="64" class="code-highlight-row numbered"><div class="code-highlight-line">something to <span class="k">\emph</span><span class="p">&#x7b;</span>zero<span class="p">&#x7d;</span>) What is <span class="k">\emph</span><span class="p">&#x7b;</span>something<span class="p">&#x7d;</span>?
+</div></div><div data-line="65" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;enumerate&#x7d;</span>
+</div></div><div data-line="66" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\item</span> <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="m">0</span><span class="nb"> </span><span class="nv">\text</span><span class="p">&#x7b;</span><span class="nb"> or </span><span class="p">&#x7d;</span><span class="nb"> y</span><span class="p">_</span><span class="nb">i'</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="m">0</span><span class="nb"> </span><span class="nv">\text</span><span class="p">&#x7b;</span><span class="nb"> or </span><span class="p">&#x7d;</span><span class="nb"> c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="m">0</span><span class="p">$</span> for each
+</div></div><div data-line="67" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="p">$</span><span class="nb">i</span><span class="o">=</span><span class="m">1</span><span class="nb">,</span><span class="nv">\dots</span><span class="nb"> n</span><span class="p">$</span><span class="k">\\</span>
+</div></div><div data-line="68" class="code-highlight-row numbered"><div class="code-highlight-line">    They are clearly unreasonable restrictions.
+</div></div><div data-line="69" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\item</span> <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i'</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="m">0</span><span class="p">$</span> for each <span class="p">$</span><span class="nb">i</span><span class="o">=</span><span class="m">1</span><span class="nb">,</span><span class="nv">\dots</span><span class="nb"> n</span><span class="p">$</span><span class="k">\\</span>
+</div></div><div data-line="70" class="code-highlight-row numbered"><div class="code-highlight-line">    Then <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> is a constant function for each <span class="p">$</span><span class="nb">i</span><span class="o">=</span><span class="m">1</span><span class="nb">,</span><span class="nv">\dots</span><span class="nb"> n</span><span class="p">$</span>. In
+</div></div><div data-line="71" class="code-highlight-row numbered"><div class="code-highlight-line">    other words, <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="nv">\sum</span><span class="p">_&#x7b;</span><span class="nb">i</span><span class="o">=</span><span class="m">1</span><span class="p">&#x7d;^&#x7b;</span><span class="nb">n</span><span class="p">&#x7d;</span><span class="nb"> c</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> is just linear
+</div></div><div data-line="72" class="code-highlight-row numbered"><div class="code-highlight-line">    combinations of <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span>. Remembering that <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> are denoted as
+</div></div><div data-line="73" class="code-highlight-row numbered"><div class="code-highlight-line">    the solution of <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:homo<span class="p">&#x7d;</span>, we conclude that this restriction
+</div></div><div data-line="74" class="code-highlight-row numbered"><div class="code-highlight-line">    can't be accepted.
+</div></div><div data-line="75" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;enumerate&#x7d;</span>
+</div></div><div data-line="76" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="77" class="code-highlight-row numbered"><div class="code-highlight-line">Being too ``strong'', the above guesses fails. Thus, what we need to
+</div></div><div data-line="78" class="code-highlight-row numbered"><div class="code-highlight-line">rule out is <span class="k">\emph</span><span class="p">&#x7b;</span>either<span class="p">&#x7d;</span> one of the middle bracket in
+</div></div><div data-line="79" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1<span class="p">&#x7d;</span>. Why <span class="k">\emph</span><span class="p">&#x7b;</span>must<span class="p">&#x7d;</span> it be the first one?
+</div></div><div data-line="80" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="81" class="code-highlight-row numbered"><div class="code-highlight-line">Otherwise assume that 
+</div></div><div data-line="82" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="83" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i'(x)=0,
+</div></div><div data-line="84" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr0-e1<span class="p">&#x7d;</span>
+</div></div><div data-line="85" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="86" class="code-highlight-row numbered"><div class="code-highlight-line">which leads us to
+</div></div><div data-line="87" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="88" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p'(x)=<span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i(x)
+</div></div><div data-line="89" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr0-d1a<span class="p">&#x7d;</span>
+</div></div><div data-line="90" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="91" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="92" class="code-highlight-row numbered"><div class="code-highlight-line">Continue the above process of differentiating <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span>.
+</div></div><div data-line="93" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="94" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p''(x)=<span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i''(x) y_i(x) \right]</span>+<span class="k">\left</span>[
+</div></div><div data-line="95" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i'(x) <span class="k">\right</span>]
+</div></div><div data-line="96" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr0-d2<span class="p">&#x7d;</span>
+</div></div><div data-line="97" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="98" class="code-highlight-row numbered"><div class="code-highlight-line">Making assumptions similar to <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-e1<span class="p">&#x7d;</span>, we have
+</div></div><div data-line="99" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="100" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i'(x)=0<span class="k">\text</span><span class="p">&#x7b;</span>; and<span class="p">&#x7d;</span>
+</div></div><div data-line="101" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr0-e2<span class="p">&#x7d;</span>
+</div></div><div data-line="102" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="103" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="104" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p''(x)=<span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i''(x) y<span class="p">_</span>i(x)
+</div></div><div data-line="105" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr0-d2a<span class="p">&#x7d;</span>
+</div></div><div data-line="106" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="107" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="108" class="code-highlight-row numbered"><div class="code-highlight-line">From <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-e1<span class="p">&#x7d;</span> and <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-e2<span class="p">&#x7d;</span>, we
+</div></div><div data-line="109" class="code-highlight-row numbered"><div class="code-highlight-line">know that if we carry out the process repeatedly, we get a system of
+</div></div><div data-line="110" class="code-highlight-row numbered"><div class="code-highlight-line">``linear'' equations with ``unknowns '' <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i'</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> (which is actually
+</div></div><div data-line="111" class="code-highlight-row numbered"><div class="code-highlight-line">known since <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> have been found out from <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:homo<span class="p">&#x7d;</span>.) The
+</div></div><div data-line="112" class="code-highlight-row numbered"><div class="code-highlight-line">most insensible thing of this ``system'' is the ``coefficient matrix''
+</div></div><div data-line="113" class="code-highlight-row numbered"><div class="code-highlight-line">with entries <span class="p">$</span><span class="nb">c</span><span class="p">_</span><span class="nb">i</span><span class="p">^&#x7b;</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="p">&#x7d;$</span> on the <span class="p">$</span><span class="nb">k</span><span class="p">$</span>-th row and the <span class="p">$</span><span class="nb">i</span><span class="p">$</span>-th column. For
+</div></div><div data-line="114" class="code-highlight-row numbered"><div class="code-highlight-line">the sake of clarity, the ``system'' is illustrated below.
+</div></div><div data-line="115" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation*&#x7d;</span>
+</div></div><div data-line="116" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\left\&#x7b;</span><span class="nt">\begin&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="117" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>1(x) y<span class="p">_</span>1'(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2(x) y<span class="p">_</span>2'(x) <span class="p">&amp;</span>+ <span class="k">\dots</span> <span class="p">&amp;</span>+ c<span class="p">_</span>n(x) y<span class="p">_</span>n'(x) <span class="p">&amp;</span>= 0<span class="k">\\</span>
+</div></div><div data-line="118" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>1'(x) y<span class="p">_</span>1'(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2'(x) y<span class="p">_</span>2'(x) <span class="p">&amp;</span>+ <span class="k">\dots</span> <span class="p">&amp;</span>+ c<span class="p">_</span>n'(x) y<span class="p">_</span>n'(x) <span class="p">&amp;</span>=
+</div></div><div data-line="119" class="code-highlight-row numbered"><div class="code-highlight-line">    0<span class="k">\\</span> <span class="k">\vdots\\</span> c<span class="p">_</span>1<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x) y<span class="p">_</span>1'(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x) y<span class="p">_</span>2'(x) <span class="p">&amp;</span>+ <span class="k">\dots</span>
+</div></div><div data-line="120" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="p">&amp;</span>+ c<span class="p">_</span>n<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x) y<span class="p">_</span>n'(x) <span class="p">&amp;</span>= 0
+</div></div><div data-line="121" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;aligned&#x7d;</span><span class="k">\right</span>.
+</div></div><div data-line="122" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\tag</span><span class="p">&#x7b;</span>*<span class="p">&#x7d;</span>
+</div></div><div data-line="123" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1-restr0-sys<span class="p">&#x7d;</span>
+</div></div><div data-line="124" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation*&#x7d;</span>
+</div></div><div data-line="125" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="126" class="code-highlight-row numbered"><div class="code-highlight-line">We don't care about the range of <span class="p">$</span><span class="nb">k</span><span class="p">$</span> such that the R.H.S. of the
+</div></div><div data-line="127" class="code-highlight-row numbered"><div class="code-highlight-line">last equation in the above system is zero, as well as the missing
+</div></div><div data-line="128" class="code-highlight-row numbered"><div class="code-highlight-line">equation which can be yielded after substituting <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">p</span><span class="p">^&#x7b;</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="p">&#x7d;</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> (for
+</div></div><div data-line="129" class="code-highlight-row numbered"><div class="code-highlight-line">example, equations <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-d1a<span class="p">&#x7d;</span> and
+</div></div><div data-line="130" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-d2a<span class="p">&#x7d;</span>) into <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:non-homo<span class="p">&#x7d;</span>
+</div></div><div data-line="131" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="132" class="code-highlight-row numbered"><div class="code-highlight-line">Therefore, equations <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-e1<span class="p">&#x7d;</span> to
+</div></div><div data-line="133" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-d1-restr0-sys<span class="p">&#x7d;</span> are all <span class="k">\emph</span><span class="p">&#x7b;</span>wrong<span class="p">&#x7d;</span>. Instead, we should
+</div></div><div data-line="134" class="code-highlight-row numbered"><div class="code-highlight-line">have
+</div></div><div data-line="135" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="136" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span>y<span class="p">_</span>p'(x)=<span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i'(x)<span class="p">&#x7d;</span>
+</div></div><div data-line="137" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d1a<span class="p">&#x7d;</span>
+</div></div><div data-line="138" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="139" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="140" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p''(x)=<span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i'(x) y_i'(x) \right]</span>+<span class="k">\left</span>[
+</div></div><div data-line="141" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i''(x) <span class="k">\right</span>]
+</div></div><div data-line="142" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d2<span class="p">&#x7d;</span>
+</div></div><div data-line="143" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="144" class="code-highlight-row numbered"><div class="code-highlight-line">Again, we set
+</div></div><div data-line="145" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="146" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span><span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i'(x)=0<span class="p">&#x7d;</span>
+</div></div><div data-line="147" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d2-restr<span class="p">&#x7d;</span>
+</div></div><div data-line="148" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="149" class="code-highlight-row numbered"><div class="code-highlight-line">so that
+</div></div><div data-line="150" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="151" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span>y<span class="p">_</span>p''(x)=<span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i''(x).<span class="p">&#x7d;</span>
+</div></div><div data-line="152" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-d2a<span class="p">&#x7d;</span>
+</div></div><div data-line="153" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="154" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="155" class="code-highlight-row numbered"><div class="code-highlight-line">For each <span class="p">$</span><span class="m">1</span><span class="nb"> </span><span class="nv">\le</span><span class="nb"> k </span><span class="nv">\le</span><span class="nb"> n</span><span class="o">-</span><span class="m">1</span><span class="p">$</span>, we have
+</div></div><div data-line="156" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="157" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span><span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i<span class="p">^&#x7b;</span>(k-1)<span class="p">&#x7d;</span>(x)=0<span class="p">&#x7d;</span>
+</div></div><div data-line="158" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-dk-restr<span class="p">&#x7d;</span>
+</div></div><div data-line="159" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="160" class="code-highlight-row numbered"><div class="code-highlight-line">and
+</div></div><div data-line="161" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="162" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span>y<span class="p">_</span>p<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x)=<span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x).<span class="p">&#x7d;</span>
+</div></div><div data-line="163" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-dka<span class="p">&#x7d;</span>
+</div></div><div data-line="164" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="165" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="166" class="code-highlight-row numbered"><div class="code-highlight-line">Why <span class="k">\emph</span><span class="p">&#x7b;</span>can't<span class="p">&#x7d;</span> we apply <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dk-restr<span class="p">&#x7d;</span> and
+</div></div><div data-line="167" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dka<span class="p">&#x7d;</span> to the case of <span class="p">$</span><span class="nb">k</span><span class="o">=</span><span class="nb">n</span><span class="p">$</span>?<span class="k">\\</span>
+</div></div><div data-line="168" class="code-highlight-row numbered"><div class="code-highlight-line">Differentiating <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dka<span class="p">&#x7d;</span> with respect to <span class="p">$</span><span class="nb">x</span><span class="p">$</span>, we get
+</div></div><div data-line="169" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="170" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>(x)=<span class="k">\left</span>[ <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i<span class="p">^&#x7b;</span>(n-1)<span class="p">&#x7d;</span>(x)
+</div></div><div data-line="171" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\right</span>]+<span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i(x) y_i^&#x7b;(n)&#x7d;(x) \right]</span>
+</div></div><div data-line="172" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-dn<span class="p">&#x7d;</span>
+</div></div><div data-line="173" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="174" class="code-highlight-row numbered"><div class="code-highlight-line">Recall from <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:non-homo<span class="p">&#x7d;</span> that we have
+</div></div><div data-line="175" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="176" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>p<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>(x)+<span class="k">\sum</span><span class="p">_&#x7b;</span>k=0<span class="p">&#x7d;^&#x7b;</span>n-1<span class="p">&#x7d;</span> a<span class="p">_</span>k(x) y<span class="p">_</span>p<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x)=b(x).
+</div></div><div data-line="177" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:sub1<span class="p">&#x7d;</span>
+</div></div><div data-line="178" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="179" class="code-highlight-row numbered"><div class="code-highlight-line">Substitute <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dka<span class="p">&#x7d;</span> and <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dn<span class="p">&#x7d;</span> into
+</div></div><div data-line="180" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\eqref</span><span class="p">&#x7b;</span>eq:sub1<span class="p">&#x7d;</span>,
+</div></div><div data-line="181" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;flalign*&#x7d;</span>
+</div></div><div data-line="182" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&amp;</span><span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i'(x) y_i^&#x7b;(n-1)&#x7d;(x) \right]</span>+<span class="k">\left</span>[
+</div></div><div data-line="183" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>(x) <span class="k">\right</span>]+<span class="k">\\</span>
+</div></div><div data-line="184" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&amp;</span><span class="k">\quad</span> <span class="k">\left\&#x7b;</span> <span class="k">\sum</span><span class="p">_&#x7b;</span>k=0<span class="p">&#x7d;^&#x7b;</span>n-1<span class="p">&#x7d;</span> a<span class="p">_</span>k(x) <span class="k">\left</span>[ <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x)
+</div></div><div data-line="185" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>i<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x) <span class="k">\right</span>] <span class="k">\right\&#x7d;</span>=b(x).<span class="p">&amp;</span><span class="k">\\</span>
+</div></div><div data-line="186" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&amp;</span><span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i'(x) y_i^&#x7b;(n-1)&#x7d;(x) \right]</span>+<span class="k">\left</span>[
+</div></div><div data-line="187" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) y<span class="p">_</span>i<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>(x) <span class="k">\right</span>]+<span class="k">\\</span>
+</div></div><div data-line="188" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&amp;</span><span class="k">\quad</span> <span class="k">\left\&#x7b;</span> <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) <span class="k">\left</span>[ <span class="k">\sum</span><span class="p">_&#x7b;</span>k=0<span class="p">&#x7d;^&#x7b;</span>n-1<span class="p">&#x7d;</span> a<span class="p">_</span>k(x)
+</div></div><div data-line="189" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>i<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x) <span class="k">\right</span>] <span class="k">\right\&#x7d;</span>=b(x).<span class="k">\nonumber</span><span class="p">&amp;</span><span class="k">\\</span>
+</div></div><div data-line="190" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&amp;</span><span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i'(x) y_i^&#x7b;(n-1)&#x7d;(x) \right]</span>+<span class="k">\left\&#x7b;</span>
+</div></div><div data-line="191" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) <span class="k">\left</span>[ y<span class="p">_</span>i<span class="p">^&#x7b;</span>(n)<span class="p">&#x7d;</span>+<span class="k">\sum</span><span class="p">_&#x7b;</span>k=0<span class="p">&#x7d;^&#x7b;</span>n-1<span class="p">&#x7d;</span> a<span class="p">_</span>k(x)
+</div></div><div data-line="192" class="code-highlight-row numbered"><div class="code-highlight-line">  y<span class="p">_</span>i<span class="p">^&#x7b;</span>(k)<span class="p">&#x7d;</span>(x) <span class="k">\right</span>] <span class="k">\right\&#x7d;</span>=b(x)<span class="k">\\</span>
+</div></div><div data-line="193" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&amp;</span><span class="k">\left</span><span class="na">[ \sum_&#x7b;i=1&#x7d;^&#x7b;n&#x7d; c_i'(x) y_i^&#x7b;(n-1)&#x7d;(x) \right]</span>+<span class="k">\left</span>[
+</div></div><div data-line="194" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i(x) (0) <span class="k">\right</span>]=b(x)
+</div></div><div data-line="195" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;flalign*&#x7d;</span>
+</div></div><div data-line="196" class="code-highlight-row numbered"><div class="code-highlight-line">Thus, we have
+</div></div><div data-line="197" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="198" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\boxed</span><span class="p">&#x7b;</span><span class="k">\sum</span><span class="p">_&#x7b;</span>i=1<span class="p">&#x7d;^&#x7b;</span>n<span class="p">&#x7d;</span> c<span class="p">_</span>i'(x) y<span class="p">_</span>i<span class="p">^&#x7b;</span>(n-1)<span class="p">&#x7d;</span>(x)=b(x)<span class="p">&#x7d;</span>
+</div></div><div data-line="199" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-dn-restr<span class="p">&#x7d;</span>
+</div></div><div data-line="200" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="201" class="code-highlight-row numbered"><div class="code-highlight-line">From equations <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dk-restr<span class="p">&#x7d;</span> and <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-dn-restr<span class="p">&#x7d;</span>,
+</div></div><div data-line="202" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation*&#x7d;</span>
+</div></div><div data-line="203" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\left\&#x7b;</span><span class="nt">\begin&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="204" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>1'(x) y<span class="p">_</span>1(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2'(x) y<span class="p">_</span>2(x) <span class="p">&amp;</span>+ <span class="k">\dots</span> <span class="p">&amp;</span>+ c<span class="p">_</span>n'(x) y<span class="p">_</span>n(x) <span class="p">&amp;</span>= 0<span class="k">\\</span>
+</div></div><div data-line="205" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>1'(x) y<span class="p">_</span>1'(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2'(x) y<span class="p">_</span>2'(x) <span class="p">&amp;</span>+ <span class="k">\dots</span> <span class="p">&amp;</span>+ c<span class="p">_</span>n'(x) y<span class="p">_</span>n'(x) <span class="p">&amp;</span>=
+</div></div><div data-line="206" class="code-highlight-row numbered"><div class="code-highlight-line">    0<span class="k">\\</span>
+</div></div><div data-line="207" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">\vdots\\</span>
+</div></div><div data-line="208" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>1'(x) y<span class="p">_</span>1<span class="p">^&#x7b;</span>(n-2)<span class="p">&#x7d;</span>(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2'(x) y<span class="p">_</span>2<span class="p">^&#x7b;</span>(n-2)<span class="p">&#x7d;</span>(x) <span class="p">&amp;</span>+ <span class="k">\dots</span> <span class="p">&amp;</span>+
+</div></div><div data-line="209" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>n'(x) y<span class="p">_</span>n<span class="p">^&#x7b;</span>(n-2)<span class="p">&#x7d;</span>(x) <span class="p">&amp;</span>= 0<span class="k">\\</span>
+</div></div><div data-line="210" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>1'(x) y<span class="p">_</span>1<span class="p">^&#x7b;</span>(n-1)<span class="p">&#x7d;</span>(x) <span class="p">&amp;</span>+ c<span class="p">_</span>2'(x) y<span class="p">_</span>2<span class="p">^&#x7b;</span>(n-1)<span class="p">&#x7d;</span>(x) <span class="p">&amp;</span>+ <span class="k">\dots</span> <span class="p">&amp;</span>+
+</div></div><div data-line="211" class="code-highlight-row numbered"><div class="code-highlight-line">    c<span class="p">_</span>n'(x) y<span class="p">_</span>n<span class="p">^&#x7b;</span>(n-1)<span class="p">&#x7d;</span>(x) <span class="p">&amp;</span>= b(x)
+</div></div><div data-line="212" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;aligned&#x7d;</span><span class="k">\right</span>.
+</div></div><div data-line="213" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\tag</span><span class="p">&#x7b;$</span><span class="nv">\heartsuit</span><span class="p">$&#x7d;</span>
+</div></div><div data-line="214" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:part-sys<span class="p">&#x7d;</span>
+</div></div><div data-line="215" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation*&#x7d;</span>
+</div></div><div data-line="216" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="217" class="code-highlight-row numbered"><div class="code-highlight-line">By Cramer's Rule,
+</div></div><div data-line="218" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">\[</span><span class="nb">
+&lt;/div&gt;&lt;/div&gt;<div data-line="219" class="code-highlight-row numbered"><div class="code-highlight-line">  c&lt;/span&gt;<span class="p">_</span><span class="nb">i'</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="nv">\frac</span><span class="p">&#x7b;</span><span class="nb">W</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">&#x7d;&#x7b;</span><span class="nb">W</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">&#x7d;</span><span class="nb">,</span>
+</div></div><div data-line="220" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">\]</span>
+</div></div><div data-line="221" class="code-highlight-row numbered"><div class="code-highlight-line">where <span class="p">$</span><span class="nb">W</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> is the Wronskian of <span class="p">$</span><span class="nb">y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> and <span class="p">$</span><span class="nb">W</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> is the
+</div></div><div data-line="222" class="code-highlight-row numbered"><div class="code-highlight-line">determinant of replacing the <span class="p">$</span><span class="nb">i</span><span class="p">$</span>-th column of <span class="p">$</span><span class="nb">W</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">$</span> by
+</div></div><div data-line="223" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">$</span><span class="o">(</span><span class="m">0</span><span class="nb">,</span><span class="m">0</span><span class="nb">,</span><span class="nv">\dots</span><span class="nb">,</span><span class="m">0</span><span class="nb">,b</span><span class="o">(</span><span class="nb">x</span><span class="o">))</span><span class="p">$</span>. Hence,
+</div></div><div data-line="224" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;equation&#x7d;</span>
+</div></div><div data-line="225" class="code-highlight-row numbered"><div class="code-highlight-line">  c<span class="p">_</span>i(x)=<span class="k">\int</span> <span class="k">\frac</span><span class="p">&#x7b;</span>W<span class="p">_</span>i(x)<span class="p">&#x7d;&#x7b;</span>W(x)<span class="p">&#x7d;</span> <span class="k">\ud</span> x.
+</div></div><div data-line="226" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\label</span><span class="p">&#x7b;</span>eq:ans<span class="p">&#x7d;</span>
+</div></div><div data-line="227" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;equation&#x7d;</span>
+</div></div><div data-line="228" class="code-highlight-row numbered"><div class="code-highlight-line">Substitute <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:ans<span class="p">&#x7d;</span> into <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:part-def<span class="p">&#x7d;</span>,
+</div></div><div data-line="229" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">\[</span><span class="nb">
+&lt;/div&gt;&lt;/div&gt;<div data-line="230" class="code-highlight-row numbered"><div class="code-highlight-line">  &lt;/span&gt;<span class="nv">\boxed</span><span class="p">&#x7b;</span><span class="nb">y</span><span class="p">_</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)=</span><span class="nv">\sum</span><span class="p">_&#x7b;</span><span class="nb">i</span><span class="o">=</span><span class="m">1</span><span class="p">&#x7d;^&#x7b;</span><span class="nb">n</span><span class="p">&#x7d;</span><span class="nb"> y</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="nv">\int</span><span class="nb"> </span><span class="nv">\frac</span><span class="p">&#x7b;</span><span class="nb">W</span><span class="p">_</span><span class="nb">i</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">&#x7d;&#x7b;</span><span class="nb">W</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="p">&#x7d;</span><span class="nb"> </span><span class="nv">\ud</span><span class="nb"> x</span><span class="p">&#x7d;</span><span class="nb"></span>
+</div></div><div data-line="231" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">\]</span>
+</div></div><div data-line="232" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;thebibliography&#x7d;</span><span class="p">&#x7b;</span>9<span class="p">&#x7d;</span>
+</div></div><div data-line="233" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\bibitem</span><span class="na">[wiki12]</span><span class="p">&#x7b;</span>wiki13<span class="p">&#x7d;</span>
+</div></div><div data-line="234" class="code-highlight-row numbered"><div class="code-highlight-line">    Variation of Parameters. (n.d.). In <span class="k">\emph</span><span class="p">&#x7b;</span>Wikipedia<span class="p">&#x7d;</span>. Retrieved
+</div></div><div data-line="235" class="code-highlight-row numbered"><div class="code-highlight-line">    October 26, 2013, from
+</div></div><div data-line="236" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">\url</span><span class="p">&#x7b;</span>https://en.wikipedia.org/wiki/Variation<span class="p">_</span>of<span class="p">_</span>parameters<span class="p">&#x7d;</span>
+</div></div><div data-line="237" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;thebibliography&#x7d;</span>
+</div></div><div data-line="238" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div><div data-line="239" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="240" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% vim:tw=70:wrap</span>
+</div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+</span></div></div></span></div></div></span></div></div></pre></div></figure>
+
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://vincenttam.github.io/about/ode-src/';
+        var disqus_url = 'https://vincenttam.github.io/about/ode-src/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

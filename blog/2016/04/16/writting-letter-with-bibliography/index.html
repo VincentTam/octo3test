@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Writting Letter with Bibliography - Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+
+  
+    
+      
+	Writting Letter with Bibliography
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &infin;
+      
+    ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/blog/2016/04/16/writting-letter-with-bibliography/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  <header>
+    
+      
+	<h1 class="entry-title">Writting Letter with Bibliography</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="https://vincenttam.github.io">Comments</a>
+        
+	| <a rel="bookmark" href="" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2 id="background">Background</h2>
+
+<p>Recently, I need to write letters.  Get the formatting for addressee
+and sender automatically done, I choose $\rm \LaTeX$.  I cite a book
+in my letter, and try to add a bibliography at the end of the letter.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>During the compilation for the following letter, an error was thrown.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">A failed $\rm \LaTeX$ letter</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt]</span><span class="p">&#x7b;</span>lettre<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>fontspec<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[frenchb]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[backend=biber]</span><span class="p">&#x7b;</span>biblatex<span class="p">&#x7d;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\addbibresource</span><span class="p">&#x7b;</span>ltrbib.bib<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>csquotes<span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;letter&#x7d;</span><span class="p">&#x7b;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    Nom de destinataire <span class="k">\\</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    4, boulevard de la Paix, <span class="k">\\</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    12345 Nom de ville
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\name</span><span class="p">&#x7b;</span>Votre NOM<span class="p">&#x7d;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\address</span><span class="p">&#x7b;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    Votre NOM<span class="k">\\</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    23, rue à votre ville <span class="k">\\</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    23456 Nom de votre ville
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\lieu</span><span class="p">&#x7b;</span>Votre ville<span class="p">&#x7d;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\telephone</span><span class="p">&#x7b;</span>01 02 03 04 05<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\nofax</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\concname</span><span class="p">&#x7b;</span>Objet :~<span class="p">&#x7d;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\conc</span><span class="p">&#x7b;</span>Saisir votre objet<span class="p">&#x7d;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\opening</span><span class="p">&#x7b;</span>Madame, Monsieur,<span class="p">&#x7d;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">  Un exemple de citation dans un document <span class="p">$</span><span class="nv">\rm</span><span class="nb"> </span><span class="nv">\LaTeX</span><span class="p">$</span>.  <span class="k">\cite</span><span class="p">&#x7b;</span>serre<span class="p">&#x7d;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">  Le faux texte ci-dessous est généré par le plugin Lorem Ipsum pour
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">  Vim.
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">  risus ut arcu malesuada ornare. Maecenas.
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">  urna.
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\closing</span><span class="p">&#x7b;</span>Veuillez d'agréer, Madame, Monsieur, mes salutations les
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">  meilleures.<span class="p">&#x7d;</span>
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\printbibliography</span>
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;letter&#x7d;</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div></pre></div></figure>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">A sample Bib$\rm \LaTeX$ file</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">@BOOK&#x7b;serre,
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    author = &#x7b;Serre, J. P.&#x7d;,
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    title = &#x7b;Cours d'arithmétique&#x7d;,
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    publisher = &#x7b;Presse Universitaire de France&#x7d;,
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    year = &#x7b;1970&#x7d;,
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    edition = &#x7b;1ère ed.&#x7d;,
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    address = &#x7b;Paris, France&#x7d;,
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    pages = &#x7b;103--106&#x7d;,
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">&#x7d;
+</div></div></pre></div></figure>
+
+<p>Here’s my compilation procedure.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ xelatex noltrbib.tex
+$ biber noltrbib
+$ xelatex noltrbib.tex
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian)
+ restricted \write18 enabled.
+...
+! Undefined control sequence.
+\\blx@head@bibliography [#1]-&gt;\section 
+                                       *{#1}\markboth {\MakeUppercase {#1}}{...
+l.52 \end
+         {letter}
+?
+...
+</code></pre>
+</div>
+
+<p>I type <code class="highlighter-rouge">&lt;Enter&gt;</code> at <code class="highlighter-rouge">?</code>, and get <a href="/downloads/noltrbib.pdf">a PDF that seems OK</a>.  You may
+read the <a href="/downloads/code/MaLettre/noltrbib.log">log file for this file</a> to know more about this error.
+However, each time I use $\rm \LaTeX$-Suite to compile the document
+inside Vim, a quickfix window pops up.  This is quite inconvenient: I
+need to use <code class="highlighter-rouge">&lt;C-w&gt;k</code> to switch to the original buffer or <code class="highlighter-rouge">ZQ</code> to close
+the quickfix window.  Therefore, I am motivated to find out a solution
+for this error.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Luckily, I find the thread
+<a href="http://www.latex-community.org/forum/viewtopic.php?f=4&amp;t=3359"><em>Environment thebibliography undefined when using letter</em></a> in
+$\rm \LaTeX$ Forum extremely useful.  In my opinion, if one can
+include inline code in a post in this forum, the file name
+<code class="highlighter-rouge">letterbib.sty</code> and the command in the preamble can be shown in
+monospaced font for readability.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">A minimal working $\rm \LaTeX$ letter</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt]</span><span class="p">&#x7b;</span>lettre<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>fontspec<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[frenchb]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[backend=biber]</span><span class="p">&#x7b;</span>biblatex<span class="p">&#x7d;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\addbibresource</span><span class="p">&#x7b;</span>ltrbib.bib<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>csquotes<span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>letterbib<span class="p">&#x7d;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;letter&#x7d;</span><span class="p">&#x7b;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    Nom de destinataire <span class="k">\\</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    4, boulevard de la Paix, <span class="k">\\</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    12345 Nom de ville
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\name</span><span class="p">&#x7b;</span>Votre NOM<span class="p">&#x7d;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\address</span><span class="p">&#x7b;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    Votre NOM<span class="k">\\</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    23, rue à votre ville <span class="k">\\</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    23456 Nom de votre ville
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\lieu</span><span class="p">&#x7b;</span>Votre ville<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\telephone</span><span class="p">&#x7b;</span>01 02 03 04 05<span class="p">&#x7d;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\nofax</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\concname</span><span class="p">&#x7b;</span>Objet :~<span class="p">&#x7d;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\conc</span><span class="p">&#x7b;</span>Saisir votre objet<span class="p">&#x7d;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\opening</span><span class="p">&#x7b;</span>Madame, Monsieur,<span class="p">&#x7d;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">  Un exemple de citation dans un document <span class="p">$</span><span class="nv">\rm</span><span class="nb"> </span><span class="nv">\LaTeX</span><span class="p">$</span>.  <span class="k">\cite</span><span class="p">&#x7b;</span>serre<span class="p">&#x7d;</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">  Le faux texte ci-dessous est généré par le plugin Lorem Ipsum pour
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  Vim.
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">  risus ut arcu malesuada ornare. Maecenas.
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">  urna.
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\closing</span><span class="p">&#x7b;</span>Veuillez d'agréer, Madame, Monsieur, mes salutations les
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">  meilleures.<span class="p">&#x7d;</span>
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\printbibliography</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;letter&#x7d;</span>
+</div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div></pre></div></figure>
+
+<p>Finally, no compilation error is shown in the <a href="/downloads/code/MaLettre/ltrbib.log">generated log</a>.
+You may view the <a href="/downloads/ltrbib.pdf">second generated PDF</a>.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>To install the above STY file, which <em>isn’t</em> found on <abbr title="Comprehensive TeX Archive Network">CTAN</abbr>, one needs
+to manually download it to <code class="highlighter-rouge">~/texmf</code> on *nix.  (Search “~/texmf” for
+the way to find <a href="http://tex.stackexchange.com/a/12702">“temxf” on Win*</a>.)  Searching “texmf
+linux refresh”, I find the way for a
+<a href="http://www.dickimaw-books.com/latex/novices/html/texhash.html">$\rm \TeX$ database update</a>.  I miss the first argument
+in the command <code class="highlighter-rouge">texhash ~/texmf</code>, and then the installed STY file
+<em>can’t</em> be found in <code class="highlighter-rouge">~/texmf/ls-R</code>.</p>
+
+</div>
+  <footer>
+    <p class="meta">
+      <span class="byline author vcard">Posted by <span class="fn">Vincent Tam</span></span>
+      
+      
+      <span class="categories">
+  
+    LaTeXtemplate
+  
+</span>
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/04/09/i-search-and-reverse-i-search/" title="Previous Post: I-Search and Reverse I-Search">&laquo; I-Search and Reverse I-Search</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/04/16/latex-french-letter-template/" title="Next Post: $\rm \LaTeX$ French Letter Template">$\rm \LaTeX$ French Letter Template &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://vincenttam.github.io/blog/2016/04/16/writting-letter-with-bibliography/';
+        var disqus_url = 'https://vincenttam.github.io/blog/2016/04/16/writting-letter-with-bibliography/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

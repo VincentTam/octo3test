@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CSS | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/css/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Validate HTML Code for SVG Fallbacks to Text]]></title>
+      <link href="https://vincenttam.github.io/blog/2015/05/30/validate-html-code-for-svg-fallbacks-to-text/"/>
+    
+    <updated>2015-05-30T22:23:37+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2015/05/30/validate-html-code-for-svg-fallbacks-to-text</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>After I’d written <a href="/blog/2015/05/23/added-w3c-validated-logos-to-some-pages/"><em>Added <abbr title="World Wide Web Consortium">W3C</abbr> Validated Logos to Some Pages</em></a>, I
+saw that in the site, there’s still two pages which <em>hadn’t</em> been
+checked by the <abbr title="World Wide Web Consortium">W3C</abbr>’s validators.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>To allow SVG fallbacks to text, I viewed the source code for
+<a href="http://www.w3schools.com/svg/tryit.asp?filename=trysvg_myfirst">the SVG example from W3Schools</a>.  The fallback message was
+simply included inside a <code class="highlighter-rouge">&lt;svg&gt;</code> tag just like a <code class="highlighter-rouge">&lt;p&gt;</code> tag.  I applied
+this technique to <code class="highlighter-rouge">source/downloads/code/SVGViewBox/viewBox1.html</code>.</p>
+
+<p>Then I uploaded that HTML file to the <abbr title="World Wide Web Consortium">W3C</abbr>’s HTML validator, which
+complained such an inclusion of text.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>After that, I googled “svg fallback text” using the encrypted version
+of the search engine.  Luckily, <a href="http://stackoverflow.com/a/26249728">the second answer</a> to the
+Stack Overflow question, which appeared at the top of the list of
+search results, is useful.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>To get an HTML page which consists of a <code class="highlighter-rouge">&lt;foreignObject&gt;</code> tag inside
+an <code class="highlighter-rouge">&lt;svg&gt;</code> tag validated by the <abbr title="World Wide Web Consortium">W3C</abbr> HTML validator, it’s obligatory to
+specify the dimensions of the <code class="highlighter-rouge">&lt;foreignObject&gt;</code> tag.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[My CSS Settiings for Printing (1)]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/06/12/my-css-settiings-for-printing-1/"/>
+    
+    <updated>2014-06-12T21:41:44+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/06/12/my-css-settiings-for-printing-1</id>
+    
+      <content type="html"><![CDATA[<h2 id="objective">Objective</h2>
+
+<p>To set up a printer-friendly framework for blog posts/pages.</p>
+
+<h2 id="background">Background</h2>
+
+<p>Two months ago, in order to install <a href="http://brizzled.clapper.org/blog/2012/02/05/a-simple-octopress-image-popup-plugin/" title="A Simple Octopress Image Popup Plugin">Clapper’s image popup plugin</a> in this blog<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, I studied <a href="https://github.com/bmc/brizzled/">the source code of his blog on GitHub</a>.  In this process, I learnt the roles of <code class="highlighter-rouge">/sass\/(custom\/_)?(screen|print).scss/</code>.  (To be concise, I write a <a href="http://www.perl.org/" title="The Perl Programming Language">Perl</a> regex.)  Lacking time to learn CSS, I just directly copied Clapper’s CSS settings for printing.</p>
+
+<h2 id="problems-on-the-printed-page">Problems on the printed page</h2>
+
+<ol>
+  <li>Missing author and date</li>
+  <li>Screenshots were too large and part of them flowed out of the page.</li>
+</ol>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<h3 id="display-author-and-dates">Display author and dates</h3>
+
+<p>Using [Firefox]’s “<strong>Inspect Element</strong>” and searching the generated HTML code for a post, I discovered that those missing parts belonged to <code class="highlighter-rouge">&lt;pre class="meta"&gt;</code> tags.  In Clapper’s <code class="highlighter-rouge">sass/custom/_print.scss</code>, he <em>didn’t</em> display them.  Before the removal of the section of CSS code that hid the author and date, I input “.meta” in the search box above the panel that showed the HTML code of the current document.</p>
+
+<p><img class="fancybox" src="/images/posts/PrintScss/SearchCode.png" alt="‘Using Firefox Style Inspector to search code’ [‘fig1’]" ></p>
+
+<p>I <em>don’t</em> want the links for previous and next posts to appear in the printed version of a post in this blog, so I inspected the HTML code for those two links, and saw that only those two links belonged to an <code class="highlighter-rouge">&lt;a class="base-alignment ..."&gt;</code> tag.  Therefore, I change <code class="highlighter-rouge">p.meta</code> to <code class="highlighter-rouge">a.base-alignment</code> in <code class="highlighter-rouge">sass/custom/_print.scss</code>.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<h3 id="scaling-down-the-screenshots">Scaling down the screenshots</h3>
+
+<p>After I wrote the HTML and CSS code of an HTML5 slide used for a presentation, I knew something about the <code class="highlighter-rouge">max-width</code> property in CSS.</p>
+
+<p>Google searches:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Query string</th>
+      <th style="text-align: right">Rank</th>
+      <th style="text-align: left">Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">image max-width</td>
+      <td style="text-align: right"><a href="http://stackoverflow.com/a/11079048" title="How to set max width of an image in CSS">1</a></td>
+      <td style="text-align: left">Failed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resize image max width height</td>
+      <td style="text-align: right"><a href="http://stackoverflow.com/questions/6501797/" title="Resize image proportionally with MaxHeight and MaxWidth constraints">1</a>,<a href="http://www.microtuts.com/c-resize-an-image-proportionally-specify-max-widthheight/" title="C#: Resize an image proportionally (specify max width/height)">2</a></td>
+      <td style="text-align: left">They’re about C#.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resize image max width ratio</td>
+      <td style="text-align: right"><a href="http://stackoverflow.com/questions/3971841/" title="How to resize images proportionally / keeping the aspect ratio?">1</a></td>
+      <td style="text-align: left">I <em>haven’t</em> learnt jQuery.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max-width, max-height: aspect ratio not kept</td>
+      <td style="text-align: right"><a href="http://stackoverflow.com/questions/12991351/" title="CSS force image resize and keep aspect ratio">1</a></td>
+      <td style="text-align: left">The image was horizontally squeezed <em>without</em> changing the height.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">keep aspect ratio</td>
+      <td style="text-align: right"><a href="http://stackoverflow.com/questions/757782/" title="How to preserve aspect ratio when scaling image using one (CSS) dimension in IE6?">7</a></td>
+      <td style="text-align: left">I knew what to do from the first two answers.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You may refer to <a href="https://github.com/VincentTam/vincenttam.github.io/commit/4be1bbf">commit 4be1bbf</a> for details.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/94c7d97">94c7d97</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><code class="highlighter-rouge">sass/custom/_print.scss</code> at commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/4be1bbf">4be1bbf</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Remove Octopress's Default Image Border]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/06/08/remove-octopresss-default-image-border/"/>
+    
+    <updated>2014-06-08T13:45:31+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/06/08/remove-octopresss-default-image-border</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>Two days ago, when I was writing
+<a href="/blog/2014/06/05/mathjax-in-octopress-via-https/" title="MathJax in Octopress via HTTPS">a post about viewing Octopress blogs over HTTPS</a>, which is
+a <em>secure</em> and <em>encrypted</em> connection, I saw
+<a href="http://mzl.la/13jCUSU" title="How does content that isn't secure affect my safety?">a Moziila Support page</a> which contained inline icons.  I
+attempted to include those tiny pictures into some paragraphs.
+However, the resulting appearance of those paragraphs <em>wasn’t</em>
+appealing—the white border surrounding the tiny icon <em>didn’t</em> look
+great.  It would be <em>better</em> if it could be removed.</p>
+
+<!-- more -->
+
+<h2 id="failed-attemps">Failed attemps</h2>
+
+<p>I did try to find the solution using Google, but it <em>wasn’t</em>  useful
+this time.  I re-read the source code of
+<a href="http://brizzled.clapper.org/blog/2012/02/05/a-simple-octopress-image-popup-plugin/" title="A Simple Octopress Image Popup Plugin">Clapper’s image plugin</a>, that of
+<a href="http://erikzaadi.com/2012/04/22/solarized-color-scheme-for-octopress/" title="Source code of Solarized theme for Octopress">the Solarized theme for Octopress</a>, and that of
+<a href="https://github.com/larrynung/larrynung.github.io/tree/source" title=" Source code of Larry Nung's GitHub page">Larry Nung’s GitHub page</a>, but I still had <em>not</em> yet come
+up with a solution.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>With the help of a modern browser like Firefox, I inspected the CSS
+rules and properties of an image. Clicking the checkbox for some CSS
+properties, I finally found the four properties that were responsible
+for the default white border.  By unchecking three of them, the border
+would disappear.</p>
+
+<p>To illustrate the function of those checkboxes in Firefox’s DOM and
+Style Inspector, I’ve included two screenshots from
+<a href="http://octopress.org/docs/plugins/image-tag/" title="Image Tag">a page in Octopress’s official documentation</a>.</p>
+
+<p>Right-click the image and choose “<strong>Inspect Element</strong>”.  Scroll down
+the panel on the right that shows the CSS rules, as shown in the below
+figure.</p>
+
+<p><img class="fancybox" src="/images/posts/RemoveImgBorder/Border.png" alt="‘Firefox DOM and Style Inspector’ [‘fig1’]" ></p>
+
+<p>Uncheck the three checkboxes as shown in the below figure.</p>
+
+<p><img class="fancybox" src="/images/posts/RemoveImgBorder/NoBorder.png" alt="‘Instant preview of layout changes’ [‘fig2’]" ></p>
+
+<p>The white border will disappear.</p>
+
+<p>Flash videos were also affected by this CSS rule.  Therefore, I
+searched for files under the <code class="highlighter-rouge">sass/</code> folder that contains
+<code class="highlighter-rouge">flash-video</code>, after learning the command from
+<a href="http://stackoverflow.com/questions/1987926/" title="How do I grep recursively?">a question on StackExchange</a>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ grep -r flash-video ./sass
+</code></pre>
+</div>
+
+<p>I observed that the mixin <code class="highlighter-rouge">shadow-box</code> was used in
+<code class="highlighter-rouge">sass/partials/_blog.scss</code>.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  I performed another search, and found
+the mixin in <code class="highlighter-rouge">sass/base/_utilities.scss</code>.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<p>I tried setting <code class="highlighter-rouge">border: none</code> for <code class="highlighter-rouge">img</code> tags in
+<code class="highlighter-rouge">sass/custom/_screen.scss</code>, but it was overridden by the above four
+CSS rules.  Modifying the CSS files created by other developers
+<em>wasn’t</em> a good idea for me.  Therefore, I created a custom mixin to
+override the default one.  I learned a way for overriding mixins from
+<a href="http://stackoverflow.com/questions/7115959/" title="Adding !important using a Compass Mixin">another Stack Exchange question</a>.</p>
+
+<p>Though it is an ugly approach, I’m quite satisfied and I would like to
+work on other things, such as my studies and another CSS problem in
+this blog—improve the settings in <code class="highlighter-rouge">sass/custom/_print.scss</code> for
+better printing experience.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><code class="highlighter-rouge">sass/partials/_blog.scss</code> at commit <a href="https://github.com/VincentTam/vincenttam.github.io/blob/2d1cec6/sass/partials/_blog.scss#L48">2d1cec6a</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><code class="highlighter-rouge">sass/base/_utilities.scss</code> at commit <a href="https://github.com/VincentTam/vincenttam.github.io/blob/2d1cec6/sass/base/_utilities.scss#L8-L13">2d1cec6b</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Make Images with Transparent Background using GIMP, and More ...]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/04/27/gimp-transparent-background/"/>
+    
+    <updated>2014-04-27T13:38:12+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/04/27/gimp-transparent-background</id>
+    
+      <content type="html"><![CDATA[<h2 id="getting-an-image-with-transparent-background">Getting an image with transparent background</h2>
+
+<h3 id="an-apple-with-white-background">An apple with white background</h3>
+
+<p><img class="left" src="/images/posts/GIMPTransparentBg/apple-logo-2.jpg" width="285" alt="[251]" ></p>
+
+<p>Downloaded from <a href="http://fineprintnyc.com/blog/history-of-the-apple-logo"><em>History of the Apple Logo</em></a>.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>Thanks to <a href="http://mbrsolution.com/tutorial/gimp-tutorial-how-to-make-an-image-background-transparent.php">Ruiz’s <abbr title="GNU Image Manipulation Program">GIMP</abbr> tutorial</a> on
+<a href="http://mbrsolution.com/">Mbrsolution</a>, I can remove the white background of the
+picture on the left.</p>
+
+<h3 id="using-gimp">Using <abbr title="GNU Image Manipulation Program">GIMP</abbr></h3>
+
+<p>It’s a brief summary of the referenced tutorial.  To save time, I
+won’t post screenshots here.  You may refer to those in the tutorial.</p>
+
+<p><img class="right" src="/images/posts/GIMPTransparentBg/apple-logo-3.png" width="171" alt="[150.6]" ></p>
+
+<ol>
+  <li>Use the <strong>Fuzzy Tool</strong> and click on the background.</li>
+  <li>Click <strong>Layer → Transparency</strong> to check if an alpha channel has
+been added.  If not, then add one.</li>
+  <li>Produce a transparent background by <strong>Edit → Clear</strong>.</li>
+  <li>Save it as a <abbr title="Portable Network Graphics">PNG</abbr> file.
+    <ul>
+      <li>See the detailed instructions in the tutorial.</li>
+      <li><abbr title="Joint Photographic Experts Group">JPEG</abbr> images can’t have transparent background.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></li>
+    </ul>
+  </li>
+</ol>
+
+<!-- more -->
+
+<h2 id="centering-an-image-in-html">Centering an image in HTML</h2>
+
+<p>I’ve found Mrchief’s answer to Web_Designer’s question on Stack
+Overflow useful.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<h2 id="inserting-shadows-for-images">Inserting shadows for images</h2>
+
+<p>Inspired by <a href="http://www.hksilicon.com/kb/articles/4690/CSS3-box-shadow">ParaImage’s tutorial on Hong Kong Silicon</a>,
+I’ve written a small and simple HTML file to practice the concepts
+learnt from Stack Overflow and HK Silicon.<br />
+(Click “download” for viewing the HTML code in a web browser.)</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>“A small HTML file for displaying pictures”</span></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span> 
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;head&gt;</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"content-type"</span> <span class="na">content=</span><span class="s">"text/html; charset=utf-8"</span><span class="nt">&gt;</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;title&gt;</span>Image Backgrounds<span class="nt">&lt;/title&gt;</span>
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">img</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">-moz-box-shadow</span><span class="p">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">20px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.5</span><span class="p">);</span>
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">-webkit-box-shadow</span><span class="p">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">20px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.5</span><span class="p">);</span>
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">box-shadow</span><span class="p">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">20px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.5</span><span class="p">);</span>
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">margin-left</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">margin-right</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span>
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">body</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">.1</span><span class="p">);</span>
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span>
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">h1</span> <span class="p">&#x7b;</span>
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">214</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.9</span><span class="p">);</span>
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="p">&#x7d;</span>
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/style&gt;</span>
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/head&gt;</span>
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;body&gt;</span>
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;h1&gt;</span>An image with white backgroud<span class="nt">&lt;/h1&gt;</span>
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/images/posts/GIMPTransparentBg/apple-logo-2.jpg"</span> <span class="na">alt=</span><span class="s">"white bg"</span><span class="nt">&gt;&lt;/p&gt;</span>
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;h1&gt;</span>An image with transparent backgroud<span class="nt">&lt;/h1&gt;</span>
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/images/posts/GIMPTransparentBg/apple-logo-3.png"</span> <span class="na">alt=</span><span class="s">"transparent bg"</span><span class="nt">&gt;&lt;/p&gt;</span>
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;p&gt;</span>
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"//validator.w3.org/check?uri=referer"</span><span class="nt">&gt;&lt;img</span>
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="na">src=</span><span class="s">"/images/valid-html401.png"</span> <span class="na">alt=</span><span class="s">"Valid HTML 4.01 Strict"</span>
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="na">height=</span><span class="s">"31"</span> <span class="na">width=</span><span class="s">"88"</span><span class="nt">&gt;&lt;/a&gt;</span>
+</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"//jigsaw.w3.org/css-validator/check/referer"</span><span class="nt">&gt;&lt;img</span>
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>  <span class="na">src=</span><span class="s">"/images/valid-css.png"</span> <span class="na">alt=</span><span class="s">"Valid CSS"</span> <span class="na">height=</span><span class="s">"31"</span> <span class="na">width=</span><span class="s">"88"</span><span class="nt">&gt;</span>
+</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/body&gt;</span>
+</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/html&gt;</span>
+</div></div></pre></div></figure></p>
+
+<p>Using Firefox, I can dynamically change the width and displacement of
+the shadow of an image by choosing “Inspect Element” and hitting arrow
+keys.</p>
+
+<p><img class="fancybox" src="/images/posts/GIMPTransparentBg/inspect-element.png" width="800" alt="‘Dynamically change box shadow using Firefox’ [‘fig1’]" ></p>
+
+<ul>
+  <li>Click the values of a <abbr title="Cascading Style Sheets">CSS</abbr> property.</li>
+  <li>Move the cursor to a number, then hit ↑/↓ to adjust the values.</li>
+  <li>Use ←/→ to move the cursor to another property.</li>
+</ul>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>Source URL:
+<a href="http://fineprintnyc.com/images/blog/history-of-apple-logo/apple-logo-2.jpg">http://fineprintnyc.com/images/blog/history-of-apple-logo/apple-logo-2.jpg</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p><a href="http://stackoverflow.com/q/16906144">Transparent background in JPEG image – Stack Overflow</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p><a href="http://stackoverflow.com/q/7055393">Center image using text-align center? – Stack Overflow</a>&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+</feed>

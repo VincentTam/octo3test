@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	Fixing a Vim Error Caused by an UltraBlog.vim Upgrade
+      
+    
+    
+      
+        
+        
+         ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/29/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/05/25/fixing-a-vim-error-caused-by-an-ultrablog-dot-vim-upgrade/">Fixing a Vim Error Caused by an UltraBlog.vim Upgrade</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/05/25/fixing-a-vim-error-caused-by-an-ultrablog-dot-vim-upgrade/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/05/25/fixing-a-vim-error-caused-by-an-ultrablog-dot-vim-upgrade/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/05/25/fixing-a-vim-error-caused-by-an-ultrablog-dot-vim-upgrade/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday, I upgraded the Vim plugins on my Ubuntu Desktop using
+<a href="https://github.com/gmarik/Vundle.vim">Vundle</a>.  Among the upgraded plugins, <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">Ultrablog.vim</a> was
+the <em>only</em> one that didn’t run smoothly on <em>my installed version</em> of
+Vim.</p>
+
+<p>Right after I issued the command <code class="highlighter-rouge">vi</code> on the terminal, I got the
+following error message.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ vi
+Error detected while processing /home/owner/.vim/bundle/UltraBlog.vim/plugin/UltraBlog.vim:
+line  253:
+Traceback (most recent call last):
+  File "&lt;string&gt;", line 7, in &lt;module&gt;
+  File "/home/owner/.vim/bundle/UltraBlog.vim/plugin/ultrablog/commands.py", line 8, in &lt;module&gt;
+from db import *
+  File "/home/owner/.vim/bundle/UltraBlog.vim/plugin/ultrablog/db.py", line 181, in &lt;module&gt;
+u.ub_echoerr(msg)
+  File "/home/owner/.vim/bundle/UltraBlog.vim/plugin/ultrablog/util.py", line 623, in ub_echoerr
+vim.command(cmd)
+vim.error: Vim(echoerr):Missing key 'xmlrpc_uri' in the settings list of UltraBlog.vim !
+Press ENTER or type command to continue
+</code></pre>
+</div>
+
+<!-- more -->
+
+<p>Before entering the standard startup screen, I received another
+complaint from the editor.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>Error detected while processing BufEnter Auto commands for "*":
+Traceback (most recent call last):
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
+NameError: name '__ub_on_buffer_enter' is not defined
+Press ENTER or type command to continue
+</code></pre>
+</div>
+
+<p>I tried opening a file, and was blamed by the program again!</p>
+
+<pre class="cli"><code class="UBMono"><span class="vimErr">"foo.txt" 123L, 456C
+Error detected while processing BufEnter Auto commands for "*":
+Traceback (most recent call last):
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
+NameError: name '__ub_on_buffer_enter' is not defined</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+</code></pre>
+
+<p>I split my window into half by the editor command <code class="highlighter-rouge">:new</code> and captured
+the content of another error message.  I found that it’s the same as
+the second message.</p>
+
+<p>I moved the cursor across windows, and got similar message, but
+repeated a few times.</p>
+
+<pre class="cli"><code class="UBMono"><span class="vimErr">Error detected while processing BufEnter Auto commands for "*":
+Traceback (most recent call last):</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+<span class="vimErr">Error detected while processing BufEnter Auto commands for "*":
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+<span class="vimErr">Error detected while processing BufEnter Auto commands for "*":
+NameError: name '__ub_on_buffer_enter' is not defined</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+</code></pre>
+
+<p>I was annoyed by the error, and decided to fix it.  From the alphabets
+“ub” in <code class="highlighter-rouge">__ub_on_buffer_enter</code> in the error messages, I believed that
+the recently updated plugin UltraBlog.vim was the cause of my problem.
+I searched Google for “vim ultrablog”.  To narrow down the search, I
+only viewed the web pages which were updated in the past year.  I
+found a blog post on the automatic completion of the category of
+posts.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  The post was written by Leigh, the creator of
+UltraBlog.vim.  There’s a code block in the middle, and experienced
+Vim users will notice that it’s the suggested configurations in one’s
+own VIMRC.  Comparing the settings for the previous version of
+UltraBlog.vim in my VIMRC with his, I realized that I didn’t include
+the line containing ‘xmlrpc_uri’.  I copied the whole line in his code
+block to my VIMRC, and restarted Vim again.  Finally, Vim didn’t show
+me errors anymore.</p>
+
+<p>Looking back, I regret not reading the first error message…</p>
+
+<p>Like Leigh, I’ve switched from WordPress to Octopress three months
+ago.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  His migration motivated me to follow his suit.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>  For the
+detailed practical advantages of Octopress over WordPress, you may
+refer to <a href="/about#my-old-blogs/">my about page</a>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://0x3f.org/blog/ultrablog-v361-released/"><em>UltraBlog.vim v3.6.1: 文章分類自動補全</em></a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://blogueun.wordpress.com/2014/03/15/migrated-to-octopress/"><em>Migrated to Octopress</em></a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="http://0x3f.org/blog/migrate-blog-to-octopress/"><em>遷移到octopress</em></a>&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/05/24/using-mathjax-in-category-list-entries/">Using MathJax in Category List Entries</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/05/24/using-mathjax-in-category-list-entries/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/05/24/using-mathjax-in-category-list-entries/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/05/24/using-mathjax-in-category-list-entries/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>(Added on SEP 14, 2014)</p>
+
+<p>Since the update of Octopress source code, this post <em>won’t</em> make
+sense anymore.  I <em>can’t</em> find a way to use MathJax in category list
+entries anymore because <code class="highlighter-rouge">category</code> in <code class="highlighter-rouge">plugins/category_generator.rb</code>
+and <code class="highlighter-rouge">plugins/category_list_tag.rb</code> have both been changed to <em>lower
+case</em>.  I <em>don’t</em> know how to track the Ruby code to revert it.</p>
+
+<!-- more -->
+
+<p>About three weeks ago, I successfully changed the category “LaTeX” to
+“$\rm \LaTeX$”.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  By trial, I discovered that <code class="highlighter-rouge">$\rm \LaTeX$</code> should
+be input for “categories” at the head of the markdown source file of
+each Octopress post/page.  Then, previewing the rendered contents at
+port 4000 at locolhost, I could see the category “$\rm \LaTeX$”
+rendered by MathJax at the bottom of each post/page.  Moreover, in the
+category list in the sidebar at the right-hand side, the item “$\rm
+\LaTeX$” was also correctly displayed.  However, as I clicked it, I
+was brought to a page which titled something similar to “Error 404”.
+Then, I realized that I need to modify the category list plugin<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> so
+as to fix this error.  I jotted the trailing part of wrong URL down:
+“-rm-latex-“.</p>
+
+<!-- more -->
+
+<p>Fortunately, the hyperlink for the category “$\rm \LaTeX$” at the
+bottom of each post was correct: <code class="highlighter-rouge">$-slash-rm-slash-latex$</code>.  This was
+an important guide to what was going to be done to the category list
+plugin.  As I am <em>not</em> going to spend most of my time to study IT, I
+aimed at <em>merely</em> changing “LaTeX” to “$\rm \LaTeX$”.</p>
+
+<p>Viewing the source code of Watson’s <code class="highlighter-rouge">category_list_tag.rb</code>, I observed
+that the generated URL of each item in the category list was
+determined by the variable <code class="highlighter-rouge">category_url</code>, and the following method
+was responsible for the error.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>category_url = File.join(category_dir, category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase)
+</code></pre>
+</div>
+
+<p>To solve the problem, I used the following approach:</p>
+
+<ol>
+  <li>Extract the trailing part of the URL of each category to
+<code class="highlighter-rouge">category_string</code>.</li>
+  <li>Use an if-statement to match <code class="highlighter-rouge">category_string</code> with the erroneous
+part URL: <code class="highlighter-rouge">-rm-latex-</code>.
+    <ul>
+      <li>If it is <em>not</em> matched, then do nothing.</li>
+    </ul>
+  </li>
+  <li>If it is matched, change the trailing part of <code class="highlighter-rouge">category_url</code> to
+<code class="highlighter-rouge">$-slash-rm-slash-latex$</code>.</li>
+</ol>
+
+<p>That is, I added the following lines before writing the new item to
+the variable <code class="highlighter-rouge">html</code>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Display MathJax rendered $\rm \LaTeX$ code in category lists item goo.gl/CWGBfD View Raw</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">category_string</span> <span class="o">=</span> <span class="n">category</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/_|\P&#x7b;Word&#x7d;/</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">).</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/-&#x7b;2,&#x7d;/</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">).</span><span class="nf">downcase</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> <span class="n">category_string</span> <span class="o">==</span> <span class="s2">"-rm-latex-"</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">latex_category_string</span> <span class="o">=</span> <span class="s2">"$-slash-rm-slash-latex$"</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">category_url</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">category_dir</span><span class="p">,</span> <span class="n">latex_category_string</span><span class="p">)</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">end</span></div></div></pre></div></figure>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p><a href="https://github.com/VincentTam/vincenttam.github.io/commit/7dcf6b7#diff-1">My Git commit history</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://www.dotnetguy.co.uk/post/2012/06/25/octopress-category-list-plugin/">Watson’s Category List Plugin</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/04/27/gimp-transparent-background/">Make Images with Transparent Background using GIMP, and More ...</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/04/27/gimp-transparent-background/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/04/27/gimp-transparent-background/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/04/27/gimp-transparent-background/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="getting-an-image-with-transparent-background">Getting an image with transparent background</h2>
+
+<h3 id="an-apple-with-white-background">An apple with white background</h3>
+
+<p><img class="left" src="/images/posts/GIMPTransparentBg/apple-logo-2.jpg" width="285" alt="[251]" /></p>
+
+<p>Downloaded from <a href="http://fineprintnyc.com/blog/history-of-the-apple-logo"><em>History of the Apple Logo</em></a>.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>Thanks to <a href="http://mbrsolution.com/tutorial/gimp-tutorial-how-to-make-an-image-background-transparent.php">Ruiz’s <abbr title="GNU Image Manipulation Program">GIMP</abbr> tutorial</a> on
+<a href="http://mbrsolution.com/">Mbrsolution</a>, I can remove the white background of the
+picture on the left.</p>
+
+<h3 id="using-gimp">Using <abbr title="GNU Image Manipulation Program">GIMP</abbr></h3>
+
+<p>It’s a brief summary of the referenced tutorial.  To save time, I
+won’t post screenshots here.  You may refer to those in the tutorial.</p>
+
+<p><img class="right" src="/images/posts/GIMPTransparentBg/apple-logo-3.png" width="171" alt="[150.6]" /></p>
+
+<ol>
+  <li>Use the <strong>Fuzzy Tool</strong> and click on the background.</li>
+  <li>Click <strong>Layer → Transparency</strong> to check if an alpha channel has
+been added.  If not, then add one.</li>
+  <li>Produce a transparent background by <strong>Edit → Clear</strong>.</li>
+  <li>Save it as a <abbr title="Portable Network Graphics">PNG</abbr> file.
+    <ul>
+      <li>See the detailed instructions in the tutorial.</li>
+      <li><abbr title="Joint Photographic Experts Group">JPEG</abbr> images can’t have transparent background.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></li>
+    </ul>
+  </li>
+</ol>
+
+<!-- more -->
+
+<h2 id="centering-an-image-in-html">Centering an image in HTML</h2>
+
+<p>I’ve found Mrchief’s answer to Web_Designer’s question on Stack
+Overflow useful.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<h2 id="inserting-shadows-for-images">Inserting shadows for images</h2>
+
+<p>Inspired by <a href="http://www.hksilicon.com/kb/articles/4690/CSS3-box-shadow">ParaImage’s tutorial on Hong Kong Silicon</a>,
+I’ve written a small and simple HTML file to practice the concepts
+learnt from Stack Overflow and HK Silicon.<br />
+(Click “download” for viewing the HTML code in a web browser.)</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">"A small HTML file for displaying pictures"</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</span> 
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;head&gt;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"content-type"</span> <span class="na">content=</span><span class="s">"text/html; charset=utf-8"</span><span class="nt">&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;title&gt;</span>Image Backgrounds<span class="nt">&lt;/title&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">img</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">-moz-box-shadow</span><span class="p">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">20px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.5</span><span class="p">);</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">-webkit-box-shadow</span><span class="p">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">20px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.5</span><span class="p">);</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">box-shadow</span><span class="p">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">20px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.5</span><span class="p">);</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">margin-left</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">margin-right</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">body</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">.1</span><span class="p">);</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">h1</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">214</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">.9</span><span class="p">);</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/style&gt;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/head&gt;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;body&gt;</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;h1&gt;</span>An image with white backgroud<span class="nt">&lt;/h1&gt;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/images/posts/GIMPTransparentBg/apple-logo-2.jpg"</span> <span class="na">alt=</span><span class="s">"white bg"</span><span class="nt">&gt;&lt;/p&gt;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;h1&gt;</span>An image with transparent backgroud<span class="nt">&lt;/h1&gt;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">"/images/posts/GIMPTransparentBg/apple-logo-3.png"</span> <span class="na">alt=</span><span class="s">"transparent bg"</span><span class="nt">&gt;&lt;/p&gt;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"//validator.w3.org/check?uri=referer"</span><span class="nt">&gt;&lt;img</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">src=</span><span class="s">"/images/valid-html401.png"</span> <span class="na">alt=</span><span class="s">"Valid HTML 4.01 Strict"</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">height=</span><span class="s">"31"</span> <span class="na">width=</span><span class="s">"88"</span><span class="nt">&gt;&lt;/a&gt;</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"//jigsaw.w3.org/css-validator/check/referer"</span><span class="nt">&gt;&lt;img</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">src=</span><span class="s">"/images/valid-css.png"</span> <span class="na">alt=</span><span class="s">"Valid <abbr title="Cascading Style Sheets">CSS</abbr>"</span> <span class="na">height=</span><span class="s">"31"</span> <span class="na">width=</span><span class="s">"88"</span><span class="nt">&gt;</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/body&gt;</span>
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/html&gt;</span>
+</div></div></pre></div></figure>
+
+<p>Using Firefox, I can dynamically change the width and displacement of
+the shadow of an image by choosing “Inspect Element” and hitting arrow
+keys.</p>
+
+<p><img class="fancybox" src="/images/posts/GIMPTransparentBg/inspect-element.png" width="800" alt="'Dynamically change box shadow using Firefox' ['fig1']" /></p>
+
+<ul>
+  <li>Click the values of a <abbr title="Cascading Style Sheets">CSS</abbr> property.</li>
+  <li>Move the cursor to a number, then hit ↑/↓ to adjust the values.</li>
+  <li>Use ←/→ to move the cursor to another property.</li>
+</ul>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>Source URL:
+<a href="http://fineprintnyc.com/images/blog/history-of-apple-logo/apple-logo-2.jpg">http://fineprintnyc.com/images/blog/history-of-apple-logo/apple-logo-2.jpg</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p><a href="http://stackoverflow.com/q/16906144">Transparent background in JPEG image – Stack Overflow</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p><a href="http://stackoverflow.com/q/7055393">Center image using text-align center? – Stack Overflow</a>&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/04/27/octopress-category-list/">Octopress Category List</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/04/27/octopress-category-list/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/04/27/octopress-category-list/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/04/27/octopress-category-list/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday, the category list of this blog was still like the one in
+<a href="http://vigodome.com/blog/categories/">Vigo’s <em>Development Tips</em></a>.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  However, I think that
+<a href="http://www.dotnetguy.co.uk/post/2012/06/25/octopress-category-list-plugin/">Watson’s Category List Plugin</a> is more user-friendly
+because users can view the categories by scrolling, instead of
+clicking and waiting for another page to load.</p>
+
+<p>I tried copying everything, and put them in the right places, but
+initially I failed.  I quickly realized that I <em>wrongly</em> named the
+plugin file as <code class="highlighter-rouge">category_list.rb</code>, and <code class="highlighter-rouge">rake preview</code> still didn’t
+produce the desired list.  Then I moved the HTML file that calls the
+plugin, namely the <code class="highlighter-rouge">category_list.html</code>, from
+<code class="highlighter-rouge">/source/_includes/asides</code> to <code class="highlighter-rouge">/source/_includes/custom/asides</code>, and
+changed <code class="highlighter-rouge">_config.yml</code> a little bit.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<p>Finally, I copied the contents from my <em>working</em> example (i.e.
+<code class="highlighter-rouge">/source/_includes/custom/asides/about.html</code>) <em>first</em>.  As expected, I
+could see that the “About Me (Brief)” section was duplicated.  I
+changed the code bit by bit, and I managed to include a list of
+categories.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p><code class="highlighter-rouge">source/blog/categories/index.markdown</code> at commit <a href="https://raw.githubusercontent.com/VincentTam/vincenttam.github.io/94c7d97/source/blog/categories/index.markdown">94c7d97</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><code class="highlighter-rouge">_config.yml</code> at commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/7dcf6b7#diff-0">7dcf6b7</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/04/05/latex-template-for-chinese-essays/">$\rm \LaTeX$ Template for Chinese Essays</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/04/05/latex-template-for-chinese-essays/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/04/05/latex-template-for-chinese-essays/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/04/05/latex-template-for-chinese-essays/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>With this template, I believe that creating a Chinese article using
+$\rm \LaTeX$ should be <em>a lot</em> quicker and easier.</p>
+
+<p>I’ve tried including a <a href="https://gist.github.com">Gist</a> in one of my posts.  However, each line
+separates too much from another.  Therefore, including a <a href="https://gist.github.com">Gist</a> in my
+post doesn’t seem to be a good idea.</p>
+
+<p>I think that the default layout of the code list in <a href="http://octopress.org">Octopress</a> is
+<em>much</em> prettier than <a href="https://gist.github.com">Gist</a>.  I included the source code of my $\rm
+\LaTeX$ essay in <a href="/blog/2014/03/16/latex-template-for-essays/" title="LaTeX Template for Essays">my previous post on $\rm \LaTeX$</a>.  Unluckily,
+some of the functions in Octopress’s code block don’t work.  As a
+result, I have to put the <em>whole</em> source file in that post.</p>
+
+<p>In this post, I’ll just post the link to <del>my $\rm \LaTeX$ Chinese
+template <a href="https://gist.github.com">Gist</a>, and</del> <a href="/downloads/latex-chin-sample.pdf">the PDF file</a>.</p>
+
+<hr />
+<p>(Added on AUG 03, 2014)</p>
+
+<p>Since I’ve copied the code for fixing the problem of embedded <a href="https://gist.github.com">Gist</a>s in
+Octopress<sup id="fnref:fixed_gist"><a href="#fn:fixed_gist" class="footnote">1</a></sup>, I will include the <a href="https://gist.github.com">Gist</a> in this post now.</p>
+
+<!-- more -->
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">latex_chin_sample.tex</span><a class="code-highlight-caption-link" href="https://gist.github.com/10473229">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt,a4paper]</span><span class="p">&#x7b;</span>article<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[margin=1in]</span><span class="p">&#x7b;</span>geometry<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>xeCJK<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\setCJKmainfont</span><span class="p">&#x7b;</span>AR PL UKai HK<span class="p">&#x7d;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\setlength</span><span class="p">&#x7b;</span><span class="k">\parindent</span><span class="p">&#x7d;&#x7b;</span>2em<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\setlength</span><span class="p">&#x7b;</span><span class="k">\parskip</span><span class="p">&#x7d;&#x7b;</span><span class="k">\baselineskip</span><span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>setspace<span class="p">&#x7d;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\doublespacing</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>metalogo<span class="p">&#x7d;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\author</span><span class="p">&#x7b;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  毛名仕<span class="k">\\</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">  1234567890
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\title</span><span class="p">&#x7b;</span>ABCD 1234：文章的主題<span class="p">&#x7d;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\date</span><span class="p">&#x7b;</span>二零一四年四月五日<span class="p">&#x7d;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\maketitle</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">老師、各位同學，大家好！我今日想跟大家分享一下我的模版。我們每日花多少
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">時間在找尋微軟的破解版上？各位正在使用微軟辦公室軟體的用者，沒有升級軟
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">體，文件過了幾年就會出現相容性的問題。
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">下一個段落，說明了我不用微軟所見即所得的文書處理器，也可以排版出漂亮的
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">文章。段落之間有一空行，行與行之間也有行距，方便閱讀。我用自由的
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\XeLaTeX</span> 造出的文件，比閉源的微軟的文書處理器所造出的還好！
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% vim:nospell</span></div></div></pre></div></figure>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:fixed_gist">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/e5668de">e5668de</a> of this repo.&nbsp;<a href="#fnref:fixed_gist" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/03/30/testing-jquery-image-popup/">Testing jQuery Image Popup</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/03/30/testing-jquery-image-popup/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/03/30/testing-jquery-image-popup/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/03/30/testing-jquery-image-popup/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>What’s below is a small picture.  The words inside the screenshot
+<em>can’t</em> be displayed.  Users may right-click on the picture and select
+“View Image”, if there’s a script that enables a magnified image to
+show up right after a user has clicked on the image, it’ll be <em>more
+convenient</em> for the user.</p>
+
+<p><img class="fancybox" src="/images/posts/GitStatusOfMyOctopressFolder/GitStatus.png" alt="'My Big Image' ['fig1']" /></p>
+
+<p>I tried following <a href="http://goo.gl/5qCaj">Clapper’s guide</a>, but as I generate
+the site using <code class="highlighter-rouge">rake</code>, I got two errors. The first one was about CSS,
+while the second one was about one of the two required Ruby gems.
+(Namely, <a href="http://goo.gl/qeN28">mini_magick</a> and <a href="http://goo.gl/0oZy6">Erubis</a>.)</p>
+
+<!-- more -->
+
+<p>For the first error, I got something like <code class="highlighter-rouge">Undefined mixin
+'centered'</code>, and so I googled <code class="highlighter-rouge">octopress "Undefined mixin
+'centered'"</code>.  Using this query string, no match was returned.
+Instead, Google performed a similar search using a query string
+<em>without the double quotes</em>.  Among the search results, I found an
+article also written by Clapper.<sup id="fnref:toc"><a href="#fn:toc" class="footnote">1</a></sup>  I’ve known that I also need to
+download <code class="highlighter-rouge">sass/custom/_mixins.scss</code>
+<a href="http://goo.gl/qvYPRI">from his GitHub repo</a>.</p>
+
+<p>For the second error, I’ve realised that I forgot to include those
+gems in <code class="highlighter-rouge">Gemfile</code>, because I lacked knowledge in Ruby, and the guide
+didn’t mention that.  In fact, adding the following two lines into
+<code class="highlighter-rouge">Gemfile</code> solved the problem.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gem 'mini_magick'
+gem 'erubis'
+</code></pre>
+</div>
+
+<p><del>I don’t know why.  The plugin doesn’t work, but</del> I can get
+jQuery working here.  The following script from Clapper doesn’t work
+for me.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://goo.gl/hOF4mR</span><a class="code-highlight-caption-link" href="http://goo.gl/hOF4mR">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="c1">// Revert jQuery's '$' alias, to avoid clashes with ender.js. NOTE:</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="c1">// Use</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="c1">// jQuery(...), instead of $(...) from here on.</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/script&gt;</span></div></div></pre></div></figure>
+
+<p>The <code class="highlighter-rouge">noConflict</code> method disabled my button for hiding the sidebar on
+the right hand side.  <del>Anyways, I gave up trying this
+plugin.</del>  Before trying <del>it again</del> more things, I think
+I should have more knowledge in jQuery first.</p>
+
+<p>To get things work, I played some <em>dirty and little</em> tricks on
+<code class="highlighter-rouge">plugins/img_popup.html.erb</code>.  Since some features of Octopress’s
+codeblock are <em>not</em> working<sup id="fnref:no_start_num"><a href="#fn:no_start_num" class="footnote">2</a></sup>, I just manually include
+part of the code.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://goo.gl/53fIEZ</span><a class="code-highlight-caption-link" href="http://goo.gl/53fIEZ">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">$(document).ready(function() &#x7b;
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  $("#image-dialog-&lt;%= id %&gt;").hide();
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  $("#image-dialog-&lt;%= id %&gt;").dialog(&#x7b;
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    autoOpen:  false,
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    modal:     true,
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    draggable: false,
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    minWidth:  &lt;%= full_width + 40 %&gt;,
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    minHeight: &lt;%= full_height + 40 %&gt;,
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    &lt;% if title -%&gt;
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    title:     "&lt;%= title %&gt;",
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    &lt;% end -%&gt;
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    show:      'scale',
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    hide:      'scale'
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">  &#x7d;);
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  $("#image-&lt;%= id %&gt;").click(function() &#x7b;
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    $("#image-dialog-&lt;%= id %&gt;").dialog('open');
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">  &#x7d;);
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">&#x7d;);</div></div></pre></div></figure>
+
+<p>What I’ve actually done in the above code block is to replace <code class="highlighter-rouge">jQuery</code>
+with <code class="highlighter-rouge">$</code>.  At that time, if I ran <code class="highlighter-rouge">rake generate</code>, Octopress let me
+pass.  However, when I locally previewed the result, clicking on the
+picture <em>couldn’t</em> trigger a popup window showing a larger picture.</p>
+
+<p>I tried comparing the generated HTML source code of my site and that
+of Clapper’s site unproductively.  I decided to give up, and wrote a
+paragraph on this.  Then I removed the related files and sections of
+code.  Since I was running <code class="highlighter-rouge">rake preview</code>, I pressed <code class="highlighter-rouge">&lt;F5&gt;</code> and
+expected to see a <em>static</em> picture.  I was surprised to see <em>two</em>
+pictures.  The lower one was a static picture that I had seen for
+numerous times during this test.  The uppper one is smaller, and as I
+clicked on it, a popup window showed up.  This result amazed me.  As a
+result, I decided to grab back the files from Clapper’s GitHub repo,
+and studied his Sass settings.</p>
+
+<p>I re-worked the whole thing again, and tried adapting Clapper’s Sass
+rules to mine, but I <em>couldn’t</em> manage to create the popup window
+again.  Then I tried to reduce the complexity of the relations of the
+SCSS files by reducing the amount of files.  I appended the following
+lines of code to <code class="highlighter-rouge">sass/screen.scss</code>. (You may refer to
+<a href="http://goo.gl/BNqlL7">my original file</a>.)</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">My *temporary* `sass/screen.scss`</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"compass"</span><span class="p">;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@include</span> <span class="nd">global-reset</span><span class="p">;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"custom/colors"</span><span class="p">;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"custom/fonts"</span><span class="p">;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"custom/layout"</span><span class="p">;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"base"</span><span class="p">;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"partials"</span><span class="p">;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"plugins/**/*"</span><span class="p">;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"custom/styles"</span><span class="p">;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cm">/* I appended the following lines. */</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"custom/mixins"</span><span class="p">;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nc">.caption</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span><span class="p">;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">font-size</span><span class="p">:</span> <span class="m">90%</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">@include</span> <span class="nd">centered</span><span class="p">(</span><span class="m">100%</span><span class="p">);</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">div</span><span class="nc">.imgpopup</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nv">$base2</span><span class="p">;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">@include</span> <span class="nd">rounded-border</span><span class="p">(</span><span class="m">10px</span><span class="p">);</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">@include</span> <span class="nd">centered</span><span class="p">(</span><span class="m">60%</span><span class="p">);</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nc">.caption</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">	<span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="p">&#x7d;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nc">.screen</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nc">.illustration</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="k">@include</span> <span class="nd">centered</span><span class="p">(</span><span class="m">100%</span><span class="p">);</span>
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span></div></div></pre></div></figure>
+
+<p>I did something strange: <em>while <code class="highlighter-rouge">rake preview</code> was running</em>, in my
+<code class="highlighter-rouge">sass/screen.scss</code>, I commented the line <code class="highlighter-rouge">@import custom/mixins</code>.  One
+would expect I got error due to the line <code class="highlighter-rouge">@include centered(100%)</code>.
+Although the Solarized theme was gone, the image popup window was
+<em>back</em>.  Without changing other lines of code, I repeated the process
+for a few times, and discovered that if <code class="highlighter-rouge">@import custom/mixins</code> was
+<em>gone</em>, then the popup window was <em>back</em>.  It was important for me
+<em>not to stop the <code class="highlighter-rouge">rake preview</code> command</em>. Otherwise, the command <code class="highlighter-rouge">rake
+generate</code> would <em>fail</em> me.  I wondered how these two lines could
+coexist.  I finally noticed that the <code class="highlighter-rouge">screen</code> class was <em>hidden</em> due
+to <code class="highlighter-rouge">display: none;</code>!  I commented that line and imported
+<code class="highlighter-rouge">sass/custom/_mixins.scss</code>, then the two images are <em>back</em>!</p>
+
+<p>This time, in order to find out useful information such as the class
+name and the id of relevant HTML elements, I used Firefox to quickly
+inspect the code.  Finally, I found out that for pictures that
+<em>couldn’t</em> trigger a popup window, it was inside a <code class="highlighter-rouge">&lt;div&gt;</code> container
+of classes <code class="highlighter-rouge">illustration</code> and <code class="highlighter-rouge">print</code>, and there’s <em>another</em> image in
+<em>another</em> <code class="highlighter-rouge">&lt;div&gt;</code> container of classes <code class="highlighter-rouge">imgpopup</code> and <code class="highlighter-rouge">screen</code>.
+However, it didn’t show up because of the line <code class="highlighter-rouge">display: none;</code> inside
+the <code class="highlighter-rouge">screen</code> class.  Looking at Clapper’s Sass settings again on his
+GitHub repo, I eventually have a clue on the two SCSS code blocks in
+Clapper’s blog post about his Octopress image popup plugin.</p>
+
+<p>The <em>true</em> reason for my failure in creating the image popup window at
+the beginning is on line 20 of the code block below: it should be
+<code class="highlighter-rouge">print</code> instead of <code class="highlighter-rouge">screen</code> since it’s a user’s custom Sass rule for
+the display on the web browser. (i.e. <em>screen</em>), and we want to <em>hide</em>
+the static picture, which is for printing.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://goo.gl/Vw52BS</span><a class="code-highlight-caption-link" href="http://goo.gl/Vw52BS">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nc">.caption</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span><span class="p">;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">font-size</span><span class="p">:</span> <span class="m">80%</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">@include</span> <span class="nd">centered</span><span class="p">(</span><span class="m">100%</span><span class="p">);</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">div</span><span class="nc">.imgpopup</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#cccccc</span><span class="p">;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">@include</span> <span class="nd">rounded-border</span><span class="p">(</span><span class="m">10px</span><span class="p">);</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">@include</span> <span class="nd">centered</span><span class="p">(</span><span class="m">80%</span><span class="p">);</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nc">.caption</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">	<span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nc">.print</span> <span class="p">&#x7b;</span> <span class="c1">// It should be *print*, instead of *screen*.</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span></div></div></pre></div></figure>
+
+<p>In Clapper’s guide, the SCSS code block below the above one should be
+included in <code class="highlighter-rouge">sass/custom/_print.scss</code>.  Then, a new file
+<code class="highlighter-rouge">sass/print.scss</code> is created.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">`sass/screen.scss`</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">@import</span> <span class="s2">"custom/print"</span><span class="p">;</span></div></div></pre></div></figure>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:toc">
+      <p><a href="http://goo.gl/hOF4mR">http://goo.gl/hOF4mR</a>&nbsp;<a href="#fnref:toc" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:no_start_num">
+      <p><a href="http://goo.gl/o5IeWk">http://goo.gl/o5IeWk</a>&nbsp;<a href="#fnref:no_start_num" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/03/22/jump-to-latex-syntax-error/">Jump to $\rm \LaTeX$ Syntax Error</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/03/22/jump-to-latex-syntax-error/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/03/22/jump-to-latex-syntax-error/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/03/22/jump-to-latex-syntax-error/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>This post is written in response to a question of
+<a href="http://youtu.be/y67t-05nFD0">one of my video</a>.</strong></p>
+
+<p>Vim-$\rm \LaTeX$ enables users to jump to a syntax error quickly.  To
+show you how, I use a GIF “animation”, instead of a video, so that the
+file size is much smaller.</p>
+
+<p><img class="fancybox" src="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err.gif" width="800" alt="'A GIF animation showing Vim-LaTeX quickfix window' ['fig1']" /></p>
+
+<p>Explanation:</p>
+
+<p>Error message: The <code class="highlighter-rouge">equation*</code> environment is “undefined”.<br />
+Cause of error: I forget to include the <code class="highlighter-rouge">amsmath</code> package in the
+preamble.</p>
+
+<ul>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err1.png">Figure 1</a>: Compilation error occurs,
+so a quickfix window pops up.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err2.png">Figure 2</a>: I typed <code class="highlighter-rouge">j</code> to move the
+cursor down in the quickfix window by one line, and the window below
+showing the log file automatically scrolled down.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err3.png">Figure 3</a>: I typed <code class="highlighter-rouge">k</code> to go up one
+line, so the situation goes back to Figure 1.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err4.png">Figure 4</a>: I typed <code class="highlighter-rouge">&lt;Enter&gt;</code> to jump
+to the “error location”. (line 6)</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err5.png">Figure 5</a>: I typed <code class="highlighter-rouge">&lt;C-w&gt;j</code> to go
+back to the quickfix window, and the situation goes back to Figure 1
+again.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err6.png">Figure 6</a>: I typed <code class="highlighter-rouge">j</code> again, and
+the situation goes back to Figure 2.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err7.png">Figure 7</a>: I typed <code class="highlighter-rouge">&lt;Enter&gt;</code> again
+to jump to <em>another</em> “error location”.</li>
+</ul>
+
+<p>P.S. As I’ve said in my “<a href="/about/">About</a>” page, I mainly write in
+Markdown now, unless a teacher want me to submit homework with
+specific formatting requirements like 1-inch margin, 1.5 line spacing,
+etc.  As you can see from the footer of this blog, this post is also
+written in Markdown.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/03/16/latex-template-for-essays/">$\rm \LaTeX$ Template for Essays</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/03/16/latex-template-for-essays/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/03/16/latex-template-for-essays/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/03/16/latex-template-for-essays/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="introduction">Introduction</h2>
+
+<p>This is a $\rm \LaTeX$ template for writing an article.</p>
+
+<h2 id="sample-output">Sample output</h2>
+
+<p><a href="/downloads/latex-sample.pdf">View the sample PDF online.</a></p>
+
+<!-- more -->
+
+<h2 id="sample-code">Sample code</h2>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">biblio.bib</span><a class="code-highlight-caption-link" href="https://gist.github.com/9569005">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">@online<span class="p">&#x7b;</span>Gnu13,
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  author = <span class="p">&#x7b;</span>Richard Stallman<span class="p">&#x7d;</span>,
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  title = <span class="p">&#x7b;&#x7b;</span>Free Software and Education<span class="p">&#x7d;&#x7d;</span>,
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">  date = <span class="p">&#x7b;</span>2013-11-06<span class="p">&#x7d;</span>,
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  url = <span class="p">&#x7b;</span>http://www.gnu.org/education/education.html<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">@article<span class="p">&#x7b;</span>kaplan2010users,
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">  title=<span class="p">&#x7b;&#x7b;</span>Users of the world, unite! The challenges and opportunities
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    of social media<span class="p">&#x7d;&#x7d;</span>,
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">  author=<span class="p">&#x7b;</span>Kaplan, Andreas M and Haenlein, Michael<span class="p">&#x7d;</span>,
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  journal=<span class="p">&#x7b;&#x7b;</span>Business Horizons<span class="p">&#x7d;&#x7d;</span>,
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">  volume=<span class="p">&#x7b;</span>53<span class="p">&#x7d;</span>,
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">  number=<span class="p">&#x7b;</span>1<span class="p">&#x7d;</span>,
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">  pages=<span class="p">&#x7b;</span>59--68<span class="p">&#x7d;</span>,
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  year=<span class="p">&#x7b;</span>2010<span class="p">&#x7d;</span>,
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">  publisher=<span class="p">&#x7b;</span>Elsevier<span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">latex_sample.tex</span><a class="code-highlight-caption-link" href="https://gist.github.com/9569005">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt,a4paper]</span><span class="p">&#x7b;</span>article<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[margin=1in]</span><span class="p">&#x7b;</span>geometry<span class="p">&#x7d;</span> <span class="c">% set page margin to 1 inch</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% Some formatting</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>indentfirst<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% double spacing</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>setspace<span class="p">&#x7d;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\doublespacing</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% An empty line between each paragraph</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\setlength</span><span class="p">&#x7b;</span><span class="k">\parskip</span><span class="p">&#x7d;&#x7b;</span><span class="k">\baselineskip</span><span class="p">&#x7d;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% For bibliography</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[american]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>csquotes<span class="p">&#x7d;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[style=apa,backend=biber]</span><span class="p">&#x7b;</span>biblatex<span class="p">&#x7d;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\DeclareLanguageMapping</span><span class="p">&#x7b;</span>american<span class="p">&#x7d;&#x7b;</span>american-apa<span class="p">&#x7d;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\addbibresource</span><span class="p">&#x7b;</span>article.bib<span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[]</span><span class="p">&#x7b;</span>url<span class="p">&#x7d;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\urlstyle</span><span class="p">&#x7b;</span>tt<span class="p">&#x7d;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[hidelinks]</span><span class="p">&#x7b;</span>hyperref<span class="p">&#x7d;</span> <span class="c">% Add hyperlinks to the PDF</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\title</span><span class="p">&#x7b;</span>ABCD1234: Title Here<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\author</span><span class="p">&#x7b;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  John Doe<span class="k">\\</span>  <span class="c">% If you don't need the ID, simply omit</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">  1234567890  <span class="c">% the trailing backslashes and this line.</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\and</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  Johnny Hung<span class="k">\\</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">  2345678901
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% If this line is omitted, today's date will be used.</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\date</span><span class="p">&#x7b;</span>January 23, 2014<span class="p">&#x7d;</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\maketitle</span>
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">This is the first paragraph of the document.  To enable editors to
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">focus on the layout of the document, rather than its contents, the
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">famous ``Lorem ipsum'' is used.
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">There's a blank line between two different paragraphs.  The citations
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">here are samples only.  <span class="k">\parencite</span><span class="p">&#x7b;</span>Gnu13<span class="p">&#x7d;</span>  Moreover, the line spacing
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">of this article enables readers to make notes inside the paragraph.
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">For instance, if <span class="k">\textcite</span><span class="p">&#x7b;</span>kaplan2010users<span class="p">&#x7d;</span> include some difficult
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">words that you don't know their meaning, you can look up the
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">dictionary and write the meaning above those words.
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\section</span><span class="p">&#x7b;</span>Introduction<span class="p">&#x7d;</span>
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">Vitae, vulputate et, massa. Nulla sed erat vel eros ornare venenatis.
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">In hac habitasse platea dictumst. Sed nisl nunc, suscipit id, feugiat.
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="55" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\subsection</span><span class="p">&#x7b;</span>Opener<span class="p">&#x7d;</span>
+</div></div><div data-line="56" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="57" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="58" class="code-highlight-row numbered"><div class="code-highlight-line">Justo posuere mattis. Suspendisse egestas bibendum nulla. In erat
+</div></div><div data-line="59" class="code-highlight-row numbered"><div class="code-highlight-line">nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="60" class="code-highlight-row numbered"><div class="code-highlight-line">Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="61" class="code-highlight-row numbered"><div class="code-highlight-line">tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="62" class="code-highlight-row numbered"><div class="code-highlight-line">Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="63" class="code-highlight-row numbered"><div class="code-highlight-line">urna.
+</div></div><div data-line="64" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="65" class="code-highlight-row numbered"><div class="code-highlight-line">Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="66" class="code-highlight-row numbered"><div class="code-highlight-line">luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="67" class="code-highlight-row numbered"><div class="code-highlight-line">risus ut arcu malesuada ornare. Maecenas nec erat. Sed rhoncus, elit
+</div></div><div data-line="68" class="code-highlight-row numbered"><div class="code-highlight-line">laoreet sagittis luctus, nulla leo faucibus lectus, vitae accumsan est
+</div></div><div data-line="69" class="code-highlight-row numbered"><div class="code-highlight-line">diam id felis. Nunc dui pede, vestibulum eu, elementum.
+</div></div><div data-line="70" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="71" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="72" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\subsection</span><span class="p">&#x7b;</span>Purpose<span class="p">&#x7d;</span>
+</div></div><div data-line="73" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="74" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="75" class="code-highlight-row numbered"><div class="code-highlight-line">Eros sit amet ante. Vestibulum ante. Sed quis ipsum non ligula
+</div></div><div data-line="76" class="code-highlight-row numbered"><div class="code-highlight-line">dignissim luctus. Integer quis justo id tortor accumsan tempus. Cras
+</div></div><div data-line="77" class="code-highlight-row numbered"><div class="code-highlight-line">vitae magna.  Nunc bibendum lacinia tellus. Quisque porttitor ligula
+</div></div><div data-line="78" class="code-highlight-row numbered"><div class="code-highlight-line">et pede. Nam erat nibh, fringilla ac, rutrum sit amet, rhoncus in,
+</div></div><div data-line="79" class="code-highlight-row numbered"><div class="code-highlight-line">ipsum. Mauris rhoncus, lacus eu convallis sagittis, quam magna.
+</div></div><div data-line="80" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="81" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="82" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\section</span><span class="p">&#x7b;</span>New section<span class="p">&#x7d;</span>
+</div></div><div data-line="83" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="84" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="85" class="code-highlight-row numbered"><div class="code-highlight-line">Commodo. Vestibulum enim felis, interdum non, sollicitudin in, posuere
+</div></div><div data-line="86" class="code-highlight-row numbered"><div class="code-highlight-line">a, sem. Cras nibh.  Sed facilisis ultrices dolor. Vestibulum pretium
+</div></div><div data-line="87" class="code-highlight-row numbered"><div class="code-highlight-line">mauris sed turpis. 
+</div></div><div data-line="88" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="89" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="90" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\subsection</span><span class="p">&#x7b;</span>New subsection<span class="p">&#x7d;</span>
+</div></div><div data-line="91" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="92" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="93" class="code-highlight-row numbered"><div class="code-highlight-line">Rutrum. Nam quis tellus. Cras elit nisi, ornare a, condimentum vitae,
+</div></div><div data-line="94" class="code-highlight-row numbered"><div class="code-highlight-line">rutrum sit amet, tellus. Maecenas a dolor. Praesent tempor, felis eget
+</div></div><div data-line="95" class="code-highlight-row numbered"><div class="code-highlight-line">gravida blandit, urna lacus faucibus velit, in consectetuer sapien
+</div></div><div data-line="96" class="code-highlight-row numbered"><div class="code-highlight-line">erat nec quam. Integer bibendum odio sit amet neque. Integer.
+</div></div><div data-line="97" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="98" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="99" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\subsection</span><span class="p">&#x7b;</span>Another subsection<span class="p">&#x7d;</span>
+</div></div><div data-line="100" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="101" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="102" class="code-highlight-row numbered"><div class="code-highlight-line">Sed, fringilla non, odio. Nulla porta, tortor non suscipit gravida,
+</div></div><div data-line="103" class="code-highlight-row numbered"><div class="code-highlight-line">velit enim aliquam quam, nec condimentum orci augue vel magna. Nulla
+</div></div><div data-line="104" class="code-highlight-row numbered"><div class="code-highlight-line">facilisi.  Donec ipsum enim, congue in, tempus id, pulvinar sagittis,
+</div></div><div data-line="105" class="code-highlight-row numbered"><div class="code-highlight-line">leo. Donec et elit in nunc blandit auctor. Nulla congue.
+</div></div><div data-line="106" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="107" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="108" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\section</span><span class="p">&#x7b;</span>Conclusion<span class="p">&#x7d;</span>
+</div></div><div data-line="109" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="110" class="code-highlight-row numbered"><div class="code-highlight-line">Accumsan justo ut nibh. Donec ac lectus vitae odio lobortis tristique.
+</div></div><div data-line="111" class="code-highlight-row numbered"><div class="code-highlight-line">Donec vestibulum mattis lectus. Donec et lorem.
+</div></div><div data-line="112" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="113" class="code-highlight-row numbered"><div class="code-highlight-line">Cras sit amet mauris. Curabitur a quam. Aliquam neque. Nam nunc nunc,
+</div></div><div data-line="114" class="code-highlight-row numbered"><div class="code-highlight-line">lacinia sed, varius quis, iaculis eget, ante. Nulla dictum justo eu
+</div></div><div data-line="115" class="code-highlight-row numbered"><div class="code-highlight-line">lacus. 
+</div></div><div data-line="116" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="117" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="118" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\printbibliography</span>
+</div></div><div data-line="119" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span></div></div></pre></div></figure>
+
+<h2 id="explanation-of-code-in-latex-sampletex">Explanation of code in “latex-sample.tex”</h2>
+
+<p>For the one-inch margin, I have used the geometry package to do so.
+(line 2) The font size has been set to 12. (line 1) The 1.5 line
+spacing has been implemented. (lines 7–8)</p>
+
+<p>The APA-style reference list was automatically generated using the
+biblatex package along with the biber backend. (lines 15–17,107)</p>
+
+<h2 id="comparison-of-rm-latex-and-other-technologies">Comparison of $\rm \LaTeX$ and other technologies</h2>
+
+<p>I personally appreciate the beauty of Professor Donald Knuff’s
+Computer Modern typefaces, and thus the font Computer Modern Roman has
+been chosen through the whole PDF file.  In terms the number of
+trailing hyphenations in each line, and other relating in-word spacing
+statistics, $\rm \LaTeX$ is better than an array of
+internationally-acclaimed proprietary softwares, such as Microsoft
+Word and Abode InDesign<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>.  In addition, the typesetting of
+Microsoft is incorrect, whereas $\rm \LaTeX$ gives the correct kerning
+and ligatures of characters, apart from rendering “ancient and rare
+ligatures”<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>.  The staff in the Department of Engineering at the
+University of Cambridge has made
+<a href="http://www.eng.cam.ac.uk/help/tpl/textprocessing/latex_advocacy.html">a more comprehensive and detailed comparison</a> of WYSIWYG
+(What-You-See-Is-What-You-Get) editors and $\rm \LaTeX$.</p>
+
+<hr />
+
+<p>I’ve found <a href="http://latex.informatik.uni-halle.de/latex-online/latex.php">$\rm \LaTeX$-Online-Compiler</a>, which is useful
+for testing $\rm \LaTeX$ code.</p>
+
+<p>(Last edited on APR 26TH, 2014)</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>Visual comparison between LaTeX and Word output (hyphenation,
+typesetting, ligatures etc) on
+<a href="http://tex.stackexchange.com/q/110133">$\rm \TeX$–$\rm \LaTeX$ Stack Exchange</a>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>Taraborelli, D.  (July 4, 2011).  <em>The Beauty of $\rm \LaTeX$</em>.
+Retrieved from <a href="http://nitens.org/taraborelli/latex">http://nitens.org/taraborelli/latex</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/03/15/migrated-to-octopress/">Migrated to Octopress</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/03/15/migrated-to-octopress/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/03/15/migrated-to-octopress/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/03/15/migrated-to-octopress/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Posting code using Octopress is easier, and I can attach some
+JavaScripts freely to GitHub pages. Therefore, after several weeks of
+testing, I’ve decided to write blog entries about IT on
+<a href="https://vincenttam.github.io/">my new GitHub page</a>.</p>
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/03/15/a-low-tech-approach-to-a-high-tech-problem/">A Low-Tech Approach to a High-Tech Problem</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/03/15/a-low-tech-approach-to-a-high-tech-problem/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/03/15/a-low-tech-approach-to-a-high-tech-problem/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/03/15/a-low-tech-approach-to-a-high-tech-problem/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Nowadays, people, especially netizens, love sitting in front of a
+computer to do their work.  To those people, we can’t deny the
+importance of computers and the Internet since they help us a lot in
+gathering information.  Moreover, a printed copy is often more neat
+and tidier a handwritten one.  It seems that working means sitting in
+front of a computer or a laptop.</p>
+
+<p>In my opinion, though having low-tech tools, one can still make good
+progress in his/her work, including, but not limiting to, software
+development work.  <em>Not</em> working in the IT sector<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, I know that
+I’ve <em>little</em> convincing power, so I leave it to de Heredia.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  The
+article says that the author prefers going out and working on the
+problem using a pen and paper.  Therefore, using traditional tools, we
+can still create something great.</p>
+
+<p>After reading the article on ViEmu, I decided to write an outline and
+draft an essay using a pen and paper.</p>
+
+<p>P.S. I has typed this article in Vim <em>without</em> doing any ruff work on
+paper.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="/about/">My about page</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>De Heredia, J. B.  (May 16, 2007).  <em>Why, oh WHY, do those #?@!
+nutheads use vi?</em>.  Retrieved from
+<a href="http://www.viemu.com/a-why-vi-vim.html">http://www.viemu.com/a-why-vi-vim.html</a>, Misconception #5.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/30/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/28/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

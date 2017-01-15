@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blogging | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/blogging/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Jekyll Serve Error (2)]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/08/28/jekyll-serve-error-2/"/>
+    
+    <updated>2016-08-28T21:32:58+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/08/28/jekyll-serve-error-2</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p><em>Same</em> as the <a href="/blog/2016/08/20/jekyll-serve-error/">previous post</a> in this series, except that I ran
+this command from M$ Win* 10.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p><em>Similar</em> to the previous post.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ jekyll serve
+WARN: Unresolved specs during Gem::Specification.reset:
+      pygments.rb (~&gt; 0.6.0)
+      jekyll-watch (~&gt; 1.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/resolver.rb:35
+7:in `resolve': Could not find gem 'jekyll (~&gt; 3.1) x64-mingw32' in the gems ava
+ilable on this machine. (Bundler::GemNotFound)
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/r
+esolver.rb:164:in `start'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/r
+esolver.rb:129:in `resolve'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:193:in `resolve'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:132:in `specs'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:177:in `specs_for'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:166:in `requested_specs'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/e
+nvironment.rb:18:in `requested_specs'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/r
+untime.rb:13:in `setup'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler.r
+b:121:in `setup'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plu
+gin_manager.rb:37:in `require_from_bundler'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/jekyll-2.5.3/bin/jekyll:16:
+in `&lt;top (required)&gt;'
+        from C:/Ruby200-x64/bin/jekyll:23:in `load'
+        from C:/Ruby200-x64/bin/jekyll:23:in `&lt;main&gt;'
+</code></pre>
+</div>
+
+<!-- more -->
+
+<h2 id="a-failed-attempt">A failed attempt</h2>
+
+<p>I <em>didn’t</em> know the reason for this problem.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ bundle update
+DL is deprecated, please use Fiddle
+Fetching source index from https://rubygems.org/
+Resolving dependencies...
+Could not verify the SSL certificate for
+https://rubygems.org/quick/Marshal.4.8/jekyll-3.2.1.gemspec.rz.
+There is a chance you are experiencing a man-in-the-middle attack, but most
+likely your system doesn't have the CA certificates needed for verification. For
+information about OpenSSL certificates, see bit.ly/ruby-ssl. To connect without
+using SSL, edit your Gemfile sources and change 'https' to 'http'.
+</code></pre>
+</div>
+
+<h2 id="some-gems-updated">Some gems updated</h2>
+
+<p><em>Without</em> knowing the difference between these two commands, I used
+the second one as an alternative to the first one.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ gem update
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_attributes.o, skipping
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_inline.o, skipping
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_scan.o, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_scan.so, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for lib/redcloth_scan.so, skip
+ping
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for bigdecimal.o, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for bigdecimal.so, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for lib/hitimes/2.0/hitimes.so
+, skipping
+ERROR:  Error installing io-console:
+        ERROR: Failed to build gem native extension.
+
+    C:/Ruby200-x64/bin/ruby.exe extconf.rb
+checking for rb_funcallv()... no
+checking for rb_sym2str()... no
+creating Makefile
+
+make "DESTDIR="
+generating console-x64-mingw32.def
+compiling console.c
+console.c: In function 'console_cursor_set':
+console.c:716:5: warning: implicit declaration of function 'RARRAY_AREF' [-Wimpl
+icit-function-declaration]
+linking shared-object io/console.so
+console.o: In function `console_cursor_set':
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+collect2.exe: error: ld returned 1 exit status
+make: *** [console.so] Error 1
+
+Gem files will remain installed in C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-co
+nsole-0.4.6 for inspection.
+Results logged to C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6/./gem
+_make.out
+
+invalid options: -SHN
+(invalid options are ignored)
+ERROR:  While executing gem ... (Encoding::InvalidByteSequenceError)
+    "\xE9" followed by "\x94" on CP950
+Updating installed gems
+Updating RedCloth
+Temporarily enhancing PATH to include DevKit...
+Building native extensions.  This could take a while...
+Successfully installed RedCloth-4.3.2
+Parsing documentation for RedCloth-4.3.2
+Installing ri documentation for RedCloth-4.3.2
+Installing darkfish documentation for RedCloth-4.3.2
+Updating bigdecimal
+Building native extensions.  This could take a while...
+Successfully installed bigdecimal-1.2.7
+Parsing documentation for bigdecimal-1.2.7
+Installing ri documentation for bigdecimal-1.2.7
+Installing darkfish documentation for bigdecimal-1.2.7
+Updating blankslate
+Successfully installed blankslate-3.1.3
+Parsing documentation for blankslate-3.1.3
+Installing ri documentation for blankslate-3.1.3
+Installing darkfish documentation for blankslate-3.1.3
+Updating bundler
+Successfully installed bundler-1.12.5
+Parsing documentation for bundler-1.12.5
+Installing ri documentation for bundler-1.12.5
+Installing darkfish documentation for bundler-1.12.5
+Updating celluloid
+Successfully installed timers-4.1.1
+Successfully installed celluloid-essentials-0.20.5
+Successfully installed celluloid-supervision-0.20.6
+Successfully installed celluloid-pool-0.20.5
+Successfully installed celluloid-fsm-0.20.5
+Successfully installed celluloid-extras-0.20.5
+Successfully installed celluloid-0.17.3
+Parsing documentation for timers-4.1.1
+Installing ri documentation for timers-4.1.1
+Installing darkfish documentation for timers-4.1.1
+Parsing documentation for celluloid-essentials-0.20.5
+Installing ri documentation for celluloid-essentials-0.20.5
+Installing darkfish documentation for celluloid-essentials-0.20.5
+Parsing documentation for celluloid-supervision-0.20.6
+Installing ri documentation for celluloid-supervision-0.20.6
+Installing darkfish documentation for celluloid-supervision-0.20.6
+Parsing documentation for celluloid-pool-0.20.5
+Installing ri documentation for celluloid-pool-0.20.5
+Installing darkfish documentation for celluloid-pool-0.20.5
+Parsing documentation for celluloid-fsm-0.20.5
+Installing ri documentation for celluloid-fsm-0.20.5
+Installing darkfish documentation for celluloid-fsm-0.20.5
+Parsing documentation for celluloid-extras-0.20.5
+Installing ri documentation for celluloid-extras-0.20.5
+Installing darkfish documentation for celluloid-extras-0.20.5
+Parsing documentation for celluloid-0.17.3
+Installing ri documentation for celluloid-0.17.3
+Installing darkfish documentation for celluloid-0.17.3
+Updating chunky_png
+Successfully installed chunky_png-1.3.6
+Parsing documentation for chunky_png-1.3.6
+Installing ri documentation for chunky_png-1.3.6
+Installing darkfish documentation for chunky_png-1.3.6
+Updating classifier-reborn
+Successfully installed classifier-reborn-2.0.4
+Parsing documentation for classifier-reborn-2.0.4
+Installing ri documentation for classifier-reborn-2.0.4
+Installing darkfish documentation for classifier-reborn-2.0.4
+Updating coffee-script
+Successfully installed coffee-script-2.4.1
+Parsing documentation for coffee-script-2.4.1
+Installing ri documentation for coffee-script-2.4.1
+Installing darkfish documentation for coffee-script-2.4.1
+Updating coffee-script-source
+Successfully installed coffee-script-source-1.10.0
+Parsing documentation for coffee-script-source-1.10.0
+Installing ri documentation for coffee-script-source-1.10.0
+Installing darkfish documentation for coffee-script-source-1.10.0
+Updating colorator
+Successfully installed colorator-1.1.0
+Parsing documentation for colorator-1.1.0
+Installing ri documentation for colorator-1.1.0
+Installing darkfish documentation for colorator-1.1.0
+Updating execjs
+Successfully installed execjs-2.7.0
+Parsing documentation for execjs-2.7.0
+Installing ri documentation for execjs-2.7.0
+Installing darkfish documentation for execjs-2.7.0
+Updating ffi
+Successfully installed ffi-1.9.14-x64-mingw32
+Parsing documentation for ffi-1.9.14-x64-mingw32
+Installing ri documentation for ffi-1.9.14-x64-mingw32
+Installing darkfish documentation for ffi-1.9.14-x64-mingw32
+Updating haml
+
+HEADS UP! Haml 4.0 has many improvements, but also has changes that may break
+your application:
+
+* Support for Ruby 1.8.6 dropped
+* Support for Rails 2 dropped
+* Sass filter now always outputs &lt;style&gt; tags
+* Data attributes are now hyphenated, not underscored
+* html2haml utility moved to the html2haml gem
+* Textile and Maruku filters moved to the haml-contrib gem
+
+For more info see:
+
+http://rubydoc.info/github/haml/haml/file/CHANGELOG.md
+
+Successfully installed haml-4.0.7
+Parsing documentation for haml-4.0.7
+Installing ri documentation for haml-4.0.7
+Installing darkfish documentation for haml-4.0.7
+Updating hitimes
+Building native extensions.  This could take a while...
+Successfully installed hitimes-1.2.4
+Parsing documentation for hitimes-1.2.4
+Installing ri documentation for hitimes-1.2.4
+Installing darkfish documentation for hitimes-1.2.4
+Updating io-console
+Building native extensions.  This could take a while...
+Updating jekyll
+Successfully installed liquid-3.0.6
+Successfully installed rouge-1.11.1
+Successfully installed forwardable-extended-2.6.0
+Successfully installed pathutil-0.14.0
+Successfully installed jekyll-3.2.1
+Successfully installed rb-inotify-0.9.7
+Successfully installed listen-3.0.8
+Parsing documentation for liquid-3.0.6
+Installing ri documentation for liquid-3.0.6
+Installing darkfish documentation for liquid-3.0.6
+Parsing documentation for rouge-1.11.1
+Installing ri documentation for rouge-1.11.1
+Installing darkfish documentation for rouge-1.11.1
+Parsing documentation for forwardable-extended-2.6.0
+Installing ri documentation for forwardable-extended-2.6.0
+Installing darkfish documentation for forwardable-extended-2.6.0
+Parsing documentation for pathutil-0.14.0
+Installing ri documentation for pathutil-0.14.0
+Installing darkfish documentation for pathutil-0.14.0
+Parsing documentation for jekyll-3.2.1
+Installing ri documentation for jekyll-3.2.1
+Installing darkfish documentation for jekyll-3.2.1
+Parsing documentation for rb-inotify-0.9.7
+Installing ri documentation for rb-inotify-0.9.7
+Installing darkfish documentation for rb-inotify-0.9.7
+Parsing documentation for listen-3.0.8
+Installing ri documentation for listen-3.0.8
+Installing darkfish documentation for listen-3.0.8
+Updating jekyll-gist
+Successfully installed multipart-post-2.0.0
+Successfully installed faraday-0.9.2
+Successfully installed addressable-2.4.0
+Successfully installed sawyer-0.7.0
+Successfully installed octokit-4.3.0
+Successfully installed jekyll-gist-1.4.0
+Parsing documentation for multipart-post-2.0.0
+Installing ri documentation for multipart-post-2.0.0
+Installing darkfish documentation for multipart-post-2.0.0
+Parsing documentation for faraday-0.9.2
+Installing ri documentation for faraday-0.9.2
+Installing darkfish documentation for faraday-0.9.2
+Parsing documentation for addressable-2.4.0
+Installing ri documentation for addressable-2.4.0
+Installing darkfish documentation for addressable-2.4.0
+Parsing documentation for sawyer-0.7.0
+Installing ri documentation for sawyer-0.7.0
+Installing darkfish documentation for sawyer-0.7.0
+Parsing documentation for octokit-4.3.0
+Installing ri documentation for octokit-4.3.0
+Installing darkfish documentation for octokit-4.3.0
+Parsing documentation for jekyll-gist-1.4.0
+Installing ri documentation for jekyll-gist-1.4.0
+Installing darkfish documentation for jekyll-gist-1.4.0
+Updating jekyll-sass-converter
+Successfully installed jekyll-sass-converter-1.4.0
+Parsing documentation for jekyll-sass-converter-1.4.0
+Installing ri documentation for jekyll-sass-converter-1.4.0
+Installing darkfish documentation for jekyll-sass-converter-1.4.0
+Updating jekyll-sitemap
+</code></pre>
+</div>
+
+<h2 id="effect">Effect</h2>
+
+<p>The preview <em>failed</em>.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ jekyll serve
+WARN: Unresolved specs during Gem::Specification.reset:
+      jekyll-watch (~&gt; 1.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+Configuration file: C:/github/blog2/_config.yml
+            Source: C:/github/blog2
+       Destination: C:/github/blog2/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 2.227 seconds.
+I, [2016-08-28T21:50:30.210479 #7440]  INFO -- : Celluloid 0.17.3 is running in 
+BACKPORTED mode. [ http://git.io/vJf3J ]
+jekyll 3.2.1 | Error:  wrong number of arguments (2 for 1)
+</code></pre>
+</div>
+
+<p>Then, I googled “unable to convert x90 from ascii-8bit to utf-8” and
+clicked on the first link, which was a Stack Overflow question about
+<a href="http://stackoverflow.com/q/18235293">an similar error</a>.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>$ gem update --system
+RubyGems 2.6.6 installed
+Parsing documentation for rubygems-2.6.6
+Installing ri documentation for rubygems-2.6.6
+
+=== 2.6.6 / 2016-06-22
+
+Bug fixes:
+
+* Sort installed versions to make sure we install the latest version when
+## RELEASE NOTES OMITTED
+  by Michal Papis.
+
+
+------------------------------------------------------------------------------
+
+RubyGems installed the following executables:
+    C:/Ruby200-x64/bin/gem
+
+Ruby Interactive (ri) documentation was installed. ri is kind of like man
+pages for ruby libraries. You may access it like this:
+  ri Classname
+  ri Classname.class_method
+  ri Classname#instance_method
+If you do not wish to install this documentation in the future, use the
+--no-document flag, or set it as the default in your ~/.gemrc file. See
+'gem help env' for details.
+
+Updating rubygems-update
+Successfully installed rubygems-update-2.6.6
+Parsing documentation for rubygems-update-2.6.6
+Installing ri documentation for rubygems-update-2.6.6
+Installing darkfish documentation for rubygems-update-2.6.6
+Installing RubyGems 2.6.6
+RubyGems system software updated
+</code></pre>
+</div>
+
+<p>The error <em>unable to convert “\x86” from ASCII-8BIT to UTF-8 for …</em>
+was <em>gone</em>, but the rests were still there.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ gem update
+ERROR:  Error installing io-console:
+        ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6
+C:/Ruby200-x64/bin/ruby.exe -r ./siteconf20160829-1756-1m1r5xm.rb extconf.rb
+checking for rb_funcallv()... no
+checking for rb_sym2str()... no
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can
+ be found here:
+
+  C:/Ruby200-x64/lib/ruby/gems/2.0.0/extensions/x64-mingw32/2.0.0/io-console-0.4
+.6/mkmf.log
+
+current directory: C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6
+make "DESTDIR=" clean
+
+current directory: C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6
+make "DESTDIR="
+generating console-x64-mingw32.def
+compiling console.c
+console.c: In function 'console_cursor_set':
+console.c:716:5: warning: implicit declaration of function 'RARRAY_AREF' [-Wimpl
+icit-function-declaration]
+linking shared-object io/console.so
+console.o: In function `console_cursor_set':
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+collect2.exe: error: ld returned 1 exit status
+make: *** [console.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-co
+nsole-0.4.6 for inspection.
+Results logged to C:/Ruby200-x64/lib/ruby/gems/2.0.0/extensions/x64-mingw32/2.0.
+0/io-console-0.4.6/gem_make.out
+ERROR:  While executing gem ... (Encoding::InvalidByteSequenceError)
+    "\xE9" followed by "\x94" on CP950
+Updating installed gems
+Updating io-console
+Temporarily enhancing PATH to include DevKit...
+Building native extensions.  This could take a while...
+Updating jekyll-sitemap
+</code></pre>
+</div>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Website Preview in Mobile Devices]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/08/21/website-preview-in-mobile-devices/"/>
+    
+    <updated>2016-08-21T18:30:57+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/08/21/website-preview-in-mobile-devices</id>
+    
+      <content type="html"><![CDATA[<h2 id="goal">Goal</h2>
+
+<p>To know the page layout of a website, notably my blogs, on mobile
+devices before publishing it.</p>
+
+<p><img src="/images/posts/SitePreviewMobile/Screenshot-2016-08-21-19-36-14.png" alt="Preview this blog on a smartphone" /></p>
+
+<h2 id="problem">Problem</h2>
+
+<p>I used <code class="highlighter-rouge">ifconfig</code> to check the IP address of my desktop where the
+preview site was hosted.  It’s <code class="highlighter-rouge">192.168.1.5</code>.  When I typed in this
+address followed by a colon and the port number <code class="highlighter-rouge">4000</code>, then the
+browser said “connection timeout” after loading for a while.</p>
+
+<p><img src="/images/posts/SitePreviewMobile/Screenshot-2016-08-21-19-35-00.png" alt="Connection timeout" /></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>I spent a day to identify the cause of the problem.</p>
+
+<h3 id="host-name-incorrect">Host name incorrect</h3>
+
+<p>Actually, the website should be hosted at the internal IP address
+shown by <code class="highlighter-rouge">ifconfig</code> instead of <code class="highlighter-rouge">localhost</code>.  Since I switch off the
+router before going to bed every day, the internal IP address for my
+desktop changes daily.  Therefore, one uses <code class="highlighter-rouge">0.0.0.0</code> to host the site
+on <em>all</em> IP addresses that the machine possesses.</p>
+
+<p>In <a href="https://github.com/plusjade/jekyll-bootstrap">Jekyll-Bootstrap</a>, one may simply add <code class="highlighter-rouge">host : 0.0.0.0</code> in
+<code class="highlighter-rouge">_config.yml</code>; in <a href="http://octopress.org/">Octopress</a>, one may find the line containing
+<code class="highlighter-rouge">server_port</code> in the middle of <code class="highlighter-rouge">Rakefile</code> and add <code class="highlighter-rouge">--host
+#{listen_host}</code>.<sup id="fnref:myeg"><a href="#fn:myeg" class="footnote">1</a></sup></p>
+
+<p>``` ruby Changes in Rakefile http://www.jmlog.com/octopress-preview-config-in-vagrant/
+server_port     = “4000”      # port for preview server eg. localhost:4000
+listen_host     = “0.0.0.0”   # bind to all available IPs</p>
+
+<h1 id="rackuppid--processspawnrackup-port-server_port">rackupPid = Process.spawn(“rackup –port #{server_port}”)</h1>
+<p>rackupPid = Process.spawn(“rackup –port #{server_port} –host #{listen_host}”)
+```</p>
+
+<h3 id="port-blocked-by-firewall">Port blocked by firewall</h3>
+
+<p>On Ubuntu, I used <abbr title="Uncomplicated Firewall">UFW</abbr> to open the port <code class="highlighter-rouge">4000</code> to all devices at home.
+(The netmask of my home router has 24 bits, which is the usual
+setting.)</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>sudo ufw allow from 192.168.1.0/24 to any port 4000:4001 proto tcp
+</code></pre>
+</div>
+
+<h2 id="references">References</h2>
+
+<ol>
+  <li><a href="https://help.ubuntu.com/community/UFW#Allow_and_Deny_.28specific_rules.29"><abbr title="Uncomplicated Firewall">UFW</abbr> – Ubuntu Community Help</a>: the syntax for allowing and
+denying specific machines.</li>
+  <li><a href="http://www.jmlog.com/octopress-preview-config-in-vagrant/"><em>Vagrant 下的 Octopress 預覽設置</em></a>: A sample <code class="highlighter-rouge">Rakefile</code>
+which allows the specification of the host address.</li>
+  <li>鳥哥的 Linux 私房菜 – <a href="http://linux.vbird.org/linux_server/0110network_basic.php">基礎網路概念</a>: A detailed explanation
+for some fundamental concepts like IP address, netmask and subnet.
+I understand what <code class="highlighter-rouge">/24</code> in <code class="highlighter-rouge">192.168.1.0/24</code> means after reading
+this chapter of the guide.</li>
+  <li>An Ask Ubuntu question on specifying a
+<a href="http://askubuntu.com/q/7099">range of ports in <abbr title="Uncomplicated Firewall">UFW</abbr></a></li>
+</ol>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:myeg">
+
+      <p>View my working examples:</p>
+
+      <ul>
+        <li><a href="/">Blog 1</a>: at commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/bfa1e9e">bfa1e9e</a></li>
+        <li><a href="/blog2">Blog 2</a>: at commit <a href="https://github.com/VincentTam/blog2/commit/d4ec6a6">d4ec6a6</a></li>
+      </ul>
+      <p><a href="#fnref:myeg" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[My Host File Edited]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/08/21/my-host-file-edited/"/>
+    
+    <updated>2016-08-21T00:50:34+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/08/21/my-host-file-edited</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>A preview of a blog is often needed before it’s published.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>However, it is possible that one <em>doesn’t</em> like to type <code class="highlighter-rouge">localhost</code> in
+the address bar, and would like to have other names.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>The idea is in <em>Local Setup – edit your hosts file</em> in <em>How to test
+localhost from any device on your network</em>
+<a href="http://wesbos.com/localhost-mobile-device-testing/">written by Wes Bos</a>.  On *nix, the file path is still the
+<em>same</em> as on OSX, but many users would rather use <a href="http://www.vim.org/">Vim</a> for editing
+<code class="highlighter-rouge">/etc/hosts</code>.  One may even use <a href="https://www.gnu.org/software/sed/manual/sed.html"><code class="highlighter-rouge">sed</code></a> with the <code class="highlighter-rouge">-i</code> flag and
+the <code class="highlighter-rouge">sudo</code> privilege in order to directly manipulate this file.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">sudo sed -i "3i127.0.0.1\tblogtest.com" /etc/hosts</code> for insertion
+  of “127.0.0.1        blogtest.com” <em>before</em> the third line.</li>
+  <li><code class="highlighter-rouge">sudo sed -i "3c127.0.0.1\tblogtest.com" /etc/hosts</code> for changing
+  the third line to “127.0.0.1        blogtest.com”.</li>
+</ul>
+
+<p>Note that the tab is escaped as <code class="highlighter-rouge">\t</code> in these two commands.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Jekyll Serve Error]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/08/20/jekyll-serve-error/"/>
+    
+    <updated>2016-08-20T22:15:43+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/08/20/jekyll-serve-error</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>I updated the <a href="https://github.com/plusjade/jekyll-bootstrap">Jekyll-Bootstrap</a> source code for <a href="/blog2">Blog 2</a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Then, I wanted to preview it.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/blog2]$ jekyll serve
+/home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bundler/resolver.
+rb:357:in `resolve': Could not find gem 'jekyll (~&gt; 3.1) ruby' in the gems avail
+able on this machine. (Bundler::GemNotFound)
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/resolver.rb:164:in `start'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/resolver.rb:129:in `resolve'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:203:in `resolve'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:133:in `specs'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:178:in `specs_for'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:167:in `requested_specs'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/environment.rb:18:in `requested_specs'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/runtime.rb:13:in `setup'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler.rb:120:in `setup'
+        from /home/owner/.rvm/gems/ruby-2.1.2/gems/jekyll-2.5.3/lib/jekyll/plugi
+n_manager.rb:37:in `require_from_bundler'
+        from /home/owner/.rvm/gems/ruby-2.1.2/gems/jekyll-2.5.3/bin/jekyll:16:in
+ `&lt;top (required)&gt;'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/jekyll:23:in `load'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/jekyll:23:in `&lt;main&gt;'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `e
+val'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `&lt;
+main&gt;'
+</code></pre>
+</div>
+
+<p><strong>How can it be previewed?</strong></p>
+
+<!-- more -->
+
+<p>N.B. I replaced all tabs with spaces due to a
+<a href="/blog/2015/05/16/recent-vundle-plugin-update/">remark of my article</a> <em>Recent Vundle Plugin Update</em>.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>From the head of the error message, it’s reasonable to guess that the
+outdated Ruby gems were the cause.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/blog2]$ gem update
+Updating installed gems
+Updating RedCloth
+Fetching: RedCloth-4.3.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed RedCloth-4.3.2
+Updating bigdecimal
+Fetching: bigdecimal-1.2.7.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed bigdecimal-1.2.7
+Updating blankslate
+Fetching: blankslate-3.1.3.gem (100%)
+Successfully installed blankslate-3.1.3
+Updating bundler
+Fetching: bundler-1.12.5.gem (100%)
+Successfully installed bundler-1.12.5
+Updating celluloid
+Fetching: timers-4.1.1.gem (100%)
+Successfully installed timers-4.1.1
+Fetching: celluloid-essentials-0.20.5.gem (100%)
+Successfully installed celluloid-essentials-0.20.5
+Fetching: celluloid-supervision-0.20.6.gem (100%)
+Successfully installed celluloid-supervision-0.20.6
+Fetching: celluloid-pool-0.20.5.gem (100%)
+Successfully installed celluloid-pool-0.20.5
+Fetching: celluloid-fsm-0.20.5.gem (100%)
+Successfully installed celluloid-fsm-0.20.5
+Fetching: celluloid-extras-0.20.5.gem (100%)
+Successfully installed celluloid-extras-0.20.5
+Fetching: celluloid-0.17.3.gem (100%)
+Successfully installed celluloid-0.17.3
+Updating chunky_png
+Fetching: chunky_png-1.3.6.gem (100%)
+Successfully installed chunky_png-1.3.6
+Updating classifier-reborn
+Fetching: classifier-reborn-2.0.4.gem (100%)
+Successfully installed classifier-reborn-2.0.4
+Updating coffee-script
+Fetching: coffee-script-2.4.1.gem (100%)
+Successfully installed coffee-script-2.4.1
+Updating coffee-script-source
+Fetching: coffee-script-source-1.10.0.gem (100%)
+Successfully installed coffee-script-source-1.10.0
+Updating colorator
+Fetching: colorator-1.1.0.gem (100%)
+Successfully installed colorator-1.1.0
+Updating domain_name
+Fetching: domain_name-0.5.20160615.gem (100%)
+Successfully installed domain_name-0.5.20160615
+Updating execjs
+Fetching: execjs-2.7.0.gem (100%)
+Successfully installed execjs-2.7.0
+Updating ffi
+Fetching: ffi-1.9.14.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed ffi-1.9.14
+Updating gem-wrappers
+Fetching: gem-wrappers-1.2.7.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed gem-wrappers-1.2.7
+Updating haml
+Fetching: haml-4.0.7.gem (100%)
+
+HEADS UP! Haml 4.0 has many improvements, but also has changes that may break
+your application:
+
+* Support for Ruby 1.8.6 dropped
+* Support for Rails 2 dropped
+* Sass filter now always outputs &lt;style&gt; tags
+* Data attributes are now hyphenated, not underscored
+* html2haml utility moved to the html2haml gem
+* Textile and Maruku filters moved to the haml-contrib gem
+
+For more info see:
+
+http://rubydoc.info/github/haml/haml/file/CHANGELOG.md
+
+Successfully installed haml-4.0.7
+Updating hitimes
+Fetching: hitimes-1.2.4.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed hitimes-1.2.4
+Updating io-console
+Fetching: io-console-0.4.6.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed io-console-0.4.6
+Updating jekyll
+Fetching: liquid-3.0.6.gem (100%)
+Successfully installed liquid-3.0.6
+Fetching: rouge-1.11.1.gem (100%)
+Successfully installed rouge-1.11.1
+Fetching: forwardable-extended-2.6.0.gem (100%)
+Successfully installed forwardable-extended-2.6.0
+Fetching: pathutil-0.14.0.gem (100%)
+Successfully installed pathutil-0.14.0
+Fetching: jekyll-3.2.1.gem (100%)
+Successfully installed jekyll-3.2.1
+Updating jekyll-gist
+Fetching: addressable-2.4.0.gem (100%)
+Successfully installed addressable-2.4.0
+Fetching: multipart-post-2.0.0.gem (100%)
+Successfully installed multipart-post-2.0.0
+Fetching: faraday-0.9.2.gem (100%)
+Successfully installed faraday-0.9.2
+Fetching: sawyer-0.7.0.gem (100%)
+Successfully installed sawyer-0.7.0
+Fetching: octokit-4.3.0.gem (100%)
+Successfully installed octokit-4.3.0
+Fetching: jekyll-gist-1.4.0.gem (100%)
+Successfully installed jekyll-gist-1.4.0
+Updating jekyll-sass-converter
+Fetching: jekyll-sass-converter-1.4.0.gem (100%)
+Successfully installed jekyll-sass-converter-1.4.0
+Updating jekyll-sitemap
+Fetching: jekyll-sitemap-0.11.0.gem (100%)
+Successfully installed jekyll-sitemap-0.11.0
+Updating jekyll-watch
+Fetching: rb-inotify-0.9.7.gem (100%)
+Successfully installed rb-inotify-0.9.7
+Fetching: listen-3.0.8.gem (100%)
+Successfully installed listen-3.0.8
+Fetching: jekyll-watch-1.5.0.gem (100%)
+Successfully installed jekyll-watch-1.5.0
+Updating json
+Fetching: json-2.0.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed json-2.0.2
+Updating kramdown
+Fetching: kramdown-1.12.0.gem (100%)
+Successfully installed kramdown-1.12.0
+Updating mercenary
+Fetching: mercenary-0.3.6.gem (100%)
+Successfully installed mercenary-0.3.6
+Updating mime-types
+Fetching: mime-types-data-3.2016.0521.gem (100%)
+Successfully installed mime-types-data-3.2016.0521
+Fetching: mime-types-3.1.gem (100%)
+Successfully installed mime-types-3.1
+Updating mini_magick
+Fetching: mini_magick-4.5.1.gem (100%)
+Successfully installed mini_magick-4.5.1
+Updating minitest
+Fetching: minitest-5.9.0.gem (100%)
+Successfully installed minitest-5.9.0
+Updating multi_json
+Fetching: multi_json-1.12.1.gem (100%)
+Successfully installed multi_json-1.12.1
+Updating octopress-date-format
+Fetching: octopress-date-format-3.0.3.gem (100%)
+Successfully installed octopress-date-format-3.0.3
+Updating octopress-hooks
+Fetching: octopress-hooks-2.6.1.gem (100%)
+Successfully installed octopress-hooks-2.6.1
+Updating parslet
+Fetching: parslet-1.7.1.gem (100%)
+Successfully installed parslet-1.7.1
+Updating pdf-core
+Fetching: pdf-core-0.6.1.gem (100%)
+Successfully installed pdf-core-0.6.1
+Updating posix-spawn
+Fetching: posix-spawn-0.3.11.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed posix-spawn-0.3.11
+Updating prawn
+Fetching: prawn-2.1.0.gem (100%)
+Successfully installed prawn-2.1.0
+Updating psych
+Fetching: psych-2.1.0.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed psych-2.1.0
+Updating pygments.rb
+Fetching: pygments.rb-0.6.3.gem (100%)
+Successfully installed pygments.rb-0.6.3
+Updating rack
+Fetching: rack-2.0.1.gem (100%)
+ERROR:  Error installing rack:
+        rack requires Ruby version &gt;= 2.2.2.
+Updating rake
+Fetching: rake-11.2.2.gem (100%)
+Successfully installed rake-11.2.2
+Updating rb-fsevent
+Fetching: rb-fsevent-0.9.7.gem (100%)
+Successfully installed rb-fsevent-0.9.7
+Updating rdoc
+Fetching: rdoc-4.2.2.gem (100%)
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+&lt;= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+&gt;= 1.9.2 : nothing to do! Yay!
+Successfully installed rdoc-4.2.2
+Updating redcarpet
+Fetching: redcarpet-3.3.4.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed redcarpet-3.3.4
+Updating rest-client
+Fetching: rest-client-2.0.0.gem (100%)
+Successfully installed rest-client-2.0.0
+Updating rubypants
+Fetching: rubypants-0.5.0.gem (100%)
+Successfully installed rubypants-0.5.0
+Updating sass
+Fetching: sass-3.4.22.gem (100%)
+Successfully installed sass-3.4.22
+Updating sass-globbing
+Fetching: sass-globbing-1.1.5.gem (100%)
+Successfully installed sass-globbing-1.1.5
+Updating sinatra
+Fetching: sinatra-1.4.7.gem (100%)
+Successfully installed sinatra-1.4.7
+Updating stringex
+Fetching: stringex-2.6.1.gem (100%)
+Successfully installed stringex-2.6.1
+Updating test-unit
+Fetching: power_assert-0.3.0.gem (100%)
+Successfully installed power_assert-0.3.0
+Fetching: test-unit-3.2.1.gem (100%)
+Successfully installed test-unit-3.2.1
+Updating tilt
+Fetching: tilt-2.0.5.gem (100%)
+Successfully installed tilt-2.0.5
+Gems updated: RedCloth bigdecimal blankslate bundler celluloid celluloid-essenti
+als celluloid-extras celluloid-fsm celluloid-pool celluloid-supervision timers c
+hunky_png classifier-reborn coffee-script coffee-script-source colorator domain_
+name execjs ffi gem-wrappers haml hitimes io-console forwardable-extended jekyll
+ liquid pathutil rouge addressable faraday jekyll-gist multipart-post octokit sa
+wyer jekyll-sass-converter jekyll-sitemap jekyll-watch listen rb-inotify json kr
+amdown mercenary mime-types mime-types-data mini_magick minitest multi_json octo
+press-date-format octopress-hooks parslet pdf-core posix-spawn prawn psych pygme
+nts.rb rack rake rb-fsevent rdoc redcarpet rest-client rubypants sass sass-globb
+ing sinatra stringex power_assert test-unit tilt
+[owner@localhost ~/blog2]$ jekyll serve
+Configuration file: /home/owner/blog2/_config.yml
+            Source: /home/owner/blog2
+       Destination: /home/owner/blog2/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 1.135 seconds.
+ Auto-regeneration: enabled for '/home/owner/blog2'
+Configuration file: /home/owner/blog2/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+[2016-08-18 19:19:37] ERROR `/favicon.ico' not found.
+</code></pre>
+</div>
+
+<p>Due to the error on <code class="highlighter-rouge">favicon.ico</code>, I made commit <a href="https://github.com/VincentTam/blog2/commit/4aafebe">4aafebe</a>.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Fixed Jekyll-Bootstrap Asset Path (2)]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/08/18/fixed-jekyll-bootstrap-asset-path-2/"/>
+    
+    <updated>2016-08-18T16:15:33+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/08/18/fixed-jekyll-bootstrap-asset-path-2</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>I attempted to manually fix a <a href="/blog/2016/02/15/fixed-jekyll-bootstrap-asset-path/">problem in the first post</a> in this
+series half a year ago.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>I have just updated the Jekyll source code for <a href="/blog2">Blog 2</a>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/blog2]$ git pull jekyll master
+remote: Counting objects: 37, done.
+remote: Total 37 (delta 10), reused 10 (delta 10), pack-reused 27
+Unpacking objects: 100% (37/37), done.
+From github.com:plusjade/jekyll-bootstrap
+ * branch            master     -&gt; FETCH_HEAD
+   3a34785..8193869  master     -&gt; jekyll/master
+Removing sitemap.txt
+Auto-merging _includes/JB/setup
+CONFLICT (content): Merge conflict in _includes/JB/setup
+Auto-merging _config.yml
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+</div>
+
+<p><strong>How to repair this failed merge?</strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>In the file <code class="highlighter-rouge">_includes/JB/setup</code>, I deleted the <code class="highlighter-rouge">HEAD</code> part, and
+adopted the official changes in the remote repository for Jekyll.
+Then, everything should be fine.</p>
+
+]]></content>
+    
+  </entry>
+  
+</feed>

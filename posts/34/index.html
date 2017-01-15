@@ -1,0 +1,1231 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	GNU ddrescue—A Powerful Data Recovery Tool
+      
+    
+    
+      
+        
+        
+           | Comment...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/34/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/01/05/gnu-ddrescue-a-powerful-data-recovery-tool/">GNU ddrescue—A Powerful Data Recovery Tool</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/01/05/gnu-ddrescue-a-powerful-data-recovery-tool/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/01/05/gnu-ddrescue-a-powerful-data-recovery-tool/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/01/05/gnu-ddrescue-a-powerful-data-recovery-tool/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>3 days ago, I encountered an error while moving a folder of about 3 GB
+from my USB stick to my hard disk using <abbr title="graphical user interface">GUI</abbr>.  After 1.2 GB of the
+files are moved, the progress bar of the program just remained
+unchanged.  I left the seat in front of my computer and did something
+else.  Returning to the seat after half an hour, the situation had NOT
+been better.  The displayed remaining time was still “unknown”.</p>
+
+<p>The I clicked the cancel button to stop the process, but it simply
+hangs.  After terminating the process from the “System Monitor”
+(another <abbr title="graphical user interface">GUI</abbr> program), the read/write speed of the USB stick became
+extremely low.  Instead of blinking frequently, the light bulb inside
+the USB stick went on and off slowing during a read/write operation.</p>
+
+<p>In <code class="highlighter-rouge">/var/log/syslog.1</code>, it says</p>
+
+<pre class="cli"><code class="UBMono">[  627.152020] usb 2-1: reset high-speed USB device number 4 using ehci_hcd
+[  658.128020] usb 2-1: reset high-speed USB device number 4 using ehci_hcd
+<span class="err">[  658.493165] sd 3:0:0:0: [sdf] Unhandled error code</span>
+[  658.493169] sd 3:0:0:0: [sdf]  Result: hostbyte=DID_ABORT driverbyte=DRIVER_OK
+[  658.493174] sd 3:0:0:0: [sdf] CDB: Write(10): 2a 00 00 54 e9 30 00 00 01 00
+<span class="err">[  658.493188] end_request: I/O error, dev sdf, sector 5564720</span>
+[  658.494531] quiet_error: 39 callbacks suppressed
+<span class="err">[  658.494533] Buffer I/O error on device sdf1, logical block 5564658</span>
+[  658.495808] lost page write due to I/O error on sdf1</code>
+</pre>
+
+<!-- more -->
+
+<p>Oh! I need to recover the data! And I’ve found GNU ddrescue an
+excellent tool for the task.  No expensive recovery plans are needed.
+Just ddrescue on a bootable media and some free space in a storage
+device will do.</p>
+
+<p>It’s important to note that the data recovery program should <em>never</em>
+be run on the <em>damaged</em> device.  Otherwise, further damage will be
+done to the damaged device.<sup id="fnref:note"><a href="#fn:note" class="footnote">1</a></sup>  In addition, I <em>don’t</em> recommend
+running the data rescue tool on the operating system(s) installed on
+your hard disk.  The process takes a long time, so “patience is
+key”.<sup id="fnref:key"><a href="#fn:key" class="footnote">2</a></sup></p>
+
+<p>Booted into the <abbr title="command line interface">CLI</abbr> of Ubuntu Rescue Remix
+12.04, I first formatted the <code class="highlighter-rouge">D</code> drive into an empty NTFS partition
+after backing up the data on that device. (i.e. <code class="highlighter-rouge">/dev/sda5</code>)</p>
+
+<p>After that , I ran the following command:<sup id="fnref:cmd"><a href="#fn:cmd" class="footnote">3</a></sup></p>
+
+<pre class="cli"><code class="UBMono">$ ddrescue -r1 -n -S -v /dev/sdxm /dev/sdyn [logfile]
+# Substitute x with the appropriate partition letter of the source partition
+# Substitute y with the appropriate partition letter of the destination partition
+# Substitute m with the appropriate partition number of the source partition
+# Substitute n with the appropriate partition number of the destination partition</code>
+</pre>
+
+<p>Note: <em>This process is irreverisible so do it carefully.</em></p>
+
+<p>In the screenshot below, <code class="highlighter-rouge">x=f</code>, <code class="highlighter-rouge">y=a</code>, <code class="highlighter-rouge">m=1</code>, <code class="highlighter-rouge">n=5</code>, and
+<code class="highlighter-rouge">logfile='backup1.log'</code>.</p>
+
+<p>But the program refused to work, so I have to <code class="highlighter-rouge">--force</code> it to work.</p>
+
+<pre class="cli"><code class="UBMono">   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition's system id
+   u   change display/entry units
+   v   verify the partition table
+   w   write table to disk and exit
+   x   extra functionality (experts only)
+Command (m for help): l
+ 0  Empty            c  FAT32 LBA       1e  Hidd FAT16 LBA  52  CP/M            80  Minix &lt;1.4a     9f  BSD/OS          bf  Solaris         eb  BeOS fs
+ 1  FAT12            e  FAT16 LBA       24  NEC DOS         53  OnTrackDM6 Aux3 81  Minix &gt;1.4b     a0  Thinkpad hib    c1  DRDOS/2 FAT12   ee  GPT
+ 2  XENIX root       f  Extended LBA    39  Plan 9          54  OnTrack DM6     82  Linux swap      a5  FreeBSD         c4  DRDOS/2 smFAT16 ef  EFI FAT
+ 3  XENIX usr       10  OPUS            3c  PMagic recovery 55  EZ Drive        83  Linux           a6  OpenBSD         c6  DRDOS/2 FAT16   f0  Lnx/PA-RISC bt
+ 4  Small FAT16     11  Hidden FAT12    40  Venix 80286     56  Golden Bow      84  OS/2 hidden C:  a7  NeXTSTEP        c7  Syrinx          f1  SpeedStor
+ 5  Extended        12  Compaq diag     41  PPC PReP Boot   5c  Priam Edisk     85  Linux extended  a8  Darwin UFS      da  Non-FS data     f2  DOS secondary
+ 6  FAT16           14  Hidd Sm FAT16   42  SFS             61  SpeedStor       86  NTFS volume set a9  NetBSD          db  CP/M / CTOS     f4  SpeedStor
+ 7  HPFS/NTFS       16  Hidd FAT16      4d  QNX4.x          63  GNU HURD/SysV   87  NTFS volume set ab  Darwin boot     de  Dell Utility    fd  Lnx RAID auto
+ 8  AIX             17  Hidd HPFS/NTFS  4e  QNX4.x 2nd part 64  Netware 286     88  Linux plaintext b7  BSDI fs         df  BootIt          fe  LANstep
+ 9  AIX bootable    18  AST SmartSleep  4f  QNX4.x 3rd part 65  Netware 386     8e  Linux LVM       b8  BSDI swap       e1  DOS access      ff  XENIX BBT
+ a  OS/2 boot mgr   1b  Hidd FAT32      50  OnTrack DM      70  DiskSec MltBoot 93  Amoeba          bb  Boot Wizard Hid e3  DOS R/O
+ b  FAT32           1c  Hidd FAT32 LBA  51  OnTrackDM6 Aux1 75  PC/IX           94  Amoeba BBT      be  Solaris boot    e4  SpeedStor
+Command (m for help): x
+Expert command (m for help): m
+Command action
+   b   move beginning of data in a partition
+   c   change number of cylinders
+   e   list extended partitions
+   f   fix partition order
+   g   create an IRIX (SGI) partition table
+   h   change number of heads
+   m   print this menu
+   p   print the partition table
+   q   quit without saving changes
+   r   return to the main menu
+   s   change number of sectors/track
+   v   verify the partition table
+   w   write table to disk and exit
+Expert command (m for help): q
+root@ubuntu:~# <span class="err">ddrescue -r1 -n -S -v /dev/sdf1 /dev/sda5 backup1.log</span>
+ddrescue: Output file exists and is not a regular file.
+ddrescue: Use <span class="UBHLCode">`--force'</span> if you really want to overwrite it, but be
+ddrescue: aware that all existing data in output file will be lost.
+Try `ddrescue --help' for more information.
+root@ubuntu:~# ls
+root@ubuntu:~# ddrescue -r1 -n -S <span class="UBHLCode">-f</span> -v /dev/sdf1 /dev/sda5 backup1.log
+
+
+About to copy 3999 MBytes from /dev/sdf1 to /dev/sda5
+    Starting positions: infile = 0 B,  outfile = 0 B
+    Copy block size: 128 sectors
+Sector size: 512  bytes
+Max retries: 1
+Direct: no    Sparse: yes    Split: no    Truncate: no
+
+Press Ctrl-C to interrupt
+Initial status (read from logfile)
+rescued:         0 B,  errsize:       0 B,  errors:       0
+Current status
+rescued:   377286 kB,  errsize:    4096 B,  current rate:    2686 kB/s
+rescued:   594792 kB,  errsize:   12288 B,  current rate:    1179 kB/s
+   ipos:   594804 kB,   errors:       2,    average rate:     389 kB/s
+   opos:   594804 kB,     time from last successful read:       0 s
+Copying non-tried blocks...
+</code></pre>
+
+<p>Captured using <code class="highlighter-rouge">screendump</code>.</p>
+
+<p>The program read the blocks fast initially but it gradually slowed
+down.  After running the command for over 20 hours, over 3700 MB of
+the data had been read.  Although there’s just about 400 MB to go,
+according to the average speed at that moment, it was an hour to
+recover 10 MB of the data.  What’s worse, the average speed was
+getting slower and slower!  (Later, from GeekyProjects, I realised
+that the heat of the devices inhibits the process, and the logfile
+file feature enables users to pause the job.<sup id="fnref:geek_proj"><a href="#fn:geek_proj" class="footnote">4</a></sup><sup id="fnref:doc"><a href="#fn:doc" class="footnote">5</a></sup>)
+Therefore, <em>always use a logfile</em>.<sup id="fnref:doc_ub"><a href="#fn:doc_ub" class="footnote">6</a></sup></p>
+
+<p>Without adequate knowledge on GNU ddrescue, I stopped the task with
+<code class="highlighter-rouge">&lt;C-c&gt;</code>, but it took the computer several minutes to receive this
+input.  But what’s next for an <em>incomplete</em> task? The files <em>don’t</em>
+occupy the whole USB stick.  It might took me another day if I waited
+for some while and then resumed the task.  At that moment, I decided
+to try mounting the destination partition <code class="highlighter-rouge">/dev/sdyn</code>.  Thinking that
+the destination was a NTFS partition from the partition table rendered
+by <code class="highlighter-rouge">fdisk -l</code>, I tried <code class="highlighter-rouge">mount -t ntfs /dev/sdyn</code>, but the computer
+wouldn’t let me go.  I was fortunate to be stopped by this error.
+Otherwise, I think I would do another harm to the file system.  This
+time, I let <code class="highlighter-rouge">mount</code> to automatically decide the partition type by
+removing the <code class="highlighter-rouge">-t</code> flag.  It worked! I could browse and open the file
+there.  After that, I copied the files to a safe place (i.e. a
+<em>normal</em> data storage device) Finally, I’ve found that <em>most</em> of the
+files were salvaged, despite some corruption of the multimedia files.</p>
+
+<p>Since then, I’ve <em>really</em> learnt a lesson: <em>don’t</em> to use <abbr title="graphical user interface">GUI</abbr> for
+copying big files, <em>always</em> use commands.  Secondly, <em>never</em> use <code class="highlighter-rouge">mv</code>
+for big files, use <code class="highlighter-rouge">cp</code> instead.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:note">
+
+      <p><a href="http://techmuck.blogspot.hk/2012/03/data-recovery-with-gnu-ddrescue.html"><em>Disk Cloning (for Data Recovery) with GNU ddrescue</em></a> by
+Alan Berman.&nbsp;<a href="#fnref:note" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:key">
+      <p>Ibid.&nbsp;<a href="#fnref:key" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:cmd">
+      <p>Ibid.&nbsp;<a href="#fnref:cmd" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:geek_proj">
+
+      <p><a href="http://www.geekyprojects.com/storage/how-to-recover-data-even-when-hard-drive-is-damaged/"><em>How to Recover Data Even When Hard Drive is Damaged</em></a>
+by Pablo Garcia.&nbsp;<a href="#fnref:geek_proj" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:doc">
+      <p><a href="https://www.gnu.org/software/ddrescue/ddrescue.html">GNU ddrescue’s manual</a>.&nbsp;<a href="#fnref:doc" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:doc_ub">
+      <p><a href="http://manpages.ubuntu.com/manpages/raring/man1/ddrescue.1.html">ddrescue’s manual in Ubuntu manuals</a>.&nbsp;<a href="#fnref:doc_ub" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/01/05/giving-up-testing-mathjax-and-anchors-on-blogger/">Giving up Testing MathJax and Anchors on Blogger</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/01/05/giving-up-testing-mathjax-and-anchors-on-blogger/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/01/05/giving-up-testing-mathjax-and-anchors-on-blogger/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/01/05/giving-up-testing-mathjax-and-anchors-on-blogger/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In dynamic view, though the code for dynamic loading of <a href="http://www.mathjax.org">MathJax</a>
+contents has been pasted into the HTML code for the template, things
+just work in a strange way: in the class mode, <a href="http://www.mathjax.org">MathJax</a> works the
+best; in other modes, it may not work or it works partially.  For
+example, in a mode, the dollar sign in the code tag is interpreted,
+and the script file for <a href="http://www.mathjax.org">MathJax</a> is loaded.  But when you click a
+blog entry for a popup frame containing some <a href="http://www.mathjax.org">MathJax</a> code, then it
+simply won’t load.  Nonetheless, anchors don’t work in a desired way
+in the dynamic view—after clicking an anchor, I am immediately
+directed to the destination, which is covered by the header.  Finally,
+to ensure that the contents are correctly interpreted, the best way is
+to use the <code class="highlighter-rouge">tex2jax_ignore</code> class.<sup id="fnref:no_render"><a href="#fn:no_render" class="footnote">1</a></sup>  Anyways, if readers
+are also writers of HTML, $\rm \LaTeX$, etc, they’ll know what I
+intend to write by testing the HTML code, and for the remaining
+readers, I just apologize for the inconvenience caused and suggest
+them to right click the article in the default “Sidebar” view and
+press <code class="highlighter-rouge">&lt;F5&gt;</code> to reload for the correctly rendered contents.  I’ve
+forgotten about anchors since toggling between the “Compose” and
+“HTML” modes while writing a new post will cause some strange change
+in the <code class="highlighter-rouge">&lt;href&gt;</code> attribute of the <code class="highlighter-rouge">&lt;a&gt;</code> tag.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:no_render">
+
+      <p>See <a href="https://github.com/mathjax/mathjax-docs/wiki/How-to-prevent-rendering:-use-tex2jax_ignore"><em>How to prevent rendering: use tex2jax_ignore</em></a> by
+Davide P.  Cervone.&nbsp;<a href="#fnref:no_render" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://www.cuhk.edu.hk/itsc/security/gpis/guidestrongpw.html">Guidelines for Setting a Strong Password</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/01/05/guidelines-for-setting-a-strong-password/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/01/05/guidelines-for-setting-a-strong-password/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/01/05/guidelines-for-setting-a-strong-password/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I usually suggest users who refuse to use long passwords (&gt; 10
+characters) for their online accounts to look at news on <abbr title="Graphics Processing Unit">GPU</abbr> password
+cracking.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  Setting a sufficiently long password is just the first
+step.  The variety of characters to be chosen is also crucial to
+increasing the time taken for a brute force attack on the password.
+This idea is supported by the external <abbr title="Uniform Resource Locator">URL</abbr> of this post, which is the
+main concern here.</p>
+
+<p>The problem is <em>not</em> large if the user has some common sense on how
+the Internet works.  However, as a guide for common end users of
+online services, the last section “Useful tools” is a little bit
+misleading.  If you know some engineering students, he/she will tell
+you that making things work is their main goal.  They can come up with
+fancy ways to hide standard errors from users.  According to our naked
+eyes, the so called “random password generator” <em>seems</em> to be able to
+generate random passwords.  However, you <em>don’t</em> actually know the
+algorithm used.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> Are they random enough?  Are there any ways of
+predicting the output of the online password generators?  The
+Community Ubuntu Documentation provides us a three-pronged reason for
+<em>not</em> actually using the “secure password generators” listed in the
+last section of CUHK’s guide.</p>
+
+<p>By saying that those tools “<em>may assist</em> you to set a strong
+password”, the guide is far from wrong, but also <em>far</em> from good. For
+a <em>proper</em> introduction to a decent password policy for common users,
+go to the section titled “Write Your Passwords Down” on the same page
+on Ubuntu’s community guide.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<p>P.S. The CUHK’s guide have been writen for a long time. As I’ve
+mentioned above, a <abbr title="Graphics Processing Unit">GPU</abbr> cracks passwords much faster than before, so
+the figures need to be either updated or simply replaced with a link
+to a web page introducing recent technology on brute force password
+attacks.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p><a href="http://www.linuxjournal.com/content/hack-and-password-cracking-gpus-part-i-setup">Hack and / - Password Cracking with GPUs, Part I: the Setup</a>
+in <em>Linux Journal</em> by Kyle Rankin&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p><a href="https://help.ubuntu.com/community/StrongPasswords#Don.27t_use_online_password_generators">Don’t use online password generators</a> in Ubuntu’s
+<em>Community Help Wiki</em>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p><a href="https://help.ubuntu.com/community/StrongPasswords#Write_Your_Passwords_Down">Write Your Passwords Down</a> in the same page in footnote
+2.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/01/04/escaping-in-mathjax/">Escaping '$' in MathJax</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/01/04/escaping-in-mathjax/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/01/04/escaping-in-mathjax/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/01/04/escaping-in-mathjax/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anyone who are used to $\rm \LaTeX$’s <code class="highlighter-rouge">$</code> character<code class="highlighter-rouge">$</code> for switching
+to inline math mode would like to use the same command for the same
+thing on <a href="http://www.mathjax.org">MathJax</a>, which suggests the use of backslashed parentheses
+to enclose an inline math equation.  As a result, in
+<a href="http://docs.mathjax.org/en/latest/start.html#tex-and-latex-input">the very first part</a> of <a href="http://www.mathjax.org">MathJax</a>’s official documentation, it
+contains several lines code for that.</p>
+
+<p>After pasting the code inside the <code class="highlighter-rouge">&lt;head&gt;</code> tag, the above problem is
+solved, but this method creates <em>another</em> problem.</p>
+
+<p>Imagine that you want to compare the price of a product of different
+companies.  You then typed <em>two prices on the same line</em>.</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>Nowadays, it costs nearly $500.  In the past, it only costs around
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">$300.  It's too expensive!<span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span></div></div></pre></div></figure>
+
+<p>Then the web browser will interpret the contents in this way:</p>
+
+<p><img src="/images/posts/EscMathJax/wrong.png" alt="'Wrongly interpreted contents' ['wrong contents']" /></p>
+
+<p>In order to get the problem fixed, I searched “mathjax escape dollar
+sign” and found <a href="http://stackoverflow.com/q/8773586/" title="mediawiki mathjax need to use escape $x$">a Stack Overflow question</a> very useful.
+Following the first answer for the question, I managed to get it
+right.  That is, to change the it like this:</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>Nowadays, it costs nearly <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tex2jax_ignore"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>500.
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">In the past, it only costs around
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tex2jax_ignore"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>300.  It's too expensive!<span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span></div></div></pre></div></figure>
+
+<p><img src="/images/posts/EscMathJax/correct.png" alt="'Correctly interpreted contents' ['correct contents']" /></p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/30/c-hello-world-using-clang-complete-and-vim/">C++ Hello World Using clang_complete and Vim</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/30/c-hello-world-using-clang-complete-and-vim/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/30/c-hello-world-using-clang-complete-and-vim/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/30/c-hello-world-using-clang-complete-and-vim/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Many posts on the advantages of <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> have already been
+posted.  For example, there’s <a href="http://www.zwiener.org/vimautocomplete.html#sec2">a demonstration of the plugin</a> on
+Mac.  If you can understand Chinese (or you have a translator that
+<em>truly</em> understands it), you may even look at more sites, such as
+<a href="http://aknow-work.blogspot.hk/2013/04/vim-clangcomplete.html">Chen’s post</a>.</p>
+
+<!-- more -->
+
+<p>The authors of the above posts are likely to work in the IT sector.
+For new comers of programming, they may like to start from zero.  On
+which platform can they start from? I’d recommend popular *nix
+distributions (e.g.  Debian-based/Fedora-based ones) due to their
+package managing tools like <a href="http://wiki.debian.org/Apt">APT</a> or <a href="http://yum.baseurl.org">YUM</a>.  For a M$ Vis* Stu*
+like code completion on <a href="http://www.vim.org">Vim</a>, <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> is the right answer,
+but it is often hard to install on M$ Win*, but the installation is
+incredibly easy on *nix.<sup id="fnref:inst_ms"><a href="#fn:inst_ms" class="footnote">1</a></sup><sup id="fnref:inst_nix"><a href="#fn:inst_nix" class="footnote">2</a></sup></p>
+
+<p>Many writers of posts on <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> installation stopped
+writing further after completing the whole installation and
+configuration of the plugin, and I haven’t seen any post that uses
+“hello world” as an example.  This is alright since many users of
+<a href="http://www.vim.org">Vim</a> are experienced programmers who would like to demonstrate some
+advanced features of the editor with the additional plugin (e.g.
+jumping between ctags), and a simple <code class="highlighter-rouge">hello.cpp</code> can’t be used for
+that.  Moreover, many teachers would teach programming on M$ Win*,
+and even if a *nix desktop is used, the work is most likely done
+using an IDE on GUI  (<a href="http://www.gnu.org/software/emacs">Emacs</a> is a text editor and IDE that runs on
+command line.)  …  The concept of modal editing may be too hard for
+newbies to accept it, and you need to get several commands right
+before entering any text into a buffer.  The steep learning curve
+might frighten learners away from <a href="http://www.vim.org">Vim</a>…  Some computer users
+believe in the myth that <a href="http://www.vim.org">Vim</a> and <a href="http://www.gnu.org/software/emacs">Emacs</a> are too old and nobody use
+them.</p>
+
+<p>Anyways, the mixed use of both the built-in omni-complete function of
+<a href="http://www.vim.org">Vim</a> (invoked by <code class="highlighter-rouge">&lt;C-n&gt;</code> or <code class="highlighter-rouge">&lt;C-p&gt;</code>) and the popup menu of
+<a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> (invoked by <code class="highlighter-rouge">&lt;C-x&gt;&lt;C-u&gt;</code>) to write a “hello world”
+program is a productive way of doing the job.  However, due to the
+limitations of human mind, we can remember very few unfamiliar things
+at a time.  This is not the case in storage devices.  They can capture
+every word that come out of our mind, though many physical means of
+storage of information are subject to aging, especially those in the
+past…  Luckily, information technology allows words, and even fonts,
+to be replicated efficiently and almost identically.  This has brought
+the human race a variety of new subjects, such as web *ng, and has
+extended our old knowledge into many fields, such as typography…  In
+addition, the advancement of technology enables us to capture visible
+images and copy it rapidly, and I’ve recorded my experience of “hello
+world” using <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> with <a href="http://www.vim.org">Vim</a> on a series of screenshots.</p>
+
+<p>In addition to adding Wu’s custom VIMRC configuration for
+<a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a>, I’ve also installed <a href="https://github.com/garbas/vim-snipmate">vim-snipmate</a> and
+<a href="https://github.com/honza/vim-snippets">vim-snippets</a> for more auto-complete mappings.<sup id="fnref:wu"><a href="#fn:wu" class="footnote">3</a></sup></p>
+
+<p>Before actually beginning the steps for writing a “hello world”, we
+should know that we <em>won’t</em> learn anything from successes.  It’s
+<em>failures</em> that help us reflect on the mistakes in our understand of
+theories.  Therefore, I’ll <em>deliberately</em> find something wrong, and
+elaborate on that using some ideas.  In other words, that’s “to blow
+water” in Cantonese.</p>
+
+<h2 id="Ⅰ-comparison-between-clang_complete-and-the-editors-built-in-completion-in-typing-includeiostream">Ⅰ. Comparison between clang_complete and the editor’s built-in completion in typing <code class="highlighter-rouge">#include&lt;iostream&gt;</code></h2>
+
+<h3 id="Ⅰ1-the-editors-built-in-completion">Ⅰ.1 The editor’s built-in completion</h3>
+
+<p>The following “hello world” procedure contains some <em>wrong</em> steps.</p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/inc-complete.gif" width="800" alt="'Figure 1' ['fig1']" /></p>
+
+<ol>
+  <li>Type <code class="highlighter-rouge">inc&lt;Tab&gt;</code>.</li>
+  <li><a href="https://github.com/honza/vim-snippets">Vim-snippets</a> complete the code, with <code class="highlighter-rouge">stdio.h</code> as default.  The
+file name of the included file is selected so that you can input
+something else.</li>
+  <li>Since <code class="highlighter-rouge">cout</code> is used later, we need to <code class="highlighter-rouge">#include&lt;iostream&gt;</code>.
+First type <code class="highlighter-rouge">io</code> to override the default input.</li>
+  <li>Type <code class="highlighter-rouge">&lt;C-n&gt;</code> or <code class="highlighter-rouge">&lt;C-p&gt;</code> to get a completion list.</li>
+  <li>Select <code class="highlighter-rouge">iostream</code> (without ‘s’).</li>
+  <li>Continue typing the whole program, and compile it.</li>
+  <li>The source code fails!</li>
+</ol>
+
+<p>Obviously, there’s a syntax error at the line <code class="highlighter-rouge">#include&lt;iostream&gt;</code>.
+Thinking about the auto-completion function again, one will notice
+that the correct step is to press <code class="highlighter-rouge">&lt;Esc&gt;</code> after step 1, and use <code class="highlighter-rouge">ci&lt;</code>
+to clear the code inside the <code class="highlighter-rouge">&lt;&gt;</code> block, that’s a good try, but I
+personally think that the steps can be more beautiful.</p>
+
+<h3 id="Ⅰ2-clang_completes-solution">Ⅰ.2 clang_complete’s solution</h3>
+
+<p>This is just a <em>part</em> of correct steps.  I leave the remaining parts
+of codes of this simple program into later sections.</p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/inc-complete-clang.gif" width="800" alt="'Figure 2' ['fig2']" /></p>
+
+<p>This time, after typing <code class="highlighter-rouge">#</code> at the beginning of the line, press
+<code class="highlighter-rouge">&lt;C-x&gt;&lt;C-u&gt;</code> to use the automatic completion list, and choose the <code class="highlighter-rouge">#
+include</code> option with the <code class="highlighter-rouge">$`header'</code> surrounded by a <code class="highlighter-rouge">&lt;&gt;</code> block,
+<em>not</em> a double quote.  Use <code class="highlighter-rouge">&lt;Alt-Tab&gt;</code> to select the inner <code class="highlighter-rouge">&lt;&gt;</code> block
+and type <code class="highlighter-rouge">io&lt;C-n&gt;</code> to use the built-in (<em>not</em> plugin) function to
+complete the code. (The <code class="highlighter-rouge">&lt;Alt-Tab&gt;</code> keystroke doesn’t work in GUI,
+since it means changing the window on focus.)</p>
+
+<p>Note: In this method, <code class="highlighter-rouge">stdio.h</code> needs to be included.  Otherwise, the
+built-in insert completion popup menu containing <code class="highlighter-rouge">iostream</code> will not
+be shown.</p>
+
+<h2 id="Ⅱ-completion-of-using-namespace-std">Ⅱ. Completion of <code class="highlighter-rouge">using namespace std;</code></h2>
+
+<ol>
+  <li>Without <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a>: Directly type in everything, or use
+<code class="highlighter-rouge">&lt;C-n&gt;</code> for <em>word-by-word completion</em>.</li>
+  <li>With <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a>: The completion menu can complete the whole
+line.</li>
+</ol>
+
+<p>Analysis: Finding an item from a menu requires coordination of our
+eyes and hands, while typing the code directly requires more memory.
+For a newbie, the former should be easier since he/she doesn’t waste
+time to recall his/her memory.  For a geek, the later should be faster
+since the process has been repeated for many time.  Luckily, being the
+second in the popup list, the problem of reaction time does not matter
+much if one looks at the list from the top to the bottom.  Moreover,
+typing the code directly may lead to syntax errors.  This problem can
+be overcome if one has the capability to read the error message from
+the compiler and to browse code quickly.</p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/using-complete.png" width="800" alt="'Without clang_complete: word-by-word completion' ['fig3']" /></p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/using-clang.gif" width="800" alt="'With clang_complete: completion of the whole line' ['fig4']" /></p>
+
+<p>The remaining parts of this post <em>doesn’t</em> make use of the
+<a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> plugin.</p>
+
+<h2 id="Ⅲ-the-main-method">Ⅲ. The main method</h2>
+
+<p>Just typing <code class="highlighter-rouge">main&lt;Tab&gt;</code> will do.  That’s from <a href="https://github.com/honza/vim-snippets">vim-snippets</a>.</p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/prog.gif" width="800" alt="'Figure 5' ['fig5']" /></p>
+
+<h2 id="Ⅳ-greeting-the-world">Ⅳ. Greeting the world!</h2>
+
+<p>If you type <code class="highlighter-rouge">cout&lt;Tab&gt;</code>, you’ll get <code class="highlighter-rouge">std::cout&lt;&lt;  &lt;&lt;std::endl;</code>, with
+the cursor located in between the two whitespace characters in the
+middle.  Using a regular expression to delete the <code class="highlighter-rouge">std::</code> in front of
+<code class="highlighter-rouge">cout</code> and <code class="highlighter-rouge">endl</code>.</p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/cout.gif" width="800" alt="'Figure 6' ['fig6']" /></p>
+
+<h2 id="Ⅴ-getting-the-indentation-correct">Ⅴ. Getting the indentation correct</h2>
+
+<p>Modifying the c.snippet file maybe a bit troublesome, and may bring
+strange consequences to the plugin.  If you don’t have time to study
+the plugin, you may not like to bother it.  Manually decreasing the
+indentation of the line <code class="highlighter-rouge">return 0;</code> each time is not likely to be an
+elegant solution for <a href="http://www.vim.org">Vim</a> Lovers.  The actual way to fix the problem
+is using the command <code class="highlighter-rouge">gg=G</code> in the normal mode.<sup id="fnref:vim_book"><a href="#fn:vim_book" class="footnote">4</a></sup></p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/cindent.gif" width="800" alt="'Figure 7' ['fig7']" /></p>
+
+<h2 id="Ⅵ-running-the-program">Ⅵ. Running the program</h2>
+
+<p>For some newbies, it might be too much for them to digest if I discuss
+more on the creation of a sample makefile, which automatically
+executes more complicated compiling commands with a simple <code class="highlighter-rouge">make</code>
+command, searching “makefile tutorial” on the web will do.  If you
+don’t like the clang compiler, just substitute <code class="highlighter-rouge">clang++</code> with <code class="highlighter-rouge">g++</code>.</p>
+
+<p>According to Henri Poincaré, a French mathematician, things are
+beautiful if they are simple.  Repetition of facts build up our
+understanding.  I end this post with a short and simple command that
+can be repeatedly used to compile CPP source files with different file
+names.  For more details about that, refer to my earlier post titled
+<a href="/blog/2013/12/11/fast-compilation-and-execution-of-source-code/"><em>Fast Compilation and Execution of Source Code</em></a>.</p>
+
+<p><img class="fancybox" src="/images/posts/ClangComplete/run.gif" width="800" alt="'Figure 8' ['fig8']" /></p>
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:inst_ms">
+
+      <p><a href="http://blog.chinaunix.net/uid-53564-id-3558537.html"><em>在win/gvim中以DLL方式使用clang_complete</em></a> by slimzhao in
+ChinaUnix.&nbsp;<a href="#fnref:inst_ms" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:inst_nix">
+
+      <p><a href="http://changyy.pixnet.net/blog/post/31706673-%5Bvim%5D-using-clang_complete-plugin-@-ubuntu-12.04"><em>[VIM] using clang_complete plugin @ Ubuntu 12.04</em></a> by
+Yaun-Yi Chang in 第二十四個夏天後.&nbsp;<a href="#fnref:inst_nix" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:wu">
+
+      <p><a href="http://blog.wuwon.id.au/2011/10/vim-plugin-for-navigating-c-with.html"><em>A Vim plugin for navigating C++ with libclang</em></a> by Kevin Wu
+Won in A Small Matter of Programming.&nbsp;<a href="#fnref:wu" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:vim_book">
+
+      <p><a href="ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf"><em>Vi iMproved—Vim</em></a> p.73 by Steve Oualline.&nbsp;<a href="#fnref:vim_book" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/29/dont-kill-a-fly-with-a-cannon-console-creation-of-gif-files/">Don't Kill a Fly with a Cannon—Console Creation of GIF Files</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/29/dont-kill-a-fly-with-a-cannon-console-creation-of-gif-files/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/29/dont-kill-a-fly-with-a-cannon-console-creation-of-gif-files/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/29/dont-kill-a-fly-with-a-cannon-console-creation-of-gif-files/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As the saying goes, a picture is worth a thousand words. Some netizens
+believe that if a picture tells the truth.</p>
+
+<p>If you want to take a screenshot in GNU/Linux text mode, you may use
+<code class="highlighter-rouge">fbgrab</code> to get a <abbr title="Portable Network Graphics">PNG</abbr> file (<code class="highlighter-rouge">fbcat</code> gives you a <abbr title="Portable Pix Map">PPM</abbr> file).</p>
+
+<p>If you want to illustrate a process with a series of pictures, then
+you’ll probably need a <abbr title="Graphics Interchange Format">GIF</abbr> file. <abbr title="GNU Image Manipulation Program">GIMP</abbr> provides an easy way of creating
+<abbr title="Graphics Interchange Format">GIF</abbr> files by selecting menu items and clicking a few buttons, but for
+geeks who are used to <abbr title="Command Line Interfaces">CLI</abbr>, this is not the final answer for them.</p>
+
+<p>If your source <abbr title="Portable Network Graphics">PNG</abbr> files are named as <code class="highlighter-rouge">[name]%s.png</code>, then the right
+command is:<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ convert $(for ((a=0; a&lt;700; a++)); do printf -- "-delay 10 \
+&gt; [name]%s.png" $a; done;) [result].gif
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">-delay 10</code> means that each image is displayed for 0.1s.</li>
+  <li><code class="highlighter-rouge">[name]</code>: file name of the source <abbr title="Portable Network Graphics">PNG</abbr> files without the ordinal
+  number.</li>
+  <li><code class="highlighter-rouge">%s</code>: the n-th <abbr title="Portable Network Graphics">PNG</abbr> file.</li>
+  <li><code class="highlighter-rouge">[result]</code>: file name of the target <abbr title="Graphics Interchange Format">GIF</abbr> file.</li>
+</ul>
+
+<p>Without the whitespace between <code class="highlighter-rouge">png</code> and the ending <code class="highlighter-rouge">"</code>, things
+<em>won’t</em> work.</p>
+
+<p>If the <abbr title="Graphics Interchange Format">GIF</abbr> animation has not been finished and intermediate files need
+to be saved, <em>don’t</em> use the <abbr title="Graphics Interchange Format">GIF</abbr> format, use <abbr title="Magick Image File Format">MIFF</abbr> instead.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p><a href="http://unix.stackexchange.com/q/24014/">Creating a GIF animation from PNG files</a> on Unix &amp;
+Linux Stack Exchange&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p><a href="http://www.imagemagick.org/Usage/anim_basics/#gif_anim">GIF Animations and Animation Meta-data</a> in <em>Examples of
+ImageMagick Usage (Version 6)</em>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://en.flossmanuals.net/command-line/interactive-editing/">Don't Remember Keyboard Shortcuts!</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/28/dont-remember-keyboard-shortcuts/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/28/dont-remember-keyboard-shortcuts/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/28/dont-remember-keyboard-shortcuts/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+<p>{% quote author:”Free Software Foundation” title:”Introduction To the Command Line” %}</p>
+
+<p>Hint: Do not try to learn all shortcuts at once!  The human brain isn’t made for that kind of stuff, so you will forget almost all of them.  Rather, we advise you to learn the 4–5 shortcuts that you find most useful and use them regularly — learning by doing.  Later, you can come back to this chapter to pick up more shortcuts.  You will soon find yourself whirling across the command line.</p>
+
+<p>{% endquote %}</p>
+
+<p>I’ve found this tips useful.  If one can bear this in mind, learning
+<a href="http://www.vim.org">Vim</a> or <a href="https://www.gnu.org/software/emacs/">Emacs</a> will be less discouraging.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/23/my-experience-of-using-vim-js/">My Experience of Using Vim.js</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/23/my-experience-of-using-vim-js/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/23/my-experience-of-using-vim-js/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/23/my-experience-of-using-vim-js/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To use <a href="http://www.vim.org">Vim</a> in other computers, the official website of PortableApps
+has already provided users <a href="http://portableapps.com/apps/development/gvim_portable">a satisfactory solution</a>.  The
+installation size is about 28 MB (according to the released figure).
+If you <em>won’t</em> have it installed in a portable device and <em>don’t</em> want
+to download and install it into a new machine each time, maybe you can
+try <a href="http://coolwanglu.github.io/vim.js/web/vim.html">Vim.js</a>.  However, I’ve found it <em>slow</em>, when compared to a <a href="http://www.vim.org">Vim</a>
+program.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/23/vi-key-bindings-in-emacs/">Vi Key Bindings in Emacs</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/23/vi-key-bindings-in-emacs/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/23/vi-key-bindings-in-emacs/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/23/vi-key-bindings-in-emacs/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>From <a href="https://en.wikipedia.org/wiki/Editor_war">Wikipedia’s entry on the Editor’s War</a>, we can see some
+nicknames of <a href="https://www.gnu.org/software/emacs">GNU Emacs</a>, such as “EMACS Makes All Computers
+Slow”, “Esc Meta Alt Ctrl Shift”, etc.  I found the second one true.
+I tried using <a href="https://www.gnu.org/software/emacs/manual/html_mono/viper.html">Viper</a>, but it’s inconvenient to browse info files
+since the <code class="highlighter-rouge">&lt;C-]&gt;</code> button doesn’t work.  As a result, I need to toggle
+<a href="https://www.gnu.org/software/emacs/manual/html_mono/viper.html">Viper</a> using <code class="highlighter-rouge">&lt;C-z&gt;</code> all the time.  Nevertheless, it’s too
+inconvenient.  Maybe that’s because of my low level of <a href="https://www.gnu.org/software/emacs/manual/html_mono/viper.html">Viper</a> set
+(level 1), and there are other plug-ins that enables users to use
+Vi(m)’s key bindings in <a href="https://www.gnu.org/software/emacs">Emacs</a>, but I’m tired of this sort of tedious
+work.</p>
+
+<p>After overcoming a steep slope in the very first part of the learning
+curve of a powerful tool, maybe you’ll find out that there’s some
+other more productive tool for doing the job.  That’s not something
+new and that’s the reason for so many different tools to come up.  For
+example, <a href="http://www.vim.org">Vim</a> is originally intended to be part of the shell, and
+you’ve spent hours to get a <a href="http://www.vim.org">Vim</a> plug-in for <a href="https://www.gnu.org/software/gdb/">GDB</a> integration (e.g.
+pyclewn).  Finally you found out that you forgot that both <a href="https://www.gnu.org/software/emacs">Emacs</a> and
+<a href="https://www.gnu.org/software/gdb/">GDB</a> are developed by GNU, and they are the early famous softwares
+from GNU, so they should work well together.  Otherwise, how can GNU
+encourage users to use free softwares? Therefore, it’s sensible to
+expect that <a href="https://www.gnu.org/software/emacs">Emacs</a> has a built-in support for <a href="https://www.gnu.org/software/gdb/">GDB</a>.  (And it
+does!)</p>
+
+<p><em>Hence, the best way is to be flexible and use suitable tools to do
+different jobs.</em></p>
+
+<p>After realising the use of both of the two most famous text editors
+for *nix users, it’s important for us to get use to them.  As a <a href="http://www.vim.org">Vim</a>
+user, reading the official <a href="https://www.gnu.org/software/emacs">Emacs</a> tutorial available on the homepage
+of <a href="https://www.gnu.org/software/emacs">Emacs</a>, I’ve found out that it’s too long if what I need is to do
+some basic editing work.  Some introductory web pages on elementary
+<a href="https://www.gnu.org/software/emacs">Emacs</a> commands from some tertiary educational institutions can help
+some newbies of <a href="https://www.gnu.org/software/emacs">Emacs</a>, but if you can link up new knowledge with any
+previously known ideas, it’ll be even better to refer to
+<a href="http://www.elmindreda.org/emacs.html">this post</a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/13/writing-vims-output-to-files/">Writing Vim's Output to Files</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/13/writing-vims-output-to-files/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/13/writing-vims-output-to-files/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/13/writing-vims-output-to-files/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="changing-environment-variables-in-vimrc">Changing environment variables in vimrc</h2>
+
+<p>Refer to <a href="http://vim.wikia.com/wiki/Environment_variables">Vim Wiki’s page on environment variables</a>. The tips
+uses paths in <em>*nix in the examples. However, for Win*</em>, some
+inexperienced users don’t know whether slashes or backslashes should
+be used. In fact, backslashes should be used, and the string should be
+enclosed by a pair of single quote (I don’t know if double quotes
+work.) Then things should run. If you’re unlucky and receive a runtime
+error in the next time you start Vim, then it may be due to the
+missing space characters around the equal sign.</p>
+
+<h2 id="writing-external-commands-to-files">Writing external commands to files</h2>
+
+<p>It’s easy! (<code class="highlighter-rouge">:r ![command]</code> will do.)</p>
+
+<h2 id="writing-variables-to-files">Writing variables to files</h2>
+
+<p>Use the <code class="highlighter-rouge">=</code> register. First get into normal mode, then type the
+following command.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"=sin(1)p
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">p</code> have to be typed before any further changes of contents.
+Otherwise, it may not work. For details, see
+<a href="http://unix.stackexchange.com/q/8101/">Unix &amp; Linux Stack Exchange question 8101</a>.</p>
+
+<h2 id="writing-internal-commands-to-files">Writing internal commands to files</h2>
+
+<p>A forum post has answered my doubt. I redirect interested readers to
+<a href="http://objectmix.com/editors/786190-how-redirect-vim-internal-command-output-current-buffer.html">Object Mix</a>.</p>
+
+<hr />
+<p>(Added on APR 09, 2016)</p>
+
+<p>Fearing that this post will be deleted, I added tianlan’s code below.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>:redi @+
+:version
+:redi END
+"+p
+</code></pre>
+</div>
+
+<h2 id="quick-reference-lists-of-some-easy-vim-commands">Quick reference lists of some easy Vim commands</h2>
+
+<ul>
+  <li><a href="http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know">100 Vim commands every programmers should know</a></li>
+  <li><a href="http://php.dzone.com/articles/130-essential-vim-commands">130+ Essential Vim Commands</a></li>
+</ul>
+
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/35/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/33/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

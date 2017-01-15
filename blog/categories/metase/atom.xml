@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: metase | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/metase/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[A Comment for New Users on Math.SE]]></title>
+      <link href="https://vincenttam.github.io/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/"/>
+    
+    <updated>2017-01-10T19:34:53+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>Mathematics learners ask questions on
+<a href="http://math.stackexchange.com/">Mathematics Stack Exchange</a> to get an answer from others
+<em>without</em> geographical or time restrictions, unlike teachers in
+schools.  Users answer questions to gain virtual points called
+<em>reputation</em>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Among them, many are new users who <em>don’t</em> use <a href="https://www.mathjax.org/">MathJax</a> while typing
+their questions.  As a result, the output is <em>difficult</em> to read.
+This discourages users from answering those questions, so we would
+have <em>less</em> answers to read.  Since we can sometimes benefit from
+alternative solutions, it’s better to post a question that is clear
+enough to attract others to offer an answer.  We can downvote those
+poorly rendered questions, but I think it’s a bit cruel to do so on
+the very first post from new users.  Therefore, I choose to leave a
+comment which suggests them to use <a href="https://www.latex-project.org/">$\rm \LaTeX$</a>.  They often
+say they <em>don’t</em> know how to use it.  To avoid responses like that, I
+include a link to the <a href="http://meta.math.stackexchange.com/q/5020/290189">MathJax guide on Meta Math.SE</a>.</p>
+
+<blockquote>
+  <p>Please use <a href="http://meta.math.stackexchange.com/q/5020/290189">$\rm \LaTeX$</a>.</p>
+</blockquote>
+
+<p>However, it’s tedious to type the <a href="http://math.stackexchange.com/help/formatting">markdown</a> source code
+every time I want to leave this comment.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>I’ll include the code below, so that it can be simply copied and
+pasted next time.</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>Comments for those who <em>don’t</em> use $\rm \LaTeX$</span></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Please use &lt;a href="http://meta.math.stackexchange.com/q/5020/290189">$\rm \LaTeX$&lt;/a>.</div></div></pre></div></figure></p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Avoided a Duplicate Question]]></title>
+      <link href="https://vincenttam.github.io/blog/2017/01/07/avoided-a-duplicate-question/"/>
+    
+    <updated>2017-01-07T02:05:10+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2017/01/07/avoided-a-duplicate-question</id>
+    
+      <content type="html"><![CDATA[<h2 id="problem">Problem</h2>
+
+<p>I encountered the following math problem, so I typed in on
+<a href="http://math.stackexchange.com/">Mathematics Stack Exchange</a>.  Then, a list of similar posts
+appeared.</p>
+
+<blockquote>
+  <p>Let $E = {1,\dots,p}$, where $p$ is a prime number.  $G$ is a
+transitive subgroup of $S_p$, and $H$ is a nontrivial normal
+subgroup of $G$.  Show that $H$ acts transitively on $E$.</p>
+
+  <p>I notice that $\lvert G \cdot x \rvert = \lvert E \rvert = p$
+because $G$ acts transitively on $E$.  Now, I try to show the same
+for $H$, but I am stuck at $\lvert H \cdot x \rvert$.  May I say
+that for all $g \in G$, $\lvert gH \cdot x \rvert = \lvert H \cdot x
+\rvert$?  Why can’t $H$ fix $x$?</p>
+</blockquote>
+
+<p><strong>Is it a possible duplicate of another question?</strong></p>
+
+<h2 id="reason-to-think-about-this">Reason to think about this</h2>
+
+<p>If the answer is yes, then my post is going to be quickly flagged as
+duplicate by experienced users on this site, especially those who are
+strong at abstract algebra, and I’ll lose reputation for that.</p>
+
+<h2 id="answer">Answer</h2>
+
+<p>I’ve really found <a href="http://math.stackexchange.com/q/152924/290189">the <em>same</em> problem</a> on Mathematics
+Stack Exchange by luck.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>I viewed this question four days ago.  When I tried to access it again
+tonight from my web browsing history, I found this a bit hard.
+Therefore, as a post on Mathematics Meta stack Exchange suggests,
+<a href="http://meta.math.stackexchange.com/q/662/290189"><em>Vote early, vote often</em></a>.</p>
+
+]]></content>
+    
+  </entry>
+  
+</feed>

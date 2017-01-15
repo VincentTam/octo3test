@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Octopress Config for Ruby 2.3 on Windows 10 - Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+
+  
+    
+      
+	Octopress Config for Ruby 2.3 on Windows 10
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &infin;
+ ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  <header>
+    
+      
+	<h1 class="entry-title">Octopress Config for Ruby 2.3 on Windows 10</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="https://vincenttam.github.io">Comments</a>
+        
+	| <a rel="bookmark" href="" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2 id="motivation">Motivation</h2>
+
+<p>Same as the background in <a href="/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/">my previous article</a>.</p>
+
+<h2 id="background">Background</h2>
+
+<p>I uninstalled Ruby 2.0 in the Control Panel, and then installed
+version 2.3.3 from <a href="https://rubyinstaller.org/">RubyInstaller for Windows</a></p>
+
+<h2 id="problem-1-redcloth-installation-failure">Problem 1: RedCloth installation failure</h2>
+
+<h3 id="error-message">Error message</h3>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Gem::InstallError: The 'RedCloth' native gem requires installed build tools.
+
+Please update your PATH to include build tools or download the DevKit
+from 'http://rubyinstaller.org/downloads' and follow the instructions
+at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
+
+An error occurred while installing RedCloth (4.2.9), and Bundler cannot
+continue.
+Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
+</code></pre>
+</div>
+
+<p>The error message is similar to <a href="http://stackoverflow.com/a/36274233/280189">Joe’s gem install error</a>.
+The only difference is that I was installing <a href="http://redcloth.org/">RedCloth</a> 4.9.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>This failure is due to the absence of a valid path to
+<a href="https://rubyinstaller.org/add-ons/devkit/">RubyInstaller Development Kit</a>.  I tried manually adding the
+path to the folder for binary executables (default to
+<code class="highlighter-rouge">C:\RubyDevKit\bin</code>) to <code class="highlighter-rouge">PATH</code>, but it’s <em>unsuccessful</em>.  I googled
+“Please update your PATH to include build tools” and found
+<a href="http://stackoverflow.com/a/36274233/280189">his question</a>, whose third answer explained the function
+of <code class="highlighter-rouge">devkitvar.bat</code>.  This batch script actually prepended the path of
+<em>two</em> folders into <code class="highlighter-rouge">PATH</code>.  One is stated above; one is
+<code class="highlighter-rouge">C:\RubyDevKit\mingw\bin</code>.  Running this batch file changes <code class="highlighter-rouge">PATH</code>
+<em>temporarily</em>.  A manual configuration in the Control Panel allowed
+the system to detect <a href="https://rubyinstaller.org/add-ons/devkit/">DevKit</a>, and this problem was thus
+solved.</p>
+
+<h3 id="related-gems">Related gems</h3>
+
+<h4 id="already-installed">Already installed</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: right">Version Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rake</td>
+      <td style="text-align: right">10.4.2</td>
+    </tr>
+    <tr>
+      <td>bundler</td>
+      <td style="text-align: right">1.13.7</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="being-installed">Being installed</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: right">Version Number</th>
+      <th style="text-align: center">With native extensions?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RedCloth</strong></td>
+      <td style="text-align: right">4.2.9</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><strong>wdm</strong></td>
+      <td style="text-align: right">0.1.0</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>blankslate</td>
+      <td style="text-align: right">2.1.2.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>chunky_png</td>
+      <td style="text-align: right">1.3.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>coffee-script-source</td>
+      <td style="text-align: right">1.9.1</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>colorator</td>
+      <td style="text-align: right">0.1</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>execjs</td>
+      <td style="text-align: right">2.4.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>fast-stemmer</td>
+      <td style="text-align: right">1.0.2</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>ffi</td>
+      <td style="text-align: right">1.9.6</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>hitimes</td>
+      <td style="text-align: right">1.2.2</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>jekyll-gist</td>
+      <td style="text-align: right">1.1.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>jekyll-paginate</td>
+      <td style="text-align: right">1.1.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>jekyll-sitemap</td>
+      <td style="text-align: right">0.8.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>kramdown</td>
+      <td style="text-align: right">1.6.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>liquid</td>
+      <td style="text-align: right">2.6.2</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>mercenary</td>
+      <td style="text-align: right">0.3.5</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>multi_json</td>
+      <td style="text-align: right">1.11.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>posix-spawn</td>
+      <td style="text-align: right">0.3.10</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>rack</td>
+      <td style="text-align: right">1.6.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>rb-fsevent</td>
+      <td style="text-align: right">0.9.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>redcarpet</td>
+      <td style="text-align: right">3.2.2</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>safe_yaml</td>
+      <td style="text-align: right">1.0.4</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>sass</td>
+      <td style="text-align: right">3.4.13</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>stringex</td>
+      <td style="text-align: right">1.4.0</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>tilt</td>
+      <td style="text-align: right">1.4.1</td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td>yajl-ruby</td>
+      <td style="text-align: right">1.2.1</td>
+      <td style="text-align: center">✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="problem-2-wdm-installation-failure">Problem 2: wdm installation failure</h2>
+
+<p>I put the <a href="#wdm" class="cliwide">error message from wdm</a> in a popup dialog.</p>
+
+<div id="wdm" class="noscr">
+<pre class="cli"><code>Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/.........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Installing hitimes 1.2.2 with native extensions
+Using chunky_png 1.3.4
+Installing fast-stemmer 1.0.2 with native extensions
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Installing posix-spawn 0.3.10 with native extensions
+Installing yajl-ruby 1.2.1 with native extensions
+Installing redcarpet 3.2.2 with native extensions
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Installing wdm 0.1.0 with native extensions
+Using bundler 1.13.7
+Installing parslet 1.5.0
+Installing timers 4.0.1
+Installing classifier-reborn 2.0.3
+Installing coffee-script 2.3.0
+Installing compass-core 1.0.3
+Installing compass-import-once 1.0.5
+Installing jekyll-sass-converter 1.3.0
+Installing sass-globbing 1.0.0
+Installing rb-inotify 0.9.5
+Installing haml 4.0.6
+Installing pygments.rb 0.6.2
+Installing rack-protection 1.5.3
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+C:/Ruby23-x64/bin/ruby.exe -r ./siteconf20170109-8020-1n4s35m.rb extconf.rb
+checking for main() in -lkernel32... yes
+checking for windows.h... yes
+checking for ruby.h... yes
+checking for HAVE_RUBY_ENCODING_H... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make "DESTDIR=" clean
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make "DESTDIR="
+generating wdm_ext-x64-mingw32.def
+compiling entry.c
+In file included from entry.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from entry.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from entry.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from entry.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling memory.c
+In file included from memory.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from memory.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from memory.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from memory.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling monitor.c
+In file included from monitor.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from monitor.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling queue.c
+In file included from queue.c:3:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/vadefs.h:13:0,
+from
+4-mingw32/include/_mingw_stdarg.h:14,
+from
+4-mingw32/include/stdarg.h:140,
+from
+c:\rubydevkit\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.7.2/include/stdarg.h:1,
+                 from queue.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from queue.c:3:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from queue.c:3:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_change.c
+In file included from rb_change.c:4:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdlib.h:9,
+                 from rb_change.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_change.c:4:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_change.c:4:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_monitor.c
+In file included from rb_monitor.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from rb_monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_monitor.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+rb_monitor.c: In function 'rb_monitor_run_bang':
+rb_monitor.c:508:9: warning: implicit declaration of function
+'rb_thread_blocking_region' [-Wimplicit-function-declaration]
+compiling utils.c
+In file included from utils.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from utils.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from utils.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from utils.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling wdm.c
+In file included from wdm.c:1:0:
+wdm.h:3:0: warning: "WINVER" redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from wdm.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from wdm.c:1:0:
+wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+&lt;command-line&gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from wdm.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+linking shared-object wdm_ext.so
+rb_monitor.o: In function `rb_monitor_run_bang':
+C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\wdm-0.1.0\ext\wdm/rb_monitor.c:508:
+undefined reference to `rb_thread_blocking_region'
+collect2.exe: error: ld returned 1 exit status
+make: *** [wdm_ext.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0 for inspection.
+Results logged to
+.out
+
+An error occurred while installing wdm (0.1.0), and Bundler cannot continue.
+Make sure that `gem install wdm -v '0.1.0'` succeeds before bundling.
+</code></pre></div>
+
+<p>From the line</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>wdm.h:4:0: warning: "_WIN32_WINNT" redefined [enabled by default]
+</code></pre>
+</div>
+
+<p>I found <a href="https://github.com/Maher4Ever/wdm/issues/18">wdm issue #18</a>, but I <em>failed</em> to notice that the
+problem had been resolved.  I later knew that from
+<a href="https://github.com/jekyll/jekyll/issues/3721">Jekyll issue #3721</a>.</p>
+
+<p>After changing the version number of <a href="https://rubygems.org/gems/wdm">wdm</a> to 0.1.1, I could proceed
+further.  <a href="#wdmfixed" class="cliwide">The system output</a> was fine.</p>
+
+<div id="wdmfixed" class="noscr">
+<pre class="cli"><code>Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ gem install wdm -v '0.1.1'
+Building native extensions.  This could take a while...
+Successfully installed wdm-0.1.1
+Parsing documentation for wdm-0.1.1
+Installing ri documentation for wdm-0.1.1
+Done installing documentation for wdm after 0 seconds
+1 gem installed
+Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Resolving dependencies...
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Using hitimes 1.2.2
+Using chunky_png 1.3.4
+Using fast-stemmer 1.0.2
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Using posix-spawn 0.3.10
+Using yajl-ruby 1.2.1
+Using redcarpet 3.2.2
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Using wdm 0.1.1 (was 0.1.0)
+Using bundler 1.13.7
+Using parslet 1.5.0
+Using timers 4.0.1
+Using classifier-reborn 2.0.3
+Using coffee-script 2.3.0
+Using compass-core 1.0.3
+Using compass-import-once 1.0.5
+Using jekyll-sass-converter 1.3.0
+Using sass-globbing 1.0.0
+Using rb-inotify 0.9.5
+Using haml 4.0.6
+Using pygments.rb 0.6.2
+Using rack-protection 1.5.3
+Installing toml 0.1.2
+Installing celluloid 0.16.0
+Installing jekyll-coffeescript 1.0.1
+Installing compass 1.0.3
+Installing sinatra 1.4.5
+Installing listen 2.8.5
+Installing jekyll-watch 1.2.1
+Installing jekyll 2.5.3
+Installing octopress-hooks 2.6.0
+Installing octopress-date-format 2.0.2
+Bundle complete! 14 Gemfile dependencies, 50 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+Post-install message from compass:
+    Compass is charityware. If you love it, please donate on our behalf at http:
+//umdf.org/compass Thanks!
+</code></pre></div>
+
+<h2 id="problem-3-i-have-a-row-with-justin">Problem 3: I have a row with Justin.</h2>
+
+<p>When I ran <code class="highlighter-rouge">rake preview</code>, the follow line appeared.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>bash: /c/Ruby23-x64/bin/rake: C:/Users/Justin/Projects/rubyinstaller/sandbox/rub
+y23_mingw/bin/ruby.exe: bad interpreter: No such file or directory
+</code></pre>
+</div>
+
+<p>I searched “rake install justin projects” on <a href="google.com">Google</a>.
+You may follow <a href="http://stackoverflow.com/a/36925869/280189">griest’s advice</a> to have this problem
+fixed.  If this link were unluckily dead in the future, you might
+leave a comment below after getting rid of Justin at the first line of
+<code class="highlighter-rouge">/c/Ruby23-x64/bin/rake</code>.</p>
+
+<h2 id="result">Result</h2>
+
+<p><a href="http://octopress.org">Octopress</a> did work on my machine.  Then I re-ran <code class="highlighter-rouge">bundle install</code>
+under the local repository for <a href="/blog2/">my another blog</a>, but the
+<a href="/blog/2016/08/20/jekyll-serve-error/"><em>same</em> Celluloid error</a> <em>re-appeared</em>.  I <em>don’t</em> know how to
+perform a <a href="https://talk.jekyllrb.com/t/error-while-trying-to-run-jekyll-serve/933/10">celluloid downgrade</a> to version 16.0 under that
+repository.  The version number for <a href="https://rubygems.org/gems/celluloid/versions/0.17.3">Celluloid</a> was <em>generated</em> by the
+system—I <em>didn’t</em> type it in <code class="highlighter-rouge">Gemfile.lock</code>.  As a result, I
+switched to <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Ubuntu on Windows 10</a>.</p>
+
+</div>
+  <footer>
+    <p class="meta">
+      <span class="byline author vcard">Posted by <span class="fn">Vincent Tam</span></span>
+      
+      
+      <span class="categories">
+  
+    M$ Win*OctopressRuby
+  
+</span>
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/" title="Previous Post: Upgraded to Git for Windows 2.11">&laquo; Upgraded to Git for Windows 2.11</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/" title="Next Post: A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/';
+        var disqus_url = 'https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

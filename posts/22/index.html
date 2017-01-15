@@ -1,0 +1,1528 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	Octopress Codeblock Syntax
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &i...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/22/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/31/octopress-codeblock-syntax/">Octopress Codeblock Syntax</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/31/octopress-codeblock-syntax/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/31/octopress-codeblock-syntax/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/31/octopress-codeblock-syntax/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>When I was writing the post <a href="/blog/2014/08/30/the-daring-fireball-linked-list/"><em>The Daring Fireball Linked List</em></a>, I
+included a sample Markdown source file for an Ocotpress post.  I would
+like to have a monospaced font and a line number at the left of each
+line of the source file.  In addition, I <em>didn’t</em> need any syntax
+highlighting for that file.</p>
+
+<p>I looked at the official manual, and it’s said that “passing <code class="highlighter-rouge">plain</code>
+disables highlighting”.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  <em>However, I got errors from <a href="http://pygments.org/" title="A generic syntax highlighter">Pygments</a>!</em></p>
+
+<pre class="cli"><code class="UBMono">127.0.0.1 - - [30/Aug/2014 21:36:51] "GET /images/noise.png?1408511469 HTTP/1.1"
+ 304 - 0.0010
+      Regenerating: 1 files at 2014-08-30 21:38:38 ...done.
+      Regenerating: 1 files at 2014-08-30 21:43:53   <span class="err">Liquid Exception: Pygments 
+can't parse unknown language: plain. in _posts/2014-08-30-the-daring-fireball-li
+nked-list.markdown/#excerpt</span>
+...error:
+             <span class="RakeErr2">Error: Pygments can't parse unknown language: plain.
+             Error: Run jekyll build --trace for more information.</span>
+      Regenerating: 1 files at 2014-08-30 21:44:21   <span class="err">Liquid Exception: Pygments 
+can't parse unknown language: plain. in _posts/2014-08-30-the-daring-fireball-li
+nked-list.markdown/#excerpt</span>
+...error:
+             <span class="RakeErr2">Error: Pygments can't parse unknown language: plain.
+             Error: Run jekyll build --trace for more information.</span>
+      Regenerating: 1 files at 2014-08-30 21:48:26 ...done.
+</code></pre>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<ol>
+  <li>Just use <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">codeblock</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code>
+    <ul>
+      <li>Omit <code class="highlighter-rouge">lang: xxx</code></li>
+      <li>I’m <em>not</em> sure if I can add title after <code class="highlighter-rouge">codeblock</code>.</li>
+    </ul>
+  </li>
+  <li>Use <code class="highlighter-rouge">lang:text</code> to indicate plain text.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></li>
+</ol>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Codeblock in <em>Octopress Documentation</em>. (<a href="http://octopress.org/docs/plugins/codeblock/">URL</a>)&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Available lexers in <em>Pygments Documentation</em>. (<a href="http://pygments.org/docs/lexers/#pygments.lexers.special.TextLexer">URL</a>)&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://greekgeek.squidoo.com/hotlinking">Hotlinking: What Is It, And Why Is It Bad?</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/31/hotlinking-what-is-it-and-why-is-it-bad/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/31/hotlinking-what-is-it-and-why-is-it-bad/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/31/hotlinking-what-is-it-and-why-is-it-bad/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+<p>{% quote author:Greekgeek %}</p>
+
+<p><strong>Why Hotlinking Is Theft</strong>
+Even if You Have Permission to Use a Graphic</p>
+
+<p>Each and every time someone looks at a webpage, their browser has to call up the image host and say, “send that image file over to me.” It’s like making a phone call.</p>
+
+<p>…Multiply that by hours, days, and months, and then multiply that by the number of graphics on a clipart site. You can see why hotlinking puts a substantial load on an image host. That load is <em>bandwidth</em>, and someone has to pay for it.</p>
+
+<p>{% endquote %}</p>
+
+<p>Luckily, I usually download the images and write down their sources if
+I use resources from other hosts.  However, I did hotlinked to the
+CC-BY-SA icon since I just copied the code from Creative Commons.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>Now, I’ve got rid of those hotlinked figures.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>The <a href="https://creativecommons.org/choose/results-one?license_code=by-sa&amp;jurisdiction=&amp;version=4.0&amp;lang=en">HTML code</a> for embedding the Creative Commons license.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/31/syntax-in-octopress-blockquote-tag/">Syntax in Octopress Blockquote Tag</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/31/syntax-in-octopress-blockquote-tag/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/31/syntax-in-octopress-blockquote-tag/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/31/syntax-in-octopress-blockquote-tag/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p><img class="fancybox" src="/images/posts/OctBlockquote/err.png" width="800" alt="'Wrongly rendered contents' ['Fig 1']" /></p>
+
+<p>If I input Markdown code inside a
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">blockquote</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag, it <em>won’t</em> be parsed.</p>
+
+<p><strong><em>How can the headings and hyperlinks inside the quoted text be
+displayed?</em></strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>That’s trivial.  Changing the Markdown code into HTML solves the
+problem.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<ol>
+  <li>A newline character <code class="highlighter-rouge">\n</code> in each
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">blockquote</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag <em>really</em> means a newline
+in the resulting quote.</li>
+  <li>Pullquotes can be used inside quote.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></li>
+</ol>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>See <a href="/blog/2014/06/14/electronic-gadgets-and-absent-mindedness/">常玩手機腦生鏽 14%青年無記性</a> in <em>Blog 1</em> for an working
+example.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://daringfireball.net/linked/">The Daring Fireball Linked List</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/30/the-daring-fireball-linked-list/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/30/the-daring-fireball-linked-list/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/30/the-daring-fireball-linked-list/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+<p>{% quote author:”Daring Fireball” %}</p>
+
+<div class="article"><h5>The Daring Fireball Linked List</h5><h6 class="dateline">Friday, 29 Aug 2014</h6>
+<dl class="linkedlist"><dt><a href="http://recode.net/2014/08/29/codered-apple-wearable-wont-ship-until-next-year/">Paczkowski: Apple Wearable Won't Ship Until Next Year</a>&nbsp;<a class="permalink" title="Permanent link to 'Paczkowski: Apple Wearable Won't Ship Until Next Year'." href="http://daringfireball.net/linked/2014/08/29/paczkowski">&#9733;</a></dt><dd>
+<p>John Paczkowski:</p><quote><p>So that new wearable device Apple is introducing on September 9?  It's going to be a while before anyone is actually wearing it.  Sources in position to know tell me it won't arrive at market for a few months.  "It's not shipping anytime soon," said one.  So when does Apple plan to ship its eagerly anticipated wearable?  That's not clear, but my understanding is that we're unlikely to see it at retail until after the holiday season—think early 2015.</p></quote><p>If true, why?  I'm guessing something similar to why they pre-announced the original iPhone—otherwise it would leak through regulatory filings with various governments around the world.  Plus, they have no worries about the <a href="https://en.wikipedia.org/wiki/Osborne_effect">Osborne Effect</a> with a new product category.</p></dd></dl></div>
+<p>…&lt;div class="article"&gt;&lt;h5&gt;About the Linked List&lt;/h5&gt;&lt;p&gt;The Daring Fireball Linked List is a daily list of interesting links and brief commentary, updated frequently but not frenetically. Call it a “link log”, or “linkblog”, or just “a good way to dick around on the Internet for a few minutes a day”.&lt;/p&gt;&lt;/div&gt;</p>
+
+<p>{% endquote %}</p>
+
+<p>Since I like the clarity of the linked list format, I’d been looking
+for ways to do this in June, but I <em>couldn’t</em> understand them.
+Moreover, as can be seen from the size of <code class="highlighter-rouge">git diff
+octopress/linklog</code><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, the difference between <code class="highlighter-rouge">linklog</code> and <code class="highlighter-rouge">master</code>
+branches is <em>very large</em>.  I <em>couldn’t</em> understand the git-diff result
+for <code class="highlighter-rouge">source/javascripts/octopress.js</code>. This would discourage any
+ordinary users from looking into the issue.  Therefore, I once said
+that I <em>didn’t</em> know how to write an Octopress linklog.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<p>Last night, I added an <em>unofficial</em> linklog feature to Octopress.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>
+The official guide <em>didn’t</em> worked for me.<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>  I could see the
+complaints from some users who had found that this feature <em>wasn’t</em>
+working.<sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup>  At the same time, I could see some blogs that included
+this feature.<sup id="fnref:6"><a href="#fn:6" class="footnote">6</a></sup>  The last commit of the <code class="highlighter-rouge">linklog</code> branch was in
+2012.<sup id="fnref:7"><a href="#fn:7" class="footnote">7</a></sup>  It seems that it <em>isn’t</em> likely that Octopress will work on
+this in the next few months.<sup id="fnref:8"><a href="#fn:8" class="footnote">8</a></sup></p>
+
+<!-- more -->
+
+<p>Yesterday, I <em>finally</em> understood the following posts about DIY
+Octopress linklogs.</p>
+
+<ol>
+  <li><a href="http://www.candlerblog.com/2012/01/30/octopress-linked-list/">Make a Linked List With Octopress</a> in <em>the Candler Blog</em>.</li>
+  <li>Octopress pull request #<a href="https://github.com/imathis/octopress/pull/1538" title="Add a capture to article include to use external-url">1538</a></li>
+  <li><a href="https://wllmtrng.github.io/blog/2014/04/17/creating-a-linklog-post/">Creating a Linklog Post</a> in <em>New Learnings from Old
+Understandings</em></li>
+</ol>
+
+<p>In the commit in item 2, only <em>a few</em> lines was changed, and it should
+be comprehensible even for one who knows basic HTML and programming
+only.  In item 1, there’s <em>no</em> <code class="highlighter-rouge">page.external-url</code> in
+<code class="highlighter-rouge">source/_includes/article.html</code>, but it’s present in item 3.  I
+compared those <a href="http://docs.shopify.com/themes/liquid-documentation/basics">Liquid</a> code with the relevant files in <code class="highlighter-rouge">linklog</code>
+branch.  Item 1 also contains the changes in <code class="highlighter-rouge">source/atom.xml</code>.  From
+this, I worked out <code class="highlighter-rouge">source/_includes/custome/category_feeds.xml</code>,
+though the code is <em>far from beautiful</em>.  To work out the blog
+archive, I looked at Dr.Z’s one.</p>
+
+<p>I was bored of this kind of writing code and <em>didn’t</em> want to further
+change the CSS properties of linklog titles.  The linklog markers and
+permalink labels should be enough.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<h3 id="yaml-front-matter-of-each-post">YAML front matter of each post</h3>
+
+<p>In the following sample Markdown source file for a post, there’s a
+variable <code class="highlighter-rouge">external-url</code>.  After looking at the above code blocks, I’ve
+learnt how to use those variables.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Contents of "2014-08-30-title-goes-here.markdown"</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">---
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">layout: post
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">title: "Title goes here"
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">date: 2014-08-30 14:44:16 +0800
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">comments: true
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">categories: [category 1, category 2]
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">external-url: http://www.example.com
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">---
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">Blog contents goes here...</div></div></pre></div></figure>
+
+<ul>
+  <li><code class="highlighter-rouge"><span class="p">{</span><span class="err">{%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">post.external-url</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="err">}</span></code> tests if the
+  front matter of a post contains <code class="highlighter-rouge">external-url</code> variable.</li>
+  <li><code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">post.external-url</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code> returns the value of
+  <code class="highlighter-rouge">external-url</code> variable.</li>
+</ul>
+
+<h3 id="yaml-variables-in-_configyml">YAML variables in <code class="highlighter-rouge">_config.yml</code></h3>
+
+<ul>
+  <li>I added a line <code class="highlighter-rouge">myVar: value</code> into <code class="highlighter-rouge">_config.yml</code>.</li>
+  <li>While configurating <code class="highlighter-rouge">source/_includes/article.html</code>, if I need to
+  access an variable in <code class="highlighter-rouge">_config.yml</code>, I have to use
+  <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">site.myVar</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>.  You’ll get <em>nothing</em> if
+  you miss <code class="highlighter-rouge">site.</code>.</li>
+</ul>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>I assume that Ocotpress’s GitHub repository has been added to the
+list of remote repositories as <code class="highlighter-rouge">remotes/octopress</code>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>{% quote author:”Me” url:http://localhost:4000/blog/2014/06/14/electronic-gadgets-and-absent-mindedness/ title:”九成人感眼睛疲倦 藍光加快退化” %}</p>
+
+      <p><del>Unfortunately, I <em>haven’t</em> find out how to include Octopress’s linklog feature into my Octopress blog.</del></p>
+
+      <p>{% endquote %}&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Commits <a href="https://github.com/VincentTam/vincenttam.github.io/commit/39293af" title="Unofficial linklog support in progress...">39293af</a> and <a href="https://github.com/VincentTam/vincenttam.github.io/commit/e35fab7" title="Added unofficial linklog support to more pages">e35fab7</a>.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p><a href="http://octopress.org/docs/blogging/linklog/">Writing a Linklog</a> in <em>Octopress Documentation</em>.&nbsp;<a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Ocotpress issue #<a href="https://github.com/imathis/octopress/issues/418" title="Allow linklog style posts">418</a>.&nbsp;<a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+
+      <p>For example,</p>
+
+      <ul>
+        <li><a href="http://drz.ac/blog/">DrZ.ac</a></li>
+        <li><a href="http://makarenko.me/07-17-2013-moving-to-linklog/">Moving to Linklog</a> in <em>Weblog Сергія Макаренка</em>.</li>
+      </ul>
+      <p><a href="#fnref:6" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:7">
+      <p>Commit <a href="https://github.com/imathis/octopress/commit/1750830" title="Merge pull request #800 from mxmerz/linklog">1750830</a> at the tip of <code class="highlighter-rouge">linklog</code> branch.&nbsp;<a href="#fnref:7" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+
+      <p>{% quote author:@octopress url:https://alpha.app.net/octopress/post/14385019 %}</p>
+
+      <p>@matrixagent sorry.  It’s killing us too.  The linklog feature is going to be theme based and right now we’re working on breaking out the theme from the release to distribute the development a little better.  It’s tricky to manage asset installation.</p>
+
+      <p>{% endquote %}&nbsp;<a href="#fnref:8" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/29/clang-complete-on-ubuntu-14-dot-04/">Clang Complete on Ubuntu 14.04</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/29/clang-complete-on-ubuntu-14-dot-04/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/29/clang-complete-on-ubuntu-14-dot-04/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/29/clang-complete-on-ubuntu-14-dot-04/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>Last night, when I tried to write a new file <code class="highlighter-rouge">hello.cpp</code>, I got the
+following problem.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>"hello.cpp" 8L, 105C
+Loading libclang failed, completion won't be available. Are you sure '/usr/lib/'
+ contains libclang?
+/usr/lib//libclang.so: cannot open shared object file: No such file or direc
+tory. To provide a path to libclang use Config.set_library_path() or Config.set_
+library_file().
+
+Press ENTER or type command to continue
+</code></pre>
+</div>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>I googled “loading libclang failed”, and skimmed two results.  The
+first one was an clang complete issue on GitHub.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  However, at
+first glance, the problem was on Ubuntu <em>13.10, not 14.04</em>, and the
+error messages <em>didn’t</em> resemble the above message.  The second one
+was a Stack Overflow question.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  From the first answer, I knew that
+I need to check if <code class="highlighter-rouge">libclang1</code> package was installed.  <code class="highlighter-rouge">dkpg -l | grep
+clang</code> told me that I’d got clang.  I read the second answer, and
+viewed the list of files in <code class="highlighter-rouge">/usr/lib/</code>.  There’s <em>no</em> folders whose
+name started with <code class="highlighter-rouge">x86</code>, and <em>no</em> file called <code class="highlighter-rouge">libclang.so.1</code> in each
+sub-folder.  Looking at the issue <em>again</em> on GitHub, I found out how
+to make use of the information from both sites.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[root@localhost /usr/lib/]# ln -s /usr/lib/llvm-3.4/lib/libclang.so .
+</code></pre>
+</div>
+
+<p>To avoid problems, I <em>didn’t</em> set Vim global variable
+<code class="highlighter-rouge">clang_library_path</code>.</p>
+
+<p>I <em>didn’t</em> know whether <code class="highlighter-rouge">.1</code> should be appended to the end of
+<code class="highlighter-rouge">libclang.so</code>.  Finally, I <em>didn’t</em> do so, and the plugin just
+<em>worked</em>.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>See clang complete <a href="https://github.com/Rip-Rip/clang_complete/issues/370">issue #370</a> for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>See Stack Overflow <a href="http://stackoverflow.com/q/22733943" title="Where is libclang.so?">question 22733943</a> for details.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/27/my-problems-in-m$-and-ubuntu/">My Problems in M$ and Ubuntu</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/27/my-problems-in-m$-and-ubuntu/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/27/my-problems-in-m$-and-ubuntu/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/27/my-problems-in-m$-and-ubuntu/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I seldom encounter problems in both operating systems.  However,
+there’re <em>exceptional</em> situations.</p>
+
+<h2 id="m-win-7">M$ Win* 7</h2>
+
+<p>I once booted into its “safe mode”, and experienced some problems
+during an image upload.  I <em>don’t</em> wish to learn more about the
+problem.</p>
+
+<p><img class="fancybox" src="/images/posts/MSUbuProblem/MS.png" alt="'MS' ['MS problem']" /></p>
+
+<h2 id="ubuntu-1404">Ubuntu 14.04</h2>
+
+<p>Last night, I saw a small dialog box after the login.</p>
+
+<p><img class="fancybox" src="/images/posts/MSUbuProblem/Ubu.png" alt="'Ubuntu 14.04' ['Ubuntu problem']" /></p>
+
+<p>I checked the details—it was the problem of Ubuntu’s greeter, but
+I’m going to do <em>nothing</em> to resolve it.</p>
+
+<p>I think that this is due to my method of getting the newer version of
+Ubuntu—upgrading instead of clearing and installing.<sup id="fnref:UpUb"><a href="#fn:UpUb" class="footnote">1</a></sup></p>
+
+<p>Since I lack time to study the official manual and related posts about
+clearing Linux partitions and installing Ubuntu 14.04, I just keep
+using the Ubuntu that I have.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I’m <em>not</em> going to argue whether GNU/Linux is better than M$ Win*.
+There’s already <em>lots of</em> posts on that issue.</p>
+
+<p>I just want to say that problems <em>can</em> exist in <em>any</em> OS.  If you
+<em>don’t</em> intentionally break things and your machine still goes wrong,
+then “keep calm and carry on”.  However, if it’s free software and you
+have the patience and ability to browse its source code, you may see
+what’s wrong.</p>
+
+<p>It’s great to learn what’s really going on in an OS, and I personally
+think that the GNU/Linux commands are better tools for that, when
+compared to their GUI counterparts.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:UpUb">
+
+      <p>Tam, V.  (Aug 13, 2014).  <em>Upgraded Ubuntu</em>.  Retrieved from
+<a href="https://vincenttam.github.io/blog/2014/08/13/upgraded-ubuntu/">https://vincenttam.github.io/blog/2014/08/13/upgraded-ubuntu/</a>&nbsp;<a href="#fnref:UpUb" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/21/updated-octopress-source-code/">Updated Octopress Source Code</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/21/updated-octopress-source-code/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/21/updated-octopress-source-code/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/21/updated-octopress-source-code/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<ol>
+  <li>Upgraded to Ubuntu 14.04 LTS<sup id="fnref:UpUb"><a href="#fn:UpUb" class="footnote">1</a></sup></li>
+  <li>Installed Ruby 2.1.2.<sup id="fnref:UpRVM"><a href="#fn:UpRVM" class="footnote">2</a></sup></li>
+  <li>Tried to generate the blog from the <em>same</em> Markdown and HTML
+source, but failed.<sup id="fnref:Ruby2Fail"><a href="#fn:Ruby2Fail" class="footnote">3</a></sup></li>
+</ol>
+
+<p>During the merge of Octopress source code last week, there’re some
+conflicts between my old working source code and the new one fetched
+from Octopress’s Github repository.  When <code class="highlighter-rouge">rake</code> complained, I changed
+my original code bit by bit—this turned out to be a <em>failed and
+inefficient</em> approach.  <em>Not</em> familiar with Ruby, I gave up the whole
+idea of updating Octopress’s source code and generating the contents
+on top of a new version of Ruby.  In order to keep posting things to
+this blog, I kept using <em>old</em> things on this <em>new</em> Ubuntu release.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Glimpsing the commit messages and their corresponding dates, I decided
+to try the Octopress update again.</p>
+
+<h3 id="yesterdays-work">Yesterday’s work</h3>
+
+<p>I simply fetched and merged the code from Octopress’s remote Git
+repository.<sup id="fnref:merge"><a href="#fn:merge" class="footnote">4</a></sup>  I remembered <em>minimizing</em> the changes while
+resolving the expected conflicts.  Here’s a brief outline of what I
+had done using <em>Ruby 1.9.3</em>.</p>
+
+<ol>
+  <li><code class="highlighter-rouge">git pull octopress master</code></li>
+  <li>Resolved conflicts and committed the changes <em>without</em> pushing it,
+so that I can easily undo the commit <em>without</em> leaving a mark in the
+commit history.</li>
+  <li>Ran <code class="highlighter-rouge">rake update_source</code> to apply the changes in
+<code class="highlighter-rouge">.themes/classic/soruce/*</code> to <code class="highlighter-rouge">source/*</code>.</li>
+  <li>
+    <p>Ran <code class="highlighter-rouge">rake generate</code>, <em>failed</em>, and learnt that there’re some syntax
+errors.</p>
+
+    <ul>
+      <li>At the beginning of some files, <code class="highlighter-rouge">layout: nil</code> had <em>not</em> yet been
+ changed to <code class="highlighter-rouge">layout: null</code>.</li>
+      <li><a href="http://brizzled.clapper.org/blog/2012/02/05/a-simple-octopress-image-popup-plugin/">Clapper’s image popup plugin</a> <em>didn’t</em> work with the
+<em>updated</em> Octopress code.  In order to use the updated Octopress
+source code, I <em>temporarily</em> removed the curly brackets that
+surrounded each
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">imgpopup</span><span class="w"> </span><span class="err">/path/to/image</span><span class="w"> </span><span class="err">nn%</span><span class="w"> </span><span class="err">title</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code>
+tag, using Vim’s <code class="highlighter-rouge">:argdo %s/pat/rep/ge | up</code> command.</li>
+    </ul>
+  </li>
+  <li>Corrected the above mistakes, and amended the last commit.</li>
+  <li>Ran <code class="highlighter-rouge">rake generate</code> <em>again</em>, and <em>succeeded</em>.</li>
+  <li>Found <a href="http://fancyapps.com/fancybox/">fancyBox</a> to replace the image popup plugin.</li>
+  <li>
+    <p>Followed Erv Walter’s instructions to use fancyBox in my
+posts.<sup id="fnref:ewal"><a href="#fn:ewal" class="footnote">5</a></sup></p>
+
+    <ol>
+      <li>Downloaded the <em>whole</em> ZIP archive from fancyBox’s official
+ website.</li>
+      <li>Extracted the archive to <code class="highlighter-rouge">source/</code> and renamed the folder as
+ <code class="highlighter-rouge">source/fancybox/</code>, and deleted <code class="highlighter-rouge">source/fancybox/demo/</code>.</li>
+      <li>Just added the references to the necessary CSS and JS files to
+ <code class="highlighter-rouge">source/_includes/custom/head.html</code> for simplicity.</li>
+      <li>Used <code class="highlighter-rouge">:vimgrep /pat/rep/ source/_posts/*</code> to obtain a list of
+ files which contained “imgpopup”.  The list was in a quickfix
+ window, which could be invoked by <code class="highlighter-rouge">:cw</code>.  <code class="highlighter-rouge">:cn</code> and <code class="highlighter-rouge">:cp</code> point to
+ the next and previous match respectively.</li>
+      <li>In <em>one</em> of my posts, I changed the line containing “imgpopup”
+ to “img fancybox”.</li>
+      <li>Misunderstood his words<sup id="fnref:ewal_quote"><a href="#fn:ewal_quote" class="footnote">6</a></sup>, I added his jQuery
+ function at the end of my post.  However, as I clicked the image,
+ <em>nothing</em> popped up.</li>
+      <li>Used a simpler jQuery function found on fancyBox’s website for
+ testing, and put it in <code class="highlighter-rouge">source/_includes/custom/head.html</code>.  This
+ time, a box popped up upon a click on the images.  However, after
+ I closed the popped up window, the clicked image <em>disappeared</em>.</li>
+      <li>Read and understood these two jQuery functions, incorporated
+ them into <code class="highlighter-rouge">source/_includes/custom/head.html</code>, and <em>succeeded</em>.</li>
+      <li>Changed <em>all</em> instances of “imgpopup” to “img fancybox”.</li>
+    </ol>
+  </li>
+  <li>Cleared up the Ruby scripts in <code class="highlighter-rouge">plugins/</code>.<sup id="fnref:del_imgpopup"><a href="#fn:del_imgpopup" class="footnote">7</a></sup></li>
+  <li>Used fancyBox for embedded Youtube videos.</li>
+  <li>Added back the default white round border for pictures in
+Octopress posts except for tiny icons.<sup id="fnref:img_bd"><a href="#fn:img_bd" class="footnote">8</a></sup></li>
+</ol>
+
+<h3 id="todays-work">Today’s work</h3>
+
+<p><img src="/images/posts/OctopressUpdate/rvm212.png" alt="Screenshot of GNOME Terminal" /></p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>Do things bit by bit at a time, so that one can adapt to the changes.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:UpUb">
+
+      <p>Tam, V.  (Aug 13, 2014).  <em>Upgraded Ubuntu</em>.  Retrieved from
+<a href="https://vincenttam.github.io/blog/2014/08/13/upgraded-ubuntu/">https://vincenttam.github.io/blog/2014/08/13/upgraded-ubuntu/</a>&nbsp;<a href="#fnref:UpUb" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:UpRVM">
+
+      <p>Tam, V.  (Aug 13, 2014).  <em>Install Ruby Again! (2)</em>.  Retrieved
+from
+<a href="https://vincenttam.github.io/blog/2014/08/13/install-ruby-again-2/">https://vincenttam.github.io/blog/2014/08/13/install-ruby-again-2/</a>&nbsp;<a href="#fnref:UpRVM" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:Ruby2Fail">
+      <p><em>Ibid</em>.&nbsp;<a href="#fnref:Ruby2Fail" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:merge">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/f090aac">f090aac</a>.&nbsp;<a href="#fnref:merge" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:ewal">
+
+      <p>Walter, E.  (Sep 8, 2012).  <em>Octopress Customizations</em>.  Retrieved
+from <a href="http://www.ewal.net/2012/09/08/octopress-customizations/">http://www.ewal.net/2012/09/08/octopress-customizations/</a>&nbsp;<a href="#fnref:ewal" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:ewal_quote">
+
+      <p>{% quote author:”Erv Walter” url:http://www.ewal.net/2012/09/08/octopress-customizations/ title:”Octopress Customizations” %}</p>
+
+      <p>It’s done per-post so that when viewing the main index of the
+ blog, unrelated images don’t end up getting added to one large
+ gallery.</p>
+
+      <p>{% endquote %}&nbsp;<a href="#fnref:ewal_quote" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:del_imgpopup">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/b787cd7">b787cd7</a>.&nbsp;<a href="#fnref:del_imgpopup" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:img_bd">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/a3b5986">a3b5986</a>.&nbsp;<a href="#fnref:img_bd" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/17/ubuntu-14-dot-04-monospaced-font-family/">Ubuntu 14.04 Monospaced Font Family</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/17/ubuntu-14-dot-04-monospaced-font-family/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/17/ubuntu-14-dot-04-monospaced-font-family/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/17/ubuntu-14-dot-04-monospaced-font-family/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>Last Wednesday, I upgraded Ubuntu from 12.04 LTS to 14.04 LTS.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<h2 id="problem">Problem</h2>
+
+<p>As we can see from the second figure in the post in footnote 1, in
+Chromium, the font used for displaying the source code of a website is
+<em>not</em> monospaced.</p>
+
+<p><img src="/images/posts/UbuntuDistUpgrade2/src-code.png" alt="HTML source code viewed in Chromium" /></p>
+
+<!-- more -->
+
+<h2 id="discussion">Discussion</h2>
+
+<p>This is <em>not</em> the problem of Chromium.  I can also see this problem in
+Firefox as well as GNOME Terminal.</p>
+
+<ul>
+  <li>
+    <p>Firefox</p>
+
+    <p><img src="/images/posts/Ubuntu1404Mono/FFViewSrc.png" alt="HTML source code viewed in Firefox" /></p>
+  </li>
+  <li>
+    <p>GNOME Terminal</p>
+
+    <ol>
+      <li>Uncheck the first checkbox, whose label means “use the system
+  fixed width font”, between “Default” and “Monospace 12”.</li>
+      <li>The letters in the terminal will look ugly.</li>
+    </ol>
+
+    <p><img src="/images/posts/Ubuntu1404Mono/GnomeTerminal.png" alt="A screenshot of GNOME Terminal" /></p>
+  </li>
+</ul>
+
+<p>When I wrote the post in footnote 1, I searched “ubuntu 14.04
+monospace”, and I <em>couldn’t</em> find anything that helped me solve this
+problem.</p>
+
+<p>Today, I limit the search to “past year”, and discover a post about
+font configurations on Linux Desktop.  It is the continuation of
+another post, which contains two code blocks for testing “monospaced”
+and “Courier New” font families.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://www.cnblogs.com/youxia/p/linux004.html</span><a class="code-highlight-caption-link" href="http://www.cnblogs.com/youxia/p/linux004.html">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family: monospace; font-size: 12pt;"</span><span class="nt">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">#include <span class="ni">&amp;lt;</span>stdio.h<span class="ni">&amp;gt;</span><span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">int main()&#x7b;<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="ni">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>return 0;//很顯然這是為了測試等寬字體<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">&#x7d;
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/span&gt;</span></div></div></pre></div></figure>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://www.cnblogs.com/youxia/p/linux004.html</span><a class="code-highlight-caption-link" href="http://www.cnblogs.com/youxia/p/linux004.html">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"font-family: courier new; font-size: 12pt;"</span><span class="nt">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">#include <span class="ni">&amp;lt;</span>stdio.h<span class="ni">&amp;gt;</span><span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">int main()&#x7b;<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="ni">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span>return 0;//觀察下面的代碼了解monospace是否等於Courier New<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">&#x7d;
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/span&gt;</span></div></div></pre></div></figure>
+
+<p>I inspect the elements in those code blocks, and realize that it is
+the problem of the monospaced font family in Ubuntu 14.04.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>I find <code class="highlighter-rouge">fc-match</code> at a site, but I <em>can’t</em> find the site.  Running the
+command, I can identify the culprit.</p>
+
+<pre class="cli"><code class="UBMono">$ fc-match monospace
+<span class="err">DroidSansFallbackFull.ttf: "Droid Sans" "Regular"</span>
+</code></pre>
+
+<p>Googling “ubuntu 14.04 monospace droidsansfallback”, I find a post
+about the way to improve the display of Chinese characters.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>  Following
+<em>part</em> of the method, I inserted the word <code class="highlighter-rouge">Mono</code> after <code class="highlighter-rouge">Droid Sans</code> in
+the first <code class="highlighter-rouge">&lt;string&gt;</code> tag under the <code class="highlighter-rouge">&lt;edit&gt;</code> tag in the <code class="highlighter-rouge">&lt;match&gt;</code> tag
+which contains <code class="highlighter-rouge">&lt;string&gt;monospace&lt;/string&gt;</code> in
+<code class="highlighter-rouge">/etc/fonts/conf.avail/69-language-selector-zh-hk.conf</code>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">69-language-selector-zh-hk.conf.part</span><a class="code-highlight-caption-link" href="https://gist.github.com/5fe406cf6bfcd6a6179b">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">&lt;match target="pattern"&gt;
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">	&lt;test qual="any" name="family"&gt;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;monospace&lt;/string&gt;
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">	&lt;/test&gt;
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">&lt;test name="lang"&gt;
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    &lt;string&gt;zh-hk&lt;/string&gt;
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">&lt;/test&gt;
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">	&lt;edit name="family" mode="prepend" binding="strong"&gt;
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;Droid Sans&lt;/string&gt;
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;AR PL UMing HK&lt;/string&gt;
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;AR PL New Sung&lt;/string&gt;
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;HYSong&lt;/string&gt;
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;AR PL UKai HK&lt;/string&gt;
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">		&lt;string&gt;AR PL ZenKai Uni&lt;/string&gt;
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">	&lt;/edit&gt;
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">&lt;/match&gt;</div></div></pre></div></figure>
+
+<p>The last part of Steve Chang’s post about using Ubuntu 14.04 LTS
+elegantly advices user to execute <code class="highlighter-rouge">sudo fc-cache -v</code> to update the
+font cache.<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>  Actually, <em>without</em> the <code class="highlighter-rouge">-v</code> flag, the command still
+works.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code># fc-cache
+/usr/share/fonts: skipping, existing cache is valid: 0 fonts, 8 dirs
+/usr/share/fonts/X11: skipping, existing cache is valid: 0 fonts, 4 dirs
+/usr/share/fonts/X11/Type1: skipping, existing cache is valid: 82 fonts, 0 dirs
+/usr/share/fonts/X11/encodings: skipping, existing cache is valid: 0 fonts, 1 di
+rs
+/usr/share/fonts/X11/encodings/large: skipping, existing cache is valid: 0 fonts
+, 0 dirs
+/usr/share/fonts/X11/misc: skipping, existing cache is valid: 59 fonts, 0 dirs
+/usr/share/fonts/X11/util: skipping, existing cache is valid: 0 fonts, 0 dirs
+/usr/share/fonts/cmap: skipping, existing cache is valid: 0 fonts, 5 dirs
+/usr/share/fonts/cmap/adobe-cns1: skipping, existing cache is valid: 0 fonts, 0 
+dirs
+/usr/share/fonts/cmap/adobe-gb1: skipping, existing cache is valid: 0 fonts, 0 d
+irs
+/usr/share/fonts/cmap/adobe-japan1: skipping, existing cache is valid: 0 fonts, 
+0 dirs
+/usr/share/fonts/cmap/adobe-japan2: skipping, existing cache is valid: 0 fonts, 
+0 dirs
+/usr/share/fonts/cmap/adobe-korea1: skipping, existing cache is valid: 0 fonts, 
+0 dirs
+/usr/share/fonts/eot: skipping, existing cache is valid: 0 fonts, 1 dirs
+/usr/share/fonts/eot/font-awesome: skipping, existing cache is valid: 0 fonts, 0
+dirs
+/usr/share/fonts/opentype: skipping, existing cache is valid: 0 fonts, 11 dirs
+/usr/share/fonts/opentype/cabin: skipping, existing cache is valid: 8 fonts, 0 d
+irs
+/usr/share/fonts/opentype/font-awesome: skipping, existing cache is valid: 1 fon
+ts, 0 dirs
+/usr/share/fonts/opentype/freefont: skipping, existing cache is valid: 12 fonts,
+0 dirs
+/usr/share/fonts/opentype/ipaexfont-gothic: skipping, existing cache is valid: 1
+fonts, 0 dirs
+/usr/share/fonts/opentype/ipaexfont-mincho: skipping, existing cache is valid: 1
+fonts, 0 dirs
+/usr/share/fonts/opentype/ipafont-gothic: skipping, existing cache is valid: 2 f
+onts, 0 dirs
+/usr/share/fonts/opentype/ipafont-mincho: skipping, existing cache is valid: 2 f
+onts, 0 dirs
+/usr/share/fonts/opentype/linux-libertine: skipping, existing cache is valid: 13
+fonts, 0 dirs
+/usr/share/fonts/opentype/lobster: skipping, existing cache is valid: 1 fonts, 0
+dirs
+/usr/share/fonts/opentype/lobstertwo: skipping, existing cache is valid: 4 fonts
+, 0 dirs
+/usr/share/fonts/opentype/stix: skipping, existing cache is valid: 29 fonts, 0 d
+irs
+/usr/share/fonts/svg: skipping, existing cache is valid: 0 fonts, 1 dirs
+/usr/share/fonts/svg/font-awesome: skipping, existing cache is valid: 0 fonts, 0
+dirs
+/usr/share/fonts/truetype: skipping, existing cache is valid: 2 fonts, 42 dirs
+/usr/share/fonts/truetype/abyssinica: skipping, existing cache is valid: 1 fonts
+, 0 dirs
+/usr/share/fonts/truetype/adf: skipping, existing cache is valid: 28 fonts, 0 di
+rs
+/usr/share/fonts/truetype/arphic: skipping, existing cache is valid: 8 fonts, 0 
+dirs
+/usr/share/fonts/truetype/artemisia: skipping, existing cache is valid: 4 fonts,
+0 dirs
+/usr/share/fonts/truetype/asana-math: skipping, existing cache is valid: 1 fonts
+, 0 dirs
+/usr/share/fonts/truetype/comfortaa: skipping, existing cache is valid: 3 fonts,
+0 dirs
+/usr/share/fonts/truetype/complutum: skipping, existing cache is valid: 1 fonts,
+0 dirs
+/usr/share/fonts/truetype/dejavu: skipping, existing cache is valid: 21 fonts, 0
+dirs
+/usr/share/fonts/truetype/didot: skipping, existing cache is valid: 4 fonts, 0 d
+irs
+/usr/share/fonts/truetype/droid: skipping, existing cache is valid: 18 fonts, 0 
+dirs
+/usr/share/fonts/truetype/font-awesome: skipping, existing cache is valid: 1 fon
+ts, 0 dirs
+/usr/share/fonts/truetype/freefont: skipping, existing cache is valid: 12 fonts,
+0 dirs
+/usr/share/fonts/truetype/gentium: skipping, existing cache is valid: 4 fonts, 0
+dirs
+/usr/share/fonts/truetype/gentium-basic: skipping, existing cache is valid: 8 fo
+nts, 0 dirs
+/usr/share/fonts/truetype/horai-umefont: skipping, existing cache is valid: 18 f
+onts, 0 dirs
+/usr/share/fonts/truetype/inconsolata: skipping, existing cache is valid: 1 font
+s, 0 dirs
+/usr/share/fonts/truetype/junicode: skipping, existing cache is valid: 4 fonts, 
+0 dirs
+/usr/share/fonts/truetype/kacst: skipping, existing cache is valid: 15 fonts, 0 
+dirs
+/usr/share/fonts/truetype/kacst-one: skipping, existing cache is valid: 2 fonts,
+0 dirs
+/usr/share/fonts/truetype/lao: skipping, existing cache is valid: 1 fonts, 0 dir
+s
+/usr/share/fonts/truetype/lato: skipping, existing cache is valid: 10 fonts, 0 d
+irs
+/usr/share/fonts/truetype/liberation: skipping, existing cache is valid: 16 font
+s, 0 dirs
+/usr/share/fonts/truetype/msttcorefonts: skipping, existing cache is valid: 60 f
+onts, 0 dirs
+/usr/share/fonts/truetype/nanum: skipping, existing cache is valid: 6 fonts, 0 d
+irs
+/usr/share/fonts/truetype/neohellenic: skipping, existing cache is valid: 4 font
+s, 0 dirs
+/usr/share/fonts/truetype/olga: skipping, existing cache is valid: 1 fonts, 0 di
+rs
+/usr/share/fonts/truetype/openoffice: skipping, existing cache is valid: 1 fonts
+, 0 dirs
+/usr/share/fonts/truetype/padauk: skipping, existing cache is valid: 4 fonts, 0 
+dirs
+/usr/share/fonts/truetype/sinhala: skipping, existing cache is valid: 1 fonts, 0
+dirs
+/usr/share/fonts/truetype/solomos: skipping, existing cache is valid: 1 fonts, 0
+dirs
+/usr/share/fonts/truetype/takao-gothic: skipping, existing cache is valid: 1 fon
+ts, 0 dirs
+/usr/share/fonts/truetype/tibetan-machine: skipping, existing cache is valid: 1 
+fonts, 0 dirs
+/usr/share/fonts/truetype/tlwg: skipping, existing cache is valid: 54 fonts, 0 d
+irs
+/usr/share/fonts/truetype/ttf-dejavu: skipping, existing cache is valid: 21 font
+s, 0 dirs
+/usr/share/fonts/truetype/ttf-indic-fonts-core: skipping, existing cache is vali
+d: 17 fonts, 0 dirs
+/usr/share/fonts/truetype/ttf-khmeros-core: skipping, existing cache is valid: 2
+fonts, 0 dirs
+/usr/share/fonts/truetype/ttf-liberation: skipping, existing cache is valid: 16 
+fonts, 0 dirs
+/usr/share/fonts/truetype/ttf-marvosym: skipping, existing cache is valid: 1 fon
+ts, 0 dirs
+/usr/share/fonts/truetype/ttf-punjabi-fonts: skipping, existing cache is valid: 
+2 fonts, 0 dirs
+/usr/share/fonts/truetype/ubuntu-font-family: skipping, existing cache is valid:
+13 fonts, 0 dirs
+/usr/share/fonts/truetype/unfonts-core: skipping, existing cache is valid: 12 fo
+nts, 0 dirs
+/usr/share/fonts/truetype/wqy: skipping, existing cache is valid: 5 fonts, 0 dir
+s
+/usr/share/fonts/type1: skipping, existing cache is valid: 0 fonts, 3 dirs
+/usr/share/fonts/type1/gsfonts: skipping, existing cache is valid: 35 fonts, 0 d
+irs
+/usr/share/fonts/type1/mathml: skipping, existing cache is valid: 1 fonts, 0 dir
+s
+/usr/share/fonts/type1/texlive-fonts-recommended: skipping, existing cache is va
+lid: 47 fonts, 0 dirs
+/usr/share/fonts/woff: skipping, existing cache is valid: 0 fonts, 1 dirs
+/usr/share/fonts/woff/font-awesome: skipping, existing cache is valid: 1 fonts, 
+0 dirs
+/usr/local/share/fonts: skipping, existing cache is valid: 0 fonts, 0 dirs
+/home/owner/.local/share/fonts: skipping, no such directory
+/home/owner/.fonts: skipping, existing cache is valid: 29 fonts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/lm: skipping, existing cache is valid: 72
+fonts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/lm-math: skipping, existing cache is vali
+d: 1 fonts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/tex-gyre: skipping, existing cache is val
+id: 33 fonts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/tex-gyre-math: skipping, existing cache i
+s valid: 2 fonts, 0 dirs
+/usr/share/fonts: caching, new cache contents: 0 fonts, 8 dirs
+/usr/local/share/fonts: caching, new cache contents: 0 fonts, 0 dirs
+/home/owner/.local/share/fonts: skipping, no such directory
+/home/owner/.fonts: caching, new cache contents: 29 fonts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/lm: caching, new cache contents: 72 fonts
+, 0 dirs
+/usr/share/texmf/fonts/opentype/public/lm-math: caching, new cache contents: 1 f
+onts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/tex-gyre: caching, new cache contents: 33
+fonts, 0 dirs
+/usr/share/texmf/fonts/opentype/public/tex-gyre-math: caching, new cache content
+s: 2 fonts, 0 dirs
+/var/cache/fontconfig: cleaning cache directory
+/home/owner/.cache/fontconfig: cleaning cache directory
+/home/owner/.fontconfig: cleaning cache directory
+fc-cache: succeeded
+</code></pre>
+</div>
+
+<p>Now, <code class="highlighter-rouge">fc-match</code> returns me a fixed-width font.</p>
+
+<pre class="cli"><code class="UBMono">$ fc-match monospace
+DroidSans<span class="UBHLCode">Mono</span>.ttf: "Droid Sans <span class="UBHLCode">Mono</span>" "Regular"
+</code></pre>
+
+<p>The following screenshots show that the above configurations can
+really fix the problem.</p>
+
+<ul>
+  <li>
+    <p>Chromium</p>
+
+    <p><img src="/images/posts/Ubuntu1404Mono/ChromeViewSrc2.png" alt="HTML source code viewed in Chromium again" /></p>
+  </li>
+  <li>
+    <p>Firefox</p>
+
+    <p><img src="/images/posts/Ubuntu1404Mono/FFViewSrc2.png" alt="HTML source code viewed in Firefox again" /></p>
+  </li>
+</ul>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Refer to <a href="/blog/2014/08/13/upgraded-ubuntu/"><em>Upgraded Ubuntu</em></a> for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Refer to <a href="http://www.cnblogs.com/youxia/p/linux004.html">the post</a> for details.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Refer to <a href="http://goo.gl/tKCOA1" title="修改ubuntu 14.04 中文版的默認中文字體">the post</a> for details.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+
+      <p>Chang, S.  (Jun 23, 2014).  <em>如何優雅的使用Ubuntu 14.04 LTS</em>.
+Retrieved from <a href="https://emitvoice.github.io/2014/06/diy-ubuntu/">https://emitvoice.github.io/2014/06/diy-ubuntu/</a>&nbsp;<a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/15/removed-ubuntu-tweak/">Removed Ubuntu Tweak</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/15/removed-ubuntu-tweak/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/15/removed-ubuntu-tweak/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/15/removed-ubuntu-tweak/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Tonight, I uninstalled <a href="http://ubuntu-tweak.com/">Ubuntu Tweak</a> for security reasons.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~]$ sudo apt-get remove ubuntu-tweak 
+[sudo] password for owner: 
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be REMOVED:
+ubuntu-tweak
+0 upgraded, 0 newly installed, 1 to remove and 1 not upgraded.
+After this operation, 4,034 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 354631 files and directories currently installed.)
+Removing ubuntu-tweak (0.8.7-1~precise1) ...
+Processing triggers for bamfdaemon (0.5.1+14.04.20140409-0ubuntu1) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for desktop-file-utils (0.22-1ubuntu1) ...
+Processing triggers for mime-support (3.54ubuntu1) ...
+Processing triggers for gnome-menus (3.10.1-0ubuntu2) ...
+Processing triggers for libglib2.0-0:i386 (2.40.0-2) ...
+Processing triggers for gconf2 (3.2.6-0ubuntu2) ...
+Processing triggers for hicolor-icon-theme (0.13-1) ...
+</code></pre>
+</div>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>See <a href="https://sites.google.com/site/easylinuxtipsproject/fatalmistakes#TOC-High-danger-level-orange-alert-:-Ubuntu-Tweak-and-Ubuntu-Sources-List-Generator"><em>Avoid 10 fatal mistakes in Ubuntu and Linux Mint</em></a> in
+Easy Linux tips project.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/08/14/my-scanner-and-ubuntu-14-dot-04/">My Scanner and Ubuntu 14.04</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/08/14/my-scanner-and-ubuntu-14-dot-04/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/08/14/my-scanner-and-ubuntu-14-dot-04/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/08/14/my-scanner-and-ubuntu-14-dot-04/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<ul>
+  <li>Scanning and printing works fine in my Ubuntu 12.04 desktop.</li>
+  <li>I’ve upgraded to Ubuntu 14.04 LTS yesterday.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></li>
+</ul>
+
+<h2 id="problem">Problem</h2>
+
+<p>When I used Simple Scan, Ubuntu’s GUI tool for scanning documents, I
+encountered an error—the program <em>couldn’t</em> detect my scanner.</p>
+
+<p><img src="/images/posts/Ubuntu1404Scan/ecscan.png" alt="Simple Scan didn't detect my scanner" /></p>
+
+<p><strong>How can I scan images from my scanner in Ubuntu?</strong></p>
+
+<!-- more -->
+
+<h2 id="discussion">Discussion</h2>
+
+<p>The working principle GUI tools are <em>much</em> more complicated than its
+command line counterpart.</p>
+
+<p>I’ll illustrate the idea by a typical component in GUI by borrowing
+other’s depication of the <em>delegation model</em> in Java GUI programming.</p>
+
+<p><img src="/images/posts/Ubuntu1404Scan/AWT-ActionListener.png" alt="Java GUI button and listener" /><br />
+<img src="/images/posts/Ubuntu1404Scan/AWT-WindowEventSeqDiagram.png" alt="Java GUI delegation model" /><br />
+<small>Source: <em>yet another insignificant programming
+notes</em><sup id="fnref:img_src"><a href="#fn:img_src" class="footnote">2</a></sup></small></p>
+
+<p>In my opinion, the working principle of a button in GUI is much more
+abstract than that of the nervous system in a human body.  One can
+learn about the bilogical principles through observations of concrete
+objects.</p>
+
+<p><img src="/images/posts/Ubuntu1404Scan/VoluntaryAction.jpg" alt="Human nervous system" /><br />
+<small>Source: <em>Passnownow</em><sup id="fnref:img_src2"><a href="#fn:img_src2" class="footnote">3</a></sup></small></p>
+
+<h2 id="solution">Solution</h2>
+
+<h3 id="temporary-method">Temporary method</h3>
+
+<p>Therefore, I immediately googled the *nix command for scanning
+documents, and came up with <code class="highlighter-rouge">brscan-skey</code>.  I ran it with the <code class="highlighter-rouge">-l</code>
+flag, the it said that my scanner <em>wasn’t</em> registered.</p>
+
+<pre class="cli"><code class="UBMono"># brscan-skey
+# brscan-skey -l
+ XXX-XXXX          : brotherX:busX;devX  : USB                  <span class="err">Not registered</span>
+</code></pre>
+
+<p>A <a href="http://ubuntuforums.org/showthread.php?t=937898&amp;p=11707315#post11707315" title="Re: Brother MFC-465CN">comment</a> for <em>Brother MFC-465CN</em> took me to Brother’s
+documentation for Linux drivers, but finding the right page by viewing
+the right hyperlink was too slow, so I searched the command and
+restricted the results to those in Brother’s website.  The page in the
+official documentation inspired me to add the following lines just
+before the last line of <code class="highlighter-rouge">/lib/udev/rules.d/40-libsane.rules</code>.<sup id="fnref:doc"><a href="#fn:doc" class="footnote">4</a></sup></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Brother scanners
+ATTRS{idVendor}=="04f9", ENV{libsane_matched}="yes"
+</code></pre>
+</div>
+
+<p>I rebooted my computer and my scanner became “active”.  However,
+Simple Scan still <em>couldn’t</em> detect it.  I followed the official
+documentation and pressed “Scan” button on the device.  It worked and
+the scanned files with the TIFF format could be found under
+<code class="highlighter-rouge">~/brscan/</code>.</p>
+
+<p>After an hour, when I ran the <em>same</em> command to list out the devices
+that <code class="highlighter-rouge">brscan-skey</code> could detect, I got <em>no</em> output.</p>
+
+<p>However, I could still use the button on my scanner to produce scanned
+images.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>Refer to <a href="/blog/2014/08/12/ubuntu-distribution-upgrade-to-14-dot-04/"><em>Ubuntu Distribution Upgrade to 14.04</em></a> and
+<a href="/blog/2014/08/13/upgraded-ubuntu/"><em>Upgraded Ubuntu</em></a> for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:img_src">
+
+      <p>Chua Hock-Chuan.  (2014, March).  <em>Java Programming Tutorial</em>.
+Retrieved 12:25, August 14, 2014, from
+<a href="http://www.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html#zz-3.1">http://www.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html#zz-3.1</a>&nbsp;<a href="#fnref:img_src" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:img_src2">
+
+      <p>Reflex and Voluntary Actions.  (n.d.).  In <em>Passnownow</em>.
+Retrieved 12:52, August 14, 2014, from
+<a href="http://passnownow.com/classwork-series-and-exercises-biology-ss3-reflex-and-voluntary-actions/">http://passnownow.com/classwork-series-and-exercises-biology-ss3-reflex-and-voluntary-actions/</a>&nbsp;<a href="#fnref:img_src2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:doc">
+
+      <p>Scanner setting for normal user. (2013). In <em>Linux Informations</em>.
+Retrieved 13:53, August 14, 2014, from
+<a href="http://support.brother.com/g/s/id/linux/en/instruction_scn1c.html?c=us_ot&amp;lang=en&amp;redirect=on#u9.10">http://support.brother.com/g/s/id/linux/en/instruction_scn1c.html?c=us_ot&amp;lang=en&amp;redirect=on#u9.10</a>&nbsp;<a href="#fnref:doc" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/23/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/21/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

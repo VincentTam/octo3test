@@ -1,0 +1,20 @@
+%        File: sample2.tex
+%     Created: 三 8月 14 08:00 下午 2013 H
+% Last Change: 三 8月 14 08:00 下午 2013 H
+%
+\documentclass[a4paper]{article}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{samplebib.bib}
+\begin{document}
+In this sample, the \textsf{biblatex-apa} package is used.
+\begin{description}
+  \item[Book] \textcite{oualline2001} wrote a book about Vim.
+  \item[Google scholar] For some women, doing exercises is good for their health. \parencite{asikainen2004exercise}
+\end{description}
+\printbibliography
+\end{document}
+
+

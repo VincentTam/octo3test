@@ -1,14 +1,1933 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-01-13T14:16:33+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/octo3test/jekyll/update/2017/01/13/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-01-13T11:36:27+01:00</published><updated>2017-01-13T11:36:27+01:00</updated><id>http://localhost:4000/octo3test/jekyll/update/2017/01/13/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/octo3test/jekyll/update/2017/01/13/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://vincenttam.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://vincenttam.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vincenttam.github.io/" rel="alternate" type="text/html" /><updated>2017-01-16T04:14:05+08:00</updated><id>https://vincenttam.github.io//</id><title type="html">Blog 1</title><subtitle>My memory dump, code bin, and space for posting LaTeX math</subtitle><author><name>Vincent Tam</name></author><entry><title type="html">Ubuntu on Windows 10 Custom Display</title><link href="https://vincenttam.github.io/blog/2017/01/11/ubuntu-on-windows-10-custom-display/" rel="alternate" type="text/html" title="Ubuntu on Windows 10 Custom Display" /><published>2017-01-11T22:29:23+08:00</published><updated>2017-01-11T22:29:23+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/11/ubuntu-on-windows-10-custom-display</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Same&lt;/em&gt; as some of my recent posts: get &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt; working to watch
+for changes during a preview of &lt;a href=&quot;/blog2&quot;&gt;my Jekyll-bootstrap blog&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;Since I found the &lt;a href=&quot;/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/&quot;&gt;Ruby gems setup&lt;/a&gt; too &lt;em&gt;difficult&lt;/em&gt;, I switched to
+&lt;a href=&quot;https://msdn.microsoft.com/en-us/commandline/wsl/about&quot;&gt;Ubuntu on Windows 10&lt;/a&gt; after reading &lt;a href=&quot;https://gorails.com/setup/windows/10&quot;&gt;a Ruby setup guide&lt;/a&gt;.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;The default display settings &lt;em&gt;didn’t&lt;/em&gt; look great, so I installed
+&lt;a href=&quot;http://font.ubuntu.com/&quot;&gt;Ubuntu Mono font&lt;/a&gt;.  Unluckily, one &lt;em&gt;can’t&lt;/em&gt; type Chinese
+characters, and the bottom line of &lt;a href=&quot;https://tmux.github.io/&quot;&gt;tmux&lt;/a&gt; keeps jumping up from time
+to time.  Most importantly, the copy and paste function &lt;em&gt;isn’t&lt;/em&gt;
+convenient to use: every time I need to paste something, I have to
+move the mouse to the top of the window, then right click and select
+“Modify” → “Paste”.  That’s too slow when compared to &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;S-Ins&amp;gt;&lt;/code&gt; in
+&lt;a href=&quot;https://mintty.github.io/&quot;&gt;mintty&lt;/a&gt; which is shipped with &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;Git for Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, on &lt;abbr title=&quot;Windows Linux Subsystem&quot;&gt;WLS&lt;/abbr&gt;, aptitude takes good care of package dependencies.
+That’s &lt;em&gt;much better&lt;/em&gt; for installing necessary stuff for blogging with
+frameworks like &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How can I run &lt;abbr title=&quot;Windows Linux Subsystem&quot;&gt;WLS&lt;/abbr&gt; using a mintty shell?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;Use &lt;a href=&quot;https://github.com/goreliu/wsl-terminal&quot;&gt;wsl-terminal&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;Firstly, I’ve revised the use of &lt;code class=&quot;highlighter-rouge&quot;&gt;chown&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;chgrp&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod&lt;/code&gt;, and
+learnt the function of &lt;code class=&quot;highlighter-rouge&quot;&gt;umask&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;u&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;g&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;o&lt;/code&gt; stand for “user”, “group” and “others” respectively.&lt;/li&gt;
+  &lt;li&gt;The rights to &lt;code class=&quot;highlighter-rouge&quot;&gt;r&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; can be &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Put them together: &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod og-w [target-dir]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unfortunately, the Windows 10 bash creates folders and files with
+permissions 777 and 666 respectively.  The comments for
+&lt;a href=&quot;https://github.com/Microsoft/BashOnWindows/issues/352&quot;&gt;Microsoft/BashOnWindows#352&lt;/a&gt; solved this problem: instead of
+putting &lt;code class=&quot;highlighter-rouge&quot;&gt;umask 022&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/profile&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.profile&lt;/code&gt;, it should be
+added in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt; because the login mechanism on &lt;abbr title=&quot;Windows Linux Subsystem&quot;&gt;WLS&lt;/abbr&gt; is &lt;em&gt;different&lt;/em&gt;
+from a usual GNU/Linux OS.  I think the profiles &lt;em&gt;aren’t&lt;/em&gt; process
+during &lt;abbr title=&quot;Windows Linux Subsystem&quot;&gt;WLS&lt;/abbr&gt; startup after having added a simple statement for echoing a
+few words in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.profile&lt;/code&gt;.  Lilred’s method is even better.&lt;/p&gt;
+
+&lt;p&gt;Secondly, I’ve learnt the meaning of &lt;code class=&quot;highlighter-rouge&quot;&gt;eval&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;cliUB highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user@OWNER-PC:~$ ssh-agent
+SSH_AUTH_SOCK=/tmp/ssh-xiwtTnVlI90S/agent.6636; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=5764; export SSH_AGENT_PID;
+echo Agent pid 5764;
+user@OWNER-PC:~$ ssh-add
+Could not open a connection to your authentication agent.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;From &lt;a href=&quot;http://stackoverflow.com/a/17848593/3184351&quot;&gt;user456814’s answer&lt;/a&gt; on a Stack Overflow question
+about SSH authentication agent, we can see that &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-agent&lt;/code&gt; returns
+the commands to be copied, pasted and ran in the terminal.  The
+command &lt;code class=&quot;highlighter-rouge&quot;&gt;eval&lt;/code&gt; saves these steps by taking the output as the command
+input.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background
+
+Same as some of my recent posts: get jekyll serve working to watch
+for changes during a preview of my Jekyll-bootstrap blog.
+
+Since I found the Ruby gems setup too difficult, I switched to
+Ubuntu on Windows 10 after reading a Ruby setup guide.
+
+Problem
+
+The default display settings didn’t look great, so I installed
+Ubuntu Mono font.  Unluckily, one can’t type Chinese
+characters, and the bottom line of tmux keeps jumping up from time
+to time.  Most importantly, the copy and paste function isn’t
+convenient to use: every time I need to paste something, I have to
+move the mouse to the top of the window, then right click and select
+“Modify” → “Paste”.  That’s too slow when compared to &amp;lt;S-Ins&amp;gt; in
+mintty which is shipped with Git for Windows.
+
+However, on WLS, aptitude takes good care of package dependencies.
+That’s much better for installing necessary stuff for blogging with
+frameworks like Jekyll.
+
+How can I run WLS using a mintty shell?
+
+
+
+Solution
+
+Use wsl-terminal.
+
+Lessons learnt
+
+Firstly, I’ve revised the use of chown, chgrp and chmod, and
+learnt the function of umask.
+
+
+  u, g, o stand for “user”, “group” and “others” respectively.
+  The rights to r, w, x can be + or -.
+  Put them together: chmod og-w [target-dir].
+
+
+Unfortunately, the Windows 10 bash creates folders and files with
+permissions 777 and 666 respectively.  The comments for
+Microsoft/BashOnWindows#352 solved this problem: instead of
+putting umask 022 in /etc/profile or ~/.profile, it should be
+added in ~/.bashrc because the login mechanism on WLS is different
+from a usual GNU/Linux OS.  I think the profiles aren’t process
+during WLS startup after having added a simple statement for echoing a
+few words in ~/.profile.  Lilred’s method is even better.
+
+Secondly, I’ve learnt the meaning of eval.
+
+user@OWNER-PC:~$ ssh-agent
+SSH_AUTH_SOCK=/tmp/ssh-xiwtTnVlI90S/agent.6636; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=5764; export SSH_AGENT_PID;
+echo Agent pid 5764;
+user@OWNER-PC:~$ ssh-add
+Could not open a connection to your authentication agent.
+
+
+
+From user456814’s answer on a Stack Overflow question
+about SSH authentication agent, we can see that ssh-agent returns
+the commands to be copied, pasted and ran in the terminal.  The
+command eval saves these steps by taking the output as the command
+input.</summary></entry><entry><title type="html">Windows 10 Time Sync Error</title><link href="https://vincenttam.github.io/blog/2017/01/11/windows-10-time-sync-error/" rel="alternate" type="text/html" title="Windows 10 Time Sync Error" /><published>2017-01-11T18:28:39+08:00</published><updated>2017-01-11T18:28:39+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/11/windows-10-time-sync-error</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/11/windows-10-time-sync-error/">&lt;p&gt;I’ve tried adding a custom inbound rule in my firewall so as to allow
+&lt;abbr title=&quot;Network Time Protocol&quot;&gt;NTP&lt;/abbr&gt; access via UDP port 123 after reading a post about
+&lt;a href=&quot;http://www.ehow.com/how_7241410_unblock-network-time-protocol.html&quot;&gt;firewall settings for &lt;abbr title=&quot;Network Time Protocol&quot;&gt;NTP&lt;/abbr&gt;&lt;/a&gt;, with the aid of another post about
+&lt;a href=&quot;http://www.tomshardware.co.uk/faq/id-3114787/open-firewall-ports-windows.html&quot;&gt;detailed steps for opening ports&lt;/a&gt; on Windows 10.  Before that,
+I had already done all &lt;a href=&quot;https://www.organicweb.com.au/20209/general-technology/windows10-time/&quot;&gt;steps in services.msc&lt;/a&gt; to allow
+automatic startup of the Windows Time service.  Finally, I &lt;em&gt;manually&lt;/em&gt;
+adjusted the time.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">I’ve tried adding a custom inbound rule in my firewall so as to allow
+NTP access via UDP port 123 after reading a post about
+firewall settings for NTP, with the aid of another post about
+detailed steps for opening ports on Windows 10.  Before that,
+I had already done all steps in services.msc to allow
+automatic startup of the Windows Time service.  Finally, I manually
+adjusted the time.</summary></entry><entry><title type="html">Shortened GitHub URLs for this Site</title><link href="https://vincenttam.github.io/blog/2017/01/11/shortened-github-urls-for-this-site/" rel="alternate" type="text/html" title="Shortened GitHub URLs for this Site" /><published>2017-01-11T17:00:14+08:00</published><updated>2017-01-11T17:00:14+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/11/shortened-github-urls-for-this-site</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/11/shortened-github-urls-for-this-site/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;I want to include a link to a &lt;a href=&quot;https://gist.github.com&quot;&gt;Gist&lt;/a&gt; in an &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; codeblock.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;In the syntax for a codeblock, the link is too long.  This can cause
+problems in a graphical frontend of &lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt;, such as gitk.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;I found a &lt;a href=&quot;https://github.com/blog/985-git-io-github-url-shortener&quot;&gt;post about GitHub URL Shortener&lt;/a&gt; by accident.&lt;/p&gt;
+
+&lt;div class=&quot;cliUB highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -i https://git.io -F &quot;url=https://github.com/vincenttam&quot; -F &quot;code=vtam&quot;
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   293  100    29  100   264     40    367 --:--:-- --:--:-- --:--:--   375HT
+TP/1.1 100 Continue
+
+HTTP/1.1 201 Created
+Server: Cowboy
+Connection: keep-alive
+Date: Tue, 10 Jan 2017 22:50:08 GMT
+Status: 201 Created
+Content-Type: text/html;charset=utf-8
+Location: https://git.io/vtam
+Content-Length: 29
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Runtime: 0.111560
+X-Node: 6a832541-d7fa-4b2b-9a4b-1e3355ad0eab
+X-Revision: 4fdc60de6311e6a3aa31e19bc7b3aad7e85d33a6
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Via: 1.1 vegur
+
+https://github.com/vincenttam
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In fact, &lt;a href=&quot;https://git.io&quot;&gt;git.io&lt;/a&gt; is much &lt;em&gt;simpler&lt;/em&gt; for users who
+&lt;em&gt;don’t&lt;/em&gt; type commands.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;I created three short URLs with this tool.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git.io/vtam&quot;&gt;https://git.io/vtam&lt;/a&gt; for my GitHub account&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git.io/vtblog&quot;&gt;https://git.io/vtblog&lt;/a&gt; for this blog&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git.io/vb2&quot;&gt;https://git.io/vb2&lt;/a&gt; for &lt;em&gt;Blog 2&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background
+
+I want to include a link to a Gist in an Octopress codeblock.
+
+Problem
+
+In the syntax for a codeblock, the link is too long.  This can cause
+problems in a graphical frontend of Git, such as gitk.
+
+Solution
+
+I found a post about GitHub URL Shortener by accident.
+
+$ curl -i https://git.io -F &quot;url=https://github.com/vincenttam&quot; -F &quot;code=vtam&quot;
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   293  100    29  100   264     40    367 --:--:-- --:--:-- --:--:--   375HT
+TP/1.1 100 Continue
+
+HTTP/1.1 201 Created
+Server: Cowboy
+Connection: keep-alive
+Date: Tue, 10 Jan 2017 22:50:08 GMT
+Status: 201 Created
+Content-Type: text/html;charset=utf-8
+Location: https://git.io/vtam
+Content-Length: 29
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Runtime: 0.111560
+X-Node: 6a832541-d7fa-4b2b-9a4b-1e3355ad0eab
+X-Revision: 4fdc60de6311e6a3aa31e19bc7b3aad7e85d33a6
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Via: 1.1 vegur
+
+https://github.com/vincenttam
+
+
+
+In fact, git.io is much simpler for users who
+don’t type commands.
+
+Summary
+
+I created three short URLs with this tool.
+
+
+  https://git.io/vtam for my GitHub account
+  https://git.io/vtblog for this blog
+  https://git.io/vb2 for Blog 2</summary></entry><entry><title type="html">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</title><link href="https://vincenttam.github.io/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/" rel="alternate" type="text/html" title="A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)" /><published>2017-01-11T05:52:52+08:00</published><updated>2017-01-11T05:52:52+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;/blog/2016/12/12/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-4/&quot;&gt;previous post in this series&lt;/a&gt;, I included three &lt;a href=&quot;http://www.vim.org&quot;&gt;Vim&lt;/a&gt;
+editor commands.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;As I’ve already typed hundreds of lines of source code, I feel tired
+and I often &lt;em&gt;make mistakes&lt;/em&gt; while typing those commands despite these
+two command mode mappings in my &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.vimrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;More efficient recall from Vim command history&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;&quot; Practical Vim Tip 34: Avoid cursors when rcl'g cmd from hist&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cnoremap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;C&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;Up&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cnoremap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;C&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;Down&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;Convert these three commands into a shell script.  Since I’m using
+&lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=1984&quot;&gt;FuzzyFinder&lt;/a&gt;, I assume that the current working directory
+(as shown by &lt;code class=&quot;highlighter-rouge&quot;&gt;:pwd&lt;/code&gt;) is the root of the local repository for the
+&lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; blog.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;Script for Octopress editing within Vim&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sed &lt;span class=&quot;s1&quot;&gt;'1,8d'&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; | kramdown &amp;gt; temp.html~
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cat &lt;span class=&quot;o&quot;&gt;&amp;#x7b;&lt;/span&gt;temp,script&lt;span class=&quot;o&quot;&gt;&amp;#x7d;&lt;/span&gt;.html~ &amp;gt; tempmj.html~
+&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The YAML header is chopped off since I just want to verify the
+[kramdown] syntax.&lt;/li&gt;
+  &lt;li&gt;I appended &lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt; after the file extension names &lt;code class=&quot;highlighter-rouge&quot;&gt;.html&lt;/code&gt; since I had
+added &lt;code class=&quot;highlighter-rouge&quot;&gt;*~&lt;/code&gt; in my &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; and I &lt;em&gt;didn’t&lt;/em&gt; want these files
+(including this shell script) to be tracked by Git.&lt;/li&gt;
+  &lt;li&gt;I created a symbolic link on Windows 10 with &lt;code class=&quot;highlighter-rouge&quot;&gt;mklink&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd&lt;/code&gt;.
+(ran as admin)  Other options are more &lt;em&gt;complicated&lt;/em&gt;:
+    - Graphical programs: more disk space is consumed for programs
+        rarely used which have command line alternatives.
+    - Windows Power Shell: this method &lt;em&gt;won’t&lt;/em&gt; work for Home
+        edition.  (That’s my case.)  I’m quite satisfied by the
+        current edition and I &lt;em&gt;don’t&lt;/em&gt; see any reason to spend
+        a thousand dollar and a whole day to have it changed to Pro
+        version for functionalities that are too advanced for me.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;While I was writing this post, I used&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grep -e &quot;\[kramdown\]&quot; %:h/*.markdown
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;in the current buffer in order to quickly retrieve the links to
+websites to which I had previously referred.  To escape the square
+brackets and the search pattern, the flag &lt;code class=&quot;highlighter-rouge&quot;&gt;-e&lt;/code&gt; is added in between the
+utility name and the pattern string.  I tried using marks, but I had
+forgotten the difference between a mark named with a small letter and
+a capital letter.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Mark&lt;/th&gt;
+      &lt;th&gt;Range&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;small&lt;/td&gt;
+      &lt;td&gt;local&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;capital&lt;/td&gt;
+      &lt;td&gt;global&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background
+
+In the previous post in this series, I included three Vim
+editor commands.
+
+Problem
+
+As I’ve already typed hundreds of lines of source code, I feel tired
+and I often make mistakes while typing those commands despite these
+two command mode mappings in my ~/.vimrc.
+
+More efficient recall from Vim command history&quot; Practical Vim Tip 34: Avoid cursors when rcl'g cmd from hist
+cnoremap &amp;lt;C-p&amp;gt; &amp;lt;Up&amp;gt;
+cnoremap &amp;lt;C-n&amp;gt; &amp;lt;Down&amp;gt;
+
+
+
+Solution
+
+Convert these three commands into a shell script.  Since I’m using
+FuzzyFinder, I assume that the current working directory
+(as shown by :pwd) is the root of the local repository for the
+Octopress blog.
+
+Script for Octopress editing within Vim#!/bin/sh
+sed '1,8d' $1 | kramdown &amp;gt; temp.html~
+cat &amp;#x7b;temp,script&amp;#x7d;.html~ &amp;gt; tempmj.html~
+
+
+
+  The YAML header is chopped off since I just want to verify the
+[kramdown] syntax.
+  I appended ~ after the file extension names .html since I had
+added *~ in my .gitignore and I didn’t want these files
+(including this shell script) to be tracked by Git.
+  I created a symbolic link on Windows 10 with mklink in cmd.
+(ran as admin)  Other options are more complicated:
+    - Graphical programs: more disk space is consumed for programs
+        rarely used which have command line alternatives.
+    - Windows Power Shell: this method won’t work for Home
+        edition.  (That’s my case.)  I’m quite satisfied by the
+        current edition and I don’t see any reason to spend
+        a thousand dollar and a whole day to have it changed to Pro
+        version for functionalities that are too advanced for me.
+
+
+Lessons learnt
+
+While I was writing this post, I used
+
+grep -e &quot;\[kramdown\]&quot; %:h/*.markdown
+
+
+
+in the current buffer in order to quickly retrieve the links to
+websites to which I had previously referred.  To escape the square
+brackets and the search pattern, the flag -e is added in between the
+utility name and the pattern string.  I tried using marks, but I had
+forgotten the difference between a mark named with a small letter and
+a capital letter.
+
+
+  
+    
+      Mark
+      Range
+    
+  
+  
+    
+      small
+      local
+    
+    
+      capital
+      global</summary></entry><entry><title type="html">Octopress Config for Ruby 2.3 on Windows 10</title><link href="https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/" rel="alternate" type="text/html" title="Octopress Config for Ruby 2.3 on Windows 10" /><published>2017-01-10T23:38:32+08:00</published><updated>2017-01-10T23:38:32+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;Same as the background in &lt;a href=&quot;/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/&quot;&gt;my previous article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;I uninstalled Ruby 2.0 in the Control Panel, and then installed
+version 2.3.3 from &lt;a href=&quot;https://rubyinstaller.org/&quot;&gt;RubyInstaller for Windows&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;problem-1-redcloth-installation-failure&quot;&gt;Problem 1: RedCloth installation failure&lt;/h2&gt;
+
+&lt;h3 id=&quot;error-message&quot;&gt;Error message&lt;/h3&gt;
+
+&lt;div class=&quot;cli highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gem::InstallError: The 'RedCloth' native gem requires installed build tools.
+
+Please update your PATH to include build tools or download the DevKit
+from 'http://rubyinstaller.org/downloads' and follow the instructions
+at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
+
+An error occurred while installing RedCloth (4.2.9), and Bundler cannot
+continue.
+Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The error message is similar to &lt;a href=&quot;http://stackoverflow.com/a/36274233/280189&quot;&gt;Joe’s gem install error&lt;/a&gt;.
+The only difference is that I was installing &lt;a href=&quot;http://redcloth.org/&quot;&gt;RedCloth&lt;/a&gt; 4.9.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;This failure is due to the absence of a valid path to
+&lt;a href=&quot;https://rubyinstaller.org/add-ons/devkit/&quot;&gt;RubyInstaller Development Kit&lt;/a&gt;.  I tried manually adding the
+path to the folder for binary executables (default to
+&lt;code class=&quot;highlighter-rouge&quot;&gt;C:\RubyDevKit\bin&lt;/code&gt;) to &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt;, but it’s &lt;em&gt;unsuccessful&lt;/em&gt;.  I googled
+“Please update your PATH to include build tools” and found
+&lt;a href=&quot;http://stackoverflow.com/a/36274233/280189&quot;&gt;his question&lt;/a&gt;, whose third answer explained the function
+of &lt;code class=&quot;highlighter-rouge&quot;&gt;devkitvar.bat&lt;/code&gt;.  This batch script actually prepended the path of
+&lt;em&gt;two&lt;/em&gt; folders into &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt;.  One is stated above; one is
+&lt;code class=&quot;highlighter-rouge&quot;&gt;C:\RubyDevKit\mingw\bin&lt;/code&gt;.  Running this batch file changes &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt;
+&lt;em&gt;temporarily&lt;/em&gt;.  A manual configuration in the Control Panel allowed
+the system to detect &lt;a href=&quot;https://rubyinstaller.org/add-ons/devkit/&quot;&gt;DevKit&lt;/a&gt;, and this problem was thus
+solved.&lt;/p&gt;
+
+&lt;h3 id=&quot;related-gems&quot;&gt;Related gems&lt;/h3&gt;
+
+&lt;h4 id=&quot;already-installed&quot;&gt;Already installed&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Version Number&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;rake&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.4.2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bundler&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.13.7&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;being-installed&quot;&gt;Being installed&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Version Number&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;With native extensions?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;RedCloth&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4.2.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;wdm&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.1.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;blankslate&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2.1.2.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;chunky_png&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.3.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;coffee-script-source&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.9.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;colorator&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;execjs&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2.4.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;fast-stemmer&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.0.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ffi&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.9.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hitimes&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.2.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;jekyll-gist&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.1.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;jekyll-paginate&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.1.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;jekyll-sitemap&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.8.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;kramdown&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.6.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;liquid&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2.6.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;mercenary&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.3.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;multi_json&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.11.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;posix-spawn&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.3.10&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;rack&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.6.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;rb-fsevent&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.9.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;redcarpet&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.2.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;safe_yaml&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.0.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;sass&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.4.13&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;stringex&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.4.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tilt&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.4.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✗&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;yajl-ruby&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.2.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;✓&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;problem-2-wdm-installation-failure&quot;&gt;Problem 2: wdm installation failure&lt;/h2&gt;
+
+&lt;p&gt;I put the &lt;a href=&quot;#wdm&quot; class=&quot;cliwide&quot;&gt;error message from wdm&lt;/a&gt; in a popup dialog.&lt;/p&gt;
+
+&lt;div id=&quot;wdm&quot; class=&quot;noscr&quot;&gt;
+&lt;pre class=&quot;cli&quot;&gt;&lt;code&gt;Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/.........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Installing hitimes 1.2.2 with native extensions
+Using chunky_png 1.3.4
+Installing fast-stemmer 1.0.2 with native extensions
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Installing posix-spawn 0.3.10 with native extensions
+Installing yajl-ruby 1.2.1 with native extensions
+Installing redcarpet 3.2.2 with native extensions
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Installing wdm 0.1.0 with native extensions
+Using bundler 1.13.7
+Installing parslet 1.5.0
+Installing timers 4.0.1
+Installing classifier-reborn 2.0.3
+Installing coffee-script 2.3.0
+Installing compass-core 1.0.3
+Installing compass-import-once 1.0.5
+Installing jekyll-sass-converter 1.3.0
+Installing sass-globbing 1.0.0
+Installing rb-inotify 0.9.5
+Installing haml 4.0.6
+Installing pygments.rb 0.6.2
+Installing rack-protection 1.5.3
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+C:/Ruby23-x64/bin/ruby.exe -r ./siteconf20170109-8020-1n4s35m.rb extconf.rb
+checking for main() in -lkernel32... yes
+checking for windows.h... yes
+checking for ruby.h... yes
+checking for HAVE_RUBY_ENCODING_H... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make &quot;DESTDIR=&quot; clean
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make &quot;DESTDIR=&quot;
+generating wdm_ext-x64-mingw32.def
+compiling entry.c
+In file included from entry.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from entry.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from entry.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from entry.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling memory.c
+In file included from memory.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from memory.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from memory.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from memory.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling monitor.c
+In file included from monitor.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from monitor.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling queue.c
+In file included from queue.c:3:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/vadefs.h:13:0,
+from
+4-mingw32/include/_mingw_stdarg.h:14,
+from
+4-mingw32/include/stdarg.h:140,
+from
+c:\rubydevkit\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.7.2/include/stdarg.h:1,
+                 from queue.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from queue.c:3:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from queue.c:3:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_change.c
+In file included from rb_change.c:4:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdlib.h:9,
+                 from rb_change.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_change.c:4:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_change.c:4:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_monitor.c
+In file included from rb_monitor.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from rb_monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_monitor.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+rb_monitor.c: In function 'rb_monitor_run_bang':
+rb_monitor.c:508:9: warning: implicit declaration of function
+'rb_thread_blocking_region' [-Wimplicit-function-declaration]
+compiling utils.c
+In file included from utils.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from utils.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from utils.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from utils.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling wdm.c
+In file included from wdm.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from wdm.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from wdm.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from wdm.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+linking shared-object wdm_ext.so
+rb_monitor.o: In function `rb_monitor_run_bang':
+C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\wdm-0.1.0\ext\wdm/rb_monitor.c:508:
+undefined reference to `rb_thread_blocking_region'
+collect2.exe: error: ld returned 1 exit status
+make: *** [wdm_ext.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0 for inspection.
+Results logged to
+.out
+
+An error occurred while installing wdm (0.1.0), and Bundler cannot continue.
+Make sure that `gem install wdm -v '0.1.0'` succeeds before bundling.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;From the line&lt;/p&gt;
+
+&lt;div class=&quot;cli highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I found &lt;a href=&quot;https://github.com/Maher4Ever/wdm/issues/18&quot;&gt;wdm issue #18&lt;/a&gt;, but I &lt;em&gt;failed&lt;/em&gt; to notice that the
+problem had been resolved.  I later knew that from
+&lt;a href=&quot;https://github.com/jekyll/jekyll/issues/3721&quot;&gt;Jekyll issue #3721&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After changing the version number of &lt;a href=&quot;https://rubygems.org/gems/wdm&quot;&gt;wdm&lt;/a&gt; to 0.1.1, I could proceed
+further.  &lt;a href=&quot;#wdmfixed&quot; class=&quot;cliwide&quot;&gt;The system output&lt;/a&gt; was fine.&lt;/p&gt;
+
+&lt;div id=&quot;wdmfixed&quot; class=&quot;noscr&quot;&gt;
+&lt;pre class=&quot;cli&quot;&gt;&lt;code&gt;Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ gem install wdm -v '0.1.1'
+Building native extensions.  This could take a while...
+Successfully installed wdm-0.1.1
+Parsing documentation for wdm-0.1.1
+Installing ri documentation for wdm-0.1.1
+Done installing documentation for wdm after 0 seconds
+1 gem installed
+Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Resolving dependencies...
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Using hitimes 1.2.2
+Using chunky_png 1.3.4
+Using fast-stemmer 1.0.2
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Using posix-spawn 0.3.10
+Using yajl-ruby 1.2.1
+Using redcarpet 3.2.2
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Using wdm 0.1.1 (was 0.1.0)
+Using bundler 1.13.7
+Using parslet 1.5.0
+Using timers 4.0.1
+Using classifier-reborn 2.0.3
+Using coffee-script 2.3.0
+Using compass-core 1.0.3
+Using compass-import-once 1.0.5
+Using jekyll-sass-converter 1.3.0
+Using sass-globbing 1.0.0
+Using rb-inotify 0.9.5
+Using haml 4.0.6
+Using pygments.rb 0.6.2
+Using rack-protection 1.5.3
+Installing toml 0.1.2
+Installing celluloid 0.16.0
+Installing jekyll-coffeescript 1.0.1
+Installing compass 1.0.3
+Installing sinatra 1.4.5
+Installing listen 2.8.5
+Installing jekyll-watch 1.2.1
+Installing jekyll 2.5.3
+Installing octopress-hooks 2.6.0
+Installing octopress-date-format 2.0.2
+Bundle complete! 14 Gemfile dependencies, 50 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+Post-install message from compass:
+    Compass is charityware. If you love it, please donate on our behalf at http:
+//umdf.org/compass Thanks!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;problem-3-i-have-a-row-with-justin&quot;&gt;Problem 3: I have a row with Justin.&lt;/h2&gt;
+
+&lt;p&gt;When I ran &lt;code class=&quot;highlighter-rouge&quot;&gt;rake preview&lt;/code&gt;, the follow line appeared.&lt;/p&gt;
+
+&lt;div class=&quot;cli highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash: /c/Ruby23-x64/bin/rake: C:/Users/Justin/Projects/rubyinstaller/sandbox/rub
+y23_mingw/bin/ruby.exe: bad interpreter: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I searched “rake install justin projects” on &lt;a href=&quot;google.com&quot;&gt;Google&lt;/a&gt;.
+You may follow &lt;a href=&quot;http://stackoverflow.com/a/36925869/280189&quot;&gt;griest’s advice&lt;/a&gt; to have this problem
+fixed.  If this link were unluckily dead in the future, you might
+leave a comment below after getting rid of Justin at the first line of
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/c/Ruby23-x64/bin/rake&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;result&quot;&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; did work on my machine.  Then I re-ran &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;
+under the local repository for &lt;a href=&quot;/blog2&quot;&gt;my another blog&lt;/a&gt;, but the
+&lt;a href=&quot;/blog/2016/08/20/jekyll-serve-error/&quot;&gt;&lt;em&gt;same&lt;/em&gt; Celluloid error&lt;/a&gt; &lt;em&gt;re-appeared&lt;/em&gt;.  I &lt;em&gt;don’t&lt;/em&gt; know how to
+perform a &lt;a href=&quot;https://talk.jekyllrb.com/t/error-while-trying-to-run-jekyll-serve/933/10&quot;&gt;celluloid downgrade&lt;/a&gt; to version 16.0 under that
+repository.  The version number for &lt;a href=&quot;https://rubygems.org/gems/celluloid/versions/0.17.3&quot;&gt;Celluloid&lt;/a&gt; was &lt;em&gt;generated&lt;/em&gt; by the
+system—I &lt;em&gt;didn’t&lt;/em&gt; type it in &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile.lock&lt;/code&gt;.  As a result, I
+switched to &lt;a href=&quot;https://msdn.microsoft.com/en-us/commandline/wsl/about&quot;&gt;Ubuntu on Windows 10&lt;/a&gt;.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Motivation
+
+Same as the background in my previous article.
+
+Background
+
+I uninstalled Ruby 2.0 in the Control Panel, and then installed
+version 2.3.3 from RubyInstaller for Windows
+
+Problem 1: RedCloth installation failure
+
+Error message
+
+Gem::InstallError: The 'RedCloth' native gem requires installed build tools.
+
+Please update your PATH to include build tools or download the DevKit
+from 'http://rubyinstaller.org/downloads' and follow the instructions
+at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
+
+An error occurred while installing RedCloth (4.2.9), and Bundler cannot
+continue.
+Make sure that `gem install RedCloth -v '4.2.9'` succeeds before bundling.
+
+
+
+The error message is similar to Joe’s gem install error.
+The only difference is that I was installing RedCloth 4.9.
+
+Solution
+
+This failure is due to the absence of a valid path to
+RubyInstaller Development Kit.  I tried manually adding the
+path to the folder for binary executables (default to
+C:\RubyDevKit\bin) to PATH, but it’s unsuccessful.  I googled
+“Please update your PATH to include build tools” and found
+his question, whose third answer explained the function
+of devkitvar.bat.  This batch script actually prepended the path of
+two folders into PATH.  One is stated above; one is
+C:\RubyDevKit\mingw\bin.  Running this batch file changes PATH
+temporarily.  A manual configuration in the Control Panel allowed
+the system to detect DevKit, and this problem was thus
+solved.
+
+Related gems
+
+Already installed
+
+
+  
+    
+      Name
+      Version Number
+    
+  
+  
+    
+      rake
+      10.4.2
+    
+    
+      bundler
+      1.13.7
+    
+  
+
+
+Being installed
+
+
+  
+    
+      Name
+      Version Number
+      With native extensions?
+    
+  
+  
+    
+      RedCloth
+      4.2.9
+      ✓
+    
+    
+      wdm
+      0.1.0
+      ✓
+    
+    
+      blankslate
+      2.1.2.4
+      ✗
+    
+    
+      chunky_png
+      1.3.4
+      ✗
+    
+    
+      coffee-script-source
+      1.9.1
+      ✗
+    
+    
+      colorator
+      0.1
+      ✗
+    
+    
+      execjs
+      2.4.0
+      ✗
+    
+    
+      fast-stemmer
+      1.0.2
+      ✓
+    
+    
+      ffi
+      1.9.6
+      ✗
+    
+    
+      hitimes
+      1.2.2
+      ✓
+    
+    
+      jekyll-gist
+      1.1.0
+      ✗
+    
+    
+      jekyll-paginate
+      1.1.0
+      ✗
+    
+    
+      jekyll-sitemap
+      0.8.0
+      ✗
+    
+    
+      kramdown
+      1.6.0
+      ✗
+    
+    
+      liquid
+      2.6.2
+      ✗
+    
+    
+      mercenary
+      0.3.5
+      ✗
+    
+    
+      multi_json
+      1.11.0
+      ✗
+    
+    
+      posix-spawn
+      0.3.10
+      ✓
+    
+    
+      rack
+      1.6.0
+      ✗
+    
+    
+      rb-fsevent
+      0.9.4
+      ✗
+    
+    
+      redcarpet
+      3.2.2
+      ✓
+    
+    
+      safe_yaml
+      1.0.4
+      ✗
+    
+    
+      sass
+      3.4.13
+      ✗
+    
+    
+      stringex
+      1.4.0
+      ✗
+    
+    
+      tilt
+      1.4.1
+      ✗
+    
+    
+      yajl-ruby
+      1.2.1
+      ✓
+    
+  
+
+
+Problem 2: wdm installation failure
+
+I put the error message from wdm in a popup dialog.
+
+
+Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/.........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Installing hitimes 1.2.2 with native extensions
+Using chunky_png 1.3.4
+Installing fast-stemmer 1.0.2 with native extensions
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Installing posix-spawn 0.3.10 with native extensions
+Installing yajl-ruby 1.2.1 with native extensions
+Installing redcarpet 3.2.2 with native extensions
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Installing wdm 0.1.0 with native extensions
+Using bundler 1.13.7
+Installing parslet 1.5.0
+Installing timers 4.0.1
+Installing classifier-reborn 2.0.3
+Installing coffee-script 2.3.0
+Installing compass-core 1.0.3
+Installing compass-import-once 1.0.5
+Installing jekyll-sass-converter 1.3.0
+Installing sass-globbing 1.0.0
+Installing rb-inotify 0.9.5
+Installing haml 4.0.6
+Installing pygments.rb 0.6.2
+Installing rack-protection 1.5.3
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+C:/Ruby23-x64/bin/ruby.exe -r ./siteconf20170109-8020-1n4s35m.rb extconf.rb
+checking for main() in -lkernel32... yes
+checking for windows.h... yes
+checking for ruby.h... yes
+checking for HAVE_RUBY_ENCODING_H... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make &quot;DESTDIR=&quot; clean
+
+current directory: C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0/ext/wdm
+make &quot;DESTDIR=&quot;
+generating wdm_ext-x64-mingw32.def
+compiling entry.c
+In file included from entry.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from entry.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from entry.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from entry.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling memory.c
+In file included from memory.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from memory.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from memory.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from memory.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling monitor.c
+In file included from monitor.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from monitor.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling queue.c
+In file included from queue.c:3:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/vadefs.h:13:0,
+from
+4-mingw32/include/_mingw_stdarg.h:14,
+from
+4-mingw32/include/stdarg.h:140,
+from
+c:\rubydevkit\mingw\bin\../lib/gcc/x86_64-w64-mingw32/4.7.2/include/stdarg.h:1,
+                 from queue.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from queue.c:3:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from queue.c:3:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_change.c
+In file included from rb_change.c:4:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdlib.h:9,
+                 from rb_change.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_change.c:4:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_change.c:4:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling rb_monitor.c
+In file included from rb_monitor.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from rb_monitor.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from rb_monitor.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from rb_monitor.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+rb_monitor.c: In function 'rb_monitor_run_bang':
+rb_monitor.c:508:9: warning: implicit declaration of function
+'rb_thread_blocking_region' [-Wimplicit-function-declaration]
+compiling utils.c
+In file included from utils.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from utils.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from utils.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from utils.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+compiling wdm.c
+In file included from wdm.c:1:0:
+wdm.h:3:0: warning: &quot;WINVER&quot; redefined [enabled by default]
+In file included from
+4-mingw32/include/crtdefs.h:10:0,
+from
+4-mingw32/include/stdio.h:9,
+                 from wdm.h:1,
+                 from wdm.c:1:
+4-mingw32/include/_mingw.h:248:0:
+note: this is the location of the previous definition
+In file included from wdm.c:1:0:
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+&amp;lt;command-line&amp;gt;:0:0: note: this is the location of the previous definition
+In file included from c:/Ruby23-x64/include/ruby-2.3.0/ruby/win32.h:41:0,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/defines.h:168,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby/ruby.h:36,
+                 from c:/Ruby23-x64/include/ruby-2.3.0/ruby.h:33,
+                 from wdm.h:12,
+                 from wdm.c:1:
+4-mingw32/include/winsock2.h:15:2:
+warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+linking shared-object wdm_ext.so
+rb_monitor.o: In function `rb_monitor_run_bang':
+C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\wdm-0.1.0\ext\wdm/rb_monitor.c:508:
+undefined reference to `rb_thread_blocking_region'
+collect2.exe: error: ld returned 1 exit status
+make: *** [wdm_ext.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in
+C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/wdm-0.1.0 for inspection.
+Results logged to
+.out
+
+An error occurred while installing wdm (0.1.0), and Bundler cannot continue.
+Make sure that `gem install wdm -v '0.1.0'` succeeds before bundling.
+
+
+From the line
+
+wdm.h:4:0: warning: &quot;_WIN32_WINNT&quot; redefined [enabled by default]
+
+
+
+I found wdm issue #18, but I failed to notice that the
+problem had been resolved.  I later knew that from
+Jekyll issue #3721.
+
+After changing the version number of wdm to 0.1.1, I could proceed
+further.  The system output was fine.
+
+
+Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ gem install wdm -v '0.1.1'
+Building native extensions.  This could take a while...
+Successfully installed wdm-0.1.1
+Parsing documentation for wdm-0.1.1
+Installing ri documentation for wdm-0.1.1
+Done installing documentation for wdm after 0 seconds
+1 gem installed
+Owner@Owner-PC MINGW64 /c/github/vincenttam.github.io (source)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
+Resolving dependencies...
+Using rake 10.4.2
+Using RedCloth 4.2.9
+Using blankslate 2.1.2.4
+Using hitimes 1.2.2
+Using chunky_png 1.3.4
+Using fast-stemmer 1.0.2
+Using coffee-script-source 1.9.1
+Using execjs 2.4.0
+Using colorator 0.1
+Using multi_json 1.11.0
+Using sass 3.4.13
+Using rb-fsevent 0.9.4
+Using ffi 1.9.6
+Using tilt 1.4.1
+Using jekyll-gist 1.1.0
+Using jekyll-paginate 1.1.0
+Using kramdown 1.6.0
+Using liquid 2.6.2
+Using mercenary 0.3.5
+Using posix-spawn 0.3.10
+Using yajl-ruby 1.2.1
+Using redcarpet 3.2.2
+Using safe_yaml 1.0.4
+Using jekyll-sitemap 0.8.0
+Using rack 1.6.0
+Using stringex 1.4.0
+Using wdm 0.1.1 (was 0.1.0)
+Using bundler 1.13.7
+Using parslet 1.5.0
+Using timers 4.0.1
+Using classifier-reborn 2.0.3
+Using coffee-script 2.3.0
+Using compass-core 1.0.3
+Using compass-import-once 1.0.5
+Using jekyll-sass-converter 1.3.0
+Using sass-globbing 1.0.0
+Using rb-inotify 0.9.5
+Using haml 4.0.6
+Using pygments.rb 0.6.2
+Using rack-protection 1.5.3
+Installing toml 0.1.2
+Installing celluloid 0.16.0
+Installing jekyll-coffeescript 1.0.1
+Installing compass 1.0.3
+Installing sinatra 1.4.5
+Installing listen 2.8.5
+Installing jekyll-watch 1.2.1
+Installing jekyll 2.5.3
+Installing octopress-hooks 2.6.0
+Installing octopress-date-format 2.0.2
+Bundle complete! 14 Gemfile dependencies, 50 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+Post-install message from compass:
+    Compass is charityware. If you love it, please donate on our behalf at http:
+//umdf.org/compass Thanks!
+
+
+Problem 3: I have a row with Justin.
+
+When I ran rake preview, the follow line appeared.
+
+bash: /c/Ruby23-x64/bin/rake: C:/Users/Justin/Projects/rubyinstaller/sandbox/rub
+y23_mingw/bin/ruby.exe: bad interpreter: No such file or directory
+
+
+
+I searched “rake install justin projects” on Google.
+You may follow griest’s advice to have this problem
+fixed.  If this link were unluckily dead in the future, you might
+leave a comment below after getting rid of Justin at the first line of
+/c/Ruby23-x64/bin/rake.
+
+Result
+
+Octopress did work on my machine.  Then I re-ran bundle install
+under the local repository for my another blog, but the
+same Celluloid error re-appeared.  I don’t know how to
+perform a celluloid downgrade to version 16.0 under that
+repository.  The version number for Celluloid was generated by the
+system—I didn’t type it in Gemfile.lock.  As a result, I
+switched to Ubuntu on Windows 10.</summary></entry><entry><title type="html">Upgraded to Git for Windows 2.11</title><link href="https://vincenttam.github.io/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/" rel="alternate" type="text/html" title="Upgraded to Git for Windows 2.11" /><published>2017-01-10T21:09:42+08:00</published><updated>2017-01-10T21:09:42+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/10/upgraded-to-git-for-windows-2-dot-11/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;This &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;Git for Windows&lt;/a&gt; upgrade from v2.8 to v2.11 is an
+&lt;em&gt;unsuccessful&lt;/em&gt; attempt to fix a &lt;a href=&quot;/blog/2016/08/28/jekyll-serve-error-2/&quot;&gt;Jekyll preview error&lt;/a&gt; on
+&lt;a href=&quot;/blog2/&quot;&gt;my another blog&lt;/a&gt; triggered by the command &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt; for
+local preview.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;After the update, I can no longer input letters with accents.  Since
+the name of some mathematical theorems have accents, like l’Hôpital’s
+Rule.  It would be very inconvenient if the internation keyboard
+&lt;em&gt;can’t&lt;/em&gt; be used in Git Bash.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;In Git Bash, &lt;code class=&quot;highlighter-rouge&quot;&gt;locale&lt;/code&gt; returns several lines.  The first one says
+&lt;code class=&quot;highlighter-rouge&quot;&gt;LANG=C&lt;/code&gt;.  After viewing the list with &lt;code class=&quot;highlighter-rouge&quot;&gt;locale -a&lt;/code&gt;, I’ve finally
+chosen the most common option with the character encoding UTF-8.  To
+make this change permanent for one user, add the last line into
+&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;http://bit.ly/2iAnlq9&lt;/span&gt;&lt;a class=&quot;code-highlight-caption-link&quot; href=&quot;http://bit.ly/2iAnlq9&quot;&gt;link&lt;/a&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Change Locale Permanently&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;en_US.utf8&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;Many popular &lt;abbr title=&quot;Universal Resource Locator&quot;&gt;URL&lt;/abbr&gt; shorteners like &lt;a href=&quot;bit.ly&quot;&gt;Bitly&lt;/a&gt; and
+&lt;a href=&quot;goo.gl&quot;&gt;Google &lt;abbr title=&quot;Universal Resource Locator&quot;&gt;URL&lt;/abbr&gt; Shortener&lt;/a&gt; &lt;em&gt;won’t&lt;/em&gt; afftect my SEO, so I can use
+shortened URLs in the &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;markdown&lt;/a&gt; syntax for
+&lt;a href=&quot;http://octopress.org/docs/plugins/codeblock/&quot;&gt;Octopress codeblocks&lt;/a&gt; to save disk space.&lt;sup id=&quot;fnref:seo&quot;&gt;&lt;a href=&quot;#fn:seo&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:seo&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://davidamerland.com/seo-tips/371-do-url-shorteners-impact-your-seo.html&quot;&gt;&lt;em&gt;Do URL Shorteners Impact your SEO?&lt;/em&gt;&lt;/a&gt; by David Amerland.&amp;nbsp;&lt;a href=&quot;#fnref:seo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background
+
+This Git for Windows upgrade from v2.8 to v2.11 is an
+unsuccessful attempt to fix a Jekyll preview error on
+my another blog triggered by the command jekyll serve for
+local preview.
+
+Problem
+
+After the update, I can no longer input letters with accents.  Since
+the name of some mathematical theorems have accents, like l’Hôpital’s
+Rule.  It would be very inconvenient if the internation keyboard
+can’t be used in Git Bash.
+
+
+
+Solution
+
+In Git Bash, locale returns several lines.  The first one says
+LANG=C.  After viewing the list with locale -a, I’ve finally
+chosen the most common option with the character encoding UTF-8.  To
+make this change permanent for one user, add the last line into
+~/.bashrc.
+
+http://bit.ly/2iAnlq9link# Change Locale Permanently
+export LANG=en_US.utf8
+
+Lessons learnt
+
+Many popular URL shorteners like Bitly and
+Google URL Shortener won’t afftect my SEO, so I can use
+shortened URLs in the markdown syntax for
+Octopress codeblocks to save disk space.1
+
+
+
+
+  
+    
+      Do URL Shorteners Impact your SEO? by David Amerland.&amp;nbsp;&amp;#8617;</summary></entry><entry><title type="html">A Comment for New Users on Math.SE</title><link href="https://vincenttam.github.io/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/" rel="alternate" type="text/html" title="A Comment for New Users on Math.SE" /><published>2017-01-10T19:34:53+08:00</published><updated>2017-01-10T19:34:53+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/10/a-comment-for-new-users-on-math-dot-se/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;Mathematics learners ask questions on
+&lt;a href=&quot;http://math.stackexchange.com/&quot;&gt;Mathematics Stack Exchange&lt;/a&gt; to get an answer from others
+&lt;em&gt;without&lt;/em&gt; geographical or time restrictions, unlike teachers in
+schools.  Users answer questions to gain virtual points called
+&lt;em&gt;reputation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;Among them, many are new users who &lt;em&gt;don’t&lt;/em&gt; use &lt;a href=&quot;https://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; while typing
+their questions.  As a result, the output is &lt;em&gt;difficult&lt;/em&gt; to read.
+This discourages users from answering those questions, so we would
+have &lt;em&gt;less&lt;/em&gt; answers to read.  Since we can sometimes benefit from
+alternative solutions, it’s better to post a question that is clear
+enough to attract others to offer an answer.  We can downvote those
+poorly rendered questions, but I think it’s a bit cruel to do so on
+the very first post from new users.  Therefore, I choose to leave a
+comment which suggests them to use &lt;a href=&quot;https://www.latex-project.org/&quot;&gt;$\rm \LaTeX$&lt;/a&gt;.  They often
+say they &lt;em&gt;don’t&lt;/em&gt; know how to use it.  To avoid responses like that, I
+include a link to the &lt;a href=&quot;http://meta.math.stackexchange.com/q/5020/290189&quot;&gt;MathJax guide on Meta Math.SE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Please use &lt;a href=&quot;http://meta.math.stackexchange.com/q/5020/290189&quot;&gt;$\rm \LaTeX$&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;However, it’s tedious to type the &lt;a href=&quot;http://math.stackexchange.com/help/formatting&quot;&gt;markdown&lt;/a&gt; source code
+every time I want to leave this comment.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;I’ll include the code below, so that it can be simply copied and
+pasted next time.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;Comments for those who *don't* use $\rm \LaTeX$&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;Please use [$\rm \LaTeX$](http://meta.math.stackexchange.com/q/5020/290189).&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background
+
+Mathematics learners ask questions on
+Mathematics Stack Exchange to get an answer from others
+without geographical or time restrictions, unlike teachers in
+schools.  Users answer questions to gain virtual points called
+reputation.
+
+Problem
+
+Among them, many are new users who don’t use MathJax while typing
+their questions.  As a result, the output is difficult to read.
+This discourages users from answering those questions, so we would
+have less answers to read.  Since we can sometimes benefit from
+alternative solutions, it’s better to post a question that is clear
+enough to attract others to offer an answer.  We can downvote those
+poorly rendered questions, but I think it’s a bit cruel to do so on
+the very first post from new users.  Therefore, I choose to leave a
+comment which suggests them to use $\rm \LaTeX$.  They often
+say they don’t know how to use it.  To avoid responses like that, I
+include a link to the MathJax guide on Meta Math.SE.
+
+
+  Please use $\rm \LaTeX$.
+
+
+However, it’s tedious to type the markdown source code
+every time I want to leave this comment.
+
+Solution
+
+I’ll include the code below, so that it can be simply copied and
+pasted next time.
+
+Comments for those who *don't* use $\rm \LaTeX$Please use [$\rm \LaTeX$](http://meta.math.stackexchange.com/q/5020/290189).</summary></entry><entry><title type="html">Avoided a Duplicate Question</title><link href="https://vincenttam.github.io/blog/2017/01/07/avoided-a-duplicate-question/" rel="alternate" type="text/html" title="Avoided a Duplicate Question" /><published>2017-01-07T02:05:10+08:00</published><updated>2017-01-07T02:05:10+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/07/avoided-a-duplicate-question</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/07/avoided-a-duplicate-question/">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;I encountered the following math problem, so I typed in on
+&lt;a href=&quot;http://math.stackexchange.com/&quot;&gt;Mathematics Stack Exchange&lt;/a&gt;.  Then, a list of similar posts
+appeared.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Let $E = {1,\dots,p}$, where $p$ is a prime number.  $G$ is a
+transitive subgroup of $S_p$, and $H$ is a nontrivial normal
+subgroup of $G$.  Show that $H$ acts transitively on $E$.&lt;/p&gt;
+
+  &lt;p&gt;I notice that $\lvert G \cdot x \rvert = \lvert E \rvert = p$
+because $G$ acts transitively on $E$.  Now, I try to show the same
+for $H$, but I am stuck at $\lvert H \cdot x \rvert$.  May I say
+that for all $g \in G$, $\lvert gH \cdot x \rvert = \lvert H \cdot x
+\rvert$?  Why can’t $H$ fix $x$?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Is it a possible duplicate of another question?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;reason-to-think-about-this&quot;&gt;Reason to think about this&lt;/h2&gt;
+
+&lt;p&gt;If the answer is yes, then my post is going to be quickly flagged as
+duplicate by experienced users on this site, especially those who are
+strong at abstract algebra, and I’ll lose reputation for that.&lt;/p&gt;
+
+&lt;h2 id=&quot;answer&quot;&gt;Answer&lt;/h2&gt;
+
+&lt;p&gt;I’ve really found &lt;a href=&quot;http://math.stackexchange.com/q/152924/290189&quot;&gt;the &lt;em&gt;same&lt;/em&gt; problem&lt;/a&gt; on Mathematics
+Stack Exchange by luck.&lt;/p&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;I viewed this question four days ago.  When I tried to access it again
+tonight from my web browsing history, I found this a bit hard.
+Therefore, as a post on Mathematics Meta stack Exchange suggests,
+&lt;a href=&quot;http://meta.math.stackexchange.com/q/662/290189&quot;&gt;&lt;em&gt;Vote early, vote often&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Problem
+
+I encountered the following math problem, so I typed in on
+Mathematics Stack Exchange.  Then, a list of similar posts
+appeared.
+
+
+  Let $E = {1,\dots,p}$, where $p$ is a prime number.  $G$ is a
+transitive subgroup of $S_p$, and $H$ is a nontrivial normal
+subgroup of $G$.  Show that $H$ acts transitively on $E$.
+
+  I notice that $\lvert G \cdot x \rvert = \lvert E \rvert = p$
+because $G$ acts transitively on $E$.  Now, I try to show the same
+for $H$, but I am stuck at $\lvert H \cdot x \rvert$.  May I say
+that for all $g \in G$, $\lvert gH \cdot x \rvert = \lvert H \cdot x
+\rvert$?  Why can’t $H$ fix $x$?
+
+
+Is it a possible duplicate of another question?
+
+Reason to think about this
+
+If the answer is yes, then my post is going to be quickly flagged as
+duplicate by experienced users on this site, especially those who are
+strong at abstract algebra, and I’ll lose reputation for that.
+
+Answer
+
+I’ve really found the same problem on Mathematics
+Stack Exchange by luck.
+
+Lessons learnt
+
+I viewed this question four days ago.  When I tried to access it again
+tonight from my web browsing history, I found this a bit hard.
+Therefore, as a post on Mathematics Meta stack Exchange suggests,
+Vote early, vote often.</summary></entry><entry><title type="html">Windows Security Popup during Public Wi-Fi Connection</title><link href="https://vincenttam.github.io/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection/" rel="alternate" type="text/html" title="Windows Security Popup during Public Wi-Fi Connection" /><published>2017-01-06T18:34:30+08:00</published><updated>2017-01-06T18:34:30+08:00</updated><id>https://vincenttam.github.io/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection</id><content type="html" xml:base="https://vincenttam.github.io/blog/2017/01/06/windows-security-popup-during-public-wi-fi-connection/">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;After an upgrade to M$ Win* 10, I connected to my campus’ public
+Wi-Fi.&lt;sup id=&quot;fnref:pp&quot;&gt;&lt;a href=&quot;#fn:pp&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;I mistakenly thought that it’s the &lt;em&gt;same&lt;/em&gt; as the one described in
+&lt;em&gt;Windows Security popup window pops up each time any connection is
+made&lt;/em&gt; on &lt;a href=&quot;http://superuser.com/q/479113&quot;&gt;Super User&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;failed-attempt-to-solve-this-problem&quot;&gt;Failed attempt to solve this problem&lt;/h2&gt;
+
+&lt;h3 id=&quot;with-m-ie&quot;&gt;With M$ IE&lt;/h3&gt;
+
+&lt;p&gt;Googling “windows security login popup”, one will find the question
+&lt;em&gt;“Windows Security” popup asking me to enter my login information when
+visiting campus website&lt;/em&gt; on &lt;a href=&quot;https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/windows-security-popup-asking-me-to-enter-my-login/530deb46-0962-e011-8dfc-68b599b31bf5&quot;&gt;M$ Community site&lt;/a&gt;.  Follow the
+steps described in the first answer from Azam, a support engineer.&lt;/p&gt;
+
+&lt;h3 id=&quot;without-m-ie&quot;&gt;&lt;em&gt;Without&lt;/em&gt; M$ IE&lt;/h3&gt;
+
+&lt;p&gt;To save disk space, I &lt;em&gt;don’t&lt;/em&gt; keep M$ IE due to M$ Edge, which was
+shipped with the M$ Win* 10 upgrade, and in which the security tab
+is &lt;em&gt;absent&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;To set a custom security level for Internet options &lt;em&gt;without M$ IE&lt;/em&gt;,
+open the same window by clicking Control Panel → Network and Internet
+→ Internet Options.  The button “Custom level” will then appear.
+However, under “User authentication”, there’s &lt;em&gt;no&lt;/em&gt; checkboxes.  I only
+saw a group of four radio buttons.&lt;/p&gt;
+
+&lt;p&gt;In order to find out the right choice, I appended “custom security
+level” in the previous Google query.  According to
+&lt;a href=&quot;https://www.sysaid.com/Sysforums/posts/list/2159.page&quot;&gt;a similar page on SysAid&lt;/a&gt;, I’ve chosen “Automatic log-on with
+current user name and password”.&lt;/p&gt;
+
+&lt;h2 id=&quot;true-cause-of-the-problem&quot;&gt;True cause of the problem&lt;/h2&gt;
+
+&lt;p&gt;Actually, the popup window prompts for the user name and password for
+&lt;em&gt;another&lt;/em&gt; Wi-Fi network with a similar name to which I’m going to
+connect.  After typing the right user name and password, I can connect
+to the Internet.&lt;/p&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;Although Windows Security popup window is the main focus of this blog,
+I’ve learnt something quite different from it because of the article
+&lt;em&gt;Windows 10 Settings You Should Change Right Away&lt;/em&gt; available on
+&lt;a href=&quot;http://www.laptopmag.com/articles/windows-10-settings-to-change&quot;&gt;Laptop Mag&lt;/a&gt; found during this process.  The &lt;abbr title=&quot;User account control&quot;&gt;UAC&lt;/abbr&gt; is really
+important: by prompting for user’s confirmation during the
+installation of a new software, one will be aware of the apps
+installed on the machine.  Though many users claim that those who
+oppose the disablement of &lt;abbr title=&quot;User account control&quot;&gt;UAC&lt;/abbr&gt; are “misinformed”, I take the words of a
+preferred user who says that M$ Win* 10 would become unstable if
+it’s been turned off.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:pp&quot;&gt;
+      &lt;p&gt;c.f. &lt;a href=&quot;/blog/2016/08/28/jekyll-serve-error-2/&quot;&gt;&lt;em&gt;Jekyll Serve Error (2)&lt;/em&gt;&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:pp&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background
+
+After an upgrade to M$ Win* 10, I connected to my campus’ public
+Wi-Fi.1
+
+Problem
+
+I mistakenly thought that it’s the same as the one described in
+Windows Security popup window pops up each time any connection is
+made on Super User.
+
+
+
+Failed attempt to solve this problem
+
+With M$ IE
+
+Googling “windows security login popup”, one will find the question
+“Windows Security” popup asking me to enter my login information when
+visiting campus website on M$ Community site.  Follow the
+steps described in the first answer from Azam, a support engineer.
+
+Without M$ IE
+
+To save disk space, I don’t keep M$ IE due to M$ Edge, which was
+shipped with the M$ Win* 10 upgrade, and in which the security tab
+is absent.
+
+To set a custom security level for Internet options without M$ IE,
+open the same window by clicking Control Panel → Network and Internet
+→ Internet Options.  The button “Custom level” will then appear.
+However, under “User authentication”, there’s no checkboxes.  I only
+saw a group of four radio buttons.
+
+In order to find out the right choice, I appended “custom security
+level” in the previous Google query.  According to
+a similar page on SysAid, I’ve chosen “Automatic log-on with
+current user name and password”.
+
+True cause of the problem
+
+Actually, the popup window prompts for the user name and password for
+another Wi-Fi network with a similar name to which I’m going to
+connect.  After typing the right user name and password, I can connect
+to the Internet.
+
+Lessons learnt
+
+Although Windows Security popup window is the main focus of this blog,
+I’ve learnt something quite different from it because of the article
+Windows 10 Settings You Should Change Right Away available on
+Laptop Mag found during this process.  The UAC is really
+important: by prompting for user’s confirmation during the
+installation of a new software, one will be aware of the apps
+installed on the machine.  Though many users claim that those who
+oppose the disablement of UAC are “misinformed”, I take the words of a
+preferred user who says that M$ Win* 10 would become unstable if
+it’s been turned off.
+
+
+
+
+  
+    
+      c.f. Jekyll Serve Error (2)&amp;nbsp;&amp;#8617;</summary></entry><entry><title type="html">A Failed Review</title><link href="https://vincenttam.github.io/blog/2016/12/31/a-failed-review/" rel="alternate" type="text/html" title="A Failed Review" /><published>2016-12-31T23:03:38+08:00</published><updated>2016-12-31T23:03:38+08:00</updated><id>https://vincenttam.github.io/blog/2016/12/31/a-failed-review</id><content type="html" xml:base="https://vincenttam.github.io/blog/2016/12/31/a-failed-review/">&lt;p&gt;The problem is of the &lt;em&gt;same type&lt;/em&gt; of the one described in
+&lt;a href=&quot;http://meta.math.stackexchange.com/q/11307/290189&quot;&gt;&lt;em&gt;Try to comment: Fail review audit&lt;/em&gt;&lt;/a&gt; on Meta Mathematics
+Stack Exchange.  As a result, I’m &lt;em&gt;not&lt;/em&gt; going to post my problem again
+so as not to create &lt;a href=&quot;http://meta.math.stackexchange.com/q/11608/290189&quot;&gt;another duplicate question&lt;/a&gt;.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">The problem is of the same type of the one described in
+Try to comment: Fail review audit on Meta Mathematics
+Stack Exchange.  As a result, I’m not going to post my problem again
+so as not to create another duplicate question.</summary></entry></feed>

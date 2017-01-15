@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Basic Use of Aptitude - Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+
+  
+    
+      
+	Basic Use of Aptitude
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &infin;
+      
+    
+  
+
+
+Why us...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/blog/2014/06/30/basic-use-of-aptitude/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  <header>
+    
+      
+	<h1 class="entry-title">Basic Use of Aptitude</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="https://vincenttam.github.io">Comments</a>
+        
+	| <a rel="bookmark" href="" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2 id="why-use-aptitude">Why use Aptitude?</h2>
+
+<p>I tried upgrading the Linux kernel on Ubuntu using <code class="highlighter-rouge">apt-get</code>, but it
+<em>failed</em>.</p>
+
+<p><img src="/images/posts/Aptitude/GnomeTerm.png" alt="'fig:gnome-term' ['apt-get cannot upgrade kernel']" /></p>
+
+<p><strong>How can I upgrade the Linux kernel?</strong></p>
+
+<!-- more -->
+
+<h3 id="a-trivial-solution">A trivial solution</h3>
+
+<p>Using the GUI Update Manager is extremely simple—a click will quickly
+settle this down.</p>
+
+<p><img src="/images/posts/Aptitude/GUI.png" alt="'fig:GUI' ['Update Manager']" /></p>
+
+<p>However, many geeks want a solution in CLI, <em>not</em> GUI.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>The command <code class="highlighter-rouge">sudo aptitude</code> brings user into an interactive program.</p>
+
+<p><img class="fancybox" src="/images/posts/Aptitude/AptitudeBig.png" alt="'Aptitude (Big version)' ['fig1']" /></p>
+
+<p>However, the screenshot is <em>too wide</em>.  How can one make it smaller so
+that it’s easier to view the image?</p>
+
+<p><img src="/images/posts/Aptitude/Aptitude-0.png" alt="'fig:Aptitude' ['Aptitude']" /></p>
+
+<p>The answer is <em>not</em> so difficult.  Several basic <code class="highlighter-rouge">stty</code> commands will
+be enough.</p>
+
+<h3 id="some-simple-stty-commands">Some simple <code class="highlighter-rouge">stty</code> commands</h3>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ stty -a       # print all settings
+$ stty size     # print the buffer height and width
+64 160
+$ stty cols 80  # set buffer width to 80 characters
+$ stty rows 32  # set buffer height to 32 rows
+</code></pre>
+</div>
+
+<p>The default <code class="highlighter-rouge">size</code> for <code class="highlighter-rouge">gnome-terminal</code> is <code class="highlighter-rouge">24 80</code>, while the figures
+for <code class="highlighter-rouge">/dev/tty[1-6]</code> is <code class="highlighter-rouge">64 160</code>.</p>
+
+<p>I have observed that the changes to <code class="highlighter-rouge">stty</code> settings should be
+permanent.  If one has quit the <code class="highlighter-rouge">tty</code>, and then goes back to the
+<em>same</em> <code class="highlighter-rouge">tty</code> again, the settings are still there.  That’s why I’ve
+written down the default buffer sizes above.</p>
+
+<p>I then use the following command to take a screenshot of Aptitude from
+<code class="highlighter-rouge">/dev/tty1</code>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ fbgrab -c 1 Aptitude.png
+</code></pre>
+</div>
+
+<p>Only the left top quarter of the image is needed.  Using <a href="http://www.gimp.org/" title="GIMP - The GNU Image Manipulation Program">GIMP</a> to
+crop the image will be an overkill.  Many users who love using CLIs
+<em>won’t</em> like that.  Moreover, how above repeating the cropping for
+<em>several</em> screenshots with the <em>same</em> size?</p>
+
+<h3 id="imagemagick-commands-learnt">ImageMagick commands learnt</h3>
+
+<p><code class="highlighter-rouge">-resize</code> option will scale down the input image with size
+1280px×1024px to 300px×240px.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ convert -resize 300 1280x1024.png output.png
+</code></pre>
+</div>
+
+<p>That’s the true cropping command.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ convert -crop 640x512 1280x1024.png output.png
+</code></pre>
+</div>
+
+<p>The outputs are four equally-sized image files like <code class="highlighter-rouge">output-0.png</code>.</p>
+
+<h3 id="a-list-of-simple-aptitude-keystrokes">A list of simple Aptitude keystrokes</h3>
+
+<p>The basic key motions for moving the cursor is <em>exactly</em> the same as
+those in Vim.</p>
+
+<h4 id="seeking-help">Seeking help</h4>
+
+<ul>
+  <li>
+    <p>Press <code class="highlighter-rouge">?</code> for help</p>
+
+    <p>However, there’s <em>too much</em> keys, and I’ll list out some
+  elementary ones.</p>
+  </li>
+</ul>
+
+<h4 id="searching">Searching</h4>
+
+<ul>
+  <li>Press <code class="highlighter-rouge">/</code> to search</li>
+  <li>Press <code class="highlighter-rouge">n</code> to repeat search</li>
+  <li>Press <code class="highlighter-rouge">N</code> to repeat search <em>backward</em></li>
+  <li>Press <code class="highlighter-rouge">l</code> to view the matched packages <em>only</em><sup id="fnref:mod150410"><a href="#fn:mod150410" class="footnote">1</a></sup></li>
+</ul>
+
+<h4 id="working-with-windows">Working with windows</h4>
+
+<ul>
+  <li>Press <code class="highlighter-rouge">&lt;F6&gt;</code> to move to the next window</li>
+  <li>Press <code class="highlighter-rouge">&lt;F7&gt;</code> to move to the previous window</li>
+  <li>Press <code class="highlighter-rouge">q</code> to quit</li>
+</ul>
+
+<h4 id="browsing-through-nodes">Browsing through nodes</h4>
+
+<ul>
+  <li>
+    <p>Press <code class="highlighter-rouge">&lt;Enter&gt;</code> to expand a node.</p>
+
+    <p><img src="/images/posts/Aptitude/AptitudeEnter-0.png" alt="'fig:Enter' ['Press Enter']" /></p>
+  </li>
+  <li>
+    <p>Press <code class="highlighter-rouge">^</code> to go back to the parent node (<code class="highlighter-rouge">utils</code> → <code class="highlighter-rouge">Security
+  Updates</code>)</p>
+
+    <p><img src="/images/posts/Aptitude/AptitudeParent1-0.png" alt="'fig:Parent1' ['Original position']" /></p>
+
+    <p><img src="/images/posts/Aptitude/AptitudeParent2-0.png" alt="'fig:Parent2' ['Jumped to parent node']" /></p>
+  </li>
+  <li>
+    <p>Press <code class="highlighter-rouge">[</code> to expand recursively (<code class="highlighter-rouge">utils</code> expanded)</p>
+
+    <p><img src="/images/posts/Aptitude/AptitudeExpand1-0.png" alt="'fig:Expand1' ['Before expansion']" /></p>
+
+    <p><img src="/images/posts/Aptitude/AptitudeExpand2-0.png" alt="'fig:Expand2' ['After expansion']" /></p>
+  </li>
+  <li>
+    <p>Press <code class="highlighter-rouge">]</code> to collapse all</p>
+  </li>
+</ul>
+
+<h4 id="updating-packages">Updating packages</h4>
+
+<ul>
+  <li>Press <code class="highlighter-rouge">u</code> to update the package list</li>
+  <li>Press <code class="highlighter-rouge">U</code> to apply the upgrade to all upgradable packages</li>
+</ul>
+
+<p>Note: One needs to confirm the action by pressing <code class="highlighter-rouge">g</code>.  See 
+<a href="#applying-the-changes" title="Applying the changes">a section below</a> for details.</p>
+
+<h4 id="action-on-individual-packages">Action on individual packages</h4>
+
+<ul>
+  <li>Press <code class="highlighter-rouge">+</code> to install/upgrade a package</li>
+  <li>Press <code class="highlighter-rouge">-</code> to remove a package</li>
+  <li>Press <code class="highlighter-rouge">_</code> to purge a package</li>
+</ul>
+
+<p>Note: One needs to confirm the action by pressing <code class="highlighter-rouge">g</code>.  See 
+<a href="#applying-the-changes" title="Applying the changes">a section below</a> for details.</p>
+
+<h4 id="applying-the-changes">Applying the changes</h4>
+
+<ul>
+  <li>
+    <p>Press <code class="highlighter-rouge">g</code> to preview the actions</p>
+
+    <p><img src="/images/posts/Aptitude/AptitudePreview-0.png" alt="'fig:Preview' ['Aptitude preview window']" /></p>
+
+    <ul>
+      <li>Press <code class="highlighter-rouge">g</code> <em>again</em> in the preview window to apply the actions</li>
+    </ul>
+
+    <p><img src="/images/posts/Aptitude/AptitudePreview2-0.png" alt="'fig:Preview2' ['Aptitude showing download progress']" /></p>
+  </li>
+</ul>
+
+<h4 id="more-commands">More commands</h4>
+
+<p>There’s still more commands, like <code class="highlighter-rouge">i</code> for switching the tabbed panes
+which contain the information of the packages.  One may view more in
+<a href="https://help.ubuntu.com/community/AptitudeSurvivalGuide">Aptitude Survival Guide</a> in Ubuntu’s <em>Community Help Wiki</em>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:mod150410">
+      <p>Last added on Apr 10, 2015.&nbsp;<a href="#fnref:mod150410" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+  <footer>
+    <p class="meta">
+      <span class="byline author vcard">Posted by <span class="fn">Vincent Tam</span></span>
+      
+      
+      <span class="categories">
+  
+    Linux
+  
+</span>
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/25/interesting-linux-figures-1/" title="Previous Post: Interesting Linux Figures (1)">&laquo; Interesting Linux Figures (1)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/07/12/star-of-david-in-pascals-triangle/" title="Next Post: Star of David in Pascal's Triangle">Star of David in Pascal's Triangle &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://vincenttam.github.io/blog/2014/06/30/basic-use-of-aptitude/';
+        var disqus_url = 'https://vincenttam.github.io/blog/2014/06/30/basic-use-of-aptitude/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

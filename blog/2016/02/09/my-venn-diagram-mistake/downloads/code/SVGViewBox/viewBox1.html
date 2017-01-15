@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>My First SVG</title>
+<style type="text/css" media="all">
+div.fallback{color:red;}
+</style>
+</head>
+<body>
+<h1>My First SVG</h1>
+<svg width="800" height="400" viewBox="0 0 800 400">
+  <rect x="0" y="0" width="400" height="200" fill="red"/>
+  <rect x="400" y="0" width="400" height="200" fill="blue"/>
+  <rect x="0" y="200" width="400" height="200" fill="orange"/>
+  <rect x="400" y="200" width="400" height="200" fill="green"/>
+  <foreignObject display="none" width="600" height="30">
+  <div class="fallback">
+    Sorry, your browser does not support inline SVG.
+  </div>
+  </foreignObject>
+</svg> 
+<p>
+<a href="//validator.w3.org/check?uri=referer">
+  <img src="/images/valid-html5.png" alt="Valid HTML 5" height="31"
+  width="88"></a>
+<a href="//jigsaw.w3.org/css-validator/check/referer"><img
+  src="/images/valid-css.png" alt="Valid CSS" height="31" width="88">
+</a></p>
+</body>
+</html>

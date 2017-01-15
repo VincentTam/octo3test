@@ -1,0 +1,48 @@
+---
+layout: post
+title: "fbi vs fim"
+date: 2015-04-11 00:15:56 +0800
+comments: true
+categories: [kramdown, Linux]
+---
+
+This is just a small table listing *some* differences between fbi and
+fim.
+
+| | Advantages | Disadvantages |
+| :-: | :- | :- |
+| fbi | support SVG files | *doesn't* support tmux <br/> *doesn't* have full control over the zooming size |
+| fim | support tmux <br/> support custom zooming[^fim_zoom] | *doesn't* support SVG files |
+
+To view SVG images in tmux buffers, one can use ImageMagick's
+`convert` command.[^convert]
+
+Lessons learnt
+---
+
+While writing the above table, I ran into the problem of a Markdown
+table with more than one line.  Luckily, searching "kramdown table
+lines" on Google, I quickly found a Stack Overflow question which
+solved my problem.[^so12119310]  Note that `<br>` is *not* the best
+way: add a slash `/` to suppress the following messages.
+
+    Warning: The HTML tag 'br' on line 15 cannot have any content -
+    auto-closing it
+    Warning: The HTML tag 'br' on line 17 cannot have any content -
+    auto-closing it
+    Warning: The HTML tag 'br' on line 1 cannot have any content -
+    auto-closing it
+    Warning: The HTML tag 'br' on line 1 cannot have any content -
+    auto-closing it
+{:.cliUB}
+
+---
+[^fim_zoom]: By `:nn%`
+[^convert]: By `convert in.svg out.jpg`
+[^so12119310]:
+    [*Newline in markdown table?*][so12119310] on Stack Overflow.
+
+[so12119310]: http://stackoverflow.com/a/12119310
+
+*[fbi]: framebuffer imageviewer
+*[fim]: fbi improved

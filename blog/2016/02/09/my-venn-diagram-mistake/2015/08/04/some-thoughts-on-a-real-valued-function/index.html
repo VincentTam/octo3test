@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Some Thoughts on a Real-Valued Function - Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+
+  
+    
+      
+	Some Thoughts on a Real-Valued Function
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &infin;
+     ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/blog/2015/08/04/some-thoughts-on-a-real-valued-function/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  <header>
+    
+      
+	<h1 class="entry-title">Some Thoughts on a Real-Valued Function</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="https://vincenttam.github.io">Comments</a>
+        
+	| <a rel="bookmark" href="" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>Spending so much time to work out <a href="/blog/2015/08/03/basic-jekyll-date-locale-support/">the locale support for dates</a>
+and <a href="/blog/2015/05/23/added-w3c-validated-logos-to-some-pages/">valid HTML code</a> in my <a href="/blog2/">second blog</a> which was
+powered by Jekyll-Bootstrap, I <em>couldn’t</em> recall this fact.</p>
+
+<p>Suppose that $\mathcal{D}$ is a subset of $\R^2$ that contains an
+$\varepsilon$-neighbourhood of a point <span class="myeqn">$(x_0,y_0)$</span>.  If</p>
+
+<ol>
+  <li>$f: \mathcal{D} \to \R$ is has first-order partial derivatives in
+the $\varepsilon$-neighbourhood of <span class="myeqn">$(x_0,y_0)$</span>.</li>
+  <li>The first-order partial derivatives of $f$ are continuous at <span class="myeqn">$(x_0,y_0)$</span>.</li>
+</ol>
+
+<p>Then we can write</p>
+
+<div class="myeqn">
+\begin{equation}
+  \Delta f = \frac{\partial f}{\partial x} (x_0,y_0) \Delta x +
+  \frac{\partial f}{\partial y} (x_0,y_0) \Delta y + \varepsilon_1
+  \Delta x + \varepsilon_2 \Delta y,
+  \label{fact}
+\end{equation}
+</div>
+
+<p>where <span class="myeqn">$\Delta f := f(x_0+\Delta
+x,y_0+\Delta y)-f(x_0,y_0), \varepsilon_1$ and $\varepsilon_2 \to
+0$</span> as $\Delta x$ and $\Delta y \to 0$.</p>
+
+<!-- more -->
+
+<h2 id="the-first-order-approximation-for-a-differentiable-function">The First-Order Approximation For a Differentiable Function</h2>
+
+<p>At first, I thought that equation \eqref{fact} followed from formula
+\eqref{thm}.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \lim_{\vect{h} \to \zeros}
+  \frac{f(\vect{x}+\vect{h})-[f(\vect{x})+\langle\nabla
+  f(\vect{x}),\vect{h}\rangle]}{\norm{\vect{h}}} = 0
+  \label{thm}
+\end{equation}
+</div>
+
+<p>I forgot that this statement assumed the continuous differentiability
+on <em>an open set</em>.  However, we only know that the first-order partial
+derivatives are continuous <em>at one point</em> <span class="myeqn">$(x_0,y_0)$</span>.</p>
+
+<h2 id="solve-an-easier-problem-first">Solve an easier problem first</h2>
+
+<p>This question should be much easier and much more intuitive if the
+domain of the function $f$ in \eqref{fact} is one-dimensional.  Then,
+by drawing a curve and sketching its tangent line at a point, one can
+intuitively realise that the geometric meaning of $\varepsilon$.</p>
+
+<p>In fact, one <em>constructs</em></p>
+
+<div class="myeqn">
+\begin{equation}
+  \varepsilon (\Delta x) :=
+    \begin{cases}
+      \frac{\Delta f}{\Delta x}-f'(x_0) &amp;\text{if }\Delta x \ne 0,\\
+      0 &amp;\text{if } \Delta x = 0,
+    \end{cases}
+  \label{def1}
+\end{equation}
+</div>
+
+<p>where <span class="myeqn">$\Delta f := f(x_0+\Delta
+x)-f(x_0)$</span> in this section since $f$ is now one-dimensional.</p>
+
+<p>Then one can make use of the differentiability of $f$ at $(x_0)$ to
+say that $\varepsilon \to 0$ as $\Delta x \to 0$.</p>
+
+<p>To get the one-dimensional version of \eqref{fact}, we get rid of the
+denominator by multiplying both sides by $\Delta x$ in the case of
+$\Delta x \ne 0$.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{aligned}
+    \varepsilon \Delta x &amp;= \Delta f - f' (x_0) \Delta x\\
+    \Delta f &amp;= f' (x_0) \Delta x + \varepsilon \Delta x
+  \end{aligned}
+  \label{mult1}
+\end{equation}
+</div>
+
+<p>Observe that equality \eqref{mult1} also holds when $\Delta x = 0$.</p>
+
+<h2 id="back-to-the-problem">Back to the problem</h2>
+
+<h3 id="make-use-of-the-previous-section">Make use of the previous section</h3>
+
+<p>From \eqref{def1}, we observe that $\varepsilon$ is defined as
+the difference between a difference quotient between two points
+<span class="myeqn">$x_0$</span> and <span class="myeqn">$x_0+\Delta x$</span> and the derivative <span class="myeqn">$f'(x_0)$</span>.  We can define <span class="myeqn">$\varepsilon_1$</span> and <span class="myeqn">$\varepsilon_2$</span> in a similar way.</p>
+
+<div class="myeqn">
+\begin{align}
+  &amp;\begin{split}
+    &amp; \varepsilon_1(\Delta x,\Delta y) :=\\
+    &amp;\begin{cases}
+      \frac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}-\frac{\partial
+      f}{\partial x}(x_0,y_0) &amp;{\small \text{if } \Delta x \ne 0},\\
+      0 &amp;\text{if } \Delta x = 0,
+    \end{cases}
+  \end{split}
+  \label{def2a}\\
+
+  &amp;\begin{split}
+    &amp; \varepsilon_2(\Delta x,\Delta y) :=\\
+    &amp;\begin{cases}
+      \frac{f(x_0+\Delta x,y_0+\Delta y) - f(x_0+\Delta x,y_0)}{\Delta
+      y} - \frac{\partial f}{\partial y}(x_0+\Delta x,y_0) &amp;\text{if }
+      \Delta y \ne 0,\\
+      0 &amp;\text{if } \Delta y = 0,
+    \end{cases}
+  \end{split}
+  \label{def2b}
+\end{align}
+</div>
+
+<p>We then multiply \eqref{def2a} and \eqref{def2b} by $\Delta x$ and
+$\Delta y$ respectively, just like what we’ve done in \eqref{mult1}.</p>
+
+<div class="myeqn">
+\begin{align}
+  &amp;\begin{split}
+    \varepsilon_1(\Delta x,\Delta y) \Delta x =&amp; f(x_0+\Delta x,y_0) -
+    f(x_0,y_0)\\
+    &amp;- \frac{\partial f}{\partial x}(x_0,y_0) \Delta x
+  \end{split}
+  \label{mult2a}\\
+  &amp;\begin{split}
+    \varepsilon_2(\Delta x,\Delta y) \Delta y =&amp; f(x_0+\Delta
+    x,y_0+\Delta y) - f(x_0+\Delta x,y_0)\\
+    &amp;- \frac{\partial f}{\partial y}(x_0+\Delta x,y_0) \Delta y
+  \end{split}
+  \label{mult2b}
+\end{align}
+</div>
+
+<p>The trick is to change the independent variables <em>one-by-one</em> since we
+can only make use of partial derivatives.  After defining
+\eqref{def2a}, there’s <em>no</em> need to scratch our head for \eqref{def2b}
+to fit the pizzle.  We may first try to use \eqref{def2a} to get
+\eqref{mult2a}.  Then by observing the term $\Delta f$ in
+\eqref{fact}, we realize that we should add the term <span class="myeqn">$f(x_0+\Delta x,y_0+\Delta y)$ and remove
+$f(x_0+\Delta x,y_0)$</span> so as to get $\Delta f$ in \eqref{fact}.</p>
+
+<h3 id="remaining-problem">Remaining problem</h3>
+
+<p>In \eqref{mult2b}, the partial derivative with respect to $y$ is taken
+at <span class="myeqn">$(x_0+\Delta x,y_0)$</span>, which
+<em>shouldn’t</em> appear in \eqref{fact}.  Therefore, we need a way to get
+rid of the $\Delta x$ inside the bracket.  That leads us to the one
+<em>unused</em> condition—the second given condition in \eqref{fact}.</p>
+
+<p>By the continuity of the first-order partial derivatives at <span class="myeqn">$(x_0,y_0)$</span>,</p>
+
+<div class="myeqn">
+\begin{equation}
+  \lim_{\Delta x \to 0} \frac{\partial f}{\partial y}(x_0+\Delta
+  x,y_0) = \frac{\partial f}{\partial y}(x_0,y_0)\\
+  \lim_{\Delta x \to 0} \left ( \frac{\partial f}{\partial
+  y}(x_0+\Delta x,y_0)
+  - \frac{\partial f}{\partial y}(x_0,y_0) \right ) = 0
+  \label{cts1}
+\end{equation}
+</div>
+
+<p>Thus, we define</p>
+
+<div class="myeqn">
+\begin{equation}
+  \varepsilon_3(\Delta x) := \frac{\partial f}{\partial y}(x_0+\Delta
+  x,y_0) - \frac{\partial f}{\partial y}(x_0,y_0)
+  \label{cts2}
+\end{equation}
+</div>
+
+<p>so that <span class="myeqn">$\varepsilon_3 \to 0$</span>
+as $\Delta x \to 0$.  With \eqref{cts2}, we can replace the
+first-order partial derivative with respect to $y$ at <span class="myeqn">$(x_0+\Delta x,y_0)$</span> in
+\eqref{mult2b} by the one at <span class="myeqn">$(x_0,y_0)$</span>.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{split}
+    \varepsilon_2(\Delta x,\Delta y) \Delta y =&amp; f(x_0+\Delta
+    x,y_0+\Delta y) - f(x_0+\Delta x,y_0)\\
+    &amp;- \left ( \frac{\partial f}{\partial y}(x_0,y_0) +
+    \varepsilon_3(\Delta x) \right ) \Delta y
+  \end{split}
+  \label{b4repl}
+\end{equation}
+</div>
+
+<p>Therefore, from \eqref{b4repl}, we see that it’s legitimate for us to
+rename <span class="myeqn">$\varepsilon_2-\varepsilon_3$
+as \varepsilon_2</span> to get an equation which looks more similar to
+\eqref{mult2a} than \eqref{mult2b} does.</p>
+
+<div class="myeqn">
+\begin{gather}
+  \begin{split}
+    &amp;\varepsilon_2(\Delta x,\Delta y) \Delta y\\
+    =&amp; f(x_0+\Delta x,y_0+\Delta y) - f(x_0+\Delta x,y_0) -
+    \frac{\partial f}{\partial y}(x_0,y_0) \Delta y
+  \end{split}
+  \label{mult2bb}\\
+  \begin{split}
+    &amp;\varepsilon_1(\Delta x,\Delta y) + \varepsilon_2(\Delta x,\Delta
+    y)\\
+    =&amp; f(x_0+\Delta x, y_0+\Delta y) - f(x_0,y_0)\\
+    &amp;- \frac{\partial f}{\partial x}(x_0,y_0) \Delta x -
+    \frac{\partial f}{\partial y}(x_0,y_0) \Delta y \quad
+    \text{(\eqref{mult2a}+\eqref{mult2bb})}
+  \end{split}\\
+  \begin{split}
+    &amp;f(x_0+\Delta x, y_0+\Delta y) - f(x_0,y_0)\\
+    =&amp; \frac{\partial f}{\partial x}(x_0,y_0) \Delta x +
+    \frac{\partial f}{\partial y}(x_0,y_0) \Delta y +
+    \varepsilon_1(\Delta x,\Delta y) + \varepsilon_2(\Delta x,\Delta
+    y)
+  \end{split}
+  \label{result}
+\end{gather}
+</div>
+
+<p>The result \eqref{result} is what we desired in \eqref{fact}.</p>
+
+<h2 id="generalisation-to-n-dimension">Generalisation to $n$-dimension</h2>
+
+<p>By reusing the trick of changing the variables once at a time from
+\eqref{def2a} to \eqref{mult2b}, and a suitable renaming and
+rearrangment of terms, one can generalise the result in \eqref{fact}
+to a function $f:\mathcal{D} \to \R$ defined on a subset $\mathcal{D}$
+of $\R^n$ containing a $\varepsilon$-neighbourhood of a point
+$\vect{x}_0 \in \R^n$.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \Delta f = \langle \nabla f(\vect{x_0}) + \vect{\varepsilon},\Delta
+  \vect{x} \rangle,
+  \label{generalisation}
+\end{equation}
+</div>
+
+<p><span class="myeqn">where $\Delta f :=
+f(\vect{x_0}+\Delta \vect{x})-f(\vect{x_0})$ and $\vect{\varepsilon}
+\to \zeros$ as $\Delta \vect{x} \to \zeros$.</span></p>
+
+<p>As you can see in \eqref{generalisation}, writing the statement in its
+vector form is more concise than writing out each partial derivative
+in \eqref{fact}.</p>
+
+</div>
+  <footer>
+    <p class="meta">
+      <span class="byline author vcard">Posted by <span class="fn">Vincent Tam</span></span>
+      
+      
+      <span class="categories">
+  
+    math
+  
+</span>
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/08/03/basic-jekyll-date-locale-support/" title="Previous Post: Basic Jekyll Date Locale Support">&laquo; Basic Jekyll Date Locale Support</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/08/05/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-3/" title="Next Post: A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (3)">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (3) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://vincenttam.github.io/blog/2015/08/04/some-thoughts-on-a-real-valued-function/';
+        var disqus_url = 'https://vincenttam.github.io/blog/2015/08/04/some-thoughts-on-a-real-valued-function/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

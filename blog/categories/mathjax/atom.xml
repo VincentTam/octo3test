@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mathjax | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/mathjax/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[An Error in Printing Equations in Chrome]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/09/10/an-error-in-printing-equations-in-chrome/"/>
+    
+    <updated>2014-09-10T16:27:02+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/09/10/an-error-in-printing-equations-in-chrome</id>
+    
+      <content type="html"><![CDATA[<p>This afternoon, I found that when I preview the print layout of the
+posts in <a href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a>, some Mathjax block equations enclosed with
+<code class="highlighter-rouge">\begin{equation}</code> <em>weren’t</em> displayed properly.  I think it should be
+due to my settings in <code class="highlighter-rouge">sass/custom/_print.scss</code> because the contents
+in Mathjax’s official demo can be rendered properly in the print
+preview.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  Therefore, I deleted some obsolete lines of code in that
+SCSS file .<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  Actually, since it takes time for loading MathJax, if
+I open the print preview before the block equations are ready, then I
+will see the source code of those equations.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>Refer to <a href="http://cdn.mathjax.org/mathjax/latest/test/sample-eqnum.html"><em>A Test of Equation Numbering</em></a> in MathJax
+Example Pages for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/48b131c" title="Deleted obsolete CSS code for printing equations">48b131c</a>.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+</feed>

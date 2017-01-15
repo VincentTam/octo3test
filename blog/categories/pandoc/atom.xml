@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pandoc | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/pandoc/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[My Pandoc Template (1)]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/08/03/my-pandoc-template-1/"/>
+    
+    <updated>2014-08-03T17:21:01+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/08/03/my-pandoc-template-1</id>
+    
+      <content type="html"><![CDATA[<p>The last post about <a href="http://johnmacfarlane.net/pandoc/" title="pandoc—a universal document converter">pandoc</a> was written four months ago.  Last week,
+I slightly changed the pandoc template <code class="highlighter-rouge">default.latex</code> on
+<a href="https://github.com/jgm/pandoc-templates" title="Templates for pandoc">jgm/pandoc-templates</a> so that users can easily create $\rm \LaTeX$
+documents with</p>
+
+<ul>
+  <li>1-inch margin; and</li>
+  <li>one-half (or double) spacing.</li>
+</ul>
+
+<p>The following command can create a PDF using the template.</p>
+
+<pre class="cli"><code>$ pandoc src.mkd --template=my_template1.latex -o out.pdf
+</code></pre>
+
+<p>I hope that more people will use pandoc and write in Markdown.</p>
+
+<!-- more -->
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>my_template1.latex</span><a class='code-highlight-caption-link' href='https://gist.github.com/ffad6efe2c65d5e70b28'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\documentclass[12pt,a4paper]&#x7b;$documentclass$&#x7d;
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(fontfamily)$
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;$fontfamily$&#x7d;
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>$else$
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;lmodern&#x7d;
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;setspace&#x7d;
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>\setstretch&#x7b;1.241&#x7d; % for one half spacing of 12pt
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>%\setstretch&#x7b;1.655&#x7d; % for double spacing of 12pt
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;amssymb,amsmath&#x7d;
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;ifxetex,ifluatex&#x7d;
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;fixltx2e&#x7d; % provides \textsubscript
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage[T1]&#x7b;fontenc&#x7d;
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage[utf8]&#x7b;inputenc&#x7d;
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(euro)$
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage&#x7b;eurosym&#x7d;
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>\else % if luatex or xelatex
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>  \ifxetex
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>    \usepackage&#x7b;mathspec&#x7d;
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>    \usepackage&#x7b;xltxtra,xunicode&#x7d;
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>  \else
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>    \usepackage&#x7b;fontspec&#x7d;
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>  \fi
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>  \defaultfontfeatures&#x7b;Mapping=tex-text,Scale=MatchLowercase&#x7d;
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>  \newcommand&#x7b;\euro&#x7d;&#x7b;€&#x7d;
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(mainfont)$
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>    \setmainfont&#x7b;$mainfont$&#x7d;
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(sansfont)$
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>    \setsansfont&#x7b;$sansfont$&#x7d;
+</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(monofont)$
+</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>    \setmonofont[Mapping=tex-ansi]&#x7b;$monofont$&#x7d;
+</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(mathfont)$
+</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>    \setmathfont(Digits,Latin,Greek)&#x7b;$mathfont$&#x7d;
+</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'>\fi
+</div></div><div data-line='41' class='code-highlight-row numbered'><div class='code-highlight-line'>% use upquote if available, for straight quotes in verbatim environments
+</div></div><div data-line='42' class='code-highlight-row numbered'><div class='code-highlight-line'>\IfFileExists&#x7b;upquote.sty&#x7d;&#x7b;\usepackage&#x7b;upquote&#x7d;&#x7d;&#x7b;&#x7d;
+</div></div><div data-line='43' class='code-highlight-row numbered'><div class='code-highlight-line'>% use microtype if available
+</div></div><div data-line='44' class='code-highlight-row numbered'><div class='code-highlight-line'>\IfFileExists&#x7b;microtype.sty&#x7d;&#x7b;\usepackage&#x7b;microtype&#x7d;&#x7d;&#x7b;&#x7d;
+</div></div><div data-line='45' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage[margin=1in]&#x7b;geometry&#x7d;
+</div></div><div data-line='46' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(natbib)$
+</div></div><div data-line='47' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;natbib&#x7d;
+</div></div><div data-line='48' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliographystyle&#x7b;$if(biblio-style)$$biblio-style$$else$plainnat$endif$&#x7d;
+</div></div><div data-line='49' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='50' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(biblatex)$
+</div></div><div data-line='51' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;biblatex&#x7d;
+</div></div><div data-line='52' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(biblio-files)$
+</div></div><div data-line='53' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliography&#x7b;$biblio-files$&#x7d;
+</div></div><div data-line='54' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='55' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='56' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(listings)$
+</div></div><div data-line='57' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;listings&#x7d;
+</div></div><div data-line='58' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='59' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(lhs)$
+</div></div><div data-line='60' class='code-highlight-row numbered'><div class='code-highlight-line'>\lstnewenvironment&#x7b;code&#x7d;&#x7b;\lstset&#x7b;language=Haskell,basicstyle=\small\ttfamily&#x7d;&#x7d;&#x7b;&#x7d;
+</div></div><div data-line='61' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='62' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(highlighting-macros)$
+</div></div><div data-line='63' class='code-highlight-row numbered'><div class='code-highlight-line'>$highlighting-macros$
+</div></div><div data-line='64' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='65' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(verbatim-in-note)$
+</div></div><div data-line='66' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;fancyvrb&#x7d;
+</div></div><div data-line='67' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='68' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(tables)$
+</div></div><div data-line='69' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;longtable,booktabs&#x7d;
+</div></div><div data-line='70' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='71' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(graphics)$
+</div></div><div data-line='72' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;graphicx&#x7d;
+</div></div><div data-line='73' class='code-highlight-row numbered'><div class='code-highlight-line'>\makeatletter
+</div></div><div data-line='74' class='code-highlight-row numbered'><div class='code-highlight-line'>\def\maxwidth&#x7b;\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi&#x7d;
+</div></div><div data-line='75' class='code-highlight-row numbered'><div class='code-highlight-line'>\def\maxheight&#x7b;\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi&#x7d;
+</div></div><div data-line='76' class='code-highlight-row numbered'><div class='code-highlight-line'>\makeatother
+</div></div><div data-line='77' class='code-highlight-row numbered'><div class='code-highlight-line'>% Scale images if necessary, so that they will not overflow the page
+</div></div><div data-line='78' class='code-highlight-row numbered'><div class='code-highlight-line'>% margins by default, and it is still possible to overwrite the defaults
+</div></div><div data-line='79' class='code-highlight-row numbered'><div class='code-highlight-line'>% using explicit options in \includegraphics[width, height, ...]&#x7b;&#x7d;
+</div></div><div data-line='80' class='code-highlight-row numbered'><div class='code-highlight-line'>\setkeys&#x7b;Gin&#x7d;&#x7b;width=\maxwidth,height=\maxheight,keepaspectratio&#x7d;
+</div></div><div data-line='81' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='82' class='code-highlight-row numbered'><div class='code-highlight-line'>\ifxetex
+</div></div><div data-line='83' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage[setpagesize=false, % page size defined by xetex
+</div></div><div data-line='84' class='code-highlight-row numbered'><div class='code-highlight-line'>              unicode=false, % unicode breaks when used with xetex
+</div></div><div data-line='85' class='code-highlight-row numbered'><div class='code-highlight-line'>              xetex]&#x7b;hyperref&#x7d;
+</div></div><div data-line='86' class='code-highlight-row numbered'><div class='code-highlight-line'>\else
+</div></div><div data-line='87' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage[unicode=true]&#x7b;hyperref&#x7d;
+</div></div><div data-line='88' class='code-highlight-row numbered'><div class='code-highlight-line'>\fi
+</div></div><div data-line='89' class='code-highlight-row numbered'><div class='code-highlight-line'>\hypersetup&#x7b;breaklinks=true,
+</div></div><div data-line='90' class='code-highlight-row numbered'><div class='code-highlight-line'>            bookmarks=true,
+</div></div><div data-line='91' class='code-highlight-row numbered'><div class='code-highlight-line'>            pdfauthor=&#x7b;$author-meta$&#x7d;,
+</div></div><div data-line='92' class='code-highlight-row numbered'><div class='code-highlight-line'>            pdftitle=&#x7b;$title-meta$&#x7d;,
+</div></div><div data-line='93' class='code-highlight-row numbered'><div class='code-highlight-line'>            colorlinks=true,
+</div></div><div data-line='94' class='code-highlight-row numbered'><div class='code-highlight-line'>            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+</div></div><div data-line='95' class='code-highlight-row numbered'><div class='code-highlight-line'>            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+</div></div><div data-line='96' class='code-highlight-row numbered'><div class='code-highlight-line'>            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+</div></div><div data-line='97' class='code-highlight-row numbered'><div class='code-highlight-line'>            pdfborder=&#x7b;0 0 0&#x7d;&#x7d;
+</div></div><div data-line='98' class='code-highlight-row numbered'><div class='code-highlight-line'>\urlstyle&#x7b;same&#x7d;  % don't use monospace font for urls
+</div></div><div data-line='99' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(links-as-notes)$
+</div></div><div data-line='100' class='code-highlight-row numbered'><div class='code-highlight-line'>% Make links footnotes instead of hotlinks:
+</div></div><div data-line='101' class='code-highlight-row numbered'><div class='code-highlight-line'>\renewcommand&#x7b;\href&#x7d;[2]&#x7b;#2\footnote&#x7b;\url&#x7b;#1&#x7d;&#x7d;&#x7d;
+</div></div><div data-line='102' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='103' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(strikeout)$
+</div></div><div data-line='104' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage[normalem]&#x7b;ulem&#x7d;
+</div></div><div data-line='105' class='code-highlight-row numbered'><div class='code-highlight-line'>% avoid problems with \sout in headers with hyperref:
+</div></div><div data-line='106' class='code-highlight-row numbered'><div class='code-highlight-line'>\pdfstringdefDisableCommands&#x7b;\renewcommand&#x7b;\sout&#x7d;&#x7b;&#x7d;&#x7d;
+</div></div><div data-line='107' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='108' class='code-highlight-row numbered'><div class='code-highlight-line'>\setlength&#x7b;\parindent&#x7d;&#x7b;0pt&#x7d;
+</div></div><div data-line='109' class='code-highlight-row numbered'><div class='code-highlight-line'>\setlength&#x7b;\parskip&#x7d;&#x7b;6pt plus 2pt minus 1pt&#x7d;
+</div></div><div data-line='110' class='code-highlight-row numbered'><div class='code-highlight-line'>\setlength&#x7b;\emergencystretch&#x7d;&#x7b;3em&#x7d;  % prevent overfull lines
+</div></div><div data-line='111' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(numbersections)$
+</div></div><div data-line='112' class='code-highlight-row numbered'><div class='code-highlight-line'>\setcounter&#x7b;secnumdepth&#x7d;&#x7b;5&#x7d;
+</div></div><div data-line='113' class='code-highlight-row numbered'><div class='code-highlight-line'>$else$
+</div></div><div data-line='114' class='code-highlight-row numbered'><div class='code-highlight-line'>\setcounter&#x7b;secnumdepth&#x7d;&#x7b;0&#x7d;
+</div></div><div data-line='115' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='116' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(verbatim-in-note)$
+</div></div><div data-line='117' class='code-highlight-row numbered'><div class='code-highlight-line'>\VerbatimFootnotes % allows verbatim text in footnotes
+</div></div><div data-line='118' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='119' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(lang)$
+</div></div><div data-line='120' class='code-highlight-row numbered'><div class='code-highlight-line'>\ifxetex
+</div></div><div data-line='121' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage&#x7b;polyglossia&#x7d;
+</div></div><div data-line='122' class='code-highlight-row numbered'><div class='code-highlight-line'>  \setmainlanguage&#x7b;$mainlang$&#x7d;
+</div></div><div data-line='123' class='code-highlight-row numbered'><div class='code-highlight-line'>\else
+</div></div><div data-line='124' class='code-highlight-row numbered'><div class='code-highlight-line'>  \usepackage[$lang$]&#x7b;babel&#x7d;
+</div></div><div data-line='125' class='code-highlight-row numbered'><div class='code-highlight-line'>\fi
+</div></div><div data-line='126' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='127' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='128' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(title)$
+</div></div><div data-line='129' class='code-highlight-row numbered'><div class='code-highlight-line'>\title&#x7b;$title$$if(subtitle)$\\\vspace&#x7b;0.5em&#x7d;&#x7b;\large $subtitle$&#x7d;$endif$&#x7d;
+</div></div><div data-line='130' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='131' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(author)$
+</div></div><div data-line='132' class='code-highlight-row numbered'><div class='code-highlight-line'>\author&#x7b;$for(author)$$author$$sep$ \and $endfor$&#x7d;
+</div></div><div data-line='133' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='134' class='code-highlight-row numbered'><div class='code-highlight-line'>\date&#x7b;$date$&#x7d;
+</div></div><div data-line='135' class='code-highlight-row numbered'><div class='code-highlight-line'>$for(header-includes)$
+</div></div><div data-line='136' class='code-highlight-row numbered'><div class='code-highlight-line'>$header-includes$
+</div></div><div data-line='137' class='code-highlight-row numbered'><div class='code-highlight-line'>$endfor$
+</div></div><div data-line='138' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='139' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;document&#x7d;
+</div></div><div data-line='140' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(title)$
+</div></div><div data-line='141' class='code-highlight-row numbered'><div class='code-highlight-line'>\maketitle
+</div></div><div data-line='142' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='143' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(abstract)$
+</div></div><div data-line='144' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;abstract&#x7d;
+</div></div><div data-line='145' class='code-highlight-row numbered'><div class='code-highlight-line'>$abstract$
+</div></div><div data-line='146' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;abstract&#x7d;
+</div></div><div data-line='147' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='148' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='149' class='code-highlight-row numbered'><div class='code-highlight-line'>$for(include-before)$
+</div></div><div data-line='150' class='code-highlight-row numbered'><div class='code-highlight-line'>$include-before$
+</div></div><div data-line='151' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='152' class='code-highlight-row numbered'><div class='code-highlight-line'>$endfor$
+</div></div><div data-line='153' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(toc)$
+</div></div><div data-line='154' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
+</div></div><div data-line='155' class='code-highlight-row numbered'><div class='code-highlight-line'>\hypersetup&#x7b;linkcolor=black&#x7d;
+</div></div><div data-line='156' class='code-highlight-row numbered'><div class='code-highlight-line'>\setcounter&#x7b;tocdepth&#x7d;&#x7b;$toc-depth$&#x7d;
+</div></div><div data-line='157' class='code-highlight-row numbered'><div class='code-highlight-line'>\tableofcontents
+</div></div><div data-line='158' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
+</div></div><div data-line='159' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='160' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(lot)$
+</div></div><div data-line='161' class='code-highlight-row numbered'><div class='code-highlight-line'>\listoftables
+</div></div><div data-line='162' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='163' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(lof)$
+</div></div><div data-line='164' class='code-highlight-row numbered'><div class='code-highlight-line'>\listoffigures
+</div></div><div data-line='165' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='166' class='code-highlight-row numbered'><div class='code-highlight-line'>$body$
+</div></div><div data-line='167' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='168' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(natbib)$
+</div></div><div data-line='169' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(biblio-files)$
+</div></div><div data-line='170' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(biblio-title)$
+</div></div><div data-line='171' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(book-class)$
+</div></div><div data-line='172' class='code-highlight-row numbered'><div class='code-highlight-line'>\renewcommand\bibname&#x7b;$biblio-title$&#x7d;
+</div></div><div data-line='173' class='code-highlight-row numbered'><div class='code-highlight-line'>$else$
+</div></div><div data-line='174' class='code-highlight-row numbered'><div class='code-highlight-line'>\renewcommand\refname&#x7b;$biblio-title$&#x7d;
+</div></div><div data-line='175' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='176' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='177' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliography&#x7b;$biblio-files$&#x7d;
+</div></div><div data-line='178' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='179' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='180' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='181' class='code-highlight-row numbered'><div class='code-highlight-line'>$if(biblatex)$
+</div></div><div data-line='182' class='code-highlight-row numbered'><div class='code-highlight-line'>\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+</div></div><div data-line='183' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='184' class='code-highlight-row numbered'><div class='code-highlight-line'>$endif$
+</div></div><div data-line='185' class='code-highlight-row numbered'><div class='code-highlight-line'>$for(include-after)$
+</div></div><div data-line='186' class='code-highlight-row numbered'><div class='code-highlight-line'>$include-after$
+</div></div><div data-line='187' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='188' class='code-highlight-row numbered'><div class='code-highlight-line'>$endfor$
+</div></div><div data-line='189' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;document&#x7d;</div></div></pre></div></figure></p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Complicated Pandoc Commands]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/03/15/complicated-pandoc-commands/"/>
+    
+    <updated>2014-03-15T12:55:46+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/03/15/complicated-pandoc-commands</id>
+    
+      <content type="html"><![CDATA[<p>I don’t need to memorize these commands.  Instead, what I need is to
+create a page here so that I can make quickly get the right command
+for my work.  This saves the time for checking and testing the right
+command.</p>
+
+<h2 id="pandoc-markdown">Pandoc markdown</h2>
+
+<p>Official demo:
+<a href="http://johnmacfarlane.net/pandoc/demos.html">http://johnmacfarlane.net/pandoc/demos.html</a></p>
+
+<h3 id="beamer">Beamer</h3>
+
+<p>A shell command for APA style reference list:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ pandoc -t beamer -s -S --biblio mybib.bib\
+&gt; --csl /path/to/apa.csl % -V theme:Berlin -o %&lt;.pdf
+</code></pre>
+</div>
+
+<h3 id="customized-pdf">Customized PDF</h3>
+<p>(Added on AUG 03RD, 2014)</p>
+
+<p>The command below is just an example of narrowing the margin, and
+choosing a larger font.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ pandoc % -V geometry:margin=1in -V fontsize:12pt\
+&gt; -V linestretch:1.655 -o %&lt;.pdf 
+</code></pre>
+</div>
+
+<p>For more variables, refer to the User Guide:
+<a href="http://johnmacfarlane.net/pandoc/README.html#templates">http://johnmacfarlane.net/pandoc/README.html#templates</a></p>
+
+<p>For many ordinary computer users who are used to write documents using
+WYSIWYG editors, the above command is quite scary, so I’ve written a
+custom template to save the trouble.  See
+<a href="/blog/2014/08/03/my-pandoc-template-1/"><em>My Pandoc Template (1)</em></a> for details.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Using gVim on Windows to Create Pandoc Slides]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/03/15/using-gvim-on-windows-to-create-pandoc-slides/"/>
+    
+    <updated>2014-03-15T12:49:05+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/03/15/using-gvim-on-windows-to-create-pandoc-slides</id>
+    
+      <content type="html"><![CDATA[<p>At night on 25/02/14, I tried to open gVim and use the command mode to
+issue system commands, so that I can use pandoc to create $\rm \LaTeX$
+Beamer slides.  However, with the correct command, gVim went wrong and
+in the resulting PDF file, all lines in the source markdown files were
+concatenated into one single line.  I hadn’t encountered such error
+last time.</p>
+
+<p>With the <em>same</em> command, I managed to get back my $\rm \LaTeX$ Beamer
+slides.  As a Vim lover, I’d like to try to do things <em>within</em> the
+editor.  Therefore, I changed to the project directory and start gVim
+through the command prompt.  Then I used <code class="highlighter-rouge">q:</code> to find the
+corresponding <code class="highlighter-rouge">pandoc</code> command, and re-ran it.  Job done!</p>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Including a Bibliography in Pandoc Markdown on Ubuntu 12.04 LTS]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/02/23/including-a-bibliography-in-pandoc-markdown-on-ubuntu-12-04-lts/"/>
+    
+    <updated>2014-02-23T18:16:39+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/02/23/including-a-bibliography-in-pandoc-markdown-on-ubuntu-12-04-lts</id>
+    
+      <content type="html"><![CDATA[<p>I tried typesetting a $\rm \LaTeX$ Beamer slide using pandoc markdown
+since it’s easy to use.  According to the official demo<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, with a
+<abbr title="Citation Style Language">CSL</abbr> file<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>, which specifies the style to the citation, users are
+suppose to be able to create a document with a bibliography.  However,
+when I ran the following command in Vim on Ubuntu 12.04 LTS, pandoc
+hanged.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>:!pandoc -s -S --biblio mybib.bib --csl foo.csl -t beamer %\
+-V theme:Berlin -o %&lt;.pdf
+</code></pre>
+</div>
+
+<p>I admit that it’s <em>too</em> complicated.  I tested several things:</p>
+
+<ol>
+  <li>$\rm \LaTeX$ Beamer class</li>
+  <li>Bibliography</li>
+</ol>
+
+<p>To figure out which part of the command is wrong, I tried to remove
+the part related to item 1.  Issuing a simple command for item 2, the
+usage of one of the <abbr title="Central Processing Unit">CPU</abbr> in my computer rose to almost 100%, and
+remained high with small fluctuations.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>:!pandoc -s -S --biblio biblio.bib -o %&lt;.html
+</code></pre>
+</div>
+
+<p>This issue is indeed one faced by the community of Ubuntu users, so I
+can find official advices on GitHub.  Eventually, the last comment on
+the page has solved my problem.  I think installing
+<code class="highlighter-rouge">libghc-citeproc-hs-data</code> is quicker than installing the latest
+(1.9.4.2-2) version of the DEB file for pandoc.</p>
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://johnmacfarlane.net/pandoc/demos.html">Pandoc demos item 24 (Markdown citations)</a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="https://github.com/citation-style-language/styles">CSL’s official repository on GitHub</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+</feed>

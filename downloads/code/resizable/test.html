@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Testing resizable SVG</title>
+<script type="text/javascript">
+window.onload = function () {
+  bar = document.getElementById("bar");
+  bar.onchange = function() {
+    val = this.value;
+    lbl = document.getElementById("lbl");
+    lbl.innerHTML = val;
+    obj = document.getElementById("obj");
+    obj.height = val;
+    obj.width = val;
+  }
+}
+</script>
+<!-- Show the border -->
+<style type="text/css" media="screen">
+.boxed {
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+</head>
+<body>
+<p>
+<span>Image size:</span>
+<input id="bar" type="range" name="points" min="200" max="800"
+value="200" step="10">
+<span id="lbl">200</span>
+</p>
+<object id="obj" class="boxed" type="image/svg+xml" data="IET.svg"
+  width="200" height="200">
+  Your browser does not support SVG.
+</object>
+<p>
+<a href="//validator.w3.org/check?uri=referer"><img
+  src="/images/valid-html401.png" alt="Valid HTML 4.01 Strict"
+  height="31" width="88"></a>
+<a href="//jigsaw.w3.org/css-validator/check/referer"><img
+  src="/images/valid-css.png" alt="Valid CSS" height="31" width="88">
+</a>
+<a
+href="https://validator.w3.org/check?uri=https://vincenttam.github.io/downloads/code/resizable/IET.svg;ss=1"><img
+src="/images/valid-svg11.png" alt="Valid SVG 1.1" height="31"
+width="88">
+</a></p>
+</body>
+</html>

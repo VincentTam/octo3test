@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Compilation of C++ Programs that Depends on DISLIN on CLI - Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+
+  
+    
+      
+	Compilation of C++ Programs that Depends on DISLIN on CLI
+      
+    
+    
+      
+        
+        
+           | Comments
+       ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/blog/2014/01/19/compilation-of-c-programs-that-depends-on-dislin-on-cli/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  <header>
+    
+      
+	<h1 class="entry-title">Compilation of C++ Programs that Depends on DISLIN on CLI</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="https://vincenttam.github.io">Comments</a>
+        
+	| <a rel="bookmark" href="" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As a supporter of the [GNU] Project, I am not so happy to use
+[DISLIN], which comes with an <em>EULA</em>, but I don’t have time to find
+out another alternative to the plotting library suggested by Prof.
+Yevick in a book.[^book]</p>
+
+<!-- more -->
+
+<p>A DISLIN installation guide on Ubuntu was written more than six years
+ago, so I am a bit dubious that if steps 2 and 3 are still needed for
+the installation using a DEB file.[^blog1]  Therefore, I overlooked an
+important command and I regret this after wasting about two hours on
+[Google].</p>
+
+<p>As a result, I just downloaded the DEB file from the DISLIN official
+website and use the GUI tool “Ubuntu Software Centre” to install the
+library.  Then I directly copied the code from the book and tried to
+compile the program .</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">first_graphics_prog.cpp</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c1">// Author: David Yevick
+&lt;/div&gt;&lt;/div&gt;<div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">// Source: A Short Course in Computational Science and Engineering&lt;/span&gt;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">#include &lt;iostream&gt;
+&lt;/div&gt;&lt;/div&gt;<div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">#include &lt;dislin.h&gt;&lt;/span&gt;
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7b;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c1">// Some code for defining variables</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c1">// Omitted to avoid copyright problems</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c1">// An example of using DISLIN methods</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">qplot</span><span class="p">(</span><span class="n">array1</span><span class="p">,</span><span class="n">array2</span><span class="p">,</span><span class="n">numOfPts</span><span class="p">);</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span></div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+However, the compiler gave me the message that I had used an
+"undefined reference to qplot".
+
+I googled for two hours and found nothing that I can understand.  I
+even tried compiling the following sample code found in section 2.7 of
+[the official DISLIN online manual][dislin_man].
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Sample code</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c1">// Author: Helmut Michels
+&lt;/div&gt;&lt;/div&gt;<div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">// Source: DISLIN 10.4—A Data Plotting Library&lt;/span&gt;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">#include &lt;iostream&gt;
+&lt;/div&gt;&lt;/div&gt;<div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">#include "discpp.h"&lt;/span&gt;
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">main</span><span class="p">()</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7b;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">Dislin</span> <span class="n">g</span><span class="p">;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">g</span><span class="p">.</span><span class="n">disini</span> <span class="p">();</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">g</span><span class="p">.</span><span class="n">messag</span> <span class="p">(</span><span class="s">"This is a test"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="n">g</span><span class="p">.</span><span class="n">disfin</span> <span class="p">();</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span></div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+I have *no* hope on published books because their authors would expect
+their students to do something easy—Use [Dev-C++] on M\$ Win\*, or
+\*nix GUI IDE like [Eclipse].  However, some geeks *won't* be
+satisfied because GUI buttons/objects hide the commands away from
+users.  As a result, they *don't* know what tasks are invoked by
+clicking the button/object.  In other words, they *don't* know what
+they are *actually* doing.  Therefore, they have the motivation to
+find out the *real* command for the compilation of C++ programs that
+`#include "dislin.h"`.
+
+Stack Overflow has *a few or no* questions on the compilation of C++
+programs that use DISLIN.  The most relevant one that I managed to
+find is [question 19118465][so19118465].  I glanced at the answers
+quickly.  They have some commands like
+
+<pre class="cli"><code class="UBMono">$ gfortran EX11_1.f90 -o progrname <span class="UBHLCode">-ldislin</span> -I/path/to/DISLIN/modules
+</code></pre>
+
+Then I guessed that I need the `-ldislin` flag as well.  I *can't*
+truly figure out the usage of `-l`, `-L` and `-I` flags by just
+looking at the man page of `g++`, so I just tried everything.  I
+searched for some new pages, and returned to some web pages that I've
+*already visited*, and continued this *unproductive* process...
+
+I googled the websites and I saw the post on Linux for Research
+mentioned before.  I looked at the command that begins with `g++` and
+tried to adapt it to my needs, but it simply *failed*.
+
+I thought that the official README maybe useful, so I browsed the
+contents in `/usr/local/dislin/README`.  Some websites that teach
+users to install DISLIN from a gzip tarball contain code that
+manipulate the environment variables like `DISLIN`, `PATH` and
+`LD_LIBRARY_PATH`.  But in the `README`, it's clearly stated that I
+don't need to do so.
+
+<pre class="cli"><code class="UBMono">f) To make DISLIN available for general use, write the following com-
+mands to your .profile or to /etc/profile
+
+DISLIN=directory
+export DISLIN
+PATH=${PATH}:${DISLIN}/bin
+
+LD_LIBRARY_PATH=$DISLIN:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+
+<span class="UBHLCode">Note: The environment variable DISLIN is not necessary if DISLIN
+is installed in the default directory '/usr/local/dislin'.</span>
+</code></pre>
+
+I think that I *don't* need to do the above settings, but I am *not*
+sure about that.  Luckily, the following part that immediately follows
+the above section gave me some hint on what I, as a newcomer to
+DISLIN, can do.
+
+<pre class="cli"><code class="UBMono">4.) Compiling, Linking and Running the Example Programs
+
+    Now you can compile, link and run the example programs in the
+    directory $DISLIN/examples with the commands:
+
+		    clink     -a exa_c      (for gcc)
+		    <span class="UBHLCode">cpplink   -a exa_cpp    (for g++)</span>
+		    iclink    -a exa_c      (for Intel icc)
+		    sclink    -a exa_c      (Sun Studio cc)
+...
+</code></pre>
+
+Thus, I *really* went to `/usr/local/dislin/example` and compiled
+`exa_cpp.cpp` using `cpplink` with the `-a` flag.  *It works! No
+complaints from `g++`!* It seemed that I could give `cpplink` a try,
+but it quickly turned out that my idea failed to work.  `g++` either
+complained that `dislin.h` was *not* found, or there's "undefined
+reference" to a DISLIN function.
+
+After that, I returned to Google again, and was redirected to the
+*same* post on Linux for Research again.  I glanced through the *same*
+command that started with `g++`.
+
+    $ g++ test.cpp -lXt -ldislin -lm
+{:.cliUB}
+
+This time, I could read the sentence below the above command.
+
+<quote>
+    Don't forget the `-lXt`
+</quote>
+
+I finally realised that I had forgotten an important principle in
+programming: *Don't* do too much at one time.  At the very first
+stage, I need to get things done, though the approach is *not*
+elegant.
+
+With the above principle in my mind, I could merely compile a C++
+program that made use of DISLIN by making the following changes in
+both the source file and the command that I issued.
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Sample code</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c1">// Author: David Yevick
+&lt;/div&gt;&lt;/div&gt;<div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">// Source: A Short Course in Computational Science and Engineering&lt;/span&gt;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">#include &lt;iostream&gt;
+&lt;/div&gt;&lt;/div&gt;<div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">#include "/usr/local/dislin/dislin.h"&lt;/span&gt;
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7b;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c1">// Some code for defining variables
+&lt;/div&gt;&lt;/div&gt;<div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">// Omitted to avoid copyright problems
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">// An example of using DISLIN methods&lt;/span&gt;
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">qplot</span><span class="p">(</span><span class="n">array1</span><span class="p">,</span><span class="n">array2</span><span class="p">,</span><span class="n">numOfPts</span><span class="p">);</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span></div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+In the terminal, I typed the following command.
+
+    $ g++ foo.cpp -lXt -ldislin -lm
+{:.cliUB}
+
+*It works!* Critical readers will complain about the way that I
+include `dislin.h`.  I'm not satisfied with this either.  Another
+obvious missing part for those who want to customise the name of the
+output executable file is the `-o` flag.  I *delibrately* did this so
+as to keep things *simple and clear*.
+
+After trying the `-l`, `-L` and `-I` flags of the command `g++`, I
+realised that the `-I` flag will do.
+
+However, when I tried to do the *same* task for another time, it
+surprisingly *failed*.  Looking closely at the two versions, we can
+draw the following conclusion.
+
+<pre class="cli"><code class="UBMono"># `DISLIN' is a variable that represents the path of DISLIN.
+# In the default case, it is `/usr/local/dislin'.
+$ g++ <span class="err">-lXt -ldislin -lm</span> -I$(DISLIN) foo.cpp -o foo.out # Wrong!
+$ g++ foo.cpp -o foo.out <span class="UBHLCode">-lXt -ldislin -lm</span> -I$(DISLIN) # Correct!
+</code></pre>
+
+![message_from_g++](/images/posts/DISLIN/dislin-compile-140119.png)
+
+I conclude this post with the fact that the flags `-g -Wall` can be
+put either before or after `foo.cpp`.
+
+Posted via [UltraBlog.vim].
+
+---
+[^book]:
+    Yevick, D.  (2012).  *A Short Course in Computational Science and
+    Engineering: C++, Java and Octave Numerical Programming with Free
+    Software Tools*.  Cambridge University Press.
+
+[^blog1]: See [*Linux for Research*][blog1] for the post.
+
+[GNU]: https://www.gnu.org/
+[DISLIN]: http://www.dislin.de/
+[blog1]: http://linux4research.blogspot.hk/2007/05/install-and-use-dislin-under-linuxe.html
+[Google]: https://www.google.com/
+[dislin_man]: http://www2.mps.mpg.de/dislin/contents.html
+[Dev-C++]: http://www.bloodshed.net/devcpp.html
+[Eclipse]: http://www.eclipse.org
+[so19118465]: http://stackoverflow.com/q/19118465 "Compiling dislin gfortran"
+[UltraBlog.vim]: http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/
+</span></div></div></span></div></div></span></div></div></pre></div></figure></span></div></div></span></div></div></pre></div></figure></span></div></div></span></div></div></pre></div></figure>
+</div>
+  <footer>
+    <p class="meta">
+      <span class="byline author vcard">Posted by <span class="fn">Vincent Tam</span></span>
+      
+      
+      <span class="categories">
+  
+    C/C++
+  
+</span>
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/01/19/standards-for-c-naming/" title="Previous Post: Standards for C++ Naming">&laquo; Standards for C++ Naming</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/01/19/cross-platform-blog-editing-with-ultrablog-and-wordpress/" title="Next Post: Cross-Platform Blog Editing with UltraBlog and WordPress">Cross-Platform Blog Editing with UltraBlog and WordPress &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://vincenttam.github.io/blog/2014/01/19/compilation-of-c-programs-that-depends-on-dislin-on-cli/';
+        var disqus_url = 'https://vincenttam.github.io/blog/2014/01/19/compilation-of-c-programs-that-depends-on-dislin-on-cli/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

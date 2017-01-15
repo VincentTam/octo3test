@@ -1,0 +1,1374 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	A Queue in $T_1$ Spaces
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &infi...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/9/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/28/a-queue-in-t1-spaces/">A Queue in $T_1$ Spaces</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/28/a-queue-in-t1-spaces/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/28/a-queue-in-t1-spaces/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/28/a-queue-in-t1-spaces/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><span class="myeqn">
+To find a finite subcover of a countable open cover
+$\left\{U_n\right\}_{n \in \N}$ of a $T_1$ space $X$ which has the
+Bolzano–Weierstrass property, one has to pick a sequence in $X$ in
+order to apply the Bolzano–Weierstrass property.  In order to build a
+link between the sequence with the countable open cover, I picked a
+point $x_n$ from each $U_n$, and then build an infinite set $A$
+consisting of $x_n \forall n \in \N$.  I knew that $A$ is compact, but
+what does that do with the countable open cover?
+</span></p>
+
+<p>Reading my notes again, I realised the trick of choosing $x_q$: it
+<em>shouldn’t</em> be chosen from $U_k$ with index $k$ which is smaller than
+<span class="myeqn">$n_q$.  In other words, $x_q \in
+U_{n_q}$ and $x_q \notin U_k \forall k &lt; n_q$.  If we failed to make
+such choices, that means we don't have enough $U_k$'s and $x_q$'s,
+meaning that $X$ is the finite union of $U_k$'s and it's countably
+compact.  Otherwise, we continue this process to get an infinite set
+$A$ can be set up in the same way: $A := \left\{x_q \in X : q \in \N
+\right\}$.</span>  One will see that $A$ has <em>no</em> cluster point,
+contracdicting the Bolzano–Weierstrass property of $X$.</p>
+
+<p><span class="myeqn">
+Assume that $x \in X$.  $\exists m \in \N$ so that $x \in U_m$ and $x
+\notin U_j \forall j &lt; m$.  I was puzzled at the line $n_N &lt; m \le
+n_{N + 1}$.  Using the analogy of "queuing", I understood what's going
+on.
+</span></p>
+
+<picture class="fancybox" title="a queue of open sets in the open
+  countable cover">
+  <source srcset="/images/posts/QT1/q-800.jpg" media="(min-width: 800px)" />&lt;/source&gt;
+  <source srcset="/images/posts/QT1/q-600.jpg" media="(min-width: 600px)" />&lt;/source&gt;
+  <img alt="a queue of open sets in the open countable cover" src="/images/posts/QT1/q-300.jpg" />
+</picture>
+
+<p><span class="myeqn">
+Since $X$ is $T_1$, which is equivalent to the closeness of
+singletons, deleting finitely many singletons from an open set won't
+change the openness of the set.  We have a neighbourhood $V := U_m
+\setminus \left\{x_j : j \le N \text{ and } x \ne x_j \right\}$ of $x$
+which intersects $A$ at no more than one point.  Thus, there exists a
+deleted neighbourhood $V \setminus \{x\}$ of $x$ so that $V \cap A
+\setminus \{x\} = \varnothing$.  Hence, $\forall x \in X, x \notin
+A'$.
+</span></p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/28/mountain-climbing-in-lindelof-t3-spaces/">Mountain Climbing in Lindelöf $T_3$ Spaces</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/28/mountain-climbing-in-lindelof-t3-spaces/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/28/mountain-climbing-in-lindelof-t3-spaces/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/28/mountain-climbing-in-lindelof-t3-spaces/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="motivation">Motivation</h2>
+
+<p>To deduce that <a href="/blog/2015/09/28/normal-compact-t2-spaces/">compact $T_2$ spaces are $T_4$</a>,  I tried using
+the arguments of the proof in the previous post, but I <em>couldn’t</em> do
+it.  Therefore, I read another proof about the normality of regular
+Lindelöf spaces instead.</p>
+
+<h2 id="the-proof-at-first-glance">The proof at first glance</h2>
+
+<p><span class="myeqn">
+Suppose that $X$ is the given space, and $H$ and $K$ are the given
+sets.  $\left\{G_n^* : n \in \omega\right\}$ and $\left\{W_n^* : n \in
+\omega\right\}$ are open countable subcovers of $H$ and $K$
+respectively.  On p.91 in Davis's Topology book, I saw the following
+equations.
+</span></p>
+
+<div class="myeqn">
+\begin{alignat*}{2}
+  U_0 &amp;= G_0^* &amp;\quad V_0 &amp;= W_0^* \setminus \overline{U_0} \\
+  U_1 &amp;= G_1^* \setminus \overline{V_0} &amp;\quad V_1 &amp;= W_1^* \setminus
+  (\overline{U_0} \cup \overline{U_1}) \\
+  U_2 &amp;= G_2^* \setminus (\overline{V_0} \cup \overline{V_1}) &amp;\quad
+  V_2 &amp;= W_2^* \setminus (\overline{U_0} \cup \overline{U_1} \cup
+  \overline{U_2}) \\
+  \vdots \\
+  U_n &amp;= G_n^* \setminus \bigcup_{k &lt; n} \overline{V_k} &amp;\quad V_n &amp;=
+  W_n^* \setminus \bigcup_{k \le n} \overline{U_k} \\
+  U &amp;= \bigcup_{n = 0}^\infty U_n &amp;\quad V &amp;= \bigcup_{n = 0}^\infty
+  V_n
+\end{alignat*}
+</div>
+
+<p>I <em>didn’t</em> know what to do when I first saw these equalities.  It’s
+<em>hard</em> to understand the reason of $U \cap V = \varnothing$ by just
+reading the symbols.  Luckily, an analogy of climbing mounts is given.
+Therefore, I finally understood how the open subsets $U_n$’s and
+$V_n$’s are built step-by-step while preserving disjointness and
+openness.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/28/normal-compact-t2-spaces/">Normal Compact $T_2$ Spaces</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/28/normal-compact-t2-spaces/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/28/normal-compact-t2-spaces/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/28/normal-compact-t2-spaces/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To show that any compact Hausdorff space is $T_4$, one may first show
+that it’s $T_3$.  To see this, using set theory notations may be quite
+<em>difficult</em>.  For mediocre students, the contents of the following
+seciton may sound <em>unnatural</em>.</p>
+
+<h2 id="a-sketch-of-the-proof">A sketch of the proof</h2>
+
+<p>Suppose that we want to separate a point $x \notin A$ and a closed set
+$A$ in a compact $T_2$ space $X$ by two <em>disjoint</em> open sets $U$ and
+$V$ so that $x \in U$ and $A \subseteq V$.  A standard proof is to
+apply the $T_2$ property of $X$ to $x$ and each $y \in A$ so as to
+yield two <em>disjoint</em> open sets <span class="myeqn">$U_y,V_y \in \mathcal{T}$ such that $x \in U_y$ and $y
+\in V_y$</span>.  Since $A$ should be contained in an open set $V$, in
+other words, an <em>open cover</em> of $A$ is needed, one might be tempted to
+construct the following union of open sets.</p>
+
+<div class="myeqn">
+\begin{equation}
+  V = \bigcup_{y \in A} V_y
+  \label{Vinf}
+\end{equation}
+</div>
+
+<p>However, one <em>can’t</em> ensure that the following <em>infinite</em> intersection
+of open sets is open.</p>
+
+<div class="myeqn">
+\begin{equation}
+  U = \bigcap_{y \in A} U_y
+  \label{Uinf}
+\end{equation}
+</div>
+
+<p>For instance, by the Nested Interval Theorem,</p>
+
+<div class="myeqn">
+\[
+  \{0\} = \bigcap_{n \in \N} \left( -\frac{1}{n},\frac{1}{n} \right).
+\]
+</div>
+
+<p>Thus, one applies the compactness of $X$ to get <em>finite</em> versions of
+\eqref{Vinf} and \eqref{Uinf}.</p>
+
+<h2 id="a-snapshot-of-this-fact">A snapshot of this fact</h2>
+
+<p>Since it’s so <em>difficult</em> to remember every detail of the proof, I
+love illustrating it using a picture.</p>
+
+<p><img src="/images/posts/CptT2/cptT2-280.jpg" alt="snapshot capturing central idea of proof" /></p>
+
+<p>How can a compact regular space be regular?  See my next post.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/06/mathjax-local-configuration-file-2/">MathJax Local Configuration File (2)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/06/mathjax-local-configuration-file-2/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/06/mathjax-local-configuration-file-2/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/06/mathjax-local-configuration-file-2/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>In my opinion, the default display of the $\rm \LaTeX$ command for
+$\Re z$ and $\Im z$ <em>don’t</em> look good.</p>
+
+<p><img src="/images/posts/MathJaxReIm/im110.png" alt="default Im(z) display" /></p>
+
+<h2 id="problem">Problem</h2>
+
+<p>I want to reset the <code class="highlighter-rouge">\Im</code> command in my local MathJax configuration
+file <code class="highlighter-rouge">source/javascripts/MathJaxLocal.js</code>.  I used a script inside the
+<code class="highlighter-rouge">&lt;body&gt;</code> tag to load my local MathJax configurations from GitHub.<sup id="fnref:pp"><a href="#fn:pp" class="footnote">1</a></sup>
+If I want to <em>test</em> the configurations, then I’ll have to push my
+changes to GitHub <em>before</em> I can see the effect and figure out the
+errors — this is incredibly <em>slow</em> and <em>inefficient</em>.</p>
+
+<p><strong>How can I locally debug my MathJax configurations?</strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>To <em>locally test</em> my MathJax configurations, I put <em>another</em> <code class="highlighter-rouge">&lt;script&gt;</code>
+tag containing the local configurations <em>before</em> the <code class="highlighter-rouge">&lt;script&gt;</code> that
+loads <code class="highlighter-rouge">MathJax.js</code>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Put this at the bottom</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">(&#x7b;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">jax</span><span class="p">:</span> <span class="p">[</span><span class="s2">"input/TeX"</span><span class="p">,</span> <span class="s2">"output/HTML-CSS"</span><span class="p">],</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">tex2jax</span><span class="p">:</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">inlineMath</span><span class="p">:</span> <span class="p">[[</span><span class="s1">'$'</span><span class="p">,</span> <span class="s1">'$'</span><span class="p">]],</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">displayMath</span><span class="p">:</span> <span class="p">[[</span><span class="s1">'$$'</span><span class="p">,</span> <span class="s1">'$$'</span><span class="p">],[</span><span class="s1">'\\['</span><span class="p">,</span><span class="s1">'\\]'</span><span class="p">]],</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">processEscapes</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">skipTags</span><span class="p">:</span> <span class="p">[</span><span class="s1">'script'</span><span class="p">,</span> <span class="s1">'noscript'</span><span class="p">,</span> <span class="s1">'style'</span><span class="p">,</span> <span class="s1">'textarea'</span><span class="p">,</span> <span class="s1">'pre'</span><span class="p">,</span> <span class="s1">'code'</span><span class="p">]</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;,</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">messageStyle</span><span class="p">:</span> <span class="s2">"none"</span><span class="p">,</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s2">"HTML-CSS"</span><span class="p">:</span> <span class="p">&#x7b;</span> <span class="na">preferredFont</span><span class="p">:</span> <span class="s2">"TeX"</span><span class="p">,</span> <span class="na">availableFonts</span><span class="p">:</span> <span class="p">[</span><span class="s2">"STIX"</span><span class="p">,</span><span class="s2">"TeX"</span><span class="p">]</span> <span class="p">&#x7d;,</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="na">TeX</span><span class="p">:</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">equationNumbers</span><span class="p">:</span> <span class="p">&#x7b;</span> <span class="na">autoNumber</span><span class="p">:</span> <span class="s2">"AMS"</span> <span class="p">&#x7d;,</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">extensions</span><span class="p">:</span> <span class="p">[</span><span class="s2">"AMSmath.js"</span><span class="p">,</span> <span class="s2">"AMSsymbols.js"</span><span class="p">,</span><span class="s2">"AMScd.js"</span><span class="p">],</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">TagSide</span><span class="p">:</span> <span class="s2">"left"</span><span class="p">,</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="na">Macros</span><span class="p">:</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">field</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathbb&#x7b;#1&#x7d;'</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">C</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\field&#x7b;C&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">F</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\field&#x7b;F&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">N</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\field&#x7b;N&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Q</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\field&#x7b;Q&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">R</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\field&#x7b;R&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Z</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\field&#x7b;Z&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">zeros</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathbf&#x7b;0&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">ud</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\,\\mathrm&#x7b;d&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">vect</span><span class="p">:[</span><span class="s1">'\\boldsymbol&#x7b;\\mathbf&#x7b;#1&#x7d;&#x7d;'</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">abs</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\lvert#1\\rvert'</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">abslr</span><span class="p">:[</span><span class="s1">'\\left\\lvert#1\\right\\rvert'</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">norm</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\lVert#1\\rVert'</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">normlr</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\left\\lVert#1\\right\\rVert'</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">lcm</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;lcm&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">interior</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;int&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">exterior</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;ext&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">volume</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;vol&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">E</span><span class="p">:</span> <span class="p">[</span><span class="s1">'&#x7b;\\rm I\\kern-.3em E&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Var</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Var&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Cov</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Cov&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Binom</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Binom&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Exp</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Exp&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Poi</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Poi&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">GL</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathrm&#x7b;GL&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">SL</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathrm&#x7b;SL&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Aut</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathrm&#x7b;Aut&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">id</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathrm&#x7b;id&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="c1">// Test your code here</span>
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Re</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Re&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="na">Im</span><span class="p">:</span> <span class="p">[</span><span class="s1">'\\mathop&#x7b;\\mathrm&#x7b;Im&#x7d;&#x7d;'</span><span class="p">],</span>
+</div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="p">&#x7d;</span>
+</div></div><div data-line="55" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="56" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;);</span>
+</div></div><div data-line="57" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/script&gt;</span>
+</div></div><div data-line="58" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="59" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+</div></div><div data-line="60" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="61" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="kd">function</span> <span class="nx">getScript</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">success</span><span class="p">)&#x7b;</span>
+</div></div><div data-line="62" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="kd">var</span> <span class="nx">script</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+</div></div><div data-line="63" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nx">script</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">url</span><span class="p">;</span>
+</div></div><div data-line="64" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="kd">var</span> <span class="nx">head</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'head'</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+</div></div><div data-line="65" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nx">done</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
+</div></div><div data-line="66" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="nx">script</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()&#x7b;</span>
+</div></div><div data-line="67" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">done</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="s1">'loaded'</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="s1">'complete'</span><span class="p">)</span> <span class="p">)</span> <span class="p">&#x7b;</span>
+</div></div><div data-line="68" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="nx">done</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+</div></div><div data-line="69" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="nx">success</span><span class="p">();</span>
+</div></div><div data-line="70" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="nx">script</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</div></div><div data-line="71" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+</div></div><div data-line="72" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="p">&#x7d;</span>
+</div></div><div data-line="73" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="p">&#x7d;;</span>
+</div></div><div data-line="74" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+</div></div><div data-line="75" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="76" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="77" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nx">getScript</span><span class="p">(</span><span class="s2">"https://cdn.mathjax.org/mathjax/latest/MathJax.js?"</span> <span class="o">+</span>
+</div></div><div data-line="78" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s2">"config=TeX-AMS-MML_HTMLorMML"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()&#x7b;&#x7d;);</span>
+</div></div><div data-line="79" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="80" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;)();</span>
+</div></div><div data-line="81" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/script&gt;</span></div></div></pre></div></figure>
+
+<p>I think that rendering $\Re z$ and $\Im z$ with roman font is better.</p>
+
+<p><img src="/images/posts/MathJaxReIm/im-new120.png" alt="improved Im(z) display" /></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:pp">
+
+      <p>Refer to <a href="/blog/2015/08/05/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-3/">my old post</a> titled <em>A Quick Markdown Syntax Error
+Detection for Writing MathJax Equations in Octopress Posts (3)</em>
+for details.&nbsp;<a href="#fnref:pp" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/06/read-lucass-theorem/">Read Lucas's Theorem</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/06/read-lucass-theorem/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/06/read-lucass-theorem/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/06/read-lucass-theorem/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Suppose that $P(z)$ is a polynomial in the complex plane.  The theorem
+says that <em>all</em> zeros of $P’(z)$ are inside a half plane in which all
+zeros of $P(z)$ lie.</p>
+
+<p>Ahlfors says that <q>a directed line $z = a + bt$ determines a right
+half plane consisting of all points with $\Im(z - a) / b &lt; 0$…</q>
+(see Chap. 1, Sec. 2.3)<sup id="fnref:ahlfors"><a href="#fn:ahlfors" class="footnote">1</a></sup>  After drawing the figure for the 
+drawing the figure for $z = -(1 + i)t$, I realized that I should pay
+attention to the word “directed” and interpret “right” as “to the
+right of the vector $b$ drawn on the line $z = a + bt$”.</p>
+
+<p>The following equation puzzled me for a while.  (see Chap. 2, Sec.
+1.3)<sup id="fnref:ibid"><a href="#fn:ibid" class="footnote">2</a></sup></p>
+
+<div class="myeqn">
+\begin{equation}
+  \Im\left( \frac{z - \alpha_k}{b} \right) = \Im\left( \frac{z - a}{b}
+  \right) - \Im\left( \frac{\alpha_k - a}{b} \right) &gt; 0
+  \label{stuck}
+\end{equation}
+</div>
+
+<p>I tried sketching a diagram to understand what’s going on, but this
+<em>isn’t</em> so helpful.  In fact, the above equation starts from
+<span class="myeqn">$z - \alpha_k = (z - a) - (\alpha_k -
+a)$</span>.</p>
+
+<p><span class="myeqn">
+The whole proof makes use of a half plane $H := \{z \in \C \mid \Im[(z</span></p>
+<ul>
+  <li>a) / b] &lt; 0}$ in which all zeros $\alpha_1,\ldots,\alpha_n$ of
+$P(z)$ lie, and it follows the logic of proof by contradiction: each
+$\alpha_k$ is assumed to be in $H$ while $z$ isn’t.  It ends with the
+conclusion that $\Im(b P’(z) / P(z)) &lt; 0$ by \eqref{stuck} and the
+equation
+&lt;/span&gt;</li>
+</ul>
+
+<div class="myeqn">
+\[
+  \frac{P'(z)}{P(z)} = \sum_{k = 1}^n \Im\left( \frac{1}{z - \alpha_k}
+  \right).
+\]
+</div>
+
+<p>Finally, I saw a corollary of this theorem: all zeros of $P’(z)$ are
+inside the smallest convex polygon in which all zeros of $P(z)$ lie.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:ahlfors">
+
+      <p>Ahlfors, L. (1979). <em>Complex analysis</em>. Auckland: McGraw-Hill.&nbsp;<a href="#fnref:ahlfors" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:ibid">
+      <p><em>ibid</em>.&nbsp;<a href="#fnref:ibid" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/06/understood-how-zorns-lemma-implies-the-axiom-of-choice/">Understood How Zorn's Lemma Implies the Axiom of Choice</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/06/understood-how-zorns-lemma-implies-the-axiom-of-choice/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/06/understood-how-zorns-lemma-implies-the-axiom-of-choice/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/06/understood-how-zorns-lemma-implies-the-axiom-of-choice/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Many math books that I’ve read referred me to other books for the
+proof of the equivalence of the Axiom of Choice and Zorn’s Lemma.
+This afternoon, I spent more than two hours to understand the proof
+that the later implies and former in <cite>Topology</cite> written by
+Davis.</p>
+
+<ol>
+  <li>Set up a non-empty partially ordered set $(\mathcal{P},\le)$</li>
+  <li>Let $\mathcal{T}$ be any non-empty chain in $\mathcal{P}$.</li>
+  <li>Prove that $\cup \mathcal{T} \in \mathcal{P}$.</li>
+  <li>Apply Zorn’s Lemma to get a maximal element $g \in \mathcal{P}$.</li>
+  <li><span class="myeqn">Use the maximality of $g$ to claim
+that the domain of $g$ equals the family of non-empty subsets
+$(S_i)_{i \in I}$ from which elements $(x_i)_{i \in I}$ are chosen.
+</span></li>
+</ol>
+
+<p>In the book, $\le$ means function extension, and</p>
+
+<div class="myeqn">
+\[
+  \mathcal{P} = \{f \mid f \text{ is a function, } dom\,f \subseteq
+  (S_i)_{i \in I}, f(x) \in x \,\forall x \in dom\,f\}.
+\]
+</div>
+
+<p><span class="myeqn">
+Step (3) is proved step-by-step according to the definition of
+$\mathcal{P}$.  Usually, suppose that $(x_1,y_1),(x_2,y_2) \in f$,
+$x_1 = x_2 \implies y_1 = y_2$.  The book uses the contrapositive form
+of this statement.  I was stuck at the sentence <q>Now, for a set to
+be an element of $dom\cup\mathcal{T}$, it must be an element of some
+member of $\mathcal{T}$</q>.  At first, I omitted the phrase "some
+member of", and stopped for half an hour.  Reading the next sentence
+<q>Hence $dom\cup\mathcal{T} \subseteq (S_i)_{i \in I}$</q>, I knew
+how to interpret the sentence where I was stuck: if $S \in
+dom\cup\mathcal{T}$, $\exists f \in \mathcal{T}$ such that $S \in
+dom\,f$.  Since $f \in \mathcal{T} \subseteq \mathcal{P}$, $dom\,f
+\subseteq (S_i)_{i \in I}$.  Then $S \in (S_i)_{i \in I}$, and thus
+$dom\cup\mathcal{T} \subseteq (S_i)_{i \in I}$.
+</span></p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/05/revised-absolute-convergence/">Revised Absolute Convergence</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/05/revised-absolute-convergence/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/05/revised-absolute-convergence/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/05/revised-absolute-convergence/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I am <em>not</em> so satisfied with this the following
+<em>definition</em>.<sup id="fnref:churchill"><a href="#fn:churchill" class="footnote">1</a></sup></p>
+
+<div class="myeqn">
+\[
+  e^{i\theta} := \cos \theta + i \sin \theta
+\]
+</div>
+
+<p>I remembered the proof for convergence of</p>
+
+<div class="myeqn">
+\[
+  e^{x} := \sum_{i = 0}^{\infty} \frac{x^i}{i!}
+\]
+</div>
+
+<p>for real numbers.  I <em>didn’t</em> know if this can be extended to complex
+numbers.  Therefore, I thought about the absolute convergence of
+complex-valued series.  It’s expected that many proofs are similar to
+their real counterparts, such as the result that absolute convergence
+implies convergence.  In real numbers, this result makes use of the
+Triangle Inequalty and Cauchy Convergence Criterion, and the key step
+is</p>
+
+<div class="myeqn">
+\[
+  \abslr{\sum_{k = m + 1}^{n} a_k} \le \sum_{k = m + 1}^{n} \abs{a_k}.
+\]
+</div>
+
+<p>Since the proof of the above statement for real numbers requires
+Bolzano–Weierstrass Theorem, which is about the sequential
+compactness of sequences of real numbers, I was <em>stuck</em> at this point.</p>
+
+<p><span class="myeqn">
+Finally, I read another book, which said that if $(z_n)$ is a Cauchy
+sequence, and $\forall n \in \N$, $u_n := \Re(z_n)$ and $v_n :=
+\Im(z_n)$, $\forall \varepsilon &gt; 0, \exists N \in \N$ such that
+$\forall m,n \le N$,
+</span></p>
+
+<div class="myeqn">
+\begin{align*}
+  \abs{u_n - u_m} &amp;\le \abs{z_n - z_m} &lt; \varepsilon, \\
+  \abs{v_n - v_m} &amp;\le \abs{z_n - z_m} &lt; \varepsilon.
+\end{align*}
+</div>
+
+<p>Then $(u_n)$ and $(v_n)$ are real-valued Cauchy sequences, which are
+convergent.<sup id="fnref:ahlfors"><a href="#fn:ahlfors" class="footnote">2</a></sup>  This guarantees the convergence of $(z_n)$ in
+the complex plane.</p>
+
+<p>To establish the absolute convergence of $\exp z$, we need the root
+test.  The proofs can be borrowed from their counterparts in the set
+of real numbers.  Ahlfors leaves the proof for <span class="myeqn">$\sqrt[n]{n!} \to \infty$</span> to readers.  I find
+<a href="http://math.stackexchange.com/a/514397">Dan’s proof</a> pretty easy.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:churchill">
+
+      <p>Brown, J. W., Churchill, R. V., &amp; Lapidus, M. (1996). <em>Complex
+variables and applications (Vol. 7)</em>. (pp. 17). New York:
+McGraw-Hill.&nbsp;<a href="#fnref:churchill" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:ahlfors">
+
+      <p>Ahlfors, L. (1979). <em>Complex analysis</em>. (pp. 34). Auckland:
+McGraw-Hill.&nbsp;<a href="#fnref:ahlfors" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/04/stuck-at-two-trigonometric-inequalities/">Stuck at Two Trigonometric Inequalities</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/04/stuck-at-two-trigonometric-inequalities/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/04/stuck-at-two-trigonometric-inequalities/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/04/stuck-at-two-trigonometric-inequalities/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>Suppose that $z = x + iy, x,y \in \R$.  Then $\abs{\sin z} \ge
+\abs{\sin x}$ and $\abs{\sin z} \ge \abs{\sinh y}$.</p>
+
+<!-- more -->
+
+<h2 id="forgotten-facts">Forgotten facts</h2>
+
+<p>I’ve forgotten many facts about complex variables learnt almost two
+years ago.  For example, the defhinition of sines and cosines.  Eight
+years ago, I can memorize well the trigonometric formulae.  Now, I
+have difficulties in proving them.</p>
+
+<div class="myeqn">
+\begin{align}
+  \cos z &amp;= \frac{e^{iz}+e^{-iz}}{2} \label{defa} \\
+  \sin z &amp;= \frac{e^{iz}-e^{-iz}}{2i} \label{defb}
+\end{align}
+</div>
+
+<h2 id="look-at-the-hint">Look at the hint</h2>
+
+<p>In the book that I’m reading, there’re two formulae.</p>
+
+<div class="myeqn">
+\begin{align}
+  \abs{\sin z}^2 &amp;= \sin^2 x + \sinh^2 y \label{hint1a} \\
+  \abs{\cos z}^2 &amp;= \cos^2 x + \sinh^2 y \label{hint1b}
+\end{align}
+</div>
+
+<p>Even though the problem can be solved once these two formulae are
+accepted, I <em>don’t</em> know why they’re true.</p>
+
+<h2 id="look-further-up">Look further up</h2>
+
+<p>I found another two formulae.</p>
+
+<div class="myeqn">
+\begin{align}
+  \sin z &amp;= \sin x \cosh y + i \cos x \sinh y \label{hint2a} \\
+  \cos z &amp;= \cos x \cosh y - i \sin x \sinh y \label{hint2b}
+\end{align}
+</div>
+
+<p>I tried to verify \eqref{hint2a} after having read \eqref{defhb}.</p>
+
+<h2 id="first-failed-attempt">First failed attempt</h2>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{aligned}
+    &amp;\quad\: \sin z \\
+    &amp;= \frac{e^{iz} - e^{-iz}}{2i} \\
+    &amp;= \frac{e^{i(x + iy)} - e^{-i(x + iy)}}{2i} \\
+    &amp;= \frac{e^{ix} e^{-y} - e^{-ix} e^{y}}{2i} \\
+    &amp;= \frac{e^{ix} - e^{-ix}}{2i} e^{-y} + \frac{e^{-ix - y}}{2i} -
+    \frac{e^{-ix} e^{y}}{2i} \\
+    &amp;= \sin x \cdot e^{-y} + \frac{e^{-ix}}{i} \cdot
+    \frac{e^{-y} - e^{y}}{2}\\
+    &amp;= \sin x \cdot e^{-y} + i e^{-ix} \frac{e^{y} - e^{-y}}{2} \\
+    &amp;= \sin x \cdot e^{-y} + i e^{-ix} \sinh y
+  \end{aligned}
+  \label{fail1}
+\end{equation}
+</div>
+
+<p>I was <em>stuck</em> at this point because I <em>didn’t</em> know how to change
+\eqref{fail1} to \eqref{hint2a}.</p>
+
+<h2 id="more-forgotten-facts">More forgotten facts</h2>
+
+<p>In fact, some simple identities involving hyperbolic functions can
+simplify matters.</p>
+
+<div class="myeqn">
+\begin{align}
+  \cosh z &amp;= \frac{e^{y}+e^{-y}}{2} \label{defha} \\
+  \sinh z &amp;= \frac{e^{y}-e^{-y}}{2} \label{defhb} \\
+  \cos(iy) &amp;= \cosh y \label{idha} \\
+  \sin(iy) &amp;= i \sinh y \label{idhb}
+\end{align}
+</div>
+
+<p>Then I realised that \eqref{hint2a} follows from the compound angle
+formula.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{aligned}
+    \sin(x + iy) &amp;= \sin x \cos(iy) + \cos x \sin(iy) \\
+    &amp;= \sin x \cosh y + i \cos x \sinh y
+  \end{aligned}
+  \label{link}
+\end{equation}
+</div>
+
+<p>Thus, I need to prove something more general.</p>
+
+<h2 id="compound-angle-formulae">Compound angle formulae</h2>
+
+<div class="myeqn">
+\begin{align}
+  \cos(z_1 + z_2) &amp;= \cos z_1 \cos z_2 - \sin z_1 \sin z_2
+  \label{cpda} \\
+  \sin(z_1 + z_2) &amp;= \sin z_1 \cos z_2 + \cos z_1 \sin z_2
+  \label{cpdb}
+\end{align}
+</div>
+
+<p>I tried proving \eqref{cpdb} in the <em>same</em> way like \eqref{fail1}.</p>
+
+<h2 id="second-failed-attempt">Second failed attempt</h2>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{aligned}
+    &amp;\quad\: \sin(z_1 + z_2) \\
+    &amp;= \frac{e^{i(x_1 + iy_1 + x_2 + iy_2)} - e^{-i(x_1 + iy_1 + x_2 +
+    iy_2)}}{2i} \\
+    &amp;= \frac{1}{2i} [e^{i(x_1 + x_2)} e^{-(y_1 + y_2)}
+    - e^{-i(x_1 + x_2)} e^{y_1 + y_2}]
+  \end{aligned}
+  \label{fail2}
+\end{equation}
+</div>
+
+<p>Then I <em>didn’t</em> know how to continue.</p>
+
+<h2 id="reasons-for-the-above-failures">Reasons for the above failures</h2>
+
+<ul>
+  <li>\eqref{fail1} and \eqref{fail2} involve fractions, which are more
+difficult to deal with than those <em>without</em> fractions.</li>
+  <li>In order to change \eqref{fail1} to \eqref{hint2a}, some sort of
+factorisation is needed, and this requires creating a term that fits
+the puzzle.  Again, this <em>isn’t</em> so easy.</li>
+</ul>
+
+<h2 id="just-use----and--no-">Just use ‘+’, ‘-‘ and ‘×’, no ‘÷’</h2>
+
+<p>From \eqref{defa} and \eqref{defb}, one should know that cosines,
+sines and exponents are <em>related</em>.  For any $z_1, z_2 \in \C$, the
+formula for $\sin(z_1 + z_2)$ and $\cos(z_1 + z_2)$ <em>aren’t</em> so easy,
+but the one for $e^{z_1 + z_2}$ is <em>simple</em>.  Making use of the
+Euler’s formula for complex numbers, one has</p>
+
+<div class="myeqn">
+\begin{align}
+  e^{iz_1} &amp;= \cos z_1 + i \sin z_1 \label{eulerz1} \\
+  e^{iz_2} &amp;= \cos z_2 + i \sin z_2 \label{eulerz2}
+\end{align}
+</div>
+
+<p>Multiply \eqref{eulerz1} by \eqref{eulerz2}.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{aligned}
+    &amp;\quad\: e^{i(z_1 + z_2)} \\
+    &amp;= (\cos z_1 \cos z_2 - \sin z_1 \sin z_2) \\
+    &amp;\quad\: + i(\cos z_1 \sin z_2 + \sin z_1 \cos z_2)
+  \end{aligned}
+  \label{eiz12a}
+\end{equation}
+</div>
+
+<p>Remembering Euler’s formula</p>
+
+<div class="myeqn">
+\[
+  e^{i(z_1 + z_2)} = \cos(z_1 + z_2) + i \sin(z_1 + z_2),
+\]
+</div>
+
+<p>can we say immediately that \eqref{hint2a} and \eqref{hint2b} are
+true?  No, since there’s <em>no</em> guarantee that $\cos(z_1 + z_2)$ and
+$\sin(z_1 + z_2)$ are real.  However, I kept working on \eqref{eiz12a}
+so that \eqref{hint2a} and \eqref{hint2b} were proved.</p>
+
+<p>From \eqref{defa} and \eqref{defb}, it’s trivial that</p>
+
+<div class="myeqn">
+\[
+  \sin(-z) = -\sin z \text{ and } \cos(-z) = \cos z.
+\]
+</div>
+
+<p>Therefore, we write an analog of \eqref{eiz12a} for $e^{-i(z_1 +
+z_2)}$.</p>
+
+<div class="myeqn">
+\begin{equation}
+  \begin{aligned}
+    &amp;\quad\: e^{-i(z_1 + z_2)} \\
+    &amp;= [\cos (-z_1) \cos (-z_2) - \sin (-z_1) \sin (-z_2)] \\
+    &amp;\quad\: + i[\cos (-z_1) \sin (-z_2) + \sin (-z_1) \cos (-z_2)] \\
+    &amp;= (\cos z_1 \cos z_2 - \sin z_1 \sin z_2) \\
+    &amp;\quad\: - i(\cos z_1 \sin z_2 + \sin z_1 \cos z_2)
+  \end{aligned}
+  \label{eiz12b}
+\end{equation}
+</div>
+
+<div class="myeqn">
+\[
+  \begin{aligned}
+    &amp;\quad\: \cos(z_1 + z_2) \quad
+    (\text{by } \frac{\eqref{eiz12a} + \eqref{eiz12b}}{2}) \\
+    &amp;= \frac{e^{i(z_1 + z_2) - e^{-i(z_1 + z_2)}}}{2} \\
+    &amp;= \cos z_1 \cos z_2 - \sin z_1 \sin z_2
+  \end{aligned}
+\]
+</div>
+
+<p>\eqref{hint2a} can be derived in a similar way.</p>
+
+<h2 id="remaining-work">Remaining work</h2>
+
+<p>\eqref{hint1b} can be derived from \eqref{hint2b} by using $\sin^2 x +
+\cos^2 x = 1$ and $\cosh^2 x - \sinh^2 x = 1$.</p>
+
+<div class="myeqn">
+\[
+  \begin{aligned}
+    &amp;\quad\, \abs{\cos z}^2 \\
+    &amp;= \cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y \\
+    &amp;= \cos^2 x (1 + \sinh^2 y) + (1 - \cos^2 x) \sinh^2 y \\
+    &amp;= \cos^2 x + \sinh^2 y
+  \end{aligned}
+\]
+</div>
+
+<p>The derivation of \eqref{hint1a} from \eqref{hint2a} is left as
+exercise.</p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/03/found-an-upper-bound-for-the-modulus-of-legendre-polynomials/">Found an Upper Bound for the Modulus of Legendre Polynomials</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/03/found-an-upper-bound-for-the-modulus-of-legendre-polynomials/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/03/found-an-upper-bound-for-the-modulus-of-legendre-polynomials/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/03/found-an-upper-bound-for-the-modulus-of-legendre-polynomials/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="lemma">Lemma</h2>
+
+<p>Suppose that $w: [a,b] \to \C$ is piecewise continuous, then we have</p>
+
+<div class="myeqn">
+\begin{equation}
+\abslr{\int_{a}^{b} w(t) \ud t} \le \int_{a}^{b} \abs{w(t)} \ud t.
+\label{lemma}
+\end{equation}
+</div>
+
+<p>The trick is to treat the integral on the L.H.S. of \eqref{lemma} as a
+number.</p>
+
+<div class="myeqn">
+\begin{align}
+\int_{a}^{b} w(t) \ud t &amp;= r_0 e^{i\theta_0} \text{ for some } r \in
+\R \text{ and } \theta_0 \in [-\pi,\pi)
+\label{trick1}\\
+r_0 &amp;= \int_{a}^{b} e^{-i\theta_0} w(t) \ud t
+\label{trick2}
+\end{align}
+</div>
+
+<p>Then from \eqref{lemma} and \eqref{trick1}, it suffices to show that</p>
+
+<div class="myeqn">
+\begin{equation}
+r_0 = \abslr{r_0 e^{i\theta_0}} \le \int_{a}^{b} \abs{w(t)} \ud t.
+\label{new_goal1}
+\end{equation}
+</div>
+
+<p>Since \eqref{trick2} consists of $e^{-i\theta_0}$, which is <em>absent</em>
+on the R.H.S. of \eqref{lemma} and \eqref{new_goal1}, we add it back.
+Thus, we need to show</p>
+
+<div class="myeqn">
+\begin{equation}
+r_0 \le \int_{a}^{b} \abslr{e^{-i\theta_0} w(t)} \ud t.
+\label{new_goal2}
+\end{equation}
+</div>
+
+<p>Looking at \eqref{trick2} again, we’re almost there!  Using elementary
+properties of complex numbers and definite integrals for real-valued
+functions and the fact/definition that</p>
+
+<div class="myeqn">
+\begin{equation}
+\Re\left(\int_{a}^{b} w(t) \ud t\right) = \int_{a}^{b} \Re[w(t)] \ud
+t,
+\label{Re-int}
+\end{equation}
+</div>
+
+<p>we can write</p>
+
+<div class="myeqn">
+\begin{equation}
+\begin{aligned}
+r_0 &amp;= \Re\left(\int_{a}^{b} e^{-i\theta_0} w(t) \ud t\right) \\
+&amp;= \int_{a}^{b} \Re[e^{-i\theta_0} w(t)] \ud t\\
+&amp;\le \int_{a}^{b} \abslr{e^{-i\theta_0} w(t)} \ud t.
+\end{aligned}
+\label{fin}
+\end{equation}
+</div>
+
+<p>Therefore, \eqref{new_goal2} is satisfied, so as \eqref{lemma}.</p>
+
+<h2 id="an-upper-bound-for-legendre-polynomials">An upper bound for Legendre polynomials</h2>
+
+<p>I have <em>never</em> evaluated</p>
+
+<div class="myeqn">
+\begin{equation}
+P_n(x) = \frac{1}{\pi} \int_0^\pi (x + i \sqrt{1 - x^2}
+\cos{\theta})^n \ud\theta,
+\label{pnx}
+\end{equation}
+</div>
+
+<p>where $-1 \le x \le 1$ and $n = 0,1,2,\dots$</p>
+
+<p>Applying \eqref{lemma}, one gets</p>
+
+<div class="myeqn">
+\begin{equation}
+\begin{aligned}
+P_n(x) &amp;= \frac{1}{\pi} \int_0^\pi (x + i \sqrt{1 - x^2}
+\cos{\theta})^n \ud\theta\\
+&amp;\le \frac{1}{\pi} \int_0^\pi \ud\theta\\
+&amp;= 1
+\end{aligned}
+\label{crux}
+\end{equation}
+</div>
+
+<p>because</p>
+
+<div class="myeqn">
+\begin{equation}
+\begin{aligned}
+&amp;\quad\; \abs{x + i \sqrt{1 - x^2} \cos{\theta}}\\
+&amp;= \sqrt{x^2 + (1 - x^2) \cos^2{\theta}}\\
+&amp;\le \sqrt{x^2 + (1 - x^2)}\\
+&amp;= 1.
+\end{aligned}
+\label{norm-ub}
+\end{equation}
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2015/09/03/git-merge-failed/">Git Merge Failed?</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2015/09/03/git-merge-failed/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2015/09/03/git-merge-failed/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2015/09/03/git-merge-failed/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>Octopress has recently removed Rubypants, so the automatic smartquotes
+<em>aren’t</em> supported any more.  However, after typing <code class="highlighter-rouge">git pull
+octopress master</code> on the <code class="highlighter-rouge">source</code> branch of the local working
+directory for this blog, <code class="highlighter-rouge">git</code> simply said that it’s “already
+up-to-date”.  I compared the stored trees for <code class="highlighter-rouge">plugins/</code> by using <code class="highlighter-rouge">git
+show HEAD:plugins</code> on the <code class="highlighter-rouge">source</code> and <code class="highlighter-rouge">octopress/master</code> branches.
+If the former has the commits of the later, then
+<code class="highlighter-rouge">plugins/rubypants.rb</code> <em>shouldn’t</em> be found on the former.  I issued
+the command <code class="highlighter-rouge">git merge octopress/master</code> again, and the version
+control system still said that there’s <em>no</em> unmerged commits from the
+<code class="highlighter-rouge">octopress/master</code> branch.<sup id="fnref:remote"><a href="#fn:remote" class="footnote">1</a></sup></p>
+
+<!-- more -->
+
+<h2 id="cause">Cause</h2>
+
+<p>By using <code class="highlighter-rouge">git log --abbrev-commit --pretty=oneline --graph</code> and <code class="highlighter-rouge">git
+merge-base octopress/master HEAD</code>, I can quickly browse through the
+commits.  Finally, I identified the reason for this failed merge: I
+reverted the first merge of those two branches three months ago.  I
+belive that I can revert this reversion to achieve my desired merge.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:remote">
+
+      <p>Since Octopress 3 is currently in development, I still use the
+original version.&nbsp;<a href="#fnref:remote" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/10/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/8/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

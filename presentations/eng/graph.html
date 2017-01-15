@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Graph for my Eng present</title>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.5/jsxgraphcore.js"></script>
+        <link rel="stylesheet" href="//jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+        <style type="text/css" media="all">
+          .active {color: red}
+          .passive {color: blue}
+        </style>
+    </head>
+    <body>
+      <h1>My first interactive math graph in SVG</h1>
+      <ul>
+        <li class="active">Red line stands for <em>active</em> fungi.</li>
+        <li class="passive">Blue line stands for <em>passive</em> fungi.</li>
+      </ul>
+
+      <h2>Fungal growth in wet conditions</h2>
+      <div id="jxgboxw" class="jxgbox" style="width:800px; height:500px;"></div>
+      <script type="text/javascript">
+	var brd = JXG.JSXGraph.initBoard('jxgboxw', {boundingbox: [0, 500, 20, -50], axis:true}),
+        a0w  = brd.create('slider',[[5,3.0*50],[15,3.0*50],[0,50,100]], {name:'A(0)',snapWidth:1}),
+        p0w  = brd.create('slider',[[5,2.5*50],[15,2.5*50],[0,50,100]], {name:'P(0)',snapWidth:1}),
+        kw   = brd.create('slider',[[5,2.0*50],[15,2.0*50],[-5,1.5,5]], {name:'k'}),
+        lmdw = brd.create('slider',[[5,1.5*50],[15,1.5*50],[0,0.5,5]], {name:'λ'}),
+        muw  = brd.create('slider',[[5,1.0*50],[15,1.0*50],[0,0.5,5]], {name:'μ'}),
+
+        aw = brd.create('functiongraph',[function(t){ return a0w.Value()*Math.exp(kw.Value()*t) + p0w.Value()*muw.Value()*1.0/(muw.Value()+kw.Value())*(Math.exp(kw.Value()*t)-Math.exp(-muw.Value()*t));}],{strokeColor:'#ff0000',strokeWidth:2});
+        pw = brd.create('functiongraph',[function(t){ return p0w.Value()*Math.exp(-muw.Value()*t)}],{strokeColor:'#0000ff',strokeWidth:2});
+      </script>
+      <small>Powered by <a href="http://jsxgraph.uni-bayreuth.de/">JSXGraph</a></small><br />
+
+      <h2>Fungal growth in dry conditions</h2>
+      <div id="jxgboxd" class="jxgbox" style="width:800px; height:500px;"></div>
+      <script type="text/javascript">
+	var brd = JXG.JSXGraph.initBoard('jxgboxd', {boundingbox: [0, 500, 20, -50], axis:true}),
+        a0d  = brd.create('slider',[[5,3.0*50],[15,3.0*50],[0,50,100]], {name:'A(0)',snapWidth:1}),
+        p0d  = brd.create('slider',[[5,2.5*50],[15,2.5*50],[0,50,100]], {name:'P(0)',snapWidth:1}),
+        kd   = brd.create('slider',[[5,2.0*50],[15,2.0*50],[-5,1.5,5]], {name:'k'}),
+        lmdd = brd.create('slider',[[5,1.5*50],[15,1.5*50],[0,0.5,5]], {name:'λ'}),
+        mud  = brd.create('slider',[[5,1.0*50],[15,1.0*50],[0,0.5,5]], {name:'μ'}),
+
+        ad = brd.create('functiongraph',[function(t){ return a0d.Value()*Math.exp((kd.Value()-lmdd.Value())*t)}],{strokeColor:'#ff0000',strokeWidth:2});
+        pd = brd.create('functiongraph',[function(t){ return p0d.Value() + a0d.Value()*lmdd.Value()*1.0/(kd.Value()-lmdd.Value())*(Math.exp((kd.Value()-lmdd.Value())*t)-1)}],{strokeColor:'#0000ff',strokeWidth:2});
+      </script>
+      <small>Powered by <a href="http://jsxgraph.uni-bayreuth.de/">JSXGraph</a></small><br />
+      <a href="//validator.w3.org/check?uri=referer">
+        <img src="/images/valid-html5.png" alt="Valid HTML 5" height="31" width="88"></a>
+      <footer>
+          <p>Posted by: Vincent Tam <br /> Date: 2 Nov 2016</p>
+          <p>Reference: Adan, O. C. (2011). <em>Fundamentals of mold growth in indoor environments and strategies for healthy living</em>. pp. 68–71. Springer Science & Business Media.</p>
+          <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" width="88" height="31"></a></p>
+      </footer>
+    </body>
+</html>

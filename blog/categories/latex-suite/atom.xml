@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: LaTeX-Suite | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/latex-suite/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[$\rm \LaTeX$-Suite in Portable Git]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/04/09/latex-suite-in-portable-git/"/>
+    
+    <updated>2016-04-09T14:34:38+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/04/09/latex-suite-in-portable-git</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>A year ago, I was using msysgit on M$ Win* 7. Its support for
+Unicode characters <em>isn’t</em> so good, and I <em>can’t</em> write a text file
+with accents like “café” in the Vim editor that shipped with msysgit.
+As a result, I needed GVim for editing my $\rm \LaTeX$ documents.</p>
+
+<p>Unluckily, unlike Linux, the GVim can <em>never</em> have forward control.
+Therefore, I needed to switch windows between GVim and Git Bash.</p>
+
+<p>More importantly, if I want to apply the Linux skills and the tools on
+M$ Win*, I need <em>portable</em> programs excutable on a USB unless I
+carry my laptop.</p>
+
+<p>Luckily, the bash shell in Git for Windows has improved a lot.  The
+accents are well supported.  Then, I have switched from GVim to the
+embedded Vim in Git for Windows.  Luckily, the setup of Vundle was
+smooth. Most of the installed plugins work fine in terminal Vim.</p>
+
+<h2 id="problem-1">Problem 1</h2>
+
+<p>In the post <a href="/blog/2016/03/20/git-portable-home-path/"><em>Git Portable Home Path</em></a>, a BAT file is included so
+that the home folder and the <code class="highlighter-rouge">HOMEDRIVE</code> environment are automatically
+set.  Since the <em>same</em> Git repository can be shared among multiple
+devices, such as my Linux desktop, my M$ Win* 7 laptop, and my USB
+stick, a bare repository is needed for efficient pulling and pushing
+of Git commits.  Since I work outside home, I place a bare Git repo in
+my USB stick.  However, for each local Git repository stored in the
+USB stick (under <code class="highlighter-rouge">~/local_repo</code>, a.k.a.
+<code class="highlighter-rouge">$HOMEDRIVE/PortableGit/home/owner/local_repo</code>), I need to run the
+following command for each time I use Git Bash.</p>
+
+<h2 id="problem-2">Problem 2</h2>
+
+<p>After making some changes on a $\rm \TeX$ file, I compiled the file
+using Mik$\rm \TeX$ Portable.</p>
+
+<ol>
+  <li>Browse the folder <code class="highlighter-rouge">$HOMEDRIVE/MikTeXPortable/</code>.</li>
+  <li>Double-click on <code class="highlighter-rouge">miktex-portable.cmd</code>.</li>
+  <li>In the Command Prompt popped up, switch to
+<code class="highlighter-rouge">$HOMEDRIVE/PortableGit/home/owner/local_repo</code>.</li>
+  <li>Type <code class="highlighter-rouge">pdflatex file.tex</code>.</li>
+</ol>
+
+<p>This sounds really slow.  The goal is to find a more efficient $\rm
+\LaTeX$ editing workflow.</p>
+
+<p>That’s <em>not</em> the end.  Another bad news came from <code class="highlighter-rouge">eu1lmr.fd</code>.  I’ve
+got error similar to <a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=75679">fengbaobao6’s</a>.  The compilation was
+<em>stuck</em> at <code class="highlighter-rouge">...\tex\latex\euenc\eu1lmr.fd</code>.  Then an error was shown:
+“Fontconfig error: Cannot load config file”.</p>
+
+<!-- more -->
+
+<h2 id="solution-1">Solution 1</h2>
+
+<ol>
+  <li>Create a file <code class="highlighter-rouge">~/.bashrc</code> if it <em>doesn’t</em> exist.</li>
+  <li>Write an array consisting of all local Git repositories saved in
+the USB stick in BASHRC.</li>
+  <li>Then Write a for loop to reset the remote location.</li>
+</ol>
+
+<h2 id="solution-2">Solution 2</h2>
+
+<p>Searching the error text, I found kounoupis’s answer on
+<a href="http://askubuntu.com/a/708541">Ask Ubuntu</a>.  Even though the <code class="highlighter-rouge">export</code> command <em>didn’t</em>
+work for me, I still found his answer informative.</p>
+
+<p>Finally, reading <code class="highlighter-rouge">miktex-portable.cmd</code>, I gave up on investigating the
+problem, and added the last line of this file into BASHRC since I have
+other important things to do.</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>Actual CMD file found in Mik$\rm \TeX$ Portable</span></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>@echo off
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /d %~dp0
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>miktex\bin\miktex-taskbar-icon.exe
+</div></div></pre></div></figure></p>
+
+<p>To include Mik$\rm \TeX$ into <code class="highlighter-rouge">PATH</code>, I first extracted <code class="highlighter-rouge">$HOMEDRIVE</code>
+in the form <code class="highlighter-rouge">/f</code> instead of <code class="highlighter-rouge">F:/</code>.  If not, Mik$\rm \TeX$ <em>won’t</em>
+work.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Here’s my BASHRC for Git Bash.</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>My BASHRC</span></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>stty -ixon
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>cd ~
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>HOMEDRIVE=$(perl -e '($var) = $ENV&#x7b;HOMEDRIVE&#x7d; =~ /([A-Z]):/; print "/".lc($1)')
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>if [ $(perl -e '($var) = $ENV&#x7b;PATH&#x7d; !~ /tex/i; print STDOUT $var') ]
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>then
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    echo "No LaTeX found!  Added $HOMEDRIVE/MikTeXPortable/miktex/bin
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    to path."
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    PATH=$PATH:$HOMEDRIVE/MikTeXPortable/miktex/bin
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    echo "IMPORTANT: Close MikTeX Taskbar icon before exit."
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    echo "Otherwise this shell WON'T close."
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    miktex-taskbar-icon
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>fi
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>loc_repo=(
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>'resume2015'
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>)
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>for f in $&#x7b;loc_repo[@]&#x7d;; do
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>    cd $f
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>    git remote set-url origin $HOMEDRIVE/$f.git
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>    cd -
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>done
+</div></div></pre></div></figure></p>
+
+<p>If the setup is correct, then <code class="highlighter-rouge">\ll</code> in $\rm \LaTeX$-Suite should
+automatically trigger the $\rm \LaTeX$ compilation.  I give up on
+finding ways to open a viewer with <code class="highlighter-rouge">\lv</code> since I can use the keyboard
+to switch to a web browser to see the compiled PDF file <em>without</em>
+installing another PDF viewer in my USB stick.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>I’ve learnt some Perl and bash after writing this BASHRC.</p>
+
+<ol>
+  <li>A little bit of Perl
+    <ul>
+      <li><code class="highlighter-rouge">$ENV{HOMEDRIVE}</code> for extracting the environment variable
+  <code class="highlighter-rouge">HOMEDRIVE</code>.</li>
+      <li><code class="highlighter-rouge">/(regex_pat)/;</code> for extracting matching string to capture
+  groups <code class="highlighter-rouge">$1</code>, <code class="highlighter-rouge">$2</code>…  (The <code class="highlighter-rouge">()</code> around <code class="highlighter-rouge">regex_pat</code> is
+  <em>crucial</em>.)</li>
+      <li><code class="highlighter-rouge">.</code> for string concatenation.</li>
+      <li><code class="highlighter-rouge">lc()</code> for converting a string to lowercase.</li>
+    </ul>
+  </li>
+  <li>Bash for loop writing: described in <a href="/blog/2016/04/08/loop-through-an-array-having-only-one-element-in-bash/">one of my recent posts</a>.</li>
+</ol>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Switch Tmux Panes and Vim-$\rm \LaTeX$]]></title>
+      <link href="https://vincenttam.github.io/blog/2015/02/19/switch-tmux-panes-and-vim-latex/"/>
+    
+    <updated>2015-02-19T10:37:53+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2015/02/19/switch-tmux-panes-and-vim-latex</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>I use <a href="http://byobu.co">Byobu</a> with <a href="http://tmux.sourceforge.net">Tmux</a> backend.<sup id="fnref:pp_tmux"><a href="#fn:pp_tmux" class="footnote">1</a></sup></p>
+
+<h2 id="problem">Problem</h2>
+
+<ul>
+  <li>Moving across panes is inconvenient.</li>
+  <li>If I have a Vim vertical/horizontal split in a Tmux pane, I need to
+  use <em>two</em> different sets of key bindings to navigate the adjacent
+  panes.</li>
+  <li>In the copy mode, it’s great that most of the key bindings follow
+  from those of <a href="http://www.vim.org">Vim</a>, <em>but not the most important two</em>:
+    <ul>
+      <li>start selection</li>
+      <li>copy</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="solution">Solution</h2>
+
+<p>I find two articles on <em>Giant Robots</em> very useful.</p>
+
+<ol>
+  <li><a href="http://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits"><em>Seamlessly Navigate Vim and tmux Splits</em></a></li>
+  <li><a href="http://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future"><em>Tmux Copy &amp; Paste on OS X: A Better Future</em></a></li>
+</ol>
+
+<p>Therefore, I followed the steps in the first blog post, and installed
+<a href="https://github.com/christoomey/vim-tmux-navigator">Vim Tmux Navigator</a>.</p>
+
+<h2 id="another-problem">Another problem</h2>
+
+<p>After the installation of the Vim plugin, I got another problem while
+editing my VIMRC: The <code class="highlighter-rouge"><span class="p">{</span><span class="err">Down-Mapping</span><span class="p">}</span></code> <em>didn’t</em> work.
+<a href="https://github.com/vim-latex/vim-latex">Vim-$\rm \LaTeX$</a> should know the reason.  I found an
+article describing a similar problem.<sup id="fnref:choy"><a href="#fn:choy" class="footnote">2</a></sup>  However, I <em>wouldn’t</em>
+like to change <code class="highlighter-rouge">~/.vim/bundle/vim-latex/plugin/imaps.vim</code>, so I got
+stuck at this point for hours.  I tried to substitute <code class="highlighter-rouge"><span class="p">{</span><span class="err">Down-Mapping</span><span class="p">}</span></code>
+with <code class="highlighter-rouge">&lt;C-a&gt;j</code> in VIMRC, but it <em>didn’t</em> work.</p>
+
+<h2 id="lessons-learnt">Lessons Learnt</h2>
+
+<ol>
+  <li>
+    <p>Accept simple ways to do things</p>
+
+    <p>Even though I <em>can’t</em> set <code class="highlighter-rouge"><span class="p">{</span><span class="err">Down-Mapping</span><span class="p">}</span></code> to <code class="highlighter-rouge">&lt;C-j&gt;</code>, the Vim
+ editor command <code class="highlighter-rouge">:TmuxNavigateDown</code> <em>isn’t</em> so hard to type.  I
+ failed to realise that typing <code class="highlighter-rouge">:tm&lt;Tab&gt;</code> will do, and wasted time
+ on that.  Now I accept the use of <em>two</em> different sets of
+ keystrokes for switching to the Tmux pane/Vim buffer below.  We
+ can look at this problem from another angle.</p>
+  </li>
+  <li>
+    <p>Store a list of windows in a file</p>
+
+    <p>A sample file can be found on Super User.<sup id="fnref:su"><a href="#fn:su" class="footnote">3</a></sup>  I found that if I
+ had run Byobu before, a session <code class="highlighter-rouge">0</code> would <em>also</em> be created on top
+ of <code class="highlighter-rouge">tmuxs</code>.  To avoid this problem, remove the first line in the
+ sample window list and type <code class="highlighter-rouge">byobu attach -t 0</code> starting from the
+ second time of opening Byobu.</p>
+  </li>
+</ol>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:pp_tmux">
+
+      <p>See <a href="/blog/2015/02/14/use-tmux-for-previewing-posts/"><em>Use Tmux for Previewing Posts</em></a> in this blog for
+details.&nbsp;<a href="#fnref:pp_tmux" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:choy">
+
+      <p>See <a href="https://chrischoy.github.io/blog/notes/vim-tmux-navigation-and-vim-latex/"><em>Key mapping collision between vim-navigation and vim-latex</em></a>
+by Chris Choy for details.&nbsp;<a href="#fnref:choy" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:su">
+
+      <p>See <a href="http://superuser.com/a/747819"><em>Proper Format for Byobu’s windows.tmux?</em></a> on Super
+User.&nbsp;<a href="#fnref:su" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Jump to $\rm \LaTeX$ Syntax Error]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/03/22/jump-to-latex-syntax-error/"/>
+    
+    <updated>2014-03-22T17:23:19+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/03/22/jump-to-latex-syntax-error</id>
+    
+      <content type="html"><![CDATA[<p><strong>This post is written in response to a question of
+<a href="http://youtu.be/y67t-05nFD0">one of my video</a>.</strong></p>
+
+<p>Vim-$\rm \LaTeX$ enables users to jump to a syntax error quickly.  To
+show you how, I use a GIF “animation”, instead of a video, so that the
+file size is much smaller.</p>
+
+<p><img class="fancybox" src="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err.gif" width="800" alt="‘A GIF animation showing Vim-LaTeX quickfix window’ [‘fig1’]" ></p>
+
+<p>Explanation:</p>
+
+<p>Error message: The <code class="highlighter-rouge">equation*</code> environment is “undefined”.<br />
+Cause of error: I forget to include the <code class="highlighter-rouge">amsmath</code> package in the
+preamble.</p>
+
+<ul>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err1.png">Figure 1</a>: Compilation error occurs,
+so a quickfix window pops up.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err2.png">Figure 2</a>: I typed <code class="highlighter-rouge">j</code> to move the
+cursor down in the quickfix window by one line, and the window below
+showing the log file automatically scrolled down.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err3.png">Figure 3</a>: I typed <code class="highlighter-rouge">k</code> to go up one
+line, so the situation goes back to Figure 1.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err4.png">Figure 4</a>: I typed <code class="highlighter-rouge">&lt;Enter&gt;</code> to jump
+to the “error location”. (line 6)</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err5.png">Figure 5</a>: I typed <code class="highlighter-rouge">&lt;C-w&gt;j</code> to go
+back to the quickfix window, and the situation goes back to Figure 1
+again.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err6.png">Figure 6</a>: I typed <code class="highlighter-rouge">j</code> again, and
+the situation goes back to Figure 2.</li>
+  <li><a href="/images/posts/Jump2LaTeXSyntaxErr/vim-latex-err7.png">Figure 7</a>: I typed <code class="highlighter-rouge">&lt;Enter&gt;</code> again
+to jump to <em>another</em> “error location”.</li>
+</ul>
+
+<p>P.S. As I’ve said in my “<a href="/about">About</a>” page, I mainly write in
+Markdown now, unless a teacher want me to submit homework with
+specific formatting requirements like 1-inch margin, 1.5 line spacing,
+etc.  As you can see from the footer of this blog, this post is also
+written in Markdown.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Vim-$\rm \LaTeX$'s \lv command with Sumatra PDF]]></title>
+      <link href="https://vincenttam.github.io/blog/2013/12/11/vim-latexs-slash-slash-lv-command-with-sumatra-pdf/"/>
+    
+    <updated>2013-12-11T02:07:00+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2013/12/11/vim-latexs-slash-slash-lv-command-with-sumatra-pdf</id>
+    
+      <content type="html"><![CDATA[<h2 id="why-do-i-switch-my-pdf-viewer">Why do I switch my PDF viewer?</h2>
+
+<ul>
+  <li>Ado* Read* is proprietary. (<strong>EULA</strong>)</li>
+  <li><a href="http://www.sumatrapdfreader.org/free-pdf-reader.html">Sumatra PDF</a> is free. (<strong>GPLv3</strong>)</li>
+</ul>
+
+<p>Go for <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS">FLOSS</a>! Go for freedom!</p>
+
+<!-- more -->
+
+<h2 id="actual-process">Actual process</h2>
+
+<p>Original settings for Ado* Read*: let
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../AcroRd32'</code> in <code class="highlighter-rouge">_vimrc</code> (No extension
+name)</p>
+
+<h3 id="problem">Problem</h3>
+
+<p>How to change Vim-$\rm \LaTeX$'s setting of <code class="highlighter-rouge">\lv</code>?</p>
+
+<p>###Trial 1</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../SumatraPDF'</code> in <code class="highlighter-rouge">_vimrc</code> (No
+effect)</p>
+
+<p>###Trial 2</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRule_dvi='C:/.../SumatraPDF'</code> and disable
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi</code> in <code class="highlighter-rouge">_vimrc</code> (No effect)</p>
+
+<p>###Trial 3</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRule_pdf='C:/.../SumatraPDF'</code> and keep
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../AcroRd32'</code> in <code class="highlighter-rouge">_vimrc</code> (Ado*
+Read* launched instead)</p>
+
+<p>…</p>
+
+<p>###Trial n</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRule_pdf='C:/.../SumatraPDF'</code> and disable
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../AcroRd32'</code> in <code class="highlighter-rouge">_vimrc</code> (No effect)</p>
+
+<h2 id="solution">Solution</h2>
+
+<ol>
+  <li>Change <code class="highlighter-rouge">PATH</code> environment variable. (You can change it for Vim
+runtime and keep the original one in other programs. See
+<a href="/blog/2013/12/13/writing-vims-output-to-files/">my newer post</a> for details.)</li>
+  <li>Set <code class="highlighter-rouge">g:Tex_ViewRule_pdf='SumatraPDF'</code></li>
+  <li>Disable <code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi</code> in <code class="highlighter-rouge">_vimrc</code></li>
+</ol>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[A Bug in Vim-$\rm \LaTeX$]]></title>
+      <link href="https://vincenttam.github.io/blog/2013/10/18/a-bug-in-vim-latex/"/>
+    
+    <updated>2013-10-18T22:26:00+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2013/10/18/a-bug-in-vim-latex</id>
+    
+      <content type="html"><![CDATA[<p>It’s a small syntax error, and can be easily fixed with the addition
+of a space character.  I found it from
+<a href="http://www.mail-archive.com/vim-latex-devel@lists.sourceforge.net/msg00083.html">a Google search result</a>.  (I’ve forgotten the query
+string.)</p>
+
+<p>This shows to good things of free and open source software:</p>
+
+<ul>
+  <li>Find bugs quickly through effective communication between users and
+  developers.</li>
+  <li>Fix bugs quickly through hands-on configuration of source code.</li>
+</ul>
+
+<p>From the <a href="http://github.com/vim-scripts/">Vim plugins on the GitHub</a>, you’ll discover
+even more good points of <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS">FLOSS</a>:</p>
+
+<ul>
+  <li>Everyone can tune the software to adapt to his/her needs.</li>
+  <li>Everyone can share and contribute their changes.</li>
+</ul>
+
+<p><em>and more …</em></p>
+
+<p>The more the <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS">FLOSS</a> developers, the better our free software!</p>
+
+]]></content>
+    
+  </entry>
+  
+</feed>

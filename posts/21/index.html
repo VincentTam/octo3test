@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	MathJax and RSS
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &infin;
+     ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/21/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/07/mathjax-and-rss/">MathJax and RSS</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/07/mathjax-and-rss/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/07/mathjax-and-rss/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/07/mathjax-and-rss/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="motivation">Motivation</h2>
+
+<p>In the past, I used double dollar signs <code class="highlighter-rouge">$$</code> to enclose block
+equations.  As a result, readers <em>couldn’t</em> see them in <a href="https://www.mozilla.org/firefox/">Firefox</a>.</p>
+
+<p><img class="fancybox" src="/images/posts/MathJaxDisplay/old.png" width="900" alt="'No block equation in RSS' ['old']" /></p>
+
+<p><strong>How can these missing parts be put back to the <abbr title="Rich Site Summary">RSS</abbr> feeds?</strong></p>
+
+<!-- more -->
+
+<h2 id="method">Method</h2>
+
+<p>I <em>didn’t</em> know how to use</p>
+
+<ol>
+  <li>typeset curly brackets <code class="highlighter-rouge"><span class="p">{}</span></code> using MathJax <em>without</em> using <code class="highlighter-rouge">$$</code> to
+surround the brackets.  If only one <code class="highlighter-rouge">$</code> was used, then it would fail.
+For example, <code class="highlighter-rouge">$\{a_k\}$</code> <em>wouldn’t</em> work.</li>
+  <li>inline display mode for summation, limit, etc.</li>
+  <li><code class="highlighter-rouge">\[</code> and <code class="highlighter-rouge">\]</code> to surround block equations in Octopress.</li>
+</ol>
+
+<p>Now, I know that <a href="http://kramdown.gettalong.org/">kramdown</a> parses the Markdown source code for a post
+<em>before</em> <a href="http://www.mathjax.org/">MathJax</a> does.  Therefore, to mean a backslash ‘\’, one
+needs to “double the effort”.  (i.e. use <code class="highlighter-rouge">\\{a_k\\}</code> for $\{a_k\}$)
+Moreover, I have to use backslash ‘\’ to escape askterisks <code class="highlighter-rouge">*</code> and
+underscores <code class="highlighter-rouge">_</code>.</p>
+
+<p>Before I upgraded to Ruby 2 and updated my Octopress source code<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>,
+<code class="highlighter-rouge">$\displaystyle \lim_{k \to \infty} \frac{1}{k} = 0$</code> <em>didn’t</em> work.
+Now, I can insert inline display equations like
+$\displaystyle \lim_{k \to \infty} \frac{1}{k} = 0$.</p>
+
+<p>With reference to an example on the MathJax <abbr title="Content Delivery Network">CDN</abbr>, I’ve learnt to use
+<code class="highlighter-rouge">begin{equation}</code> just like what $\rm \LaTeX$ users do.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  When
+using it, there’s <em>no</em> need to use <code class="highlighter-rouge">$$</code> to surround it.</p>
+
+<p>Viewing <a href="http://drz.ac/javascripts/MathJaxLocal.js"><code class="highlighter-rouge">MathJaxLocal.js</code></a> on <em>DrZ.ac</em>, I know why I <em>couldn’t</em>
+use <code class="highlighter-rouge">\[</code> for a block equation—I <em>didn’t</em> add it to the corresponding
+list of delimiters in <code class="highlighter-rouge">displayMath</code>.  Actually, at that line, the
+whitespace character between two square brackets <code class="highlighter-rouge">[</code> <em>aren’t</em>
+necessary.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<p>While editing a multi-line block equation in a post about the
+Contraction Mapping Principle, I encountered a technical problem:
+there’s <em>no</em> newline character in the equation.  I could just see
+<em>one very long line</em>.  To see how the code was interpreted, I made a
+screenshot of Firefox before MathJax loaded.</p>
+
+<p><img class="fancybox" src="/images/posts/MathJaxDisplay/trial.png" alt="'MathJax code processed by kramdown' ['interpreted MathJax code']" /></p>
+
+<p>It was evident that putting four backslashes at the end of lines for a
+line break <em>wasn’t</em> enough.  Therefore, I put <em>two more</em> backslashes
+there.  This time, the page for an individual post was OK, but the
+contents in the blog index page and those under folder <code class="highlighter-rouge">/posts/</code>
+<em>wasn’t</em>.  I viewed the “$\rm \TeX$ Commands” from the popup menu, and
+saw that in the page for an individual post, <em>two</em> backslashes were
+found; at <code class="highlighter-rouge">/posts/*</code> and the blog index page, <em>only one</em> backslash was
+found.</p>
+
+<p>By trial, I finally used <em>eight</em> backslashes in the Markdown source
+files for a post for a line break.</p>
+
+<h2 id="result">Result</h2>
+
+<p><img class="fancybox" src="/images/posts/MathJaxDisplay/new.png" width="900" alt="'Block equation in RSS' ['new']" /></p>
+
+<p>The source code for a block equation can now be seen in <abbr title="Rich Site Summary">RSS</abbr> feeds.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>See <a href="/blog/2014/08/21/updated-octopress-source-code/"><em>Updated Octopress Source Code</em></a> in Blog 1 for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>View the source of <a href="http://cdn.mathjax.org/mathjax/latest/test/sample-eqnum.html"><em>A Test of Equation Numbering</em></a> for
+details.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p>See <a href="http://docs.mathjax.org/en/latest/tex.html#tex-and-latex-math-delimiters">$\rm \TeX$ and $\rm \LaTeX$ math delimiters</a> in
+<em>MathJax Documentation</em> for details.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://jblevins.org/notes/greek">The Greek Alphabet in $\rm \LaTeX$</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/07/the-greek-alphabet-in-latex/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/07/the-greek-alphabet-in-latex/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/07/the-greek-alphabet-in-latex/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I’ve found a list of $\rm \LaTeX$ commands for Greek alphabets.
+Unluckily, when I right-clicked each alphabet, the popped-up menu
+could only show the MathML code, but <em>not</em> the $\rm \LaTeX$ code.
+Therefore, I have to use <a href="http://cdn.mathjax.org/mathjax/latest/test/sample-dynamic.html" title="Display an equation typed in by a user">MathJax’s previewer</a> to
+verify the commands.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://detexify.kirelabs.org/classify.html">Detexify $\rm \LaTeX$ Handwritten Symbol Recogntion</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/07/detexify-latex-handwritten-symbol-recogntion/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/07/detexify-latex-handwritten-symbol-recogntion/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/07/detexify-latex-handwritten-symbol-recogntion/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Searching symbols in
+<a href="http://www.ctan.org/tex-archive/info/symbols/comprehensive/"><abbr title="Comprehensive TeX Archive Network">CTAN</abbr>’s Comprehensive $\rm \LaTeX$ Symbol List</a> is
+time-consuming.  For example, when I was writing my
+<a href="/blog/2014/09/07/a-fake-function/" title="A Fake Function">previous post</a> about groups, I made use of angle brackets and the
+‘$\circ$’ symbol for composition of two functions.  At first, I typed
+<code class="highlighter-rouge">&lt;</code> and <code class="highlighter-rouge">&gt;</code>, but they <em>didn’t</em> look good.  In fact, one should use
+‘$\langle$’.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  How can one find the commands for those characters?
+Detexify is the answer for commonly used symbols.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>See Robert Dale’s <a href="http://web.science.mq.edu.au/~rdale/resources/writingnotes/latexstyle.html#anglebrackets"><em>$\rm \LaTeX$ Style Tips</em></a> for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/07/a-fake-function/">A Fake Function</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/07/a-fake-function/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/07/a-fake-function/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/07/a-fake-function/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Half a year ago, when I heard the concept of <strong>well-defined
+functions</strong>, I <em>wasn’t</em> familiar with it.</p>
+
+<p>I’ve just worked out a problem, and got more idea about that concept.
+The problem should be quite easy.  It asks readers to show that if
+$\langle G, * \rangle$ is a group, $g \in G$ and $\varphi_g: G \to G$
+is a mapping defined by $\varphi_g (x) = g * x * g^{-1}$, then
+$\varphi_g: G \to G$ is an automorphism.  However, I misunderstood
+the wordings in the question, and attempted to prove that the binary
+structure $\langle \{\varphi_g \mid g \in G\},\circ \rangle$ is
+isomorphic to $\langle G, * \rangle$, where $\circ$ denotes the
+composition of functions.  As a result, I let $\phi: \{\varphi_g
+\mid g \in G\} \to G$ be a mapping defined by $\phi(\varphi_g) = g$.
+The associativity, existence of identity element and existence of
+inverse of the binary structure can be easily verified.  By the very
+definition of $\phi$, it seems that its surjectivity is very obvious.
+I continued to write “injectivity of $\phi$ is also obvious.”</p>
+
+<p>\[
+\phi(\varphi_{g_1}) = \phi(\varphi_{g_2}) \iff g_1 = g_2
+  \implies \varphi_{g_1} = \varphi_{g_2}
+\]</p>
+
+<p>I tried to turn the above rightward double arrow ‘$\implies$’ into a
+double-headed one.  If I <em>couldn’t</em> do so, it means that
+$\phi(\varphi_{g_1}) = \phi(\varphi_{g_2})$, though $g_1 \neq
+g_2$.  I realised that I need to check whether $\phi$ was
+<em>well-defined</em>.  As a result, I wasted an hour on some equations.
+Suddenly, I stopped substituting $x = g_1$ or $x = g_2$ into
+$\varphi_{g_1} (x) = \varphi_{g_2} (x)$.  Instead I took $\langle
+G, * \rangle = \langle \R, \cdot \rangle$ and realized what I just did
+was a waste of time.</p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/06/weaker-group-axioms/">Weaker Group Axioms</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/06/weaker-group-axioms/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/06/weaker-group-axioms/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/06/weaker-group-axioms/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The following axioms seem to be weaker.</p>
+
+<p>Let <span class="myeqn">$G$ be a set, and $*: G \times G
+\to G$</span> be a binary operation.</p>
+
+<dl>
+  <dt>Associativity</dt>
+  <dd><span class="myeqn">$\forall a,b,c \in G, (a * b) * c =
+a * (b * c)$</span></dd>
+  <dt>Existence of <em>left</em> identity</dt>
+  <dd><span class="myeqn">$\exists e \in G \text{ s.t. }
+\forall a \in G, e * a = a$</span></dd>
+  <dt>Existence of <em>left</em> inverse</dt>
+  <dd>$\forall a \in G, \exists a^{-1} \in G \text{ s.t. } a^{-1} * a =
+e$</dd>
+</dl>
+
+<p>Claim: They’re actually <em>equivalent</em> definition of a group.</p>
+
+<!-- more -->
+
+<p><em>Proof</em></p>
+
+<dl>
+  <dt>Existence of inverse</dt>
+  <dd>We try to show that a left inverse of a group element is <em>also</em> a
+right inverse of the group element.
+
+    <p>$\forall a \in G,$</p>
+
+    <div class="myeqn">
+\[
+\begin{split}
+a * a^{-1} &amp;= e * (a * a^{-1}) &amp;\qquad \text{(existence of left
+identity)}\\
+&amp;= ((a^{-1})^{-1} * a^{-1}) * (a * a^{-1}) &amp;\qquad \text{(existence
+of left identity of $a^{-1}$)}\\
+&amp;= (((a^{-1})^{-1} * a^{-1}) * a) * a^{-1} &amp;\qquad
+\text{(associativity)}\\
+&amp;= ((a^{-1})^{-1} * (a^{-1} * a)) * a^{-1} &amp;\qquad
+\text{(associativity)}\\
+&amp;= ((a^{-1})^{-1} * e) * a^{-1} &amp;\\
+&amp;= (a^{-1})^{-1} * (e * a^{-1}) &amp;\qquad
+\text{(associativity)}\\
+&amp;= (a^{-1})^{-1} * a^{-1} &amp;\\
+&amp;= e &amp;
+\end{split}
+\]
+</div>
+
+    <p>∴<span class="myeqn">$\forall a \in G, \exists a^{-1}
+\in G \text{ s.t. } a * a^{-1} = e = a^{-1} * a.$</span></p>
+  </dd>
+  <dt>Existence of identity</dt>
+  <dd>Similarly, we try to show that a left identity is <em>also</em> a right
+identity.
+$\forall a \in G,$
+
+    <div class="myeqn">
+\[
+\begin{split}
+a * e &amp;= a * (a^{-1} * a) &amp;\qquad \text{(existence of inverse of
+$a$)}\\
+&amp;= (a * a^{-1}) * a &amp;\qquad \text{(associativity)}\\
+&amp;= e * a &amp;\\
+&amp;= a&amp;
+\end{split}
+\]
+</div>
+
+    <p>∴<span class="myeqn">$\exists e \in G \text{ s.t. }
+\forall a \in G, a * e = e * a = a$</span>.</p>
+  </dd>
+</dl>
+
+<h2 id="an-application-in-secondary-school-mathematics">An application in secondary school mathematics</h2>
+
+<p>In high school, to show that $B \in M_{n \times n}(\R)$ is an inverse
+of $A \in M_{n \times n}(\R)$<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, one is taught to show <em>both</em> $AB =
+I$ and $BA = I$.  Calculating $AB$ and $BA$ is hard in general.</p>
+
+<p>Taking $G = \GL(n,\R)$ and regard <span class="myeqn">$*$</span> as matrix multiplication, one can just show
+that $AB = I$ by direct calculation and then conclude that $BA = I$,
+and vice versa.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>To be more general, $\R$ can be replaced with $\F$.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/05/fixing-this-repos-network-graph/">Fixing This Repo's Network Graph</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/05/fixing-this-repos-network-graph/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/05/fixing-this-repos-network-graph/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/05/fixing-this-repos-network-graph/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Tonight, I worked on my blog.  Here’re something done.</p>
+
+<ol>
+  <li>Fixed a dead link in <a href="/blog/2014/05/26/using-octopress-on-another-device/">Using Octopress on Another Device</a> in
+<em>Blog 1</em>.</li>
+  <li>Fixed <code class="highlighter-rouge">url</code> in <code class="highlighter-rouge">_config.yml</code>: it should be in lower case.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></li>
+  <li>Understand item 5 of Scott Cheng’s post on setting up
+<a href="http://www.octopress.org">Octopress</a>.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  In May, I <em>didn’t</em> understand it.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>  I’ve tested
+it in order to understand what it really means.  After running <code class="highlighter-rouge">rake
+setup_github_pages</code>, <code class="highlighter-rouge">_deploy</code> folder has <em>only</em> local <code class="highlighter-rouge">master</code>
+branch, and <em>no</em> remote branch.  Therefore, it’s <em>impossible</em> to
+remote the <em>only</em> branch there.  To avoid conflicts when I push my
+commits on <code class="highlighter-rouge">master</code> branch to my remote repository in GitHub, I ran
+some commands as shown below.</li>
+  <li>Fixed the network graph of the GitHub repository for <em>Blog 1</em>.
+    <ul>
+      <li>Original graph: Due to my poor knowledge on <a href="http://git-scm.com/">Git</a>, <code class="highlighter-rouge">master</code>
+ branch shares, as shown in the graph, a common node with
+ <code class="highlighter-rouge">source</code> branch.  This is <em>wrong</em>!</li>
+      <li>Deleted locally <code class="highlighter-rouge">origin/master</code> branch and <code class="highlighter-rouge">master</code> branch in
+ the remote repository to clear the mess.</li>
+      <li>In the new graph, those two branches <em>don’t</em> share a common node
+ anymore.</li>
+    </ul>
+  </li>
+</ol>
+
+<pre class="cli"><code class="UBMono">[owner@localhost ~/octopress/_deploy]$ git branch -rd origin/master
+Deleted remote branch origin/master (was e745caf).
+[owner@localhost ~/octopress/_deploy]$ git branch -a
+* <span class="GitBrName">master</span>
+[owner@localhost ~/octopress/_deploy]$ git push origin --delete master
+To git@github.com:vincenttam/vincenttam.github.io.git
+ - [deleted]         master
+</code></pre>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>See commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/49f9d1b" title="Corrected the config file">49f9d1b</a> for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>This Markdown source code of the <a href="https://github.com/scottcheng/scottcheng.com-v1/blob/3bb8142/source/_posts/2012-11-07-setting-up-existing-octopress-blog-on-a-new-computer.markdown">post</a> can be found in GitHub.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>See the <a href="https://github.com/scottcheng/scottcheng.com-v1/blob/3bb8142/source/_posts/2012-11-07-setting-up-existing-octopress-blog-on-a-new-computer.markdown">post</a> in item 1 for details.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/03/git-commits-with-fugitive-dot-vim-on-windows/">Git Commits with fugitive.vim on Windows</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/03/git-commits-with-fugitive-dot-vim-on-windows/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/03/git-commits-with-fugitive-dot-vim-on-windows/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/03/git-commits-with-fugitive-dot-vim-on-windows/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>In *nix, one can use <code class="highlighter-rouge">:Gcommit</code> to commit the staged changes,
+provided that <a href="https://github.com/tpope/vim-fugitive" title="An awesome Git wrapper">fugitive.vim</a> has been installed.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>How can one use the Vim plugin <em>within</em> Vim on M$ Win*?</p>
+
+<h2 id="discussion">Discussion</h2>
+
+<p>Inspired by <a href="http://stackoverflow.com/a/19416705" title="GCommit doesn't work with fugitive.vim under windows xp?">a Stack Overflow question</a>, I set my
+<code class="highlighter-rouge">core.editor</code> to <code class="highlighter-rouge">gvim -f</code> through <code class="highlighter-rouge">git config</code>.</p>
+
+<p>Then I tried running <code class="highlighter-rouge">git commit</code> in 
+<img class="nobd" src="/images/posts/OctopressOnOtherDev/gitbash1.png" alt="'icon' ['Git Bash icon']" />,
+but it’s “aborting commit due to empty commit message”.</p>
+
+<p>Why is the <code class="highlighter-rouge">-f</code> flag there?  It’s because the <code class="highlighter-rouge">--nofork</code> option causes
+gVim to be in the foreground in *nix.  I’ve learnt this from <a href="https://help.github.com/articles/associating-text-editors-with-git" title="Associating text editors with Git">GitHub</a>.
+The <code class="highlighter-rouge">-w</code> flag in the commands for setting other editors as the default
+editor for Git is the key for the above quoted message.</p>
+
+<p>I tried to solve this problem by reading Vim’s offical manual about
+<code class="highlighter-rouge">nofork</code>, and it’s clearly stated that this option <em>wasn’t</em> supported
+in M$ Win* unless I’m “running it with an installed … gvim.bat”.</p>
+
+<p>To conclude, if I’m working on M$ Win*, I’ll just forget about
+<code class="highlighter-rouge">:Gcommit</code> in Vim, and use
+<img class="nobd" src="/images/posts/OctopressOnOtherDev/gitbash1.png" alt="'icon' ['Git Bash icon']" />.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-2/">Testing Octopress and Ruby 2.0 on Windows 7 (2)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-2/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-2/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-2/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p><img class="fancybox" src="/images/posts/OctRuby2b/err.png" alt="'A compilation error' ['solved problem']" /></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>See Octopress issue #<a href="https://github.com/imathis/octopress/issues/413">413</a> for details.</p>
+
+<h3 id="method-1--draychou">Method 1 (@ DrayChou)</h3>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Add the following 2 lines in "C:\your\ruby\location\setup_environment.bat"</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">set LC_ALL=en_US.UTF-8
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">set LANG=en_US.UTF-8</div></div></pre></div></figure>
+
+<p>I’ve <em>only</em> tested the above two commands in the command prompt, and
+I’ve <em>never</em> touched <code class="highlighter-rouge">setup_environment.bat</code>.</p>
+
+<h3 id="method-2--robatron">Method 2 (@ robatron)</h3>
+
+<p>I now use this method.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  It’s much simpler than the above
+one—just add/set <code class="highlighter-rouge">encoding: UTF-8</code> in <code class="highlighter-rouge">_config.yml</code>.</p>
+
+<p><img class="fancybox" src="/images/posts/OctRuby2b/ok.png" alt="'Successful compilation' ['solved problem']" /></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><code class="highlighter-rouge">_config.yml</code> at commit <a href="https://github.com/VincentTam/vincenttam.github.io/blob/f5847538b19e769b6fc05ef01bce3b8e88e3aa77/_config.yml#L53">f584753</a>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-1/">Testing Octopress and Ruby 2.0 on Windows 7 (1)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-1/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-1/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/02/testing-octopress-and-ruby-2-dot-0-on-windows-7-1/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>This Sunday, I tried to do something similar to what I did in
+May—install Octopresss on Windows 7.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  Different from last time,
+I used Ruby 2.0.0, the newest version of RubyInstaller for Windows
+that I could find.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<p>I could use Octopress with Ruby 1.9.3, so I expected that I could
+easily deploy things with Ruby 2.0.0.  However, I was mistaken.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p><img class="fancybox" src="/images/posts/OctRuby2a/err.png" alt="'A compilation error' ['Screenshot of problem']" /></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>I used the relevant part of the error message to search for websites
+describing similar/related problems.  Luckily, I found one in <em>Eaten
+by Grues</em>.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<p>I manually created a batch file in the <em>same</em> folder of
+<code class="highlighter-rouge">python.exe</code>.<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">python2.bat</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">@ECHO OFF
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">python %*</div></div></pre></div></figure>
+
+<p>The raison d’être of the trailing <code class="highlighter-rouge">%*</code> is explained in
+<a href="/blog/2013/12/11/something-about-win-batch-files/" title="Something About Win* Batch Files">one of my old posts</a>.</p>
+
+<p>Finally, the section <code class="highlighter-rouge">which: no python2 in (...)</code> <em>disappeard</em> after I
+locally generated the site again.</p>
+
+<p><img class="fancybox" src="/images/posts/OctRuby2b/err.png" alt="'Rake can now detect Python2.' ['solved problem']" /></p>
+
+<hr />
+<p>(Last edited on NOV 24, 2014)</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>See <a href="/blog/2014/05/26/using-octopress-on-another-device/">Using Octopress on Another Device</a> in <em>Blog 1</em> for
+details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>“Downloads” in the official website of RubyInstaller for Windows.
+(<a href="http://rubyinstaller.org/downloads/">URL</a>)&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p>See <em>Installing PortableJekyll</em> in Eaten by Grues for details.
+(When I wrote this post in September, the URL was
+http://eatenbygrues.com/journal/installing-portable-jekyll but the
+link is now <em>dead</em>.)&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>I suppose that Python is in the <code class="highlighter-rouge">PATH</code> variable.&nbsp;<a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://stackoverflow.com/a/11115408">Set Transparent Background using ImageMagick</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/01/set-transparent-background-using-imagemagick/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/01/set-transparent-background-using-imagemagick/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/01/set-transparent-background-using-imagemagick/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I made use of the suggested command in an answer for a Stack Overflow
+question to remove the white background of my gravatar.</p>
+
+<p>If you need to do it using <abbr title="GNU Image Manipulation Program">GIMP</abbr>, you may refer to
+<a href="/blog/2014/04/27/gimp-transparent-background/" title="Make Images With Transparent Background Using GIMP, and More ..."><em>Make Images With Transparent Background Using <abbr title="GNU Image Manipulation Program">GIMP</abbr>, and More …</em></a>.</p>
+
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/22/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/20/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[My Host File Edited]]></title>
+      <link href="https://vincenttam.github.io/blog/2016/08/21/my-host-file-edited/"/>
+    
+    <updated>2016-08-21T00:50:34+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2016/08/21/my-host-file-edited</id>
+    
+      <content type="html"><![CDATA[<h2 id="background">Background</h2>
+
+<p>A preview of a blog is often needed before it’s published.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>However, it is possible that one <em>doesn’t</em> like to type <code class="highlighter-rouge">localhost</code> in
+the address bar, and would like to have other names.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>The idea is in <em>Local Setup – edit your hosts file</em> in <em>How to test
+localhost from any device on your network</em>
+<a href="http://wesbos.com/localhost-mobile-device-testing/">written by Wes Bos</a>.  On *nix, the file path is still the
+<em>same</em> as on OSX, but many users would rather use <a href="http://www.vim.org/">Vim</a> for editing
+<code class="highlighter-rouge">/etc/hosts</code>.  One may even use <a href="https://www.gnu.org/software/sed/manual/sed.html"><code class="highlighter-rouge">sed</code></a> with the <code class="highlighter-rouge">-i</code> flag and
+the <code class="highlighter-rouge">sudo</code> privilege in order to directly manipulate this file.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">sudo sed -i "3i127.0.0.1\tblogtest.com" /etc/hosts</code> for insertion
+  of “127.0.0.1        blogtest.com” <em>before</em> the third line.</li>
+  <li><code class="highlighter-rouge">sudo sed -i "3c127.0.0.1\tblogtest.com" /etc/hosts</code> for changing
+  the third line to “127.0.0.1        blogtest.com”.</li>
+</ul>
+
+<p>Note that the tab is escaped as <code class="highlighter-rouge">\t</code> in these two commands.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Load Multiple External JavaScripts]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/11/13/load-multiple-external-javascripts/"/>
+    
+    <updated>2014-11-13T18:08:30+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/11/13/load-multiple-external-javascripts</id>
+    
+      <content type="html"><![CDATA[<h2 id="goal">Goal</h2>
+
+<p>Same as the one in <a href="/blog/2014/06/12/my-css-settiings-for-printing-1/"><em>My CSS Settiings for Printing (1)</em></a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Having written a post on loading MathJax with a local configuration
+file, I previewed the print layout, saw that the font size was too
+<em>small</em>.<sup id="fnref:pp2"><a href="#fn:pp2" class="footnote">1</a></sup></p>
+
+<p><img class="fancybox center" src="/images/posts/LoadMultExtJS/problem1.jpg" width="750" alt="‘too small words’ [‘fig1’]" ></p>
+
+<!-- more -->
+
+<h2 id="cause">Cause</h2>
+
+<p>It <em>didn’t</em> take me long to identify the reason for the small font
+size.  When I wrote that post, I <em>didn’t</em> aware of this problem.</p>
+
+<p><img class="fancybox center" src="/images/posts/LoadMultExtJS/problem2.jpg" width="750" alt="‘too long line’ [‘fig2’]" ></p>
+
+<h2 id="a-way-to-get-bigger-fonts">A “way” to get bigger fonts</h2>
+
+<p>One may adjust the zooming factor to “100%” to get a normal font size.
+However, this <em>isn’t</em> user-friendly.</p>
+
+<p><img class="fancybox center" src="/images/posts/LoadMultExtJS/problem3.jpg" width="750" alt="‘get font size’ [‘fig3’]" ></p>
+
+<p>Moreover, this causes the right half of the line of HTML code to flow
+out of the page.</p>
+
+<h2 id="is-this-problem-browser-specific">Is this problem browser-specific?</h2>
+
+<p>I’ll illustrate this problem with one more picture.</p>
+
+<p><img class="fancybox center" src="/images/posts/LoadMultExtJS/problem4.jpg" width="750" alt="‘print preview in Chrome’ [‘fig4’]" ></p>
+
+<p>From the above screenshot, one can expect that this problem exists in
+<em>every</em> web browser.</p>
+
+<h2 id="learn-from-past-experience">Learn from past experience</h2>
+
+<p>It took at least a minute for the system to regenerate the contents
+during a preview.  Therefore, I tested things <em>locally</em> before doing
+any <em>real</em> modifications to the source code.</p>
+
+<p><img class="fancybox center" src="/images/posts/LoadMultExtJS/sol.jpg" width="750" alt="‘a successful local test’ [‘fig5’]" ></p>
+
+<h2 id="solution">Solution</h2>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>A working script tag for embedding MathJax with a local configuration file</span></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;head&gt;</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>	<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="na">src=</span><span class="s">"
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>	https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>	https://vincenttam.github.io/javascripts/MathJaxLocal.js
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>	"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;/head&gt;</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nt">&lt;p&gt;</span></div></div></pre></div></figure></p>
+
+<p>By trial, I found that one <em>couldn’t</em> use whitespaces to indent the
+URLs — tabs (i.e. ‘\t’) should be used in this case.  Luckily, in
+the source file responsible for loading external JavaScripts (i.e.
+<code class="highlighter-rouge">source/_includes/custom/head.html</code>), there’s no <code class="highlighter-rouge">&lt;head&gt;</code> tag, so one
+may simply break a line without indentation.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:pp2">
+
+      <p>Refer to <a href="/blog/2014/11/09/mathjax-local-configuration-file/"><em>MathJax Local Configuration File</em></a> for details.&nbsp;<a href="#fnref:pp2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+</feed>

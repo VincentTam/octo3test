@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	OmniCppComplete Installation for Dummies
+      
+    
+    
+      
+        
+        
+           | Comments
+...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/35/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/12/omnicppcomplete-installation-for-dummies/">OmniCppComplete Installation for Dummies</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/12/omnicppcomplete-installation-for-dummies/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/12/omnicppcomplete-installation-for-dummies/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/12/omnicppcomplete-installation-for-dummies/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>Note: In <a href="https://stackoverflow.com/q/12339415" title="Can't figure out difference - omnicppcomplete versus clang">a Stack Overflow question</a>, it is suggested
+that <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a> is better.  For its installation, refer to its
+<a href="http://aknow-work.blogspot.hk/2013/04/vim-clangcomplete.html">another fan’s blog</a>.</em></p>
+
+<!-- more -->
+
+<h2 id="background">Background</h2>
+
+<p><a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a> is a great Vim plugin that has the popup menu like
+many big IDEs.  <a href="http://youtu.be/MQy2rVOf-z0">A Youtube video</a> can show the power of
+<a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a>.</p>
+
+<h2 id="download">Download</h2>
+
+<p><a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a> requires <a href="http://ctags.sourceforge.net/">ctags</a>.</p>
+
+<ol>
+  <li><a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete’s GitHub repository</a> (To avoid
+mixing up of files from different plugins, use a plugin management
+plugin like <a href="https://github.com/tpope/vim-pathogen">pathogen.vim</a> or <a href="https://github.com/gmarik/vundle">Vundle</a>.)</li>
+  <li><a href="http://ctags.sourceforge.net/">Ctags’s official homepage</a> on SourceForge (The ZIP file
+for M$ Win *2**0 is fine.)</li>
+</ol>
+
+<p>For more detailed information on the installation of <a href="http://ctags.sourceforge.net/">ctags</a>, please
+refer to my earlier blog post <a href="http://blogue-un.blogspot.hk/2013/12/links-to-good-posts.html"><em>Links to Good Posts</em></a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Reading the <a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a>’s documentation only, you won’t be able
+to understand how to use this plugin, so follow some tutorials, and
+the most viewed one should be on <a href="http://vim.wikia.com/wiki/C%2B%2B_code_completion">Vim Tips Wiki</a>.
+Followed its guidance, I got error in typing <code class="highlighter-rouge">std::</code> in a new CPP
+file.  Omni completion told me something like “pattern not match”.  I
+spent nearly 2 hours to figure out what’s wrong, and finally managed
+to fully understand the contents of <a href="http://carl830.pixnet.net/blog/post/67681043-vim-omnicppcomplete%2Bstl-support">this blog entry</a>.</p>
+
+<p>Now, I’m going to make <em>a M$ Win* version</em> of Vim Tips Wiki’s
+tutorial, using the ideas from Carl.</p>
+
+<h2 id="solution">Solution</h2>
+
+<h3 id="step-one">Step one</h3>
+
+<p>I suppose <a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a> and <a href="http://ctags.sourceforge.net/">ctags</a> are installed properly.</p>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a> does not mix up with other plugins.</p>
+
+    <p>Note: For gVimPortable, do store files under the Data folder, but
+  NOT the <code class="highlighter-rouge">$VIMRUNTIME</code> file.  Otherwise the settings will be lost
+  after upgrading gVimPortable.</p>
+
+    <p><img class="fancybox" src="/images/posts/OmniCpp/pathogen.png" alt="'The folder for different plugins are separated (except the plugin management plugin itself).' ['Vim plugins location using pathogen.vim']" /></p>
+  </li>
+  <li>
+    <p>Typing <code class="highlighter-rouge">:h omnicppcomplete</code> in Vim normal mode gives up the help
+  file for <a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a>.</p>
+
+    <p><img src="/images/posts/OmniCpp/omnicpp.png" alt="'Typing `:h omnicppcomplete` gives you the corresponding help file.' ['Help for OmniCppComplete.txt']" /></p>
+  </li>
+  <li>
+    <p>The folder for <a href="http://ctags.sourceforge.net/">ctags</a> is in the PATH environment variable.</p>
+
+    <p>Follow <a href="http://geekswithblogs.net/renso/archive/2009/10/21/how-to-set-the-windows-path-in-windows-7.aspx">this page</a> for setting the PATH variable.</p>
+
+    <p><img class="fancybox" src="/images/posts/OmniCpp/ctags.png" width="800" alt="'Set PATH variable' ['fig1']" /><br />
+  Note: <code class="highlighter-rouge">C:\ctags58</code> should be in the <code class="highlighter-rouge">PATH</code> variable.</p>
+  </li>
+</ul>
+
+<h3 id="step-two">Step two</h3>
+
+<p>Download the <a href="http://www.vim.org/scripts/script.php?script_id=2358">modified libstdc++ headers</a> from
+<a href="https://github.com/vim-scripts/tags-for-std-cpp-STL-streams-...">GitHub</a>.</p>
+
+<h3 id="step-three">Step three</h3>
+
+<p>Unzip the folder and place it under “somewhere meaningful to you”.</p>
+
+<ul>
+  <li>
+    <p>My suggestion: <code class="highlighter-rouge">C:\Users\[your-user-name]\.vim</code><br />
+  Here you can substitute <code class="highlighter-rouge">[your user name]</code> with your <em>real</em> user
+  name on M$ Win*.</p>
+  </li>
+  <li>
+    <p>Note: In the dialogue (in case you use GUI), <em>don’t</em> input <code class="highlighter-rouge">tags</code> at
+  the end.  Otherwise, you’ll get
+  <code class="highlighter-rouge">C:\Users\[your-user-name]\.vim\tags\tags</code></p>
+  </li>
+</ul>
+
+<h3 id="step-four">Step four</h3>
+
+<p>If things go right, you should have
+    <code class="highlighter-rouge">C:\Users\[your-user-name]\.vim\tags</code></p>
+
+<p>Go to that directory by typing <code class="highlighter-rouge">cd .vim\tags</code> in M$ Win*’s Command
+Prompt, which can be involked by typing <code class="highlighter-rouge">cmd</code> in the “Start” menu.
+(For M$ Win* XP, choose “Run” and type “cmd” in the popup dialogue.
+If you like choosing from the menu, follow
+<a href="http://windows.microsoft.com/en-hk/windows-vista/open-a-command-prompt-window">the way on the official website</a>.)</p>
+
+<p>At first, a commad prompt should be like this.</p>
+
+<p><img src="/images/posts/OmniCpp/cmd.png" alt="'Command Prompt default starting display' ['fig4']" /><br />
+The current directory is <code class="highlighter-rouge">C:\Users\Owner</code>.</p>
+
+<p><img src="/images/posts/OmniCpp/cmd2.png" alt="'Change directory in Win* CMD' ['fig5']" /><br />
+Change the current directory to <code class="highlighter-rouge">C:\Users\Owner\.vim\tags</code>.</p>
+
+<p>The contents should be shown by typing <code class="highlighter-rouge">dir</code> (There’re so many files
+that I use the <code class="highlighter-rouge">/w</code> option to save space.)</p>
+
+<p><img src="/images/posts/OmniCpp/dir1.png" alt="'fig6' ['w flag in dir command in Win* CMD']" /><br />
+The contents are in the right place, so we may proceed.</p>
+
+<p><img src="/images/posts/OmniCpp/ctags1.png" alt="'fig7' ['Ctags in Win* CMD']" /><br />
+Get a list of <a href="http://ctags.sourceforge.net/">ctags</a>.</p>
+
+<p>To get a list of <a href="http://ctags.sourceforge.net/">ctags</a>, the correct command:</p>
+
+<pre class="cli"><code>&gt;ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp <span class="HLCode">.</span></code></pre>
+
+<p>The one you see on Vim Tips Wiki:</p>
+
+<pre class="cli"><code>&gt;ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f cpp <span class="err">cpp_src</span></code></pre>
+
+<h3 id="step-five">Step five</h3>
+
+<p>Then you should have a huge list of <a href="http://ctags.sourceforge.net/">ctags</a> with the file name cpp.
+Not adding the additional tags for <a href="https://www.opengl.org">OpenGL</a>, etc, is OK.</p>
+
+<h3 id="step-six">Step six</h3>
+
+<p>Finally, adding the lines found in the Vim Tips Wiki into your VIMRC
+will do.</p>
+
+<p>Note: If you don’t add the additional tags in step 5, then the
+following lines should NOT be added.</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">set</span> <span class="k">tags</span><span class="p">+=~</span><span class="sr">/.vim/</span><span class="k">tags</span>/gl
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">set</span> <span class="k">tags</span><span class="p">+=~</span><span class="sr">/.vim/</span><span class="k">tags</span>/sdl
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">set</span> <span class="k">tags</span><span class="p">+=~</span><span class="sr">/.vim/</span><span class="k">tags</span>/qt4</div></div></pre></div></figure>
+
+<h2 id="testing">Testing</h2>
+
+<p>A picture can illustrate the feature well.  Typing <code class="highlighter-rouge">std::</code>, you’ll get
+a popup list.</p>
+
+<p><img class="fancybox" src="/images/posts/OmniCpp/omni.png" alt="'OmniCppComplete in GVim' ['fig8']" /></p>
+
+<h2 id="incompatibility-with-clang_complete">Incompatibility with clang_complete</h2>
+
+<p>Note that <a href="https://github.com/vim-scripts/OmniCppComplete">Omnicppcomplete</a> is <em>incompatible</em> with another Vim plugin
+called <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a>, due to its “unconditional popup of completion
+list”.  To understand this, the following pictures give a good
+interpretation.</p>
+
+<p>In <a href="https://github.com/vim-scripts/OmniCppComplete">OmniCppComplete</a>, after typing <code class="highlighter-rouge">std::</code>, the completion list will
+pop up.</p>
+
+<p>However, in <a href="https://github.com/Rip-Rip/clang_complete">clang_complete</a>, since the information is from the clang
+compiler, you need to give the syntax in the right position for the
+compiler so as to let the completion list to show up.</p>
+
+<p><img class="fancybox" src="/images/posts/OmniCpp/ClangComplete1.png" alt="'Missing a line' ['missing iostream']" /><br />
+Missing <code class="highlighter-rouge">#include &lt;iostream&gt;</code></p>
+
+<p><img class="fancybox" src="/images/posts/OmniCpp/std-err.png" alt="'Still wrong position of the input' ['wrong place for std::']" /></p>
+
+<p><img class="fancybox" src="/images/posts/OmniCpp/ClangComplete2.png" alt="'Cannot figure out difference - omnicppcomplete versus clang' ['clang_complete work for correct code']" /></p>
+
+<p>On <a href="http://www.ubuntu.com">Ubuntu</a>, it’s easy to install.  Note that you need <code class="highlighter-rouge">clang-dev</code> as
+well.  For M$ Win*, maybe you need to download the source. (I hope
+there will be a <em>compiled version of the compiler</em>.)</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/choosing-a-font-for-gvim/">Choosing a Font for gVim</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/choosing-a-font-for-gvim/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/choosing-a-font-for-gvim/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/choosing-a-font-for-gvim/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Unclear difference in appearance between 1 with l, 0 with O can be a
+source of inconvenience for computer users.  This summer, I’ve found
+<a href="http://hivelogic.com/articles/top-10-programming-fonts">this site</a> informative, but I quickly forgot it.</p>
+
+<p>Installation of many fonts in some popular Linux distributions can be
+done in GUI just like M$ Win*, so I attempted to change my default
+font on <a href="http://www.vim.org">Vim</a>, and a picture is worth a thousand words.</p>
+
+<p>The following command from <a href="http://vim.wikia.com/wiki/VimTip632">Vim Tips Wikia</a> will do: <code class="highlighter-rouge">:set
+guifont=[font-name]:h[font-size]</code>.  (Escape the whitespace character
+with a backslash, i.e. use <code class="highlighter-rouge">\ </code> to represent a whitespace.)</p>
+
+<p><img src="/images/posts/GVimFont/gvim.png" alt="'GVim GUI font changed' ['fig1']" /><br />
+GVim with Inconsolata 12pt</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/links-to-good-posts/">Links to Good Posts</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/links-to-good-posts/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/links-to-good-posts/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/links-to-good-posts/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="taglist-installation">Taglist installation</h2>
+
+<p><a href="http://github.com/vim-scripts/taglist.vim">Taglist</a> is a popular <a href="http://www.vim.org">Vim</a> plugin and it requires <a href="http://ctags.sourceforge.net/" title="Exuberant Ctags">Ctags</a>.  c9s has
+given <a href="http://c9s.blogspot.hk/2007/07/setting-up-ctags-gvim-in-windows.html">a detailed description of the installation of Ctags</a>.
+I’ve found out that putting the whole <code class="highlighter-rouge">ctags58</code> folder under the <code class="highlighter-rouge">C</code>
+drive and adding it to the <code class="highlighter-rouge">PATH</code> environment variable will do.  You
+don’t need to copy <code class="highlighter-rouge">ctags.exe</code> under the <code class="highlighter-rouge">C</code> drive or <code class="highlighter-rouge">$VIMRUNTIME</code>.</p>
+
+<p>TheGeekStuff has <a href="http://goo.gl/BG2lh" title="Ctags and Taglist: Convert Vim Editor to Beautiful Source Code Browser for Any Programming Language">a web page</a> which described numerous
+powerful functions of <a href="http://github.com/vim-scripts/taglist.vim">Taglist</a>.</p>
+
+<h2 id="some-vimrc-settings">Some VIMRC settings</h2>
+
+<p>I’ve learnt something about <a href="http://www.vim.org">Vim</a> keyboard mappings by reading
+<a href="http://alexanderle.com/blog/2012/my-vimrc.html">Le’s post on customized VIMRC settings</a>.  Using this
+knowledge, I can do something that I couldn’t do last month.</p>
+
+<h2 id="automatic-completion-of-unclosed-bracesbrackets">Automatic completion of unclosed braces/brackets</h2>
+
+<p>Unmatched brackets/braces are the cause of a host of syntax errors in
+source code.  Some novices probably spend hours to find it out, and
+then say something that their high school teachers will never approve.
+<a href="http://vim.wikia.com/wiki/Automatically_append_closing_characters">Tips 630 in Vim Tips Wiki</a> contains a simple solution
+that enable users to get the job done.  However, I’m not accustomed to
+its differences with Vim-$\rm \LaTeX$, so I decided to add the
+following lines of code into my VIMRC file:</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">(</span>      <span class="p">()&lt;++&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">(&lt;</span>CR<span class="p">&gt;</span>  <span class="p">(&lt;</span>CR<span class="p">&gt;)&lt;</span>Esc<span class="p">&gt;</span>O
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">((</span>     <span class="p">(</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">()</span>     <span class="p">()&lt;++&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">[</span>      <span class="p">[]&lt;++&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">[&lt;</span>CR<span class="p">&gt;</span>  <span class="p">[&lt;</span>CR<span class="p">&gt;]&lt;</span>Esc<span class="p">&gt;</span>O
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">[[</span>     <span class="p">[</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">[]</span>     <span class="p">[]&lt;++&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">&#x7b;</span>      <span class="p">&#x7b;&#x7d;&lt;++&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">&#x7b;&lt;</span>CR<span class="p">&gt;</span>  <span class="p">&#x7b;&lt;</span>CR<span class="p">&gt;&#x7d;&lt;</span>Esc<span class="p">&gt;</span>O
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">&#x7b;&#x7b;</span>     <span class="p">&#x7b;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">inoremap <span class="p">&#x7b;&#x7d;</span>     <span class="p">&#x7b;&#x7d;&lt;++&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;&lt;</span>Left<span class="p">&gt;</span></div></div></pre></div></figure>
+
+<p>After the user types <code class="highlighter-rouge">&lt;C-j&gt;</code>, the cursor will jump to the position of
+the placeholder <code class="highlighter-rouge">&lt;++&gt;</code> and the whole placeholder will disappear, just
+like $\rm \LaTeX$-Suite.</p>
+
+<hr />
+<p>(Added on DEC 13, 2014)</p>
+
+<p>These custom mappings will interfere with those of
+<a href="http://vim-latex.sourceforge.net">$\rm \LaTeX$-Suite</a> if one typed <code class="highlighter-rouge">:so foo.tex</code> in a
+buffer in which an HTML file is opened.  Now, I have
+<a href="/blog/2014/12/13/my-improved-custom-autocompletion-mappings-in-vim/" title="My Improved Custom Autocompletion Mappings in Vim">improved my mappings</a>.</p>
+
+<hr />
+
+<h2 id="new-keyboard-shortcuts-of-my-gvim">New keyboard shortcuts of my GVim</h2>
+
+<p>Finally, I decided to use <code class="highlighter-rouge">&lt;F3&gt;</code> and <code class="highlighter-rouge">&lt;F12&gt;</code> in normal mode for
+toggling <a href="https://github.com/scrooloose/nerdtree">NERDTree</a> and <a href="http://github.com/vim-scripts/taglist.vim">Taglist</a> respectively.</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">nnoremap <span class="p">&lt;</span>F3<span class="p">&gt;</span>   <span class="p">:</span>NERDTreeToggle
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">nnoremap <span class="p">&lt;</span>F12<span class="p">&gt;</span>  <span class="p">:</span>TlistToggle</div></div></pre></div></figure>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/vim-file-name-modifier/">Vim File Name Modifier</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/vim-file-name-modifier/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/vim-file-name-modifier/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/vim-file-name-modifier/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Typing <code class="highlighter-rouge">:h %:p</code> will give you a list of file name modifiers in
+<code class="highlighter-rouge">cmdline.txt</code>, and the section below <code class="highlighter-rouge">filename-modifiers</code> is
+<code class="highlighter-rouge">extension-removal</code>.  The list maybe too detailed, especially for
+users who don’t have much time to learn it.  Bram Moolenaar, the
+father of <a href="http://www.vim.org">Vim</a>, once said that trying to learn all the things in his
+lecture called <a href="http://www.moolenaar.net/habits.html">7 Habits of Effective Text Editing</a> (see
+habit 7).  (The video is on <a href="http://youtu.be/p6K4iIMlouI">Youtube</a>.)  Fortunately, there’re
+some examples below the list.  I found some useful in the following
+cases.</p>
+
+<!-- more -->
+
+<h2 id="case-1-executing-compiled-programs">Case 1: Executing compiled programs</h2>
+
+<p>See <a href="/blog/2013/12/11/fast-compilation-and-execution-of-source-code/">my another blog post on programming with Vim</a> for details!</p>
+
+<h2 id="case-2-finding-old-files">Case 2: Finding old files</h2>
+
+<ol>
+  <li>Type <code class="highlighter-rouge">:old</code> for a list of recently opened files (some may not
+appear)</li>
+  <li>If you can find a right file, note its corresponding line number
+on the list and type <code class="highlighter-rouge">:e #&lt;[num]</code> to open the file.</li>
+</ol>
+
+<h2 id="case-3-searching-contents-of-the-user-manual">Case 3: Searching contents of <em>The User Manual</em></h2>
+
+<p>In the very first section of the user manual, it’s said that users
+should read the user manual “from the beginning to the end like a
+book”.  However, you sometimes don’t have much time to do so and you
+need to quickly perform some tasks not covered in the sections of the
+user manual that you’ve read, such as compiling programs.  Using the
+command <code class="highlighter-rouge">:![compiler] [src-file] ...</code> and <code class="highlighter-rouge">:![command-to-run-prog]</code> is
+already good since you don’t have to leaving <a href="http://www.vim.org">Vim</a>, but you may want to
+see if <a href="http://www.vim.org">Vim</a> has some special features.  Searching something like “vim c
+programming” probably gives users links to an array of <a href="https://github.com">GitHub</a>
+repositories for <a href="http://www.vim.org">Vim</a> plugins.  Even though you have <a href="https://github.com/tpope/vim-pathogen">pathogen.vim</a> or
+<a href="https://github.com/gmarik/vundle">Vundle</a>, if things are in conflict with each other, you need a lot of
+time to figure out the culprits and fix the problem.  If there’s
+already something written on the official manual, why don’t read them
+first?</p>
+
+<p>The official manual has 2 parts, namely the user manual and the
+reference manual.  For the former, the contents are easier to learn,
+but the parts are often hard to locate with <code class="highlighter-rouge">:h howto</code> and search
+commands.  For the latter, it’s easier to locate with <code class="highlighter-rouge">:h [sth]</code> since
+you can pass the <code class="highlighter-rouge">[command]</code> that you don’t know to <code class="highlighter-rouge">[sth]</code> before
+reaching a relevant section that is too hard for you to keep reading.
+Therefore, <em>searching contents in the user manual is needed</em>.</p>
+
+<p>Then you have to extract the path of the documentation files, which in
+under some folders that you don’t know.  Searching it with a file
+browser will certainly be ineffective, which using searching commands
+in the terminal needs time and may not guarantee a success due to the
+possibility of making syntax errors.  A more efficient approach is,
+assuming that the reference manual is <em>near</em> to the user manual, to
+first open only page in the reference manual in order to make use of
+<code class="highlighter-rouge">%</code> in <a href="http://www.vim.org">Vim</a> commands for the extraction of the path of the user manual.
+Of course you need to check the <em>actual</em> contents inside the
+directory.  (I have <a href="https://github.com/scrooloose/nerdtree">NERDTree</a> installed so I use <code class="highlighter-rouge">:NERDTree %</code> for a
+popup file tree and <code class="highlighter-rouge">cd</code> for a change of current directory.)</p>
+
+<p>Thus, with some knowledge in the reference manual (I learn this from
+<code class="highlighter-rouge">:h %:p</code>.), one will find out that the modifier needed is <code class="highlighter-rouge">:h</code>.  <em>In
+*nix, the command <code class="highlighter-rouge">grep</code> can find contents in a file; in M$ Win*</em>,
+I’m too lazy to learn something new so I use something like <a href="http://cygwin.com">Cygwin</a>
+for <code class="highlighter-rouge">grep</code>.</p>
+
+<h2 id="case-4-more-about-extraction-of-path-of-the-current-file">Case 4: More about extraction of path of the current file</h2>
+
+<p>In the previous case, <code class="highlighter-rouge">%</code> and its modifiers enables you to refer to
+the path of the file, but you don’t <em>see</em> its full path.  In order to
+do so, type <code class="highlighter-rouge">:echo expand("%")</code>.</p>
+
+<h2 id="conclusion-stop-repeatedly-typing-the-same-long-thing">Conclusion: Stop repeatedly typing the same long thing</h2>
+
+<p>Leave machines to machines since they can efficiently replicate long
+things.  That’s another tip from Bram Moolenaar (<a href="http://www.moolenaar.net/habits.html">Tip 2</a>).</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/something-about-win-batch-files/">Something about Win* batch files</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/something-about-win-batch-files/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/something-about-win-batch-files/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/something-about-win-batch-files/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="get-drive-letter">Get drive letter</h2>
+
+<p>If you run portable devices from a USB stick, sometimes you need to
+refer to other files that is in the same USB drive. Their relative
+position is stable, but the drive letter is not. Thus, referring to
+those files by absolute path doesn't work, unless you do the tedious
+modifications every time.</p>
+
+<ul>
+  <li>Method 1: <code class="highlighter-rouge">set var=%cd:~0,3%</code></li>
+  <li>Method 2: <code class="highlighter-rouge">set var=%~d0</code> (preferred) Use variable: <code class="highlighter-rouge">%var%</code></li>
+</ul>
+
+<h2 id="alias-on-m-win">Alias on M$ Win*</h2>
+
+<p>If you’re familiar with *nix and use M$-DOS, you may unconsciously
+type the <code class="highlighter-rouge">ls</code> command in DOS; or if you have a portable version of a
+software and you need to launch it by command, you will discover the
+difference between the name of the programs—one has <code class="highlighter-rouge">portable</code> at the
+end while the other one doesn’t.</p>
+
+<p>Copy and paste the following lines of code into any text editor.</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">@ECHO OFF
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">[command] %*</div></div></pre></div></figure>
+
+<p>Save the whole file as <code class="highlighter-rouge">[alias].bat</code> and put the file under any folder
+found on <code class="highlighter-rouge">PATH</code> environment variable.</p>
+
+<p>Run <code class="highlighter-rouge">[alias]</code> in the command prompt to see the effect.</p>
+
+<p>Note: <code class="highlighter-rouge">%</code> in M$ Win* is the <em>same</em> as <code class="highlighter-rouge">$*</code> in *nix.<sup id="fnref:ms_all_arg"><a href="#fn:ms_all_arg" class="footnote">1</a></sup></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:ms_all_arg">
+
+      <p><a href="http://windowsitpro.com/windows-server/how-can-i-output-all-batch-files-arguments"><em>How can I output all of a batch file’s arguments?</em></a> by John
+Savill in Windows IT Pro.&nbsp;<a href="#fnref:ms_all_arg" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/using-vim-keystrokes-in-web-browser/">Using Vim Keystrokes in Web Browser</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/using-vim-keystrokes-in-web-browser/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/using-vim-keystrokes-in-web-browser/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/using-vim-keystrokes-in-web-browser/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.vim.org">Vim</a> fans will be delighted and amazed for knowing this the first
+time: <a href="https://github.com/vimperator/vimperator-labs">Vimperator</a> is the plugin for <a href="http://www.vim.org">Vim</a>-like behaviour on
+<a href="http://mozilla.com">Firefox</a>.  It’s the original one and it focuses on usability.
+Following the hints with <code class="highlighter-rouge">f</code> is great!  Here’re some useful
+keystrokes:</p>
+
+<!-- more -->
+
+<ul>
+  <li>To open a link in a new tab, type <code class="highlighter-rouge">F</code> and follow the hints</li>
+  <li>To move the [num]-th tab, type <code class="highlighter-rouge">[num]gt</code> (applicable to <a href="http://www.vim.org">Vim</a>
+  also)</li>
+  <li>To go to another page, type <code class="highlighter-rouge">o</code></li>
+  <li>To go to another page with similar URL, type <code class="highlighter-rouge">O</code></li>
+  <li>To open another tab, type <code class="highlighter-rouge">t</code></li>
+  <li>To open another tab with similar URL, type <code class="highlighter-rouge">T</code></li>
+  <li>To open another window, type <code class="highlighter-rouge">w</code></li>
+  <li>To open another window with similar URL, type <code class="highlighter-rouge">W</code></li>
+  <li>To copy the URL of the current page (including “#*”), type <code class="highlighter-rouge">y</code></li>
+  <li>To copy the URL of the targeted link, type <code class="highlighter-rouge">;y</code></li>
+  <li>To copy the current selection, type <code class="highlighter-rouge">Y</code></li>
+  <li>To copy the labeling text of a link, type <code class="highlighter-rouge">;Y</code></li>
+  <li>To disable <a href="https://github.com/vimperator/vimperator-labs">Vimperator</a> for one instance, type <code class="highlighter-rouge">i</code></li>
+  <li>To toogle <a href="https://github.com/vimperator/vimperator-labs">Vimperator</a>, type <code class="highlighter-rouge">&lt;S-Esc&gt;</code></li>
+  <li>To move the last edited text field, type <code class="highlighter-rouge">gi</code></li>
+  <li>To open <a href="http://www.vim.org">Vim</a> for editing input in a textfield/textarea, type
+  <code class="highlighter-rouge">&lt;C-i&gt;</code> in insert mode</li>
+  <li>To exit the insert mode of a textfield/textarea, the key is the same
+  as the one you use for <a href="http://www.vim.org">Vim</a>.</li>
+  <li>To enter the insert mode of a textfield/textarea from the normal
+  mode, either follow the suitable hint or use <code class="highlighter-rouge">c</code> to re-enter there
+  (may fail and enter into the caret mode).</li>
+  <li>To search the history, type <code class="highlighter-rouge">:hist [anything] </code></li>
+  <li>In a pop-up browsing history list, press <code class="highlighter-rouge">&lt;CR&gt;</code> and <code class="highlighter-rouge">;o</code> to follow a
+  hint.  You can type more to filter the suitable one.  Typing a
+  capital ‘O’ instead of a small letter ‘o’ gives you <code class="highlighter-rouge">:open
+  [wanted_link]</code></li>
+  <li>To view the previous browsed page, type <code class="highlighter-rouge">H</code>.</li>
+  <li>To view the next browsed page, type <code class="highlighter-rouge">L</code>.</li>
+  <li>To go to the home page, type <code class="highlighter-rouge">gh</code>.</li>
+  <li>To view the home page in a new tab, type <code class="highlighter-rouge">gh</code>.</li>
+  <li>To close the current tab, type <code class="highlighter-rouge">d</code>.</li>
+  <li>To open the sidebar, type <code class="highlighter-rouge">:sbar [arg]</code>.</li>
+  <li>To close the sidebar, type <code class="highlighter-rouge">:sbclose</code>.</li>
+</ul>
+
+<p>More keystrokes from <a href="http://chudq.wordpress.com/2009/01/24/my-favourite-vimperator-keys/">Daqing Chu’s WordPress blog</a>, and
+<a href="http://sheet.shiar.nl/vimperator">a cheat sheetcreated by Shiar</a>.</p>
+
+<h2 id="another-useful-plugin">Another useful plugin</h2>
+
+<p><a href="https://addons.mozilla.org/addon/google-search-link-fix/">Google/Yandex search link fix</a> enables true copying of the
+link’s URL in <a href="http://google.com">Google</a>’s search results.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/fast-compilation-and-execution-of-source-code/">Fast Compilation and Execution of Source Code</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/fast-compilation-and-execution-of-source-code/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/fast-compilation-and-execution-of-source-code/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/fast-compilation-and-execution-of-source-code/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Possible software: <a href="http://www.vim.org">Vim</a></p>
+
+<h2 id="why">Why?</h2>
+
+<p>In a heavy <abbr title="Integrated Development Environment">IDE</abbr>, you need to click a button or some keyboard shortcuts.
+Unless you frequently use the keystrokes, you’ll likely forget them
+since they are usually non-transferable IT skills.</p>
+
+<p>It’s different in <a href="http://www.vim.org">Vim</a>.  Since it’s an <a href="http://freeopensourcesoftware.org/index.php?title=Main_Page"><abbr title="Free/Libre and Open Source Software">FLOSS</abbr></a> programmable editor,
+you can add whatever plugins and extra functions you like.<sup id="fnref:gnu_floss"><a href="#fn:gnu_floss" class="footnote">1</a></sup>
+You can adjust you VIMRC file so that the editing environment <em>won’t</em>
+have too many <em>undesirable</em> changes.</p>
+
+<p><a href="http://www.vim.org">Vim</a> is lightweight.  If your computer collapses (or even gives you
+the notorious <abbr title="Bluescreen of Death">BoD</abbr> before <abbr title="Rest in Peace">RiP</abbr>) due to loading <abbr title="Integrated Development Environment">IDE</abbr>, <a href="http://www.vim.org">Vim</a> is your choice
+since it may still work with some good design and functions.</p>
+
+<p>What are the good things?</p>
+
+<ol>
+  <li>Diminished role of mouse and more use of keyboard due to modes.</li>
+  <li>Syntax highlighting and file type detection.</li>
+</ol>
+
+<!-- more -->
+
+<h2 id="how-doesnt-need-cvim">How? (Doesn’t need c.vim)</h2>
+
+<ol>
+  <li>Set up <code class="highlighter-rouge">makefile</code> (<a href="http://kevincrazy.pixnet.net/blog/post/29780477-makefile%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8...">simple tutorial about makefile</a>).</li>
+  <li>Run <code class="highlighter-rouge">:make</code>.</li>
+  <li>Run <code class="highlighter-rouge">:!./%&lt;</code> on *nix (or simply <code class="highlighter-rouge">:!%&lt;</code> on M$ Win*).</li>
+</ol>
+
+<p>Notes:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">set makeprg=mingw32-make</code> in VIMRC for <a href="http://www.mingw.org/">MinGW</a> make
+(<a href="https://sites.google.com/site/jamespandavan/Home/c-c/getting-started-with-c-c-programming-with-vim">more details about <code class="highlighter-rouge">makeprg</code></a>)</li>
+  <li><code class="highlighter-rouge">%</code> stands for the current file, and <code class="highlighter-rouge">&lt;</code> stands for the file name
+<em>without</em> extension.</li>
+</ol>
+
+<p>Advantages:</p>
+
+<ul>
+  <li>In the whole process, you <em>don’t</em> have to leave <a href="http://www.vim.org">Vim</a> and keyboard.</li>
+  <li><em>The commands are the same whatever your files are</em> (already
+determined by <code class="highlighter-rouge">makefile</code>), so you <em>don’t waste time to think and
+type</em> in the correct name.</li>
+</ul>
+
+<p>2 quotes from Sharpe (I don’t remember the exact wordings):</p>
+
+<blockquote>
+  <p>“The battle is not in the hands of who give the most shots.  It
+should be those who shot the best.”<br />
+“A good soldier can fire 3–4 rounds a minute.”</p>
+</blockquote>
+
+<h2 id="my-sample-makefile">My sample makefile:</h2>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nl">hello </span><span class="o">:</span> <span class="nf">hello.c</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">	gcc -o hello hello.c
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nl">clean</span><span class="o">:</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">	<span class="err">rm -f hello</span></div></div></pre></div></figure>
+
+<p>Note: Insert <em>tabs</em> for indentation, <em>not</em> whitespaces.  If the
+compiled program is <code class="highlighter-rouge">hello.exe</code>, perhaps the extension name is also
+needed for <code class="highlighter-rouge">rm</code>.  (I have <em>never</em> tested it.)</p>
+
+<h2 id="with-cvim">With c.vim</h2>
+
+<p>Follow the menu and you’ll be also good.<sup id="fnref:c_vim"><a href="#fn:c_vim" class="footnote">2</a></sup></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:gnu_floss">
+
+      <p>After I read <a href="https://www.gnu.org/philosophy/floss-and-foss.html"><em>FLOSS and FOSS</em></a> by Richard Stallman, I
+use FLOSS instead of FOSS.  (Added on 19TH Dec, 2014)&nbsp;<a href="#fnref:gnu_floss" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:c_vim">
+
+      <p><a href="http://stackoverflow.com/q/2627886"><em>How do I run a C program from Vim?</em></a> in Stack
+Overflow.&nbsp;<a href="#fnref:c_vim" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/12/11/vim-latexs-slash-slash-lv-command-with-sumatra-pdf/">Vim-$\rm \LaTeX$'s \lv command with Sumatra PDF</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/12/11/vim-latexs-slash-slash-lv-command-with-sumatra-pdf/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/12/11/vim-latexs-slash-slash-lv-command-with-sumatra-pdf/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/12/11/vim-latexs-slash-slash-lv-command-with-sumatra-pdf/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="why-do-i-switch-my-pdf-viewer">Why do I switch my PDF viewer?</h2>
+
+<ul>
+  <li>Ado* Read* is proprietary. (<strong>EULA</strong>)</li>
+  <li><a href="http://www.sumatrapdfreader.org/free-pdf-reader.html">Sumatra PDF</a> is free. (<strong>GPLv3</strong>)</li>
+</ul>
+
+<p>Go for <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS">FLOSS</a>! Go for freedom!</p>
+
+<!-- more -->
+
+<h2 id="actual-process">Actual process</h2>
+
+<p>Original settings for Ado* Read*: let
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../AcroRd32'</code> in <code class="highlighter-rouge">_vimrc</code> (No extension
+name)</p>
+
+<h3 id="problem">Problem</h3>
+
+<p>How to change Vim-$\rm \LaTeX$'s setting of <code class="highlighter-rouge">\lv</code>?</p>
+
+<p>###Trial 1</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../SumatraPDF'</code> in <code class="highlighter-rouge">_vimrc</code> (No
+effect)</p>
+
+<p>###Trial 2</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRule_dvi='C:/.../SumatraPDF'</code> and disable
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi</code> in <code class="highlighter-rouge">_vimrc</code> (No effect)</p>
+
+<p>###Trial 3</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRule_pdf='C:/.../SumatraPDF'</code> and keep
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../AcroRd32'</code> in <code class="highlighter-rouge">_vimrc</code> (Ado*
+Read* launched instead)</p>
+
+<p>…</p>
+
+<p>###Trial n</p>
+
+<p>Set <code class="highlighter-rouge">g:Tex_ViewRule_pdf='C:/.../SumatraPDF'</code> and disable
+<code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi='C:/.../AcroRd32'</code> in <code class="highlighter-rouge">_vimrc</code> (No effect)</p>
+
+<h2 id="solution">Solution</h2>
+
+<ol>
+  <li>Change <code class="highlighter-rouge">PATH</code> environment variable. (You can change it for Vim
+runtime and keep the original one in other programs. See
+<a href="/blog/2013/12/13/writing-vims-output-to-files/">my newer post</a> for details.)</li>
+  <li>Set <code class="highlighter-rouge">g:Tex_ViewRule_pdf='SumatraPDF'</code></li>
+  <li>Disable <code class="highlighter-rouge">g:Tex_ViewRuleComplete_dvi</code> in <code class="highlighter-rouge">_vimrc</code></li>
+</ol>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/11/06/error-of-the-font-of-the-cited-url-in-bibliography-using-biblatex-in-apa-style/">Error of the Font of the Cited URL in Bibliography Using Bib$\rm \LaTeX$ in APA Style</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/11/06/error-of-the-font-of-the-cited-url-in-bibliography-using-biblatex-in-apa-style/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/11/06/error-of-the-font-of-the-cited-url-in-bibliography-using-biblatex-in-apa-style/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/11/06/error-of-the-font-of-the-cited-url-in-bibliography-using-biblatex-in-apa-style/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This midnight, I tried to compile my $\rm \LaTeX$ document with a
+so-called “bibliography”, which contains a URL.  The link should be in
+typewriter font after using the command <code class="highlighter-rouge">\urlstyle{tt}</code> under adding
+the <code class="highlighter-rouge">url</code> package to the preamble.  I googled for almost 2 hours, but
+the blog posts suggested that using this method should work.  I even
+tried to copy some minimum working examples from the web to test if
+they work.  They really worked and so I’m puzzled.  Ten minutes ago, I
+just find out what’s going wrong: the <code class="highlighter-rouge">url</code> package should never go
+before the several lines in the preamble that are responsible for
+adding an APA-style bibliography.</p>
+
+<p>The <code class="highlighter-rouge">\ll</code> command in <a href="http://vim-latex.sourceforge.net/">Vim-$\rm \LaTeX$</a> seems not doing
+well with <a href="http://sourceforge.net/projects/biblatex-biber/" title="BibTeX replacement for biblatex">Biber</a>.  Whenever the AUX file exists, <code class="highlighter-rouge">\ll</code> won’t execute
+<code class="highlighter-rouge">biber</code>, causing the resulting PDF file to have no change in the
+bibliography.</p>
+
+<p>I hope I can use less time to figure out any mistake next time.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2013/11/06/this-weekends-work-on-vim/">This Weekend's Work on Vim</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2013/11/06/this-weekends-work-on-vim/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2013/11/06/this-weekends-work-on-vim/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2013/11/06/this-weekends-work-on-vim/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+  <li>Installed some useful <a href="http://www.vim.org">Vim</a> plugins, such as
+    <ul>
+      <li><a href="http://github.com/gmarik/vundle">Vundle</a>: (<a href="http://www.vim.org">Vim</a> plugins management tool).</li>
+      <li><a href="http://github.com/scrooloose/nerdtree">NERDTree</a>: (file browser).</li>
+      <li><a href="http://github.com/Lokaltog/vim-easymotion">EasyMotion</a></li>
+      <li><a href="http://github.com/vim-scripts/loremipsum">Loremipsum</a>: (random text generator).</li>
+      <li><a href="http://github.com/tpope/vim-surround">surround.vim</a>: (surround text with brackets).</li>
+      <li><a href="http://github.com/msanders/snipmate.vim">SnipMate</a>: (for autogenerated code).</li>
+      <li><a href="http://github.com/marcweber/vim-addon-mw-utils">Vim-addon-mw-utils</a></li>
+      <li><a href="http://github.com/tomtom/tlib_vim">Tlib_vim</a>: (dependency for <a href="http://github.com/msanders/snipmate.vim">SnipMate</a>).</li>
+      <li><a href="http://github.com/vim-scripts/FuzzyFinder">FuzzyFinder</a>: (quick finding tool for files, etc).</li>
+      <li><a href="http://github.com/vim-scripts/L9">L9</a>: (dependency for <a href="http://github.com/vim-scripts/FuzzyFinder">FuzzyFinder</a>).</li>
+    </ul>
+  </li>
+  <li>Do some custom insert mode keyboard mapping.
+(<a href="http://vim.wikia.com/wiki/Automatically_append_closing_characters">automatical completion of brackets</a>)</li>
+</ol>
+
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/36/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/34/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

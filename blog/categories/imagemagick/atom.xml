@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ImageMagick | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/imagemagick/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[A Comparison of Similar Horizontal Paddings in $\rm \LaTeX$ Math Mode]]></title>
+      <link href="https://vincenttam.github.io/blog/2015/05/16/a-comparison-of-similar-horizontal-paddings-in-latex-math-mode/"/>
+    
+    <updated>2015-05-16T22:12:58+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2015/05/16/a-comparison-of-similar-horizontal-paddings-in-latex-math-mode</id>
+    
+      <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>I prepared this little series of screenshots two years ago.  When
+these pictures were made, I <em>didn’t</em> know anything about <a href="http://fancyapps.com/fancybox/">fancybox</a>,
+so I just shared it using Ubuntu One, which is now <em>dead</em>.<sup id="fnref:ub1dead"><a href="#fn:ub1dead" class="footnote">1</a></sup></p>
+
+<p>Now, with fancybox, the effects of these commands can be compared
+below.  Click on the left and right arrows in the pop-up window to see
+the little difference in spacing.</p>
+
+<h2 id="comparison-and-conclusion">Comparison and conclusion</h2>
+
+<picture class="fancybox" title="1. Original equal sign">
+  <source srcset="/images/posts/flalign-spacing/1-crop.png" media="(min-width: 940px)" />&lt;/source&gt;
+  <img alt="1. Original equal sign" src="https://vincenttam.github.io/images/posts/flalign-spacing/1-crop300.png" />
+</picture>
+
+<picture class="fancybox noscr" title="2. &quot;\quad&quot; and &quot;\,&quot;">
+  <source srcset="/images/posts/flalign-spacing/2-crop.png" media="(min-width: 940px)" />&lt;/source&gt;
+  <img alt="2. &quot;\quad&quot; and &quot;\,&quot;" src="https://vincenttam.github.io/images/posts/flalign-spacing/2-crop300.png" />
+</picture>
+
+<picture class="fancybox noscr" title="3. &quot;\quad&quot; and &quot;\:&quot;">
+  <source srcset="/images/posts/flalign-spacing/3-crop.png" media="(min-width: 940px)" />&lt;/source&gt;
+  <img alt="3. &quot;\quad&quot; and &quot;\:&quot;" src="https://vincenttam.github.io/images/posts/flalign-spacing/3-crop300.png" />
+</picture>
+
+<picture class="fancybox noscr" title="4. &quot;\quad&quot; and &quot;\;&quot;">
+  <source srcset="/images/posts/flalign-spacing/4-crop.png" media="(min-width: 940px)" />&lt;/source&gt;
+  <img alt="4. &quot;\quad&quot; and &quot;\;&quot;" src="https://vincenttam.github.io/images/posts/flalign-spacing/4-crop300.png" />
+</picture>
+
+<!-- more -->
+
+<p>As can be seen from the slideshow of pictures, the fourth figure
+resembles the first one the most.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>I’ve found a quicker way to crop images.  In the past, using <a href="http://www.gimp.org">GIMP</a>
+for shrinking pictures would result in an image size larger than using
+<a href="http://www.imagemagick.org">ImageMagick</a>.  However, I <em>didn’t</em> know a way to get the coordinates
+of the image file inside an image viewer, so I <em>couldn’t</em> supply them
+quickly to ImageMagick’s command line utility.  Now, realising that
+GIMP can be <em>regarded</em> as an image viewer, this problem can be quickly
+solved.</p>
+
+<p>Finally, with my experience of writing for loops in bash, it <em>didn’t</em>
+took me long to type this loop.<sup id="fnref:pp_for"><a href="#fn:pp_for" class="footnote">2</a></sup></p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ for i in {1..4}; do convert $i.png -crop 940x615+160+370 $i\_crop.png; done
+</code></pre>
+</div>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:ub1dead">
+
+      <p>For the link to the related post in the offical blog, you may go
+to the <a href="/blog/2015/05/06/github-page-build-failure/#fn:ub1dead">first footnote</a> of one of my recent posts in
+<em>Blog 1</em>: GitHub Page Build Failure.&nbsp;<a href="#fnref:ub1dead" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:pp_for">
+
+      <p>Refer to
+<a href="/blog/2015/05/16/concatenate-loop-variables-value-and-a-string-in-bash/">Concatenate Loop Variable’s Value and a String in Bash</a>
+in <em>Blog 1</em> if you want to know when, why and how I know to put a
+backslash ‘\’ behind the loop variable.&nbsp;<a href="#fnref:pp_for" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[5 ImageMagick command line examples–part 1 &#9733;]]></title>
+      <link href="http://www.ioncannon.net/linux/81/5-imagemagick-command-line-examples-part-1/"/>
+    
+    <updated>2014-09-14T17:58:13+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/09/14/5-imagemagick-command-line-examples-part-1</id>
+    
+      <content type="html"><![CDATA[<p>In the second example, the command only produces <em>one</em> image.  In the
+past, <em>without</em> knowing the use of <code class="highlighter-rouge">+[x-pos]+[y-pos]</code>, I got <em>more
+than one</em> image, and needed to delete them <em>except</em> the desired
+one.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>When I wrote a post about <code class="highlighter-rouge">screendump</code>, I took a screenshot of TTY1 so
+as to prove that the text that followed the screenshot was <em>really</em>
+contents in TTY1.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  The width and height of the screenshot was
+1280 px and 1024 px respectively.  I then used my old way to crop it
+to an image with width 520 px and height 230 px, and got similar error
+message described in ImageMagick’s examples.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>In “<a href="/blog/2014/06/30/basic-use-of-aptitude/#imagemagick-commands-learnt">ImageMagick commands learnt</a>” in <em>Basic Use of
+Aptitude</em>, I got <em>four</em> images because I <em>didn’t</em> append <code class="highlighter-rouge">+0+0</code>
+after <code class="highlighter-rouge">640x512</code>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>There’s an image cropped with ImageMagick in “<a href="/blog/2014/09/14/record-linux-terminal/">Usage</a>” in
+<em>Record Linux Terminal</em>.</p>
+
+      <div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ convert src.png -crop 512x225+0+0 tty1.png
+</code></pre>
+      </div>
+      <p><a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p>In “<a href="http://www.imagemagick.org/Usage/crop/#crop_missed">The Missed Image (from a bad crop)</a>” in <em>Examples of
+ImageMagick Usage (version 6)</em>.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+<p><a rel="full-article" href="https://vincenttam.github.io/blog/2014/09/14/5-imagemagick-command-line-examples-part-1/">&infin; Permalink</a></p>]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Set Transparent Background using ImageMagick &#9733;]]></title>
+      <link href="http://stackoverflow.com/a/11115408"/>
+    
+    <updated>2014-09-01T00:45:15+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/09/01/set-transparent-background-using-imagemagick</id>
+    
+      <content type="html"><![CDATA[<p>I made use of the suggested command in an answer for a Stack Overflow
+question to remove the white background of my gravatar.</p>
+
+<p>If you need to do it using <abbr title="GNU Image Manipulation Program">GIMP</abbr>, you may refer to
+<a href="/blog/2014/04/27/gimp-transparent-background/" title="Make Images With Transparent Background Using GIMP, and More ..."><em>Make Images With Transparent Background Using <abbr title="GNU Image Manipulation Program">GIMP</abbr>, and More …</em></a>.</p>
+
+<p><a rel="full-article" href="https://vincenttam.github.io/blog/2014/09/01/set-transparent-background-using-imagemagick/">&infin; Permalink</a></p>]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Don't Kill a Fly with a Cannon—Console Creation of GIF Files]]></title>
+      <link href="https://vincenttam.github.io/blog/2013/12/29/dont-kill-a-fly-with-a-cannon-console-creation-of-gif-files/"/>
+    
+    <updated>2013-12-29T16:30:00+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2013/12/29/dont-kill-a-fly-with-a-cannon-console-creation-of-gif-files</id>
+    
+      <content type="html"><![CDATA[<p>As the saying goes, a picture is worth a thousand words. Some netizens
+believe that if a picture tells the truth.</p>
+
+<p>If you want to take a screenshot in GNU/Linux text mode, you may use
+<code class="highlighter-rouge">fbgrab</code> to get a <abbr title="Portable Network Graphics">PNG</abbr> file (<code class="highlighter-rouge">fbcat</code> gives you a <abbr title="Portable Pix Map">PPM</abbr> file).</p>
+
+<p>If you want to illustrate a process with a series of pictures, then
+you’ll probably need a <abbr title="Graphics Interchange Format">GIF</abbr> file. <abbr title="GNU Image Manipulation Program">GIMP</abbr> provides an easy way of creating
+<abbr title="Graphics Interchange Format">GIF</abbr> files by selecting menu items and clicking a few buttons, but for
+geeks who are used to <abbr title="Command Line Interfaces">CLI</abbr>, this is not the final answer for them.</p>
+
+<p>If your source <abbr title="Portable Network Graphics">PNG</abbr> files are named as <code class="highlighter-rouge">[name]%s.png</code>, then the right
+command is:<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ convert $(for ((a=0; a&lt;700; a++)); do printf -- "-delay 10 \
+&gt; [name]%s.png" $a; done;) [result].gif
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">-delay 10</code> means that each image is displayed for 0.1s.</li>
+  <li><code class="highlighter-rouge">[name]</code>: file name of the source <abbr title="Portable Network Graphics">PNG</abbr> files without the ordinal
+  number.</li>
+  <li><code class="highlighter-rouge">%s</code>: the n-th <abbr title="Portable Network Graphics">PNG</abbr> file.</li>
+  <li><code class="highlighter-rouge">[result]</code>: file name of the target <abbr title="Graphics Interchange Format">GIF</abbr> file.</li>
+</ul>
+
+<p>Without the whitespace between <code class="highlighter-rouge">png</code> and the ending <code class="highlighter-rouge">"</code>, things
+<em>won’t</em> work.</p>
+
+<p>If the <abbr title="Graphics Interchange Format">GIF</abbr> animation has not been finished and intermediate files need
+to be saved, <em>don’t</em> use the <abbr title="Graphics Interchange Format">GIF</abbr> format, use <abbr title="Magick Image File Format">MIFF</abbr> instead.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p><a href="http://unix.stackexchange.com/q/24014/">Creating a GIF animation from PNG files</a> on Unix &amp;
+Linux Stack Exchange&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p><a href="http://www.imagemagick.org/Usage/anim_basics/#gif_anim">GIF Animations and Animation Meta-data</a> in <em>Examples of
+ImageMagick Usage (Version 6)</em>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+</feed>

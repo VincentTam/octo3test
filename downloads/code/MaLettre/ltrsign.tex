@@ -1,0 +1,55 @@
+\documentclass[a4paper,12pt]{lettre}
+\usepackage{fontspec}
+\usepackage[frenchb]{babel}
+
+\begin{document}
+\begin{letter}{
+    Nom de destinataire \\
+    4, boulevard de la Paix, \\
+    12345 Nom de ville
+}
+
+  \name{\null}
+  \address{
+    Votre NOM\\
+    23, rue à votre ville \\
+    23456 Nom de votre ville
+  }
+  \def\sigspace{-10mm}
+  \lieu{Votre ville}
+  \telephone{01 02 03 04 05}
+  \nofax
+  \email{fake@live.hk}
+
+  \def\concname{Objet :~}
+  \conc{Saisir votre objet}
+  \opening{Madame, Monsieur,}
+
+  Un exemple d'une lettre $\rm \LaTeX$ faite par \LaTeX.  Le faux
+  texte ci-dessous est généré par le plugin Lorem Ipsum pour Vim.
+
+% lorem{{{
+  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+  risus ut arcu malesuada ornare. Maecenas.
+
+  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+  urna.
+% lorem}}}
+
+  \closing{Veuillez d'agréer, Madame, Monsieur, mes salutations les
+  meilleures.}
+  \begin{center}
+    \hspace{8cm}\fromsig{\includegraphics[scale=1]{sample-sign.jpg}}\\
+    \hspace{8cm}\fromname{Votre NOM}
+  \end{center}
+  \encl{pièces jointes}
+
+\end{letter}
+\end{document}

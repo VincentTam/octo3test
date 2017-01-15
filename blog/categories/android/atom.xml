@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Debug Apps on Real Devices in Android Studio]]></title>
+      <link href="https://vincenttam.github.io/blog/2015/08/12/debug-apps-on-real-devices-in-android-studio/"/>
+    
+    <updated>2015-08-12T10:46:44+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2015/08/12/debug-apps-on-real-devices-in-android-studio</id>
+    
+      <content type="html"><![CDATA[<p>After spending hours to find out that I need to tap on “Settings” →
+“About” → … → “Build number” for enabling USB debugging in the
+“Developers options” on an Android phone, I plugged the phone into a
+Mac desktop, but it <em>didn’t</em> show up in the “Devices” in Finder.  I
+thought that Mac <em>couldn’t</em> detect the phone, and I searched Google
+for a long time.  After having seen the name of an application for
+synchronising data between and phone and the computer for a few times,
+I finally decided to download it since I <em>didn’t</em> know what else to
+do.  Luckily, my app could be run on the phone with the help of
+Android Studio installed on the Mac desktop.</p>
+
+<p><span class="tex2jax_ignore">
+An hour later, I tried to setup the development environment on an M$
+Win* computer.  Its installed size is over 20GB!  After hours of
+installation work, I was <em>stuck</em> again on M$ Win*:  unlike the Mac
+computer, that M$ Win* machine could detect the Android mobile
+device and show it in “Computer” within a minute.  I added the
+following lines into <code class="highlighter-rouge">/{AppName}/app/build.gradle</code> according to
+<a href="https://developer.android.com/tools/device.html#setting-up">a page of the official website</a>.
+</span></p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>To enable debugging on a real Android device</span></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="n">android</span> <span class="o">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="n">buildTypes</span> <span class="o">&#x7b;</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="n">debug</span> <span class="o">&#x7b;</span>
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>            <span class="n">debuggable</span> <span class="kc">true</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        <span class="o">&#x7d;</span></div></div></pre></div></figure></p>
+
+<p>However, the IDE said that <em>no debuggable device</em> could be found.  I
+guessed that the synchronising application made by the manufacturer of
+the phone was the cause of that undesirable result.  After fetching
+the application from the website of the phone manufacturer and
+restarting Android Studio, I could finally run the same application on
+a real Android device by clicking the little triangle on the top.</p>
+
+]]></content>
+    
+  </entry>
+  
+</feed>

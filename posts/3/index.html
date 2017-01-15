@@ -1,0 +1,1386 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	Fixed Jekyll-Bootstrap Asset Path (2)
+      
+    
+    
+      
+        
+        
+           | Comments
+   ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/08/18/fixed-jekyll-bootstrap-asset-path-2/">Fixed Jekyll-Bootstrap Asset Path (2)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/08/18/fixed-jekyll-bootstrap-asset-path-2/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/08/18/fixed-jekyll-bootstrap-asset-path-2/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/08/18/fixed-jekyll-bootstrap-asset-path-2/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I attempted to manually fix a <a href="/blog/2016/02/15/fixed-jekyll-bootstrap-asset-path/">problem in the first post</a> in this
+series half a year ago.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>I have just updated the Jekyll source code for <a href="/blog2/">Blog 2</a>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/blog2]$ git pull jekyll master
+remote: Counting objects: 37, done.
+remote: Total 37 (delta 10), reused 10 (delta 10), pack-reused 27
+Unpacking objects: 100% (37/37), done.
+From github.com:plusjade/jekyll-bootstrap
+ * branch            master     -&gt; FETCH_HEAD
+   3a34785..8193869  master     -&gt; jekyll/master
+Removing sitemap.txt
+Auto-merging _includes/JB/setup
+CONFLICT (content): Merge conflict in _includes/JB/setup
+Auto-merging _config.yml
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+</div>
+
+<p><strong>How to repair this failed merge?</strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>In the file <code class="highlighter-rouge">_includes/JB/setup</code>, I deleted the <code class="highlighter-rouge">HEAD</code> part, and
+adopted the official changes in the remote repository for Jekyll.
+Then, everything should be fine.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/08/17/restore-corrupt-git-repository/">Restore Corrupt Git Repository</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/08/17/restore-corrupt-git-repository/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/08/17/restore-corrupt-git-repository/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/08/17/restore-corrupt-git-repository/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I <em>hadn’t</em> used <a href="http://www.vim.org">Vim</a> on my GNU/Linux desktop for a month.  When I
+used it again, an error message was shown on the screen.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~]$ vi
+Error detected while processing
+/home/owner/.vim/bundle/nerdtree/plugin/NERD_tree.vim:
+line  153:
+E117: Unknown function: nerdtree#ui_glue#setupCommands
+Error detected while processing function nerdtree#postSourceActions:
+line    2:
+E117: Unknown function: nerdtree#ui_glue#createDefaultBindings
+Press ENTER or type command to continue
+</code></pre>
+</div>
+
+<p>Since I was occupied with <a href="/blog2/">another blog</a>, thinking that the
+problem would be quickly fixed by an update of
+<a href="https://github.com/scrooloose/nerdtree/">the NERD tree</a>, a <a href="http://www.vim.org">Vim</a> plugin for showing a file tree in a
+sidebar, I <em>didn’t</em> want to find out the cause.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>During this <a href="https://github.com/VundleVim/Vundle.vim">Vundle</a> update, an exclamation mark with red background
+was displayed on the LHS of the item <code class="highlighter-rouge">Plugin 'scrooloose/nerdtree'</code> in
+the list contained in the status bar.  I then checked Vundle’s update
+log.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[2016-08-12 15:18:40] Plugin scrooloose/nerdtree
+[2016-08-12 15:18:40] $ cd '/home/owner/.vim/bundle/nerdtree' &amp;&amp; git pull &amp;&amp; git submodule update --init --recursive
+[2016-08-12 15:18:40] &gt; error: object file .git/objects/2e/2b649232d6ae4d02d74793e5da0ee08480ad8d is empty
+[2016-08-12 15:18:40] &gt; error: object file .git/objects/2e/2b649232d6ae4d02d74793e5da0ee08480ad8d is empty
+[2016-08-12 15:18:40] &gt; fatal: loose object 2e2b649232d6ae4d02d74793e5da0ee08480ad8d (stored in .git/objects/2e/2b649232d6ae4d02d74793e5da0ee08480ad8d) is corrupt
+[2016-08-12 15:18:40] &gt; fatal: The remote end hung up unexpectedly
+[2016-08-12 15:18:40] &gt; 
+</code></pre>
+</div>
+
+<p>While I was trying to update this plugin manually by typing in
+<a href="/blog/2014/06/16/my-git-command-list-1/">Git commands</a> in bash, the electricity supply of my desktop went
+off suddenly.  After it had been switched on again, I tried typing in
+the commands again, and I got the same error.</p>
+
+<p><strong>How can the Git repository be restored to its previous state</strong>, so
+that it’s intact?</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>This problem can be fixed by simply undoing all changes done to the
+directory <code class="highlighter-rouge">.git/</code>.  First, a list of recently changed files is needed,
+and <code class="highlighter-rouge">find</code> can be used for this purpose.  I searched “ls filter by
+time”, then this <a href="http://unix.stackexchange.com/a/10043">question about <code class="highlighter-rouge">ls</code></a> on Unix &amp; Linux
+Stack Exchange appeared in the search results.  After reading the
+first answer, I tried to find the defective binary objects in
+<code class="highlighter-rouge">.git/objects</code>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/.vim/bundle/nerdtree/.git]$ find . -maxdepth 1 -mindepth 1 \
+&gt; -mtime -1 -type d -print -and -exec ls -lt {} \;
+./2e
+total 20
+-r--r--r-- 1 owner owner   0 Aug 12 15:18 2b649232d6ae4d02d74793e5da0ee08480ad8d
+-r--r--r-- 1 owner owner 256 May 12 20:38 c9b3dd9d6b8d11f2a3c12924f88588a846517d
+./7e
+total 44
+
+-r--r--r-- 1 owner owner  341 May 12 20:38 8be22b1d5052e9140fc7c7b840755980cb960
+9
+-r--r--r-- 1 owner owner   49 May 12 20:38 9492c9f3b3b463114c0b6308a8ccd46ce3869
+2
+-r--r--r-- 1 owner owner 3029 Nov  1  2014 12c042bb8f5ab387a2bd0aabcfe30fce25027
+f
+./a0
+total 20
+-r--r--r-- 1 owner owner   0 Aug 12 15:43 019ff4d6b033f37efd9b1a99daf6c9797796b1
+-r--r--r-- 1 owner owner 468 May 12 20:38 b89b83d8cd02f8043840a48b0b2cf3724bee1c
+./29
+total 20
+-r--r--r-- 1 owner owner   0 Aug 12 15:43 24ab207162ca18cf5844d00b351ade1b5122f6
+-r--r--r-- 1 owner owner 342 May 12 20:38 0935cab8f1e7dec23bb3bda0e2f7dd84c867d9
+./38
+total 20
+-r--r--r-- 1 owner owner  0 Aug 12 15:43 d79fd1123213f2ceb3d6c32e8dad42bd587ec8
+-r--r--r-- 1 owner owner 55 May 15  2015 569aab72ab0cbf466c40658ab9a3d86b55263e
+./d7
+total 8
+-r--r--r-- 1 owner owner 0 Aug 12 15:43 9f81cd6e309fa01e063f3e12fb7615e712d7f4
+./2a
+total 36
+-r--r--r-- 1 owner owner    0 Aug 12 15:43 a3bece220f147f85172fe43430d069276d835
+c
+-r--r--r-- 1 owner owner 7025 Jun 24  2015 f07ddbaf243cef8de791b45e7ff4232025a93
+6
+-r--r--r-- 1 owner owner  277 May 15  2015 a1964c1ba8fd40f3fdebf64efd0ba3756115a
+f
+./b7
+total 20
+-r--r--r-- 1 owner owner   0 Aug 12 15:43 23fee57c918ba3fd06057398e0a905fde7b80e
+-r--r--r-- 1 owner owner 277 May 15  2015 2300417059ab5c52ac26c318e6b67bcefbe1e2
+./c9
+total 20
+-r--r--r-- 1 owner owner  0 Aug 12 15:43 9312442b0961241eb0de3d6d65893c52f4d9d1
+-r--r--r-- 1 owner owner 49 May 15  2015 ab6021b2473c60ba443c5ad197f2e3e3692895
+./e8
+total 20
+-r--r--r-- 1 owner owner   0 Aug 12 15:43 7e67fafb0d6c63b790b37ab46f67cf0654ea22
+-r--r--r-- 1 owner owner 466 May 15  2015 258b21d3a02dfcc0c5c10f3ab186763ae0c38b
+./4c
+total 36
+-r--r--r-- 1 owner owner    0 Aug 12 15:43 bfb3869eb16ca691d93e1a3a05d375e87c1c7
+7
+-r--r--r-- 1 owner owner   57 May 15  2015 be8a2baee075d0935e3af349d85c2553d77bf
+8
+-r--r--r-- 1 owner owner 6830 Nov  1  2014 df1a366dbdf08c5f7412ff867d859d6818376
+4
+</code></pre>
+</div>
+
+<p>Objects are grouped according to the first two digits of their <a href="https://git-scm.com/">Git</a>
+hash.  The following list is easier to read.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/.vim/bundle/nerdtree/.git/objects]$ find . -mindepth 2 \
+&gt; -maxdepth 2 -mtime 0 -type f -exec file {} \;
+./2e/2b649232d6ae4d02d74793e5da0ee08480ad8d: empty 
+./7e/e42eb25e86a6825cdba370f20d2e146ed61ae6: empty 
+./a0/019ff4d6b033f37efd9b1a99daf6c9797796b1: empty 
+./29/24ab207162ca18cf5844d00b351ade1b5122f6: empty 
+./38/d79fd1123213f2ceb3d6c32e8dad42bd587ec8: empty 
+./d7/9f81cd6e309fa01e063f3e12fb7615e712d7f4: empty 
+./2a/a3bece220f147f85172fe43430d069276d835c: empty 
+./b7/23fee57c918ba3fd06057398e0a905fde7b80e: empty 
+./c9/9312442b0961241eb0de3d6d65893c52f4d9d1: empty 
+./e8/7e67fafb0d6c63b790b37ab46f67cf0654ea22: empty 
+./4c/bfb3869eb16ca691d93e1a3a05d375e87c1c77: empty 
+</code></pre>
+</div>
+
+<p>I <em>removed</em> these files and typed <code class="highlighter-rouge">git status</code>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/.vim/bundle/nerdtree]$ git status
+fatal: bad object HEAD
+</code></pre>
+</div>
+
+<p>I googled “invalid sha1 pointer in cache-tree”, and read a webpage a
+Stack Overflow <a href="http://stackoverflow.com/q/11706215">post on empty Git objects</a>.  The command
+<code class="highlighter-rouge">git fsck --full</code> can be used to check the integrity of a <a href="https://git-scm.com/">Git</a>
+repository.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/.vim/bundle/nerdtree/.git]$ git fsck --full
+Checking object directories: 100% (256/256), done.
+Checking objects: 100% (3525/3525), done.
+error: HEAD: invalid sha1 pointer 2e2b649232d6ae4d02d74793e5da0ee08480ad8d
+error: refs/heads/master: invalid sha1 pointer 2e2b649232d6ae4d02d74793e5da0ee08
+480ad8d
+error: refs/remotes/origin/HEAD: invalid sha1 pointer 2e2b649232d6ae4d02d74793e5
+da0ee08480ad8d
+error: refs/remotes/origin/master: invalid sha1 pointer 2e2b649232d6ae4d02d74793
+e5da0ee08480ad8d
+error: HEAD: invalid reflog entry 2e2b649232d6ae4d02d74793e5da0ee08480ad8d
+error: refs/heads/master: invalid reflog entry 2e2b649232d6ae4d02d74793e5da0ee08
+480ad8d
+error: refs/remotes/origin/master: invalid reflog entry 2e2b649232d6ae4d02d74793
+e5da0ee08480ad8d
+error: d79f81cd6e309fa01e063f3e12fb7615e712d7f4: invalid sha1 pointer in cache-t
+ree
+missing blob 2aa3bece220f147f85172fe43430d069276d835c
+</code></pre>
+</div>
+
+<p>The above message inspired me to make the following list of files
+changed due to this failed <a href="https://git-scm.com/">Git</a> pull.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/.vim/bundle/nerdtree/.git]$ find . -mtime 0 -type f -print
+./refs/heads/master
+./refs/remotes/origin/master
+./FETCH_HEAD
+./logs/HEAD
+./logs/refs/heads/master
+./logs/refs/remotes/origin/master
+./ORIG_HEAD
+./index
+</code></pre>
+</div>
+
+<p>I looked at the relevant files in the folder <code class="highlighter-rouge">logs/refs/</code>.  The change
+time in Unix timestamp, the old and new commit IDs were found.
+I restored these files (including the logs) with the help of these
+logs <em>except</em> <code class="highlighter-rouge">FETCH_HEAD</code> and <code class="highlighter-rouge">index</code>.</p>
+
+<p>At this stage, <code class="highlighter-rouge">git status</code> would still throw out an error if it was
+invoked.  However, since the references to <code class="highlighter-rouge">HEAD</code> and <code class="highlighter-rouge">ORIG_HEAD</code> had
+been manually set, <code class="highlighter-rouge">git reset --hard HEAD</code> could restore the <a href="https://git-scm.com/">Git</a>
+repository.</p>
+
+<h2 id="result">Result</h2>
+
+<p>Finally, I could update <a href="https://github.com/scrooloose/nerdtree/">the NERD Tree</a>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/.vim/bundle/nerdtree]$ git pull
+remote: Counting objects: 11, done.
+remote: Total 11 (delta 3), reused 3 (delta 3), pack-reused 8
+Unpacking objects: 100% (11/11), done.
+From https://github.com/scrooloose/nerdtree
+   d280b15..2e2b649  master     -&gt; origin/master
+Updating d280b15..2e2b649
+Fast-forward
+ autoload/nerdtree/ui_glue.vim | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+</code></pre>
+</div>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<h3 id="find">find</h3>
+
+<ul>
+  <li>Control the depth of the search with <code class="highlighter-rouge">-maxdepth</code> and <code class="highlighter-rouge">-mindepth</code>.</li>
+  <li>Search files by time.  (To be put <em>before</em> <code class="highlighter-rouge">-type</code>)
+    <ul>
+      <li><code class="highlighter-rouge">-mtime [n]</code>: last modified time equal to <code class="highlighter-rouge">n</code> <del>day(s)</del>
+  <code class="highlighter-rouge">*24</code> hours.  (rounded down to an integer)
+        <ul>
+          <li><code class="highlighter-rouge">-mtime +[n]</code>: modified <em>before</em> <code class="highlighter-rouge">n</code> <del>day(s)</del> <code class="highlighter-rouge">*24</code>
+  hours.</li>
+          <li><code class="highlighter-rouge">-mtime -[n]</code>: modified <em>within</em> the last <code class="highlighter-rouge">n</code>
+  <del>day(s)</del> <code class="highlighter-rouge">*24</code> hours.</li>
+          <li><code class="highlighter-rouge">-mmin [n]</code>: modified time calculated in number of <em>minutes</em>
+  instead of days.</li>
+        </ul>
+      </li>
+      <li><code class="highlighter-rouge">-atime [n]</code>, <code class="highlighter-rouge">-amin [n]</code>: last access time</li>
+      <li><code class="highlighter-rouge">-ctime [n]</code>, <code class="highlighter-rouge">-cmin [n]</code>: last change of file status</li>
+      <li><code class="highlighter-rouge">-anewer</code>, <code class="highlighter-rouge">-cnewer</code>, <code class="highlighter-rouge">-newer</code>: followed by filename (<code class="highlighter-rouge">-mnewer</code>
+  <em>doesn’t</em> exist.)</li>
+      <li><code class="highlighter-rouge">-daystart</code>: use the start of day for calculations.  (Preceed
+  <code class="highlighter-rouge">-mtime</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ls">ls</h3>
+
+<p>Use <code class="highlighter-rouge">-t</code> flag to sort files using their last modified time in
+descending order.</p>
+
+<h3 id="git">Git</h3>
+
+<p>One can find files from a Git SHA1 hash using <code class="highlighter-rouge">git ls-tree -r &lt;hash&gt;</code>.
+To search contents in commits, you may refer to a
+<a href="http://stackoverflow.com/q/460331">question about Git</a> on Stack Overflow.</p>
+
+<p>When I wrote my <a href="/blog/2015/08/06/my-git-command-list-3/">list of low-level commands</a> last year, I
+<em>couldn’t</em> understand the role of <code class="highlighter-rouge">index</code>.  Now, I know that the
+binary objects stored in <code class="highlighter-rouge">objets/</code> and the references can work
+<em>independently</em> of <code class="highlighter-rouge">index</code>, which can be re-created by <code class="highlighter-rouge">git
+write-tree</code>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/17/latex-french-letter-with-signature/">$\rm \LaTeX$ French Letter with Signature</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/17/latex-french-letter-with-signature/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/17/latex-french-letter-with-signature/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/17/latex-french-letter-with-signature/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>Same as my recent post <a href="/blog/2016/04/16/writting-letter-with-bibliography/"><em>Writting Letter With Bibliography</em></a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>How to add a scanned signature to a $\rm \LaTeX$ document for the
+<code class="highlighter-rouge">lettre</code> class?</p>
+
+<p><img src="/downloads/code/MaLettre/sample-sign.jpg" alt="scanned signature to be added" /></p>
+
+<!-- more -->
+
+<h2 id="my-attempt">My attempt</h2>
+
+<p>Searching “latex letter signature”, I quickly find an article on
+<a href="http://texblog.org/2010/05/04/latex-letter-signature-as-image/">texblog</a>.  If the <code class="highlighter-rouge">\name{}</code> has been defined at the beginning of
+the letter, then adding <code class="highlighter-rouge">\forname</code> below the line</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>\fromsig{\includegraphics[scale=1]{signature.jpg}} \\
+</code></pre>
+</div>
+
+<p>will give you <em>another</em> name, and <code class="highlighter-rouge"><span class="p">{</span><span class="err">Your</span><span class="w"> </span><span class="err">name</span><span class="p">}</span></code> will give you the
+third one.  Moreover, the alignment of the sender’s name <em>isn’t</em>
+right.</p>
+
+<p>According to the documentation of <code class="highlighter-rouge">lettre</code>, the <code class="highlighter-rouge">\signature{}</code> command
+accepts <em>only text</em> as its arguments.  I try redefining it, but the
+alignment is still <em>wrong</em>.  As a result, I decided to do it the
+<em>dirty</em> way:  I recalled the method of adding the sender’s name at the
+closing part in <a href="http://bio-teckna.fr/?p=1019">Bio Teckna’s model letter</a>.  The
+<code class="highlighter-rouge">\begin{center}</code> environment is used.  However, to make it look like a
+French letter, I used <code class="highlighter-rouge">\hspace{8cm}</code> to adjust the horizontal spacing.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Sample $\rm \LaTeX$ French letter with signature</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="p">&#x7b;</span>lettre<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>fontspec<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[frenchb]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;letter&#x7d;</span><span class="p">&#x7b;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    Nom de destinataire <span class="k">\\</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    4, boulevard de la Paix, <span class="k">\\</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    12345 Nom de ville
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\name</span><span class="p">&#x7b;</span><span class="k">\null</span><span class="p">&#x7d;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\address</span><span class="p">&#x7b;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">    Votre NOM<span class="k">\\</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    23, rue à votre ville <span class="k">\\</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    23456 Nom de votre ville
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\sigspace</span><span class="p">&#x7b;</span>-10mm<span class="p">&#x7d;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\lieu</span><span class="p">&#x7b;</span>Votre ville<span class="p">&#x7d;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\telephone</span><span class="p">&#x7b;</span>01 02 03 04 05<span class="p">&#x7d;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\nofax</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\email</span><span class="p">&#x7b;</span>fake@live.hk<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\concname</span><span class="p">&#x7b;</span>Objet :~<span class="p">&#x7d;</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\conc</span><span class="p">&#x7b;</span>Saisir votre objet<span class="p">&#x7d;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\opening</span><span class="p">&#x7b;</span>Madame, Monsieur,<span class="p">&#x7d;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">  Un exemple d'une lettre <span class="p">$</span><span class="nv">\rm</span><span class="nb"> </span><span class="nv">\LaTeX</span><span class="p">$</span> faite par <span class="k">\LaTeX</span>.  Le faux
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">  texte ci-dessous est généré par le plugin Lorem Ipsum pour Vim.
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">  risus ut arcu malesuada ornare. Maecenas.
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">  urna.
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\closing</span><span class="p">&#x7b;</span>Veuillez d'agréer, Madame, Monsieur, mes salutations les
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line">  meilleures.<span class="p">&#x7d;</span>
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\begin&#x7b;center&#x7d;</span>
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">\hspace</span><span class="p">&#x7b;</span>8cm<span class="p">&#x7d;</span><span class="k">\fromsig</span><span class="p">&#x7b;</span><span class="k">\includegraphics</span><span class="na">[scale=1]</span><span class="p">&#x7b;</span>sample-sign.jpg<span class="p">&#x7d;&#x7d;</span><span class="k">\\</span>
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">\hspace</span><span class="p">&#x7b;</span>8cm<span class="p">&#x7d;</span><span class="k">\fromname</span><span class="p">&#x7b;</span>Votre NOM<span class="p">&#x7d;</span>
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;center&#x7d;</span>
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\encl</span><span class="p">&#x7b;</span>pièces jointes<span class="p">&#x7d;</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;letter&#x7d;</span>
+</div></div><div data-line="55" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div></pre></div></figure>
+
+<p>The final product can be viewed by clicking the link for the
+<a href="/downloads/ltrsign.pdf">sample PDF with signature</a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/16/latex-french-letter-template/">$\rm \LaTeX$ French Letter Template</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/16/latex-french-letter-template/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/16/latex-french-letter-template/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/16/latex-french-letter-template/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just include the files here for future references.  Since the code
+are universal, I assume that the source file and the linked PDF file
+below are in public domain, despite the CC-BY-SA licence at the bottom
+of this page.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Sample French $\rm \LaTeX$ letter</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt]</span><span class="p">&#x7b;</span>lettre<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>fontspec<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[frenchb]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;letter&#x7d;</span><span class="p">&#x7b;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    Nom de destinataire <span class="k">\\</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    4, boulevard de la Paix, <span class="k">\\</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    12345 Nom de ville
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\name</span><span class="p">&#x7b;</span>Votre NOM<span class="p">&#x7d;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\address</span><span class="p">&#x7b;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">    Votre NOM<span class="k">\\</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    23, rue à votre ville <span class="k">\\</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    23456 Nom de votre ville
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\lieu</span><span class="p">&#x7b;</span>Votre ville<span class="p">&#x7d;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\telephone</span><span class="p">&#x7b;</span>01 02 03 04 05<span class="p">&#x7d;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\nofax</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\concname</span><span class="p">&#x7b;</span>Objet :~<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\conc</span><span class="p">&#x7b;</span>Saisir votre objet<span class="p">&#x7d;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\opening</span><span class="p">&#x7b;</span>Madame, Monsieur,<span class="p">&#x7d;</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  Un exemple d'une lettre <span class="p">$</span><span class="nv">\rm</span><span class="nb"> </span><span class="nv">\LaTeX</span><span class="p">$</span> faite par <span class="k">\LaTeX</span>.  Le faux
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  texte ci-dessous est généré par le plugin Lorem Ipsum pour Vim.
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  risus ut arcu malesuada ornare. Maecenas.
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">  urna.
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\closing</span><span class="p">&#x7b;</span>Veuillez d'agréer, Madame, Monsieur, mes salutations les
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">  meilleures.<span class="p">&#x7d;</span>
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;letter&#x7d;</span>
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div></pre></div></figure>
+
+<p>You may view <a href="/downloads/ltr.pdf">the output PDF</a> before downloading the above
+sample.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/16/writting-letter-with-bibliography/">Writting Letter with Bibliography</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/16/writting-letter-with-bibliography/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/16/writting-letter-with-bibliography/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/16/writting-letter-with-bibliography/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>Recently, I need to write letters.  Get the formatting for addressee
+and sender automatically done, I choose $\rm \LaTeX$.  I cite a book
+in my letter, and try to add a bibliography at the end of the letter.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>During the compilation for the following letter, an error was thrown.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">A failed $\rm \LaTeX$ letter</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt]</span><span class="p">&#x7b;</span>lettre<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>fontspec<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[frenchb]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[backend=biber]</span><span class="p">&#x7b;</span>biblatex<span class="p">&#x7d;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\addbibresource</span><span class="p">&#x7b;</span>ltrbib.bib<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>csquotes<span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;letter&#x7d;</span><span class="p">&#x7b;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    Nom de destinataire <span class="k">\\</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    4, boulevard de la Paix, <span class="k">\\</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    12345 Nom de ville
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\name</span><span class="p">&#x7b;</span>Votre NOM<span class="p">&#x7d;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\address</span><span class="p">&#x7b;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    Votre NOM<span class="k">\\</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    23, rue à votre ville <span class="k">\\</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    23456 Nom de votre ville
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\lieu</span><span class="p">&#x7b;</span>Votre ville<span class="p">&#x7d;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\telephone</span><span class="p">&#x7b;</span>01 02 03 04 05<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\nofax</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\concname</span><span class="p">&#x7b;</span>Objet :~<span class="p">&#x7d;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\conc</span><span class="p">&#x7b;</span>Saisir votre objet<span class="p">&#x7d;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\opening</span><span class="p">&#x7b;</span>Madame, Monsieur,<span class="p">&#x7d;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">  Un exemple de citation dans un document <span class="p">$</span><span class="nv">\rm</span><span class="nb"> </span><span class="nv">\LaTeX</span><span class="p">$</span>.  <span class="k">\cite</span><span class="p">&#x7b;</span>serre<span class="p">&#x7d;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">  Le faux texte ci-dessous est généré par le plugin Lorem Ipsum pour
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">  Vim.
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">  risus ut arcu malesuada ornare. Maecenas.
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">  urna.
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\closing</span><span class="p">&#x7b;</span>Veuillez d'agréer, Madame, Monsieur, mes salutations les
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">  meilleures.<span class="p">&#x7d;</span>
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\printbibliography</span>
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;letter&#x7d;</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div></pre></div></figure>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">A sample Bib$\rm \LaTeX$ file</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">@BOOK&#x7b;serre,
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    author = &#x7b;Serre, J. P.&#x7d;,
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    title = &#x7b;Cours d'arithmétique&#x7d;,
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    publisher = &#x7b;Presse Universitaire de France&#x7d;,
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    year = &#x7b;1970&#x7d;,
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    edition = &#x7b;1ère ed.&#x7d;,
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    address = &#x7b;Paris, France&#x7d;,
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    pages = &#x7b;103--106&#x7d;,
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">&#x7d;
+</div></div></pre></div></figure>
+
+<p>Here’s my compilation procedure.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ xelatex noltrbib.tex
+$ biber noltrbib
+$ xelatex noltrbib.tex
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian)
+ restricted \write18 enabled.
+...
+! Undefined control sequence.
+\\blx@head@bibliography [#1]-&gt;\section 
+                                       *{#1}\markboth {\MakeUppercase {#1}}{...
+l.52 \end
+         {letter}
+?
+...
+</code></pre>
+</div>
+
+<p>I type <code class="highlighter-rouge">&lt;Enter&gt;</code> at <code class="highlighter-rouge">?</code>, and get <a href="/downloads/noltrbib.pdf">a PDF that seems OK</a>.  You may
+read the <a href="/downloads/code/MaLettre/noltrbib.log">log file for this file</a> to know more about this error.
+However, each time I use $\rm \LaTeX$-Suite to compile the document
+inside Vim, a quickfix window pops up.  This is quite inconvenient: I
+need to use <code class="highlighter-rouge">&lt;C-w&gt;k</code> to switch to the original buffer or <code class="highlighter-rouge">ZQ</code> to close
+the quickfix window.  Therefore, I am motivated to find out a solution
+for this error.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Luckily, I find the thread
+<a href="http://www.latex-community.org/forum/viewtopic.php?f=4&amp;t=3359"><em>Environment thebibliography undefined when using letter</em></a> in
+$\rm \LaTeX$ Forum extremely useful.  In my opinion, if one can
+include inline code in a post in this forum, the file name
+<code class="highlighter-rouge">letterbib.sty</code> and the command in the preamble can be shown in
+monospaced font for readability.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">A minimal working $\rm \LaTeX$ letter</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\documentclass</span><span class="na">[12pt]</span><span class="p">&#x7b;</span>lettre<span class="p">&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>fontspec<span class="p">&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[frenchb]</span><span class="p">&#x7b;</span>babel<span class="p">&#x7d;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="na">[backend=biber]</span><span class="p">&#x7b;</span>biblatex<span class="p">&#x7d;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\addbibresource</span><span class="p">&#x7b;</span>ltrbib.bib<span class="p">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>csquotes<span class="p">&#x7d;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\usepackage</span><span class="p">&#x7b;</span>letterbib<span class="p">&#x7d;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;document&#x7d;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;letter&#x7d;</span><span class="p">&#x7b;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    Nom de destinataire <span class="k">\\</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    4, boulevard de la Paix, <span class="k">\\</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    12345 Nom de ville
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="p">&#x7d;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\name</span><span class="p">&#x7b;</span>Votre NOM<span class="p">&#x7d;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\address</span><span class="p">&#x7b;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    Votre NOM<span class="k">\\</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    23, rue à votre ville <span class="k">\\</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    23456 Nom de votre ville
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="p">&#x7d;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\lieu</span><span class="p">&#x7b;</span>Votre ville<span class="p">&#x7d;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\telephone</span><span class="p">&#x7b;</span>01 02 03 04 05<span class="p">&#x7d;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\nofax</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\def\concname</span><span class="p">&#x7b;</span>Objet :~<span class="p">&#x7d;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\conc</span><span class="p">&#x7b;</span>Saisir votre objet<span class="p">&#x7d;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\opening</span><span class="p">&#x7b;</span>Madame, Monsieur,<span class="p">&#x7d;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">  Un exemple de citation dans un document <span class="p">$</span><span class="nv">\rm</span><span class="nb"> </span><span class="nv">\LaTeX</span><span class="p">$</span>.  <span class="k">\cite</span><span class="p">&#x7b;</span>serre<span class="p">&#x7d;</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">  Le faux texte ci-dessous est généré par le plugin Lorem Ipsum pour
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  Vim.
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7b;&#x7b;&#x7b;</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">  Curabitur eget nisi at lectus placerat gravida. Vivamus nulla. Donec
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">  luctus. Sed quis tellus. Quisque lobortis faucibus mi. Aenean vitae
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">  risus ut arcu malesuada ornare. Maecenas.
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">  Amet, rhoncus in, ipsum. Mauris rhoncus, lacus eu convallis sagittis,
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">  quam magna placerat est, vitae imperdiet mauris arcu ac dui. In ac
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">  urna non justo posuere mattis. Suspendisse egestas bibendum nulla. In
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  erat nunc, posuere sed, auctor quis, pulvinar quis, mi. Mauris at est.
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">  Phasellus lacinia eros in arcu. Maecenas lobortis, tellus vel gravida
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">  tincidunt, elit erat suscipit arcu, in varius erat risus vel magna.
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">  Fusce nec ante quis dolor vestibulum bibendum. Pellentesque sit amet
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">  urna.
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">% lorem&#x7d;&#x7d;&#x7d;</span>
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\closing</span><span class="p">&#x7b;</span>Veuillez d'agréer, Madame, Monsieur, mes salutations les
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">  meilleures.<span class="p">&#x7d;</span>
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\printbibliography</span>
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;letter&#x7d;</span>
+</div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;document&#x7d;</span>
+</div></div></pre></div></figure>
+
+<p>Finally, no compilation error is shown in the <a href="/downloads/code/MaLettre/ltrbib.log">generated log</a>.
+You may view the <a href="/downloads/ltrbib.pdf">second generated PDF</a>.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>To install the above STY file, which <em>isn’t</em> found on <abbr title="Comprehensive TeX Archive Network">CTAN</abbr>, one needs
+to manually download it to <code class="highlighter-rouge">~/texmf</code> on *nix.  (Search “~/texmf” for
+the way to find <a href="http://tex.stackexchange.com/a/12702">“temxf” on Win*</a>.)  Searching “texmf
+linux refresh”, I find the way for a
+<a href="http://www.dickimaw-books.com/latex/novices/html/texhash.html">$\rm \TeX$ database update</a>.  I miss the first argument
+in the command <code class="highlighter-rouge">texhash ~/texmf</code>, and then the installed STY file
+<em>can’t</em> be found in <code class="highlighter-rouge">~/texmf/ls-R</code>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/09/i-search-and-reverse-i-search/">I-Search and Reverse I-Search</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/09/i-search-and-reverse-i-search/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/09/i-search-and-reverse-i-search/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/09/i-search-and-reverse-i-search/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One knows that long commands can be retrieved by <code class="highlighter-rouge">&lt;C-r&gt;</code>.  If the
+search <em>fails</em>, one may cancel it by <code class="highlighter-rouge">&lt;C-g&gt;</code>.  However, how can one
+search forward through the command history instead of backword?</p>
+
+<p>The answer is simple: add <code class="highlighter-rouge">stty -ixon</code> to your BASHRC.</p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/09/latex-suite-in-portable-git/">$\rm \LaTeX$-Suite in Portable Git</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/09/latex-suite-in-portable-git/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/09/latex-suite-in-portable-git/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/09/latex-suite-in-portable-git/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>A year ago, I was using msysgit on M$ Win* 7. Its support for
+Unicode characters <em>isn’t</em> so good, and I <em>can’t</em> write a text file
+with accents like “café” in the Vim editor that shipped with msysgit.
+As a result, I needed GVim for editing my $\rm \LaTeX$ documents.</p>
+
+<p>Unluckily, unlike Linux, the GVim can <em>never</em> have forward control.
+Therefore, I needed to switch windows between GVim and Git Bash.</p>
+
+<p>More importantly, if I want to apply the Linux skills and the tools on
+M$ Win*, I need <em>portable</em> programs excutable on a USB unless I
+carry my laptop.</p>
+
+<p>Luckily, the bash shell in Git for Windows has improved a lot.  The
+accents are well supported.  Then, I have switched from GVim to the
+embedded Vim in Git for Windows.  Luckily, the setup of Vundle was
+smooth. Most of the installed plugins work fine in terminal Vim.</p>
+
+<h2 id="problem-1">Problem 1</h2>
+
+<p>In the post <a href="/blog/2016/03/20/git-portable-home-path/"><em>Git Portable Home Path</em></a>, a BAT file is included so
+that the home folder and the <code class="highlighter-rouge">HOMEDRIVE</code> environment are automatically
+set.  Since the <em>same</em> Git repository can be shared among multiple
+devices, such as my Linux desktop, my M$ Win* 7 laptop, and my USB
+stick, a bare repository is needed for efficient pulling and pushing
+of Git commits.  Since I work outside home, I place a bare Git repo in
+my USB stick.  However, for each local Git repository stored in the
+USB stick (under <code class="highlighter-rouge">~/local_repo</code>, a.k.a.
+<code class="highlighter-rouge">$HOMEDRIVE/PortableGit/home/owner/local_repo</code>), I need to run the
+following command for each time I use Git Bash.</p>
+
+<h2 id="problem-2">Problem 2</h2>
+
+<p>After making some changes on a $\rm \TeX$ file, I compiled the file
+using Mik$\rm \TeX$ Portable.</p>
+
+<ol>
+  <li>Browse the folder <code class="highlighter-rouge">$HOMEDRIVE/MikTeXPortable/</code>.</li>
+  <li>Double-click on <code class="highlighter-rouge">miktex-portable.cmd</code>.</li>
+  <li>In the Command Prompt popped up, switch to
+<code class="highlighter-rouge">$HOMEDRIVE/PortableGit/home/owner/local_repo</code>.</li>
+  <li>Type <code class="highlighter-rouge">pdflatex file.tex</code>.</li>
+</ol>
+
+<p>This sounds really slow.  The goal is to find a more efficient $\rm
+\LaTeX$ editing workflow.</p>
+
+<p>That’s <em>not</em> the end.  Another bad news came from <code class="highlighter-rouge">eu1lmr.fd</code>.  I’ve
+got error similar to <a href="http://bbs.ctex.org/forum.php?mod=viewthread&amp;tid=75679">fengbaobao6’s</a>.  The compilation was
+<em>stuck</em> at <code class="highlighter-rouge">...\tex\latex\euenc\eu1lmr.fd</code>.  Then an error was shown:
+“Fontconfig error: Cannot load config file”.</p>
+
+<!-- more -->
+
+<h2 id="solution-1">Solution 1</h2>
+
+<ol>
+  <li>Create a file <code class="highlighter-rouge">~/.bashrc</code> if it <em>doesn’t</em> exist.</li>
+  <li>Write an array consisting of all local Git repositories saved in
+the USB stick in BASHRC.</li>
+  <li>Then Write a for loop to reset the remote location.</li>
+</ol>
+
+<h2 id="solution-2">Solution 2</h2>
+
+<p>Searching the error text, I found kounoupis’s answer on
+<a href="http://askubuntu.com/a/708541">Ask Ubuntu</a>.  Even though the <code class="highlighter-rouge">export</code> command <em>didn’t</em>
+work for me, I still found his answer informative.</p>
+
+<p>Finally, reading <code class="highlighter-rouge">miktex-portable.cmd</code>, I gave up on investigating the
+problem, and added the last line of this file into BASHRC since I have
+other important things to do.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Actual CMD file found in Mik$\rm \TeX$ Portable</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">@echo off
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cd /d %~dp0
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">miktex\bin\miktex-taskbar-icon.exe
+</div></div></pre></div></figure>
+
+<p>To include Mik$\rm \TeX$ into <code class="highlighter-rouge">PATH</code>, I first extracted <code class="highlighter-rouge">$HOMEDRIVE</code>
+in the form <code class="highlighter-rouge">/f</code> instead of <code class="highlighter-rouge">F:/</code>.  If not, Mik$\rm \TeX$ <em>won’t</em>
+work.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Here’s my BASHRC for Git Bash.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">My BASHRC</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">stty -ixon
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cd ~
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">HOMEDRIVE=$(perl -e '($var) = $ENV&#x7b;HOMEDRIVE&#x7d; =~ /([A-Z]):/; print "/".lc($1)')
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">if [ $(perl -e '($var) = $ENV&#x7b;PATH&#x7d; !~ /tex/i; print STDOUT $var') ]
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">then
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    echo "No LaTeX found!  Added $HOMEDRIVE/MikTeXPortable/miktex/bin
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    to path."
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    PATH=$PATH:$HOMEDRIVE/MikTeXPortable/miktex/bin
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    echo "IMPORTANT: Close MikTeX Taskbar icon before exit."
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    echo "Otherwise this shell WON'T close."
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    miktex-taskbar-icon
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">fi
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">loc_repo=(
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">'resume2015'
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">)
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">for f in $&#x7b;loc_repo[@]&#x7d;; do
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    cd $f
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    git remote set-url origin $HOMEDRIVE/$f.git
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">    cd -
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">done
+</div></div></pre></div></figure>
+
+<p>If the setup is correct, then <code class="highlighter-rouge">\ll</code> in $\rm \LaTeX$-Suite should
+automatically trigger the $\rm \LaTeX$ compilation.  I give up on
+finding ways to open a viewer with <code class="highlighter-rouge">\lv</code> since I can use the keyboard
+to switch to a web browser to see the compiled PDF file <em>without</em>
+installing another PDF viewer in my USB stick.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>I’ve learnt some Perl and bash after writing this BASHRC.</p>
+
+<ol>
+  <li>A little bit of Perl
+    <ul>
+      <li><code class="highlighter-rouge">$ENV{HOMEDRIVE}</code> for extracting the environment variable
+  <code class="highlighter-rouge">HOMEDRIVE</code>.</li>
+      <li><code class="highlighter-rouge">/(regex_pat)/;</code> for extracting matching string to capture
+  groups <code class="highlighter-rouge">$1</code>, <code class="highlighter-rouge">$2</code>…  (The <code class="highlighter-rouge">()</code> around <code class="highlighter-rouge">regex_pat</code> is
+  <em>crucial</em>.)</li>
+      <li><code class="highlighter-rouge">.</code> for string concatenation.</li>
+      <li><code class="highlighter-rouge">lc()</code> for converting a string to lowercase.</li>
+    </ul>
+  </li>
+  <li>Bash for loop writing: described in <a href="/blog/2016/04/08/loop-through-an-array-having-only-one-element-in-bash/">one of my recent posts</a>.</li>
+</ol>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/09/cant-visit-wordpress-dot-com/">Can't Visit WordPress.com</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/09/cant-visit-wordpress-dot-com/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/09/cant-visit-wordpress-dot-com/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/09/cant-visit-wordpress-dot-com/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>While removing the “here”’s in the hyperlink text, I clicked on a link
+to my old blog on WordPress.com.  Unfortunately, after 15 seconds, I
+<em>couldn’t</em> see the output.</p>
+
+<h2 id="more-errors">More errors</h2>
+
+<p>I suspect that it was a problem of the server of WordPress.com.  I
+think the following screenshot confirm my guess.</p>
+
+<picture class="fancybox" title="Address NOT found">
+  <source srcset="/images/posts/NoWP/nowp.png" media="(min-width: 685px)" />&lt;/source&gt; 
+  <img alt="Address NOT found" width="300" src="/images/posts/NoWP/nowp300.png" />
+</picture>
+
+<h2 id="remarks">Remarks</h2>
+
+<p>This justifies the migration from WordPress to Octopress of
+<a href="/blog/2014/03/15/migrated-to-octopress/">this blog</a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/09/replaced-all-click-here/">Replaced All "Click here"</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/09/replaced-all-click-here/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/09/replaced-all-click-here/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/09/replaced-all-click-here/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I removed all instances of “here” in the hyperlink text and committed
+the changes at <a href="https://github.com/VincentTam/vincenttam.github.io/commit/29528f8">29528f8</a> after reading <em>Why Your Links Should Never
+Say “Click Here”</em> in <a href="https://www.smashingmagazine.com/2012/06/links-should-never-say-click-here/"><em>Smashing Magazine</em></a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/04/09/awk-column-alignment/">Awk Column Alignment</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/04/09/awk-column-alignment/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/04/09/awk-column-alignment/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/04/09/awk-column-alignment/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I use Google’s <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> to check if the images
+on this blog are optimised.  Recently, it reported that two images in
+<a href="/blog/2016/03/27/an-invalid-claim-by-the-government/"><em>An Invalid Claim by the Government</em></a> could be resized and
+compressed.  I did so, and then the file size of the files were
+displayed using <code class="highlighter-rouge">ls -lh</code>.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/octopress/source/images/posts/W3CInvalid]$ ls -lh
+total 312K
+-rw-rw-r-- 1 owner owner  32K Apr  9 12:20 cedb1-300.png
+-rw-rw-r-- 1 owner owner 132K Mar 27 14:32 cedb1.png
+-rw-rw-r-- 1 owner owner  32K Apr  9 12:20 cedb2-300.png
+-rw-rw-r-- 1 owner owner  83K Apr  9 12:20 cedb2.png
+</code></pre>
+</div>
+
+<h2 id="problem">Problem</h2>
+
+<p>To remove the first four column, one uses <code class="highlighter-rouge">awk</code> to do this.  (I assume
+that the current working directory is the <em>same</em> as above.)</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ ls -lh | awk '{print $5 $6 $7 $8 $9}'
+
+32KApr912:20cedb1-300.png
+132KMar2714:32cedb1.png
+32KApr912:20cedb2-300.png
+83KApr912:20cedb2.png
+</code></pre>
+</div>
+
+<p><strong>How can one properly align the columns?</strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Searching “awk align columns” on Google, I quickly got
+<a href="http://stackoverflow.com/a/14095129">an answer posted by Mike Sherrill</a> on Stack Overflow.
+However, there’s room for improvement in the visual effect of the
+output.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ ls -l | awk '{printf("%6s %s %2s %s %13s\n", $5, $6, $7, $8, $9);}'
+                         
+ 32718 Apr  9 12:20 cedb1-300.png
+135159 Mar 27 14:32     cedb1.png
+ 32665 Apr  9 12:20 cedb2-300.png
+ 84580 Apr  9 12:20     cedb2.png
+</code></pre>
+</div>
+
+<p>The solution can be found in <a href="http://stackoverflow.com/a/1505360">the second search result</a> for
+the Google search for “awk align columns left right”.  Added a hyphen
+after <code class="highlighter-rouge">%</code> will suffice.  Note that the newline <code class="highlighter-rouge">\n</code> <em>can’t</em> be
+omitted.  Otherwise, the output will be messed up.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ ls -l | awk '{printf("%6s %s %2s %s %-s\n", $5, $6, $7, $8, $9);}'
+                         
+ 32718 Apr  9 12:20 cedb1-300.png
+135159 Mar 27 14:32 cedb1.png    
+ 32665 Apr  9 12:20 cedb2-300.png
+ 84580 Apr  9 12:20 cedb2.png    
+</code></pre>
+</div>
+
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/4/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

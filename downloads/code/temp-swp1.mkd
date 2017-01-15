@@ -1,0 +1,8 @@
+## Generating Site with Jekyll
+        write source/stylesheets/screen.css
+    Configuration file: /home/owner/octopress/_config.yml
+                Source: source
+           Destination: public
+          Generating... 
+                        done.
+     Auto-regeneration: disabled. Use --watch to enable.

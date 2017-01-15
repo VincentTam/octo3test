@@ -1,0 +1,28 @@
+{
+  "name": "blog 1",
+  "homepage": "git.io/vtblog",
+  "authors": [
+    "Vincent Tam <sere@live.hk>"
+  ],
+  "description": "My Octopress 3 blog",
+  "main": "",
+  "keywords": [
+    "math",
+    "linux",
+    "vim",
+    "git",
+    "octopress"
+  ],
+  "license": "GPL v3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "compass-mixins": "latest"
+  }
+}

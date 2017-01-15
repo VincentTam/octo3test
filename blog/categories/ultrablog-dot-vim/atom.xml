@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: UltraBlog.vim | Blog 1]]></title>
+  <link href="https://vincenttam.github.io/blog/categories/ultrablog-dot-vim/atom.xml" rel="self"/>
+  <link href="https://vincenttam.github.io/"/>
+  <updated>2017-01-16T04:14:05+08:00</updated>
+  <id>https://vincenttam.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Tam]]></name>
+    <email><![CDATA[your-email@domain.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Fixing a Vim Error Caused by an UltraBlog.vim Upgrade]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/05/25/fixing-a-vim-error-caused-by-an-ultrablog-dot-vim-upgrade/"/>
+    
+    <updated>2014-05-25T20:01:52+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/05/25/fixing-a-vim-error-caused-by-an-ultrablog-dot-vim-upgrade</id>
+    
+      <content type="html"><![CDATA[<p>Yesterday, I upgraded the Vim plugins on my Ubuntu Desktop using
+<a href="https://github.com/gmarik/Vundle.vim">Vundle</a>.  Among the upgraded plugins, <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">Ultrablog.vim</a> was
+the <em>only</em> one that didn’t run smoothly on <em>my installed version</em> of
+Vim.</p>
+
+<p>Right after I issued the command <code class="highlighter-rouge">vi</code> on the terminal, I got the
+following error message.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ vi
+Error detected while processing /home/owner/.vim/bundle/UltraBlog.vim/plugin/UltraBlog.vim:
+line  253:
+Traceback (most recent call last):
+  File "&lt;string&gt;", line 7, in &lt;module&gt;
+  File "/home/owner/.vim/bundle/UltraBlog.vim/plugin/ultrablog/commands.py", line 8, in &lt;module&gt;
+from db import *
+  File "/home/owner/.vim/bundle/UltraBlog.vim/plugin/ultrablog/db.py", line 181, in &lt;module&gt;
+u.ub_echoerr(msg)
+  File "/home/owner/.vim/bundle/UltraBlog.vim/plugin/ultrablog/util.py", line 623, in ub_echoerr
+vim.command(cmd)
+vim.error: Vim(echoerr):Missing key 'xmlrpc_uri' in the settings list of UltraBlog.vim !
+Press ENTER or type command to continue
+</code></pre>
+</div>
+
+<!-- more -->
+
+<p>Before entering the standard startup screen, I received another
+complaint from the editor.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>Error detected while processing BufEnter Auto commands for "*":
+Traceback (most recent call last):
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
+NameError: name '__ub_on_buffer_enter' is not defined
+Press ENTER or type command to continue
+</code></pre>
+</div>
+
+<p>I tried opening a file, and was blamed by the program again!</p>
+
+<pre class="cli"><code class="UBMono"><span class="vimErr">"foo.txt" 123L, 456C
+Error detected while processing BufEnter Auto commands for "*":
+Traceback (most recent call last):
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
+NameError: name '__ub_on_buffer_enter' is not defined</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+</code></pre>
+
+<p>I split my window into half by the editor command <code class="highlighter-rouge">:new</code> and captured
+the content of another error message.  I found that it’s the same as
+the second message.</p>
+
+<p>I moved the cursor across windows, and got similar message, but
+repeated a few times.</p>
+
+<pre class="cli"><code class="UBMono"><span class="vimErr">Error detected while processing BufEnter Auto commands for "*":
+Traceback (most recent call last):</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+<span class="vimErr">Error detected while processing BufEnter Auto commands for "*":
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+<span class="vimErr">Error detected while processing BufEnter Auto commands for "*":
+NameError: name '__ub_on_buffer_enter' is not defined</span>
+<span class="vimErrCont">Press ENTER or type command to continue</span>
+</code></pre>
+
+<p>I was annoyed by the error, and decided to fix it.  From the alphabets
+“ub” in <code class="highlighter-rouge">__ub_on_buffer_enter</code> in the error messages, I believed that
+the recently updated plugin UltraBlog.vim was the cause of my problem.
+I searched Google for “vim ultrablog”.  To narrow down the search, I
+only viewed the web pages which were updated in the past year.  I
+found a blog post on the automatic completion of the category of
+posts.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  The post was written by Leigh, the creator of
+UltraBlog.vim.  There’s a code block in the middle, and experienced
+Vim users will notice that it’s the suggested configurations in one’s
+own VIMRC.  Comparing the settings for the previous version of
+UltraBlog.vim in my VIMRC with his, I realized that I didn’t include
+the line containing ‘xmlrpc_uri’.  I copied the whole line in his code
+block to my VIMRC, and restarted Vim again.  Finally, Vim didn’t show
+me errors anymore.</p>
+
+<p>Looking back, I regret not reading the first error message…</p>
+
+<p>Like Leigh, I’ve switched from WordPress to Octopress three months
+ago.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  His migration motivated me to follow his suit.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>  For the
+detailed practical advantages of Octopress over WordPress, you may
+refer to <a href="/about#my-old-blogs">my about page</a>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://0x3f.org/blog/ultrablog-v361-released/"><em>UltraBlog.vim v3.6.1: 文章分類自動補全</em></a>&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://blogueun.wordpress.com/2014/03/15/migrated-to-octopress/"><em>Migrated to Octopress</em></a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><a href="http://0x3f.org/blog/migrate-blog-to-octopress/"><em>遷移到octopress</em></a>&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Another Testing Page for WordPress.com's Built-in SyntaxHighlighter and UltraBlog]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/02/06/another-testing-page-for-wordpress-coms-built-in-syntaxhighlighter-and-ultrablog/"/>
+    
+    <updated>2014-02-06T01:55:52+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/02/06/another-testing-page-for-wordpress-coms-built-in-syntaxhighlighter-and-ultrablog</id>
+    
+      <content type="html"><![CDATA[<p><em>Note: This post won’t make sense here. Refer to the
+<a href="http://blogueun.wordpress.com/2014/02/06/another-testing-page-for-wordpress-coms-built-in-syntaxhighlighter-and-ultrablog/">original post</a>.</em></p>
+
+<!-- more -->
+
+<p>This post contains a code block. Following what I’ve done in the
+numbered list and <em>the last paragraph</em> in one of my recent post on
+WordPress.com, surrounding the code block with 3 backticks should work
+in UltraBlog.<sup id="fnref:pp"><a href="#fn:pp" class="footnote">1</a></sup></p>
+
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">&#x7b;</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="o">&#x7d;</span></div></div></pre></div></figure></p>
+
+<p>However, I tried writing an <code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code> tag in the online editor, and the
+code was stripped of. Anyways, there’s <a href="https://gist.github.com">Gist</a> on GitHub, so there
+should be no problem.</p>
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:pp">
+      <p>Refer to <a href="/blog/2014/02/06/testing-wordpress-footnotes/"><em>Testing WordPress’ Footnotes</em></a> for details.&nbsp;<a href="#fnref:pp" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[Testing WordPress' Footnotes]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/02/06/testing-wordpress-footnotes/"/>
+    
+    <updated>2014-02-06T00:54:20+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/02/06/testing-wordpress-footnotes</id>
+    
+      <content type="html"><![CDATA[<p><em>Note: This post won’t make sense here. Refer to the
+<a href="http://blogueun.wordpress.com/2014/02/06/another-testing-page-for-wordpress-coms-built-in-syntaxhighlighter-and-ultrablog/">original post</a>.</em></p>
+
+<!-- more -->
+
+<p>I tried to embed footnotes using UltraBlog. Maybe I’ve done too much
+things. Let me list them here.</p>
+
+<ol>
+  <li>On the dashboard, go to “Settings”, “Writing” and check the box for
+using Markdown.</li>
+  <li>Try using UltraBlog.vim to write some footnotes by editing an
+existing post found by <code class="highlighter-rouge">:UBList</code>.</li>
+  <li>Send the finished post to WordPress.com and view the results, and
+find out that it fails.</li>
+</ol>
+
+<p>It involves several technologies. UltraBlog. Therefore, it’s
+unrealistic to rely on Google search engine to get the answer.</p>
+
+<p>In order to quickly find out the cause of such error, I used the
+online editor to create a minimum working example of a post containing
+a footnote. Then I used UltraBlog to download that post. In gVim, I
+could see that the filetype is <code class="highlighter-rouge">html</code>, instead of <code class="highlighter-rouge">markdown</code>. I tried
+to change it to <code class="highlighter-rouge">markdown</code> and update the draft. However, the string
+<code class="highlighter-rouge">^1</code> enclosed in middle brackets <em>wasn’t</em> interpreted. When I switch
+the filetype back to <code class="highlighter-rouge">html</code>, then things just work again. Just like
+the text below. I copied them from
+<a href="http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html">the official pandoc markdown syntax guide</a>.</p>
+
+<blockquote>
+  <p>Here is a footnote reference,<sup id="fnref:fn1"><a href="#fn:fn1" class="footnote">1</a></sup> and another.<sup id="fnref:fn2"><a href="#fn:fn2" class="footnote">2</a></sup></p>
+</blockquote>
+
+<p>As I can see from the above block quote, the string <code class="highlighter-rouge">^longnote</code> inside a
+pair of middle brackets will be changed to numbers. In order to let you
+see it, I post a screenshot of my gVim here.</p>
+
+<p><img class="fancybox center" src="/images/posts/WPFn/MyGVim.png" width="800" alt="‘screenshot of my gVim’ [‘fig1’]" ><br />
+Note: Remember to <code class="highlighter-rouge">:se ft=html</code> before <code class="highlighter-rouge">:UBSend</code></p>
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:fn1">
+      <p>Here is the footnote.&nbsp;<a href="#fnref:fn1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:fn2">
+      <p>Here’s one with multiple blocks.&nbsp;<a href="#fnref:fn2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[My Error While Using UltraBlog]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/02/04/my-error-while-using-ultrablog/"/>
+    
+    <updated>2014-02-04T20:13:59+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/02/04/my-error-while-using-ultrablog</id>
+    
+      <content type="html"><![CDATA[<p>I’m not sure if I’ve installed UltraBlog.vim correctly a month ago,
+but it surely improves my blogging efficiency <em>a lot</em>.  With Vim’s
+keystroke, I can move the cursor quickly.  Such power of “what you
+think is what you get” is impossible to find in other editors, either
+the online ones or the offline ones.</p>
+
+<p>I write this post because I would like to make a record only.  I can
+still find ways to work well with UltraBlog.</p>
+
+<p>What are the errors?  The following screenshots illustrate them.</p>
+
+<p>I opened a local list and forgot to close it before opening another
+list.  Then, from one of the lists, I opened a new buffer to edit a
+post.  After I finished editing the post, I issued <code class="highlighter-rouge">ZQ</code> in order to
+close the buffer.  However, the buffer didn’t close.  Instead, I got
+<em>another</em> list.  It seems that the plugin doesn’t want users to use an
+“outdated” list to link up with a post.  As I tried to close the new
+list with <code class="highlighter-rouge">ZQ</code> or <code class="highlighter-rouge">:q</code>, I just <em>couldn’t</em> do it.  But there’s <em>so
+many</em> windows.  OK!  Then I just use <code class="highlighter-rouge">&lt;C-w&gt;j</code> and <code class="highlighter-rouge">ZQ</code> to close the
+old lists.  When I used UltraBlog for the first time, the plugin
+surprised me by giving me an <em>extra, identical and updated</em> list of
+contents.  Since the first time, the plugin still do the same thing,
+of course, but I can “keep calm and continue blogging”.</p>
+
+<p>I’ve run into this situation for the first time today.</p>
+
+<p><img class="fancybox" src="/images/posts/UBErr/ub-q1.png" width="800" alt="‘First UltraBlog screenshot’ [‘fig1’]" ></p>
+
+<p>I tried to quit the new list with <code class="highlighter-rouge">:q</code>.</p>
+
+<p><img class="fancybox" src="/images/posts/UBErr/ub-q2.png" width="800" alt="‘Second UltraBlog screenshot’ [‘fig2’]" ></p>
+
+<p>Vim told me to use <code class="highlighter-rouge">:q!</code> instead.</p>
+
+<p><img class="fancybox" src="/images/posts/UBErr/ub-error.png" width="800" alt="‘Third UltraBlog screenshot’ [‘fig3’]" ></p>
+
+<p>UltraBlog threw a host of errors that I wouldn’t be interested to find
+out more.</p>
+
+<p>I wouldn’t have time to figure out what it really is.  <em>As far as I
+know, if I remember to close all post lists while writing or editing a
+post, things will be fine.</em>  Anyways, just make things work, and
+blogging with Vim and UltraBlog.vim is awesome!</p>
+
+<hr />
+
+<p>(Last edited on FEB 05, 2014)</p>
+
+<p>Note: Actually, <code class="highlighter-rouge">:on</code> can clear the unwanted and unaccessible old
+lists.  This can be checked using <code class="highlighter-rouge">:ls</code>, which is the same as
+<code class="highlighter-rouge">:buffers</code>.</p>
+
+<hr />
+
+<p>(Last edited on JUN 23, 2014)</p>
+
+<p>Now, I’ve switched to Octopress, just like the creator of
+UltraBlog.vim since it’s <em>better</em> than WordPress.</p>
+
+<hr />
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+]]></content>
+    
+  </entry>
+  
+  <entry>
+    
+      <title type="html"><![CDATA[My First WordPress Post using Gist]]></title>
+      <link href="https://vincenttam.github.io/blog/2014/01/30/my-first-wordpress-post-using-gist/"/>
+    
+    <updated>2014-01-30T16:25:03+08:00</updated>
+    <id>https://vincenttam.github.io/blog/2014/01/30/my-first-wordpress-post-using-gist</id>
+    
+      <content type="html"><![CDATA[<p><em>Note: This post won’t make sense here. Refer to the
+<a href="http://blogueun.wordpress.com/2014/01/30/1st-wp-post-using-gist/">original post</a>.</em></p>
+
+<p>Note: I can now figure out a way to work with <em>both</em> UltraBlog and
+WordPress.com’s built-in online code highlighter.  See my
+<a href="/blog/2014/02/06/another-testing-page-for-wordpress-coms-built-in-syntaxhighlighter-and-ultrablog/" title="Another Testing Page for WordPress.com's Built-in SyntaxHighlighter and UltraBlog">newer post</a> for details.</p>
+
+<p><a href="http://daringfireball.net/projects/markdown" title="Markdown">Markdown</a> is easy to write.  <del>However, writing code with <code class="highlighter-rouge">code</code>
+tag (surrounded with <code class="highlighter-rouge">[]</code>) using UltraBlog in Vim <em>doesn’t</em> work.  In
+order to post some code, one needs to
+<a href="http://en.support.wordpress.com/markdown/" title="WordPress's Markdown Support">use 3 backticks</a>.</del>  (I’ve found a way to use the
+built-in SyntaxHighlighter now because I’ve realised that a blank line
+in Markdown will be changed to a <code class="highlighter-rouge">&lt;p&gt;</code> tag in HTML.  Thus, <em>don’t</em> put
+any blank lines right above and below the the <code class="highlighter-rouge">&lt;code&gt;</code> tags.)</p>
+
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">element1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">“</span><span class="nx">foo</span><span class="err">”</span><span class="p">);</span>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nx">element1</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="err">“</span><span class="nx">Hello</span> <span class="nx">world</span><span class="o">!</span><span class="err">”</span><span class="p">;</span></div></div></pre></div></figure></p>
+
+<p>There’s some shortcomings of the above method.  If you need to copy a
+list of source code, you’ll need to browse the source code, provided
+that the “gutter” option of the code list is “true”,
+<a href="http://en.support.wordpress.com/code/posting-source-code/#configuration-parameters" title="Configuartion Parameters">which is the default</a>.
+Moreover, if you include source code that consists of <code class="highlighter-rouge">&lt;angled
+blocks&gt;</code> in a blog post written in Markdown using the UltraBlog
+plugin, then the angled block may be interpreted as an HTML tag
+element, such as the statement <code class="highlighter-rouge">#include &lt;iostream&gt;</code> in a C++ program.
+<em>More importantly, I’ve found out that <a href="http://en.support.wordpress.com/markdown/" title="WordPress's Markdown Support">this apporach</a>
+<strong>doesn’t</strong> work with UltraBlog.</em>  <del>The above code list verifies
+this assertion.<del></del></del></p>
+
+<p><img src="/images/posts/1stWPGist/ultrablog.png" alt="Screenshot of the “code list” in UltraBlog.vim" ></p>
+
+<p><small>Figure 1: This is a screenshot of the “code list” in
+UltraBlog.vim.  <a href="http://en.support.wordpress.com/markdown-quick-reference/" title="Markdown quick reference">Markdown quick reference</a> suggests the
+use of 3 backticks.</small></p>
+
+<p><img class="fancybox" src="/images/posts/1stWPGist/interpreted.png" width="800" alt="‘Screenshot of the interpreted code in WordPress.com online editor’ [‘fig1’]" ></p>
+
+<p><small>Figure 2: The above figure shows how the source code for the
+“code list” (in lines 12–15 in UltraBlog.vim, see Figure 1) is
+interpreted.</small></p>
+
+<!-- more -->
+
+<p>If you’re a <a href="http://www.blogger.com" title="Blogger">Blogger</a> user who has made use of <a href="http://alexgorbatchev.com/SyntaxHighlighter/" title="Alex Gorbatchev's SyntaxHighlighter">SyntaxHighlighter</a> to
+share your source code online, you’ll know that the copy function
+depends on <a href="http://www.adobe.com/products/flash/" title="Adobe Flash">Adobe Flash</a>.  I <em>don’t</em> have time to figure out whether
+this is <a href="http://www.gnu.org/philosophy/javascript-trap.html">a JavaScript trap</a>, but it’s <em>better</em> if I can find
+a way to avoid proprietary softwares.</p>
+
+<p>Moreover, the <a href="http://en.support.wordpress.com/code/posting-source-code/" title="Supported Languages">languages supported</a> by <a href="http://www.wordpress.com">WordPress.com</a> is
+<em>not as much as</em> <a href="http://gist.github.com/">Gist</a>. For instance, Gist can highlight code in a
+VIMRC file, but the plugin used by WordPress.com <em>can’t</em>.</p>
+
+<p>According to <a href="http://en.support.wordpress.com/gist/" title="WordPress's Gist Support">WordPress’s official support</a>, using Gist
+should be much easier. The following is the result.</p>
+
+<p><figure class='code-highlight-figure'><figcaption class='code-highlight-caption'><span class='code-highlight-caption-title'>Makefile</span><a class='code-highlight-caption-link' href='https://gist.github.com/8703067'>link</a></figcaption><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nv">CXX</span> <span class="o">=</span> g++
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nv">SRCS</span> <span class="o">=</span> foo.cpp
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nl">default</span><span class="o">:</span> <span class="nf">$(SRCS:.cpp=.out)</span>
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nl">.cpp.out</span><span class="o">:</span>
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>	<span class="nv">$(CXX)</span> <span class="nv">$&lt;</span> -o <span class="nv">$@</span>
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'><span class="nl">clean</span><span class="o">:</span>
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>	<span class="err">rm -rf *.out</span></div></div></pre></div></figure></p>
+
+<p>Posted via <a href="http://0x3f.org/blog/ultrablog-as-an-ultimate-vim-blogging-plugin/">UltraBlog.vim</a>.</p>
+
+]]></content>
+    
+  </entry>
+  
+</feed>

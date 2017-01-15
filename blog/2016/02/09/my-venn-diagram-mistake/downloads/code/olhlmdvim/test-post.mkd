@@ -1,0 +1,12 @@
+Lessons learnt
+---
+
+Moreover, I revised the usage of these two [Vim] plugins.
+
+1. [Visual Star Search][visual-star-search]: Select text in visual
+   mode and search it with an asterisk `*`.
+2. [textobj-lastpat]: Add the last search pattern as a text object.
+
+[Vim]: http://www.vim.org
+[visual-star-search]: https://github.com/bronson/vim-visual-star-search
+[textobj-lastpat]: https://github.com/kana/vim-textobj-lastpat

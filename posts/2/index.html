@@ -1,0 +1,1695 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	Simplify a Determinant Identity
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/12/29/simplify-a-determinant-identity/">Simplify a Determinant Identity</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/29/simplify-a-determinant-identity/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/29/simplify-a-determinant-identity/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/29/simplify-a-determinant-identity/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I saw <a href="http://math.stackexchange.com/a/2074997/290189">a question about determinants</a>.</p>
+
+<blockquote>
+  <p>Suppose that $A$ and $B$ are singular and nonsingular matrices
+  respectively.  Simplify $\det((A+B)^2−(A−B)^2)$.</p>
+</blockquote>
+
+<h2 id="problem">Problem</h2>
+
+<p>A <em>wrong</em> solution with a vote of -2 is chosen by Daniel.  Why can
+this happen?</p>
+
+<h2 id="possible-explanation">Possible explanation</h2>
+
+<p>That’s because he’s correctly done the expansion until $\det(2AB +
+2BA)$.</p>
+
+<h2 id="raison-dêtre-of-this-post">Raison d’être of this post</h2>
+
+<p>Having spent time on typing a comment, I worry that it will
+automatically disappear in sooner or later if the accepted answer is
+deleted.  Therefore, I back it up here.</p>
+
+<blockquote>
+  <p>Consider <script type="math/tex">% <![CDATA[
+A = \begin{bmatrix} 1&2&3\\ 0&0&0\\ 5&7&9 \end{bmatrix} ,
+B = \begin{bmatrix} 3&2&3\\ 2&2&1\\ 3&1&3 \end{bmatrix}. %]]></script>
+<script type="math/tex">% <![CDATA[
+\begin{align*}
+\det(AB+BA) &= \det\left(
+\begin{bmatrix} 16&9&14 \\ 0&0&0 \\ 56&33&49 \end{bmatrix}
++\begin{bmatrix} 18&27&36 \\ 7&11&15 \\ 18&27&36 \end{bmatrix}
+\right) \\
+&=\det\left(
+\begin{bmatrix} 34&36&50\\ 7&11&15\\ 74&60&85 \end{bmatrix}
+\right)= 30 \ne 0.
+\end{align*} %]]></script>
+However, if $A = 0$ and $B = I_3$, then the answer is clearly zero.
+As a result, we <em>can’t</em> decude further from $\det(2(AB + BA))$.</p>
+</blockquote>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>The generation of a random matrix/array of integers using
+<code class="highlighter-rouge">randi([imin, imax], m, n)</code>.  For more details, you may read
+<a href="https://www.gnu.org/software/octave/doc/v4.0.1/Special-Utility-Matrices.html#XREFrandi">GNU Octave’s manual</a>.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/12/15/a-group-of-689-elements-2/">A Group of 689 Elements (2)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/15/a-group-of-689-elements-2/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/15/a-group-of-689-elements-2/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/15/a-group-of-689-elements-2/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>Two years ago, I thought about a group of 689 elements.<sup id="fnref:seri1"><a href="#fn:seri1" class="footnote">1</a></sup>  I
+only managed to show the <em>existence</em> of such a group.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Inspired by the use of <a href="https://en.wikipedia.org/wiki/Sylow_theorems#Theorems">Sylow III</a> to show that a group of order
+15 has only <em>one</em> structure: $\Z_{15} \cong \Z_3 \times \Z_5$, I
+wondered <strong>if $\Z_{689}$ is the only possible structure for a group of
+order 689</strong>.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Denote $G$ as a group of order 689.  First, apply Sylow III to
+$\abs{G}$, whose largest prime divisor 53.  Since $\lvert G \rvert$ is
+a product of two primes 13 and 53, we conclude that $n_{53} = 1$.
+Second, we have</p>
+
+<div class="myeqn">
+\begin{cases}
+n_{13} | 53 \\
+n_{13} \equiv 1 \pmod{13}.
+\end{cases}
+</div>
+
+<p>Since $53 \equiv 1 \pmod{13}$, we have to consider two cases:</p>
+
+<ol>
+  <li>$n_{13} = 1$: In this case, $G$ has a unique 13-Sylow $H$ and a
+unique 53-Sylow $K$.  Both $H$ and $K$ are normal in $G$.  Their
+intersection $H \cap K$ is, by Lagrange’s Theorem, the identity
+element $e_G$.  For each $h \in H$ and $k \in K$, the commutator
+    <div class="myeqn">
+\begin{equation*}
+[h,k] = hk h^{-1} k^{-1} = \underbrace{hk h^{-1}}_{\in K} k
+= h \underbrace{k h^{-1} k^{-1}}_{\in H} \in H \cap K
+\end{equation*}
+</div>
+
+    <p>is reduced to $e_G$, implying that $H$ commute with $K$.
+Therefore, an internal direct product of $H$ and $K$ can be set up,
+and $\abs{H} \times \abs{K} = 13 \times 53 = \abs{G}$, so $G = H
+\times K \cong \Z_{13} \times \Z_{53}$.</p>
+  </li>
+  <li>
+    <p>$n_{13} = 53$: In this case, $G$ has 53 <em>distinct</em> 13-Sylows $H_1,
+H_2, \cdots, H_{53}$.  Each of these $H_i$’s is isomorphic to the
+cyclic group $C_{13}$.  Thus, $G$ possess $53 \times 12$ elements
+of order 13, 52 elements of order 53, and the identity—they add
+up to $\abs{G}$.</p>
+
+    <p><em>Not</em> knowing how to continue, I finally searched for “non-abelian
+group of order $pq$” and found
+<a href="http://math.stackexchange.com/a/63257/290189">this answer on Mathematics Stack Exchange</a>, which
+showed that my guess is <em>wrong</em>.  <span class="myeqn">In fact, $\Aut H \cong \Z_q^*$ and its elements are
+$\gamma_\lambda: h \mapsto \lambda h$.</span> $\phi(K) = \psi(K)$
+because they are both subgroup of order $p$, but it’s <em>unique</em> in
+$\Aut H$.  Since homomorphisms $\phi,\psi: K \to \Aut H$ are
+supposed to be <em>non-trivial</em>, $\ker \phi, \ker \psi \ne \abs{K} =
+p$, so they are injective.  This proves the <em>existence</em> of a
+non-abelian group $G \cong H \rtimes_\psi K$.</p>
+  </li>
+</ol>
+
+<p>To conclude, even though the arguments are “too simple” for a
+mathematicien, a group of order 689 is <em>never</em> simple.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:seri1">
+      <p><a href="/blog/2014/12/09/a-group-of-689-elements/"><em>A Group of 689 Elements</em></a>&nbsp;<a href="#fnref:seri1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/12/15/indices-in-definition-of-external-semidirect-product/">Indices in Definition of External Semidirect Product</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/15/indices-in-definition-of-external-semidirect-product/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/15/indices-in-definition-of-external-semidirect-product/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/15/indices-in-definition-of-external-semidirect-product/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p><span class="myeqn">In my notes, the external semidirect
+product $G_1 \rtimes_\gamma G_2$ of two groups $G_1$ and $G_2$ with
+respect to a homomorphism $\gamma: G_2 \to \Aut G_1$, is defined
+as</span></p>
+
+<blockquote>
+  <p><span class="myeqn">\begin{multline}
+\forall\, x_1,y_1 \in G_1, \forall\, x_2,y_2 \in G_2, (x_1,x_2)
+\times_{G_1 \rtimes_\gamma G_2} (y_1,y_2) \\
+= (x_1 \times_{G_1} \gamma(x_2)(y_1), x_2 \times_{G_2} y_2).
+\end{multline}</span></p>
+</blockquote>
+
+<p><strong>Why don’t we write $(x_1,y_1)$ and $(x_2,y_2)$ instead?</strong></p>
+
+<!-- more -->
+
+<h2 id="explanation">Explanation</h2>
+
+<p>I <em>don’t</em> think that this question can last for a day on
+<a href="http://math.stackexchange.com/">Mathematics Stack Exchange</a>.</p>
+
+<p>If we really do so, we’ll create a <em>chaos</em> of indices: <span class="myeqn">we've $y_1 \in G_2$ and $x_2 \in G_1$, so
+we substitute $y_{\color{red}{1}}$ in $\gamma: G_{\color{red}{2}} \to
+\Aut G_1$ and then $x_{\color{blue}{2}}$ in $\gamma(y_1):
+G_{\color{blue}{1}} \to G_{\color{blue}{1}}$, which belongs to $\Aut
+G_{\color{blue}{1}}$.</span></p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/12/13/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-4/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (4)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/13/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-4/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/13/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-4/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/13/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-4/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I’m recently enhancing the $\rm \LaTeX$ code for inline limits.  For
+the reason of doing so, you may refer to the external link of
+<a href="http://meta.math.stackexchange.com/a/15077/290189">my recent linklog</a> <em>Inline Limit Rendering</em>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>In the previous post in this series written over one year ago, I have
+included a code block which enables <a href="/blog/2015/08/04/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-3/#include-the-script-in-the-content/">deferred MathJax loading</a>.
+However, I manually added this chuck of code in the HTML file
+generated by <a href="http://kramdown.gettalong.org/">kramdown</a>, which created the problem described in the
+next subsection <em>A problem with Vim’s folding arised</em>.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Firstly, save the code for loading <a href="https://www.mathjax.org/">MathJax</a> in <a href="/blog/2015/08/04/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-3/#include-the-script-in-the-content/">the previous
+post</a> in this series in a separate file <code class="highlighter-rouge">~/script.html</code>.  Then
+use the following commands <em>within</em> Vim in order to avoid leaving the
+current buffer and to improve efficiency.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>9,$w! ~/temp.mkd
+!kramdown ~/temp.mkd &gt; ~/temp.html
+!cat ~/{temp,script}.html &gt; ~/test.html
+</code></pre>
+</div>
+
+<p>The digit <code class="highlighter-rouge">9</code> in the first command <em>isn’t</em> exact.  Change it to any
+line number that separates the <a href="http://jekyllrb.com/docs/frontmatter/">yaml front matter</a> from the
+post content.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://meta.math.stackexchange.com/a/12850/290189">Inline Limit Rendering</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/13/inline-limit-rendering/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/13/inline-limit-rendering/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/13/inline-limit-rendering/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>In the past, I know two ways of writing a limit using $\rm \LaTeX$.</p>
+
+<ol>
+  <li>
+    <p>$\lim_{x \to 1} \frac{1}{x^2}$ looks OK.</p>
+
+    <div class="cli highlighter-rouge"><pre class="highlight"><code> $\lim_{x \to 1} \frac{1}{x^2}$
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>$\displaystyle \lim_{x \to 1} \frac{1}{x^2}$ looks better, but it
+occupies more than one line’s vertical space.</p>
+
+    <div class="cli highlighter-rouge"><pre class="highlight"><code> $\displaystyle \lim_{x \to 1} \frac{1}{x^2}$
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>For option (1), including limits in inline equations by <code class="highlighter-rouge">_</code> <em>doesn’t</em>
+look good since $x \to 1$ <em>isn’t</em> placed at the bottom of $\lim$.</p>
+
+<p>If we want the text to occupy less space to save paper, then option
+(2) <em>isn’t</em> good.  In order to see another drawback of this option, I
+have written some long (and meaningless) sentences here, so that the
+fraction in this paragraph appears in the middle.  Although I seldom
+write in English, I have tried my best to illustrate my ideas with
+words.  The vertical space created by the fraction in display style
+$\displaystyle \frac{1}{x^2}$ <em>doesn’t</em> match with the line separation
+of other lines in the paragraph.  If you have already reached this
+line but you don’t understand what I’m saying, I’m write more so as to
+wrap the fraction with a chuck of text.</p>
+
+<h2 id="goal">Goal</h2>
+
+<p>To create an inline limit $\lim\limits_{x \to 1} \frac{1}{x^2}$ which
+looks better in the middle of a paragraph.  Fames ac turpis egestas.
+Duis ultricies urna. Etiam enim urna, pharetra suscipit, varius et,
+congue quis, odio. Donec lobortis, elit bibendum euismod faucibus,
+$\lim\limits_{x \to 1} \frac{1}{x^2}$ velit nibh egestas libero, vitae
+pellentesque elit augue ut massa.  Praesent vel ligula. Nam venenatis
+neque quis mauris. Proin felis. Cum sociis natoque penatibus et magnis
+dis parturient montes, nascetur ridiculus mus. Aliquam quam.</p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Use <code class="highlighter-rouge">\lim\limits_{x \to 1} \frac{1}{x^2}</code> instead.</p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://tex.stackexchange.com/a/456">Match Vertical Bar with Height in Set Notation</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/12/13/match-vertical-bar-with-height-in-set-notation/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/12/13/match-vertical-bar-with-height-in-set-notation/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/12/13/match-vertical-bar-with-height-in-set-notation/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I reviewed my old post on <a href="/blog/2014/11/13/power-means-with-infinite-exponents/">power means inequalities</a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>At <a href="https://github.com/VincentTam/vincenttam.github.io/commit/38d969ef371805b21b17d5706fbbfc1def355f38#diff-fe5cee26e300ef35e1df07f4c0263708R71">the 71st line</a> of that post, I carelessly put a <code class="highlighter-rouge">\|</code>
+instead of <code class="highlighter-rouge">|</code>, causing it to be <a href="http://tex.stackexchange.com/a/518">interpreted as <code class="highlighter-rouge">rVert</code></a>.</p>
+
+<p>As the <a href="http://meta.math.stackexchange.com/a/5057/290189">MathJax tutorial on Math Meta SE</a> pointed out, the
+correct $\rm \LaTeX$ syntax for <code class="highlighter-rouge">|</code> in <code class="highlighter-rouge"><span class="p">{}</span></code> denoting a set should be
+<code class="highlighter-rouge">\mid</code>.  However, the <code class="highlighter-rouge">|</code> in <code class="highlighter-rouge"><span class="p">{}</span></code> doesn’t match the fraction.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$$\max\left\{\frac{1}{a_i} \mid i = 1,\dots,k \right\}$$
+</code></pre>
+</div>
+
+<p>gives</p>
+
+<script type="math/tex; mode=display">\max\left\{\frac{1}{a_i} \mid i = 1,\dots,k \right\}</script>
+
+<h2 id="goal">Goal</h2>
+
+<p>I need to change it back to</p>
+
+<script type="math/tex; mode=display">\max\left\{ \frac{1}{a_i} \,\middle|\, i = 1,\dots,k \right\}</script>
+
+<!-- more -->
+
+<h2 id="attempt">Attempt</h2>
+
+<p>Following a comment by asmeurer, I tried</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$$\max\left\{\frac{1}{a_i} \middle| i = 1,\dots,k \right\}$$
+</code></pre>
+</div>
+
+<p>which gives</p>
+
+<script type="math/tex; mode=display">\max\left\{\frac{1}{a_i} \middle| i = 1,\dots,k \right\}</script>
+
+<p>The horizontal spacing around <code class="highlighter-rouge">|</code> <em>isn’t</em> correct.</p>
+
+<p><span class="myeqn">
+$\max\left\{ \frac{1}{a_i} \,\middle|\, i = 1,\dots,k \right\} \quad
+\text{(right)} \\
+\max\left\{\frac{1}{a_i} \middle| i = 1,\dots,k \right\}
+\quad \text{(wrong)}$
+</span></p>
+
+<h2 id="solution">Solution</h2>
+
+<p>See the external link of this post by clicking the title of this post.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<ol>
+  <li>Avoid using <code class="highlighter-rouge">\|</code> as <code class="highlighter-rouge">\lVert</code> or <code class="highlighter-rouge">\rVert</code>.</li>
+  <li>Use <code class="highlighter-rouge">\providecommand{\norm}[1]{\lVert#1\rVert}</code> for denoting norms
+in $\rm \LaTeX$ documents.  Similar commands can be used for
+absolute values and sets.</li>
+  <li>Avoid using fractions in superscripts and subscripts.</li>
+</ol>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/08/28/jekyll-serve-error-2/">Jekyll Serve Error (2)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/08/28/jekyll-serve-error-2/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/08/28/jekyll-serve-error-2/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/08/28/jekyll-serve-error-2/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p><em>Same</em> as the <a href="/blog/2016/08/20/jekyll-serve-error/">previous post</a> in this series, except that I ran
+this command from M$ Win* 10.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p><em>Similar</em> to the previous post.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ jekyll serve
+WARN: Unresolved specs during Gem::Specification.reset:
+      pygments.rb (~&gt; 0.6.0)
+      jekyll-watch (~&gt; 1.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/resolver.rb:35
+7:in `resolve': Could not find gem 'jekyll (~&gt; 3.1) x64-mingw32' in the gems ava
+ilable on this machine. (Bundler::GemNotFound)
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/r
+esolver.rb:164:in `start'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/r
+esolver.rb:129:in `resolve'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:193:in `resolve'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:132:in `specs'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:177:in `specs_for'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/d
+efinition.rb:166:in `requested_specs'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/e
+nvironment.rb:18:in `requested_specs'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler/r
+untime.rb:13:in `setup'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/bundler-1.7.2/lib/bundler.r
+b:121:in `setup'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plu
+gin_manager.rb:37:in `require_from_bundler'
+        from C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/jekyll-2.5.3/bin/jekyll:16:
+in `&lt;top (required)&gt;'
+        from C:/Ruby200-x64/bin/jekyll:23:in `load'
+        from C:/Ruby200-x64/bin/jekyll:23:in `&lt;main&gt;'
+</code></pre>
+</div>
+
+<!-- more -->
+
+<h2 id="a-failed-attempt">A failed attempt</h2>
+
+<p>I <em>didn’t</em> know the reason for this problem.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ bundle update
+DL is deprecated, please use Fiddle
+Fetching source index from https://rubygems.org/
+Resolving dependencies...
+Could not verify the SSL certificate for
+https://rubygems.org/quick/Marshal.4.8/jekyll-3.2.1.gemspec.rz.
+There is a chance you are experiencing a man-in-the-middle attack, but most
+likely your system doesn't have the CA certificates needed for verification. For
+information about OpenSSL certificates, see bit.ly/ruby-ssl. To connect without
+using SSL, edit your Gemfile sources and change 'https' to 'http'.
+</code></pre>
+</div>
+
+<h2 id="some-gems-updated">Some gems updated</h2>
+
+<p><em>Without</em> knowing the difference between these two commands, I used
+the second one as an alternative to the first one.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ gem update
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_attributes.o, skipping
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_inline.o, skipping
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_scan.o, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for ext/redcloth_scan/redcloth
+_scan.so, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for lib/redcloth_scan.so, skip
+ping
+unable to convert "\x86" from ASCII-8BIT to UTF-8 for bigdecimal.o, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for bigdecimal.so, skipping
+unable to convert "\x90" from ASCII-8BIT to UTF-8 for lib/hitimes/2.0/hitimes.so
+, skipping
+ERROR:  Error installing io-console:
+        ERROR: Failed to build gem native extension.
+
+    C:/Ruby200-x64/bin/ruby.exe extconf.rb
+checking for rb_funcallv()... no
+checking for rb_sym2str()... no
+creating Makefile
+
+make "DESTDIR="
+generating console-x64-mingw32.def
+compiling console.c
+console.c: In function 'console_cursor_set':
+console.c:716:5: warning: implicit declaration of function 'RARRAY_AREF' [-Wimpl
+icit-function-declaration]
+linking shared-object io/console.so
+console.o: In function `console_cursor_set':
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+collect2.exe: error: ld returned 1 exit status
+make: *** [console.so] Error 1
+
+Gem files will remain installed in C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-co
+nsole-0.4.6 for inspection.
+Results logged to C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6/./gem
+_make.out
+
+invalid options: -SHN
+(invalid options are ignored)
+ERROR:  While executing gem ... (Encoding::InvalidByteSequenceError)
+    "\xE9" followed by "\x94" on CP950
+Updating installed gems
+Updating RedCloth
+Temporarily enhancing PATH to include DevKit...
+Building native extensions.  This could take a while...
+Successfully installed RedCloth-4.3.2
+Parsing documentation for RedCloth-4.3.2
+Installing ri documentation for RedCloth-4.3.2
+Installing darkfish documentation for RedCloth-4.3.2
+Updating bigdecimal
+Building native extensions.  This could take a while...
+Successfully installed bigdecimal-1.2.7
+Parsing documentation for bigdecimal-1.2.7
+Installing ri documentation for bigdecimal-1.2.7
+Installing darkfish documentation for bigdecimal-1.2.7
+Updating blankslate
+Successfully installed blankslate-3.1.3
+Parsing documentation for blankslate-3.1.3
+Installing ri documentation for blankslate-3.1.3
+Installing darkfish documentation for blankslate-3.1.3
+Updating bundler
+Successfully installed bundler-1.12.5
+Parsing documentation for bundler-1.12.5
+Installing ri documentation for bundler-1.12.5
+Installing darkfish documentation for bundler-1.12.5
+Updating celluloid
+Successfully installed timers-4.1.1
+Successfully installed celluloid-essentials-0.20.5
+Successfully installed celluloid-supervision-0.20.6
+Successfully installed celluloid-pool-0.20.5
+Successfully installed celluloid-fsm-0.20.5
+Successfully installed celluloid-extras-0.20.5
+Successfully installed celluloid-0.17.3
+Parsing documentation for timers-4.1.1
+Installing ri documentation for timers-4.1.1
+Installing darkfish documentation for timers-4.1.1
+Parsing documentation for celluloid-essentials-0.20.5
+Installing ri documentation for celluloid-essentials-0.20.5
+Installing darkfish documentation for celluloid-essentials-0.20.5
+Parsing documentation for celluloid-supervision-0.20.6
+Installing ri documentation for celluloid-supervision-0.20.6
+Installing darkfish documentation for celluloid-supervision-0.20.6
+Parsing documentation for celluloid-pool-0.20.5
+Installing ri documentation for celluloid-pool-0.20.5
+Installing darkfish documentation for celluloid-pool-0.20.5
+Parsing documentation for celluloid-fsm-0.20.5
+Installing ri documentation for celluloid-fsm-0.20.5
+Installing darkfish documentation for celluloid-fsm-0.20.5
+Parsing documentation for celluloid-extras-0.20.5
+Installing ri documentation for celluloid-extras-0.20.5
+Installing darkfish documentation for celluloid-extras-0.20.5
+Parsing documentation for celluloid-0.17.3
+Installing ri documentation for celluloid-0.17.3
+Installing darkfish documentation for celluloid-0.17.3
+Updating chunky_png
+Successfully installed chunky_png-1.3.6
+Parsing documentation for chunky_png-1.3.6
+Installing ri documentation for chunky_png-1.3.6
+Installing darkfish documentation for chunky_png-1.3.6
+Updating classifier-reborn
+Successfully installed classifier-reborn-2.0.4
+Parsing documentation for classifier-reborn-2.0.4
+Installing ri documentation for classifier-reborn-2.0.4
+Installing darkfish documentation for classifier-reborn-2.0.4
+Updating coffee-script
+Successfully installed coffee-script-2.4.1
+Parsing documentation for coffee-script-2.4.1
+Installing ri documentation for coffee-script-2.4.1
+Installing darkfish documentation for coffee-script-2.4.1
+Updating coffee-script-source
+Successfully installed coffee-script-source-1.10.0
+Parsing documentation for coffee-script-source-1.10.0
+Installing ri documentation for coffee-script-source-1.10.0
+Installing darkfish documentation for coffee-script-source-1.10.0
+Updating colorator
+Successfully installed colorator-1.1.0
+Parsing documentation for colorator-1.1.0
+Installing ri documentation for colorator-1.1.0
+Installing darkfish documentation for colorator-1.1.0
+Updating execjs
+Successfully installed execjs-2.7.0
+Parsing documentation for execjs-2.7.0
+Installing ri documentation for execjs-2.7.0
+Installing darkfish documentation for execjs-2.7.0
+Updating ffi
+Successfully installed ffi-1.9.14-x64-mingw32
+Parsing documentation for ffi-1.9.14-x64-mingw32
+Installing ri documentation for ffi-1.9.14-x64-mingw32
+Installing darkfish documentation for ffi-1.9.14-x64-mingw32
+Updating haml
+
+HEADS UP! Haml 4.0 has many improvements, but also has changes that may break
+your application:
+
+* Support for Ruby 1.8.6 dropped
+* Support for Rails 2 dropped
+* Sass filter now always outputs &lt;style&gt; tags
+* Data attributes are now hyphenated, not underscored
+* html2haml utility moved to the html2haml gem
+* Textile and Maruku filters moved to the haml-contrib gem
+
+For more info see:
+
+http://rubydoc.info/github/haml/haml/file/CHANGELOG.md
+
+Successfully installed haml-4.0.7
+Parsing documentation for haml-4.0.7
+Installing ri documentation for haml-4.0.7
+Installing darkfish documentation for haml-4.0.7
+Updating hitimes
+Building native extensions.  This could take a while...
+Successfully installed hitimes-1.2.4
+Parsing documentation for hitimes-1.2.4
+Installing ri documentation for hitimes-1.2.4
+Installing darkfish documentation for hitimes-1.2.4
+Updating io-console
+Building native extensions.  This could take a while...
+Updating jekyll
+Successfully installed liquid-3.0.6
+Successfully installed rouge-1.11.1
+Successfully installed forwardable-extended-2.6.0
+Successfully installed pathutil-0.14.0
+Successfully installed jekyll-3.2.1
+Successfully installed rb-inotify-0.9.7
+Successfully installed listen-3.0.8
+Parsing documentation for liquid-3.0.6
+Installing ri documentation for liquid-3.0.6
+Installing darkfish documentation for liquid-3.0.6
+Parsing documentation for rouge-1.11.1
+Installing ri documentation for rouge-1.11.1
+Installing darkfish documentation for rouge-1.11.1
+Parsing documentation for forwardable-extended-2.6.0
+Installing ri documentation for forwardable-extended-2.6.0
+Installing darkfish documentation for forwardable-extended-2.6.0
+Parsing documentation for pathutil-0.14.0
+Installing ri documentation for pathutil-0.14.0
+Installing darkfish documentation for pathutil-0.14.0
+Parsing documentation for jekyll-3.2.1
+Installing ri documentation for jekyll-3.2.1
+Installing darkfish documentation for jekyll-3.2.1
+Parsing documentation for rb-inotify-0.9.7
+Installing ri documentation for rb-inotify-0.9.7
+Installing darkfish documentation for rb-inotify-0.9.7
+Parsing documentation for listen-3.0.8
+Installing ri documentation for listen-3.0.8
+Installing darkfish documentation for listen-3.0.8
+Updating jekyll-gist
+Successfully installed multipart-post-2.0.0
+Successfully installed faraday-0.9.2
+Successfully installed addressable-2.4.0
+Successfully installed sawyer-0.7.0
+Successfully installed octokit-4.3.0
+Successfully installed jekyll-gist-1.4.0
+Parsing documentation for multipart-post-2.0.0
+Installing ri documentation for multipart-post-2.0.0
+Installing darkfish documentation for multipart-post-2.0.0
+Parsing documentation for faraday-0.9.2
+Installing ri documentation for faraday-0.9.2
+Installing darkfish documentation for faraday-0.9.2
+Parsing documentation for addressable-2.4.0
+Installing ri documentation for addressable-2.4.0
+Installing darkfish documentation for addressable-2.4.0
+Parsing documentation for sawyer-0.7.0
+Installing ri documentation for sawyer-0.7.0
+Installing darkfish documentation for sawyer-0.7.0
+Parsing documentation for octokit-4.3.0
+Installing ri documentation for octokit-4.3.0
+Installing darkfish documentation for octokit-4.3.0
+Parsing documentation for jekyll-gist-1.4.0
+Installing ri documentation for jekyll-gist-1.4.0
+Installing darkfish documentation for jekyll-gist-1.4.0
+Updating jekyll-sass-converter
+Successfully installed jekyll-sass-converter-1.4.0
+Parsing documentation for jekyll-sass-converter-1.4.0
+Installing ri documentation for jekyll-sass-converter-1.4.0
+Installing darkfish documentation for jekyll-sass-converter-1.4.0
+Updating jekyll-sitemap
+</code></pre>
+</div>
+
+<h2 id="effect">Effect</h2>
+
+<p>The preview <em>failed</em>.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ jekyll serve
+WARN: Unresolved specs during Gem::Specification.reset:
+      jekyll-watch (~&gt; 1.1)
+WARN: Clearing out unresolved specs.
+Please report a bug if this causes problems.
+Configuration file: C:/github/blog2/_config.yml
+            Source: C:/github/blog2
+       Destination: C:/github/blog2/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 2.227 seconds.
+I, [2016-08-28T21:50:30.210479 #7440]  INFO -- : Celluloid 0.17.3 is running in 
+BACKPORTED mode. [ http://git.io/vJf3J ]
+jekyll 3.2.1 | Error:  wrong number of arguments (2 for 1)
+</code></pre>
+</div>
+
+<p>Then, I googled “unable to convert x90 from ascii-8bit to utf-8” and
+clicked on the first link, which was a Stack Overflow question about
+<a href="http://stackoverflow.com/q/18235293">an similar error</a>.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>$ gem update --system
+RubyGems 2.6.6 installed
+Parsing documentation for rubygems-2.6.6
+Installing ri documentation for rubygems-2.6.6
+
+=== 2.6.6 / 2016-06-22
+
+Bug fixes:
+
+* Sort installed versions to make sure we install the latest version when
+## RELEASE NOTES OMITTED
+  by Michal Papis.
+
+
+------------------------------------------------------------------------------
+
+RubyGems installed the following executables:
+    C:/Ruby200-x64/bin/gem
+
+Ruby Interactive (ri) documentation was installed. ri is kind of like man
+pages for ruby libraries. You may access it like this:
+  ri Classname
+  ri Classname.class_method
+  ri Classname#instance_method
+If you do not wish to install this documentation in the future, use the
+--no-document flag, or set it as the default in your ~/.gemrc file. See
+'gem help env' for details.
+
+Updating rubygems-update
+Successfully installed rubygems-update-2.6.6
+Parsing documentation for rubygems-update-2.6.6
+Installing ri documentation for rubygems-update-2.6.6
+Installing darkfish documentation for rubygems-update-2.6.6
+Installing RubyGems 2.6.6
+RubyGems system software updated
+</code></pre>
+</div>
+
+<p>The error <em>unable to convert “\x86” from ASCII-8BIT to UTF-8 for …</em>
+was <em>gone</em>, but the rests were still there.</p>
+
+<div class="cli highlighter-rouge"><pre class="highlight"><code>Owner@Owner-PC MINGW64 /c/github/blog2 (gh-pages)
+$ gem update
+ERROR:  Error installing io-console:
+        ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6
+C:/Ruby200-x64/bin/ruby.exe -r ./siteconf20160829-1756-1m1r5xm.rb extconf.rb
+checking for rb_funcallv()... no
+checking for rb_sym2str()... no
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can
+ be found here:
+
+  C:/Ruby200-x64/lib/ruby/gems/2.0.0/extensions/x64-mingw32/2.0.0/io-console-0.4
+.6/mkmf.log
+
+current directory: C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6
+make "DESTDIR=" clean
+
+current directory: C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-console-0.4.6
+make "DESTDIR="
+generating console-x64-mingw32.def
+compiling console.c
+console.c: In function 'console_cursor_set':
+console.c:716:5: warning: implicit declaration of function 'RARRAY_AREF' [-Wimpl
+icit-function-declaration]
+linking shared-object io/console.so
+console.o: In function `console_cursor_set':
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+C:\Ruby200-x64\lib\ruby\gems\2.0.0\gems\io-console-0.4.6/console.c:716: undefine
+d reference to `RARRAY_AREF'
+collect2.exe: error: ld returned 1 exit status
+make: *** [console.so] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/io-co
+nsole-0.4.6 for inspection.
+Results logged to C:/Ruby200-x64/lib/ruby/gems/2.0.0/extensions/x64-mingw32/2.0.
+0/io-console-0.4.6/gem_make.out
+ERROR:  While executing gem ... (Encoding::InvalidByteSequenceError)
+    "\xE9" followed by "\x94" on CP950
+Updating installed gems
+Updating io-console
+Temporarily enhancing PATH to include DevKit...
+Building native extensions.  This could take a while...
+Updating jekyll-sitemap
+</code></pre>
+</div>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/08/21/website-preview-in-mobile-devices/">Website Preview in Mobile Devices</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/08/21/website-preview-in-mobile-devices/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/08/21/website-preview-in-mobile-devices/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/08/21/website-preview-in-mobile-devices/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="goal">Goal</h2>
+
+<p>To know the page layout of a website, notably my blogs, on mobile
+devices before publishing it.</p>
+
+<p><img src="/images/posts/SitePreviewMobile/Screenshot-2016-08-21-19-36-14.png" alt="Preview this blog on a smartphone" /></p>
+
+<h2 id="problem">Problem</h2>
+
+<p>I used <code class="highlighter-rouge">ifconfig</code> to check the IP address of my desktop where the
+preview site was hosted.  It’s <code class="highlighter-rouge">192.168.1.5</code>.  When I typed in this
+address followed by a colon and the port number <code class="highlighter-rouge">4000</code>, then the
+browser said “connection timeout” after loading for a while.</p>
+
+<p><img src="/images/posts/SitePreviewMobile/Screenshot-2016-08-21-19-35-00.png" alt="Connection timeout" /></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>I spent a day to identify the cause of the problem.</p>
+
+<h3 id="host-name-incorrect">Host name incorrect</h3>
+
+<p>Actually, the website should be hosted at the internal IP address
+shown by <code class="highlighter-rouge">ifconfig</code> instead of <code class="highlighter-rouge">localhost</code>.  Since I switch off the
+router before going to bed every day, the internal IP address for my
+desktop changes daily.  Therefore, one uses <code class="highlighter-rouge">0.0.0.0</code> to host the site
+on <em>all</em> IP addresses that the machine possesses.</p>
+
+<p>In <a href="https://github.com/plusjade/jekyll-bootstrap">Jekyll-Bootstrap</a>, one may simply add <code class="highlighter-rouge">host : 0.0.0.0</code> in
+<code class="highlighter-rouge">_config.yml</code>; in <a href="http://octopress.org/">Octopress</a>, one may find the line containing
+<code class="highlighter-rouge">server_port</code> in the middle of <code class="highlighter-rouge">Rakefile</code> and add <code class="highlighter-rouge">--host
+#{listen_host}</code>.<sup id="fnref:myeg"><a href="#fn:myeg" class="footnote">1</a></sup></p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Changes in Rakefile</span><a class="code-highlight-caption-link" href="http://www.jmlog.com/octopress-preview-config-in-vagrant/">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">server_port</span>     <span class="o">=</span> <span class="s2">"4000"</span>      <span class="c1"># port for preview server eg. localhost:4000</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">listen_host</span>     <span class="o">=</span> <span class="s2">"0.0.0.0"</span>   <span class="c1"># bind to all available IPs</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c1"># rackupPid = Process.spawn("rackup --port #&#x7b;server_port&#x7d;")</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">rackupPid</span> <span class="o">=</span> <span class="no">Process</span><span class="p">.</span><span class="nf">spawn</span><span class="p">(</span><span class="s2">"rackup --port </span><span class="si">#&#x7b;</span><span class="n">server_port</span><span class="si">&#x7d;</span><span class="s2"> --host </span><span class="si">#&#x7b;</span><span class="n">listen_host</span><span class="si">&#x7d;</span><span class="s2">"</span><span class="p">)</span></div></div></pre></div></figure>
+
+<h3 id="port-blocked-by-firewall">Port blocked by firewall</h3>
+
+<p>On Ubuntu, I used <abbr title="Uncomplicated Firewall">UFW</abbr> to open the port <code class="highlighter-rouge">4000</code> to all devices at home.
+(The netmask of my home router has 24 bits, which is the usual
+setting.)</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>sudo ufw allow from 192.168.1.0/24 to any port 4000:4001 proto tcp
+</code></pre>
+</div>
+
+<h2 id="references">References</h2>
+
+<ol>
+  <li><a href="https://help.ubuntu.com/community/UFW#Allow_and_Deny_.28specific_rules.29"><abbr title="Uncomplicated Firewall">UFW</abbr> – Ubuntu Community Help</a>: the syntax for allowing and
+denying specific machines.</li>
+  <li><a href="http://www.jmlog.com/octopress-preview-config-in-vagrant/"><em>Vagrant 下的 Octopress 預覽設置</em></a>: A sample <code class="highlighter-rouge">Rakefile</code>
+which allows the specification of the host address.</li>
+  <li>鳥哥的 Linux 私房菜 – <a href="http://linux.vbird.org/linux_server/0110network_basic.php">基礎網路概念</a>: A detailed explanation
+for some fundamental concepts like IP address, netmask and subnet.
+I understand what <code class="highlighter-rouge">/24</code> in <code class="highlighter-rouge">192.168.1.0/24</code> means after reading
+this chapter of the guide.</li>
+  <li>An Ask Ubuntu question on specifying a
+<a href="http://askubuntu.com/q/7099">range of ports in <abbr title="Uncomplicated Firewall">UFW</abbr></a></li>
+</ol>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:myeg">
+
+      <p>View my working examples:</p>
+
+      <ul>
+        <li><a href="/"/>Blog 1</a>: at commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/bfa1e9e">bfa1e9e</a></li>
+        <li><a href="/blog2/">Blog 2</a>: at commit <a href="https://github.com/VincentTam/blog2/commit/d4ec6a6">d4ec6a6</a></li>
+      </ul>
+      <p><a href="#fnref:myeg" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/08/21/my-host-file-edited/">My Host File Edited</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/08/21/my-host-file-edited/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/08/21/my-host-file-edited/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/08/21/my-host-file-edited/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>A preview of a blog is often needed before it’s published.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>However, it is possible that one <em>doesn’t</em> like to type <code class="highlighter-rouge">localhost</code> in
+the address bar, and would like to have other names.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>The idea is in <em>Local Setup – edit your hosts file</em> in <em>How to test
+localhost from any device on your network</em>
+<a href="http://wesbos.com/localhost-mobile-device-testing/">written by Wes Bos</a>.  On *nix, the file path is still the
+<em>same</em> as on OSX, but many users would rather use <a href="http://www.vim.org/">Vim</a> for editing
+<code class="highlighter-rouge">/etc/hosts</code>.  One may even use <a href="https://www.gnu.org/software/sed/manual/sed.html"><code class="highlighter-rouge">sed</code></a> with the <code class="highlighter-rouge">-i</code> flag and
+the <code class="highlighter-rouge">sudo</code> privilege in order to directly manipulate this file.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">sudo sed -i "3i127.0.0.1\tblogtest.com" /etc/hosts</code> for insertion
+  of “127.0.0.1        blogtest.com” <em>before</em> the third line.</li>
+  <li><code class="highlighter-rouge">sudo sed -i "3c127.0.0.1\tblogtest.com" /etc/hosts</code> for changing
+  the third line to “127.0.0.1        blogtest.com”.</li>
+</ul>
+
+<p>Note that the tab is escaped as <code class="highlighter-rouge">\t</code> in these two commands.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2016/08/20/jekyll-serve-error/">Jekyll Serve Error</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2016/08/20/jekyll-serve-error/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2016/08/20/jekyll-serve-error/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2016/08/20/jekyll-serve-error/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I updated the <a href="https://github.com/plusjade/jekyll-bootstrap">Jekyll-Bootstrap</a> source code for <a href="/blog2/">Blog 2</a>.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>Then, I wanted to preview it.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/blog2]$ jekyll serve
+/home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bundler/resolver.
+rb:357:in `resolve': Could not find gem 'jekyll (~&gt; 3.1) ruby' in the gems avail
+able on this machine. (Bundler::GemNotFound)
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/resolver.rb:164:in `start'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/resolver.rb:129:in `resolve'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:203:in `resolve'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:133:in `specs'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:178:in `specs_for'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/definition.rb:167:in `requested_specs'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/environment.rb:18:in `requested_specs'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler/runtime.rb:13:in `setup'
+        from /home/owner/.rvm/gems/ruby-2.1.2@global/gems/bundler-1.6.5/lib/bund
+ler.rb:120:in `setup'
+        from /home/owner/.rvm/gems/ruby-2.1.2/gems/jekyll-2.5.3/lib/jekyll/plugi
+n_manager.rb:37:in `require_from_bundler'
+        from /home/owner/.rvm/gems/ruby-2.1.2/gems/jekyll-2.5.3/bin/jekyll:16:in
+ `&lt;top (required)&gt;'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/jekyll:23:in `load'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/jekyll:23:in `&lt;main&gt;'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `e
+val'
+        from /home/owner/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `&lt;
+main&gt;'
+</code></pre>
+</div>
+
+<p><strong>How can it be previewed?</strong></p>
+
+<!-- more -->
+
+<p>N.B. I replaced all tabs with spaces due to a
+<a href="/blog/2015/05/16/recent-vundle-plugin-update/">remark of my article</a> <em>Recent Vundle Plugin Update</em>.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>From the head of the error message, it’s reasonable to guess that the
+outdated Ruby gems were the cause.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>[owner@localhost ~/blog2]$ gem update
+Updating installed gems
+Updating RedCloth
+Fetching: RedCloth-4.3.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed RedCloth-4.3.2
+Updating bigdecimal
+Fetching: bigdecimal-1.2.7.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed bigdecimal-1.2.7
+Updating blankslate
+Fetching: blankslate-3.1.3.gem (100%)
+Successfully installed blankslate-3.1.3
+Updating bundler
+Fetching: bundler-1.12.5.gem (100%)
+Successfully installed bundler-1.12.5
+Updating celluloid
+Fetching: timers-4.1.1.gem (100%)
+Successfully installed timers-4.1.1
+Fetching: celluloid-essentials-0.20.5.gem (100%)
+Successfully installed celluloid-essentials-0.20.5
+Fetching: celluloid-supervision-0.20.6.gem (100%)
+Successfully installed celluloid-supervision-0.20.6
+Fetching: celluloid-pool-0.20.5.gem (100%)
+Successfully installed celluloid-pool-0.20.5
+Fetching: celluloid-fsm-0.20.5.gem (100%)
+Successfully installed celluloid-fsm-0.20.5
+Fetching: celluloid-extras-0.20.5.gem (100%)
+Successfully installed celluloid-extras-0.20.5
+Fetching: celluloid-0.17.3.gem (100%)
+Successfully installed celluloid-0.17.3
+Updating chunky_png
+Fetching: chunky_png-1.3.6.gem (100%)
+Successfully installed chunky_png-1.3.6
+Updating classifier-reborn
+Fetching: classifier-reborn-2.0.4.gem (100%)
+Successfully installed classifier-reborn-2.0.4
+Updating coffee-script
+Fetching: coffee-script-2.4.1.gem (100%)
+Successfully installed coffee-script-2.4.1
+Updating coffee-script-source
+Fetching: coffee-script-source-1.10.0.gem (100%)
+Successfully installed coffee-script-source-1.10.0
+Updating colorator
+Fetching: colorator-1.1.0.gem (100%)
+Successfully installed colorator-1.1.0
+Updating domain_name
+Fetching: domain_name-0.5.20160615.gem (100%)
+Successfully installed domain_name-0.5.20160615
+Updating execjs
+Fetching: execjs-2.7.0.gem (100%)
+Successfully installed execjs-2.7.0
+Updating ffi
+Fetching: ffi-1.9.14.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed ffi-1.9.14
+Updating gem-wrappers
+Fetching: gem-wrappers-1.2.7.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed gem-wrappers-1.2.7
+Updating haml
+Fetching: haml-4.0.7.gem (100%)
+
+HEADS UP! Haml 4.0 has many improvements, but also has changes that may break
+your application:
+
+* Support for Ruby 1.8.6 dropped
+* Support for Rails 2 dropped
+* Sass filter now always outputs &lt;style&gt; tags
+* Data attributes are now hyphenated, not underscored
+* html2haml utility moved to the html2haml gem
+* Textile and Maruku filters moved to the haml-contrib gem
+
+For more info see:
+
+http://rubydoc.info/github/haml/haml/file/CHANGELOG.md
+
+Successfully installed haml-4.0.7
+Updating hitimes
+Fetching: hitimes-1.2.4.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed hitimes-1.2.4
+Updating io-console
+Fetching: io-console-0.4.6.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed io-console-0.4.6
+Updating jekyll
+Fetching: liquid-3.0.6.gem (100%)
+Successfully installed liquid-3.0.6
+Fetching: rouge-1.11.1.gem (100%)
+Successfully installed rouge-1.11.1
+Fetching: forwardable-extended-2.6.0.gem (100%)
+Successfully installed forwardable-extended-2.6.0
+Fetching: pathutil-0.14.0.gem (100%)
+Successfully installed pathutil-0.14.0
+Fetching: jekyll-3.2.1.gem (100%)
+Successfully installed jekyll-3.2.1
+Updating jekyll-gist
+Fetching: addressable-2.4.0.gem (100%)
+Successfully installed addressable-2.4.0
+Fetching: multipart-post-2.0.0.gem (100%)
+Successfully installed multipart-post-2.0.0
+Fetching: faraday-0.9.2.gem (100%)
+Successfully installed faraday-0.9.2
+Fetching: sawyer-0.7.0.gem (100%)
+Successfully installed sawyer-0.7.0
+Fetching: octokit-4.3.0.gem (100%)
+Successfully installed octokit-4.3.0
+Fetching: jekyll-gist-1.4.0.gem (100%)
+Successfully installed jekyll-gist-1.4.0
+Updating jekyll-sass-converter
+Fetching: jekyll-sass-converter-1.4.0.gem (100%)
+Successfully installed jekyll-sass-converter-1.4.0
+Updating jekyll-sitemap
+Fetching: jekyll-sitemap-0.11.0.gem (100%)
+Successfully installed jekyll-sitemap-0.11.0
+Updating jekyll-watch
+Fetching: rb-inotify-0.9.7.gem (100%)
+Successfully installed rb-inotify-0.9.7
+Fetching: listen-3.0.8.gem (100%)
+Successfully installed listen-3.0.8
+Fetching: jekyll-watch-1.5.0.gem (100%)
+Successfully installed jekyll-watch-1.5.0
+Updating json
+Fetching: json-2.0.2.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed json-2.0.2
+Updating kramdown
+Fetching: kramdown-1.12.0.gem (100%)
+Successfully installed kramdown-1.12.0
+Updating mercenary
+Fetching: mercenary-0.3.6.gem (100%)
+Successfully installed mercenary-0.3.6
+Updating mime-types
+Fetching: mime-types-data-3.2016.0521.gem (100%)
+Successfully installed mime-types-data-3.2016.0521
+Fetching: mime-types-3.1.gem (100%)
+Successfully installed mime-types-3.1
+Updating mini_magick
+Fetching: mini_magick-4.5.1.gem (100%)
+Successfully installed mini_magick-4.5.1
+Updating minitest
+Fetching: minitest-5.9.0.gem (100%)
+Successfully installed minitest-5.9.0
+Updating multi_json
+Fetching: multi_json-1.12.1.gem (100%)
+Successfully installed multi_json-1.12.1
+Updating octopress-date-format
+Fetching: octopress-date-format-3.0.3.gem (100%)
+Successfully installed octopress-date-format-3.0.3
+Updating octopress-hooks
+Fetching: octopress-hooks-2.6.1.gem (100%)
+Successfully installed octopress-hooks-2.6.1
+Updating parslet
+Fetching: parslet-1.7.1.gem (100%)
+Successfully installed parslet-1.7.1
+Updating pdf-core
+Fetching: pdf-core-0.6.1.gem (100%)
+Successfully installed pdf-core-0.6.1
+Updating posix-spawn
+Fetching: posix-spawn-0.3.11.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed posix-spawn-0.3.11
+Updating prawn
+Fetching: prawn-2.1.0.gem (100%)
+Successfully installed prawn-2.1.0
+Updating psych
+Fetching: psych-2.1.0.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed psych-2.1.0
+Updating pygments.rb
+Fetching: pygments.rb-0.6.3.gem (100%)
+Successfully installed pygments.rb-0.6.3
+Updating rack
+Fetching: rack-2.0.1.gem (100%)
+ERROR:  Error installing rack:
+        rack requires Ruby version &gt;= 2.2.2.
+Updating rake
+Fetching: rake-11.2.2.gem (100%)
+Successfully installed rake-11.2.2
+Updating rb-fsevent
+Fetching: rb-fsevent-0.9.7.gem (100%)
+Successfully installed rb-fsevent-0.9.7
+Updating rdoc
+Fetching: rdoc-4.2.2.gem (100%)
+Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+
+&lt;= 1.8.6 : unsupported
+ = 1.8.7 : gem install rdoc-data; rdoc-data --install
+ = 1.9.1 : gem install rdoc-data; rdoc-data --install
+&gt;= 1.9.2 : nothing to do! Yay!
+Successfully installed rdoc-4.2.2
+Updating redcarpet
+Fetching: redcarpet-3.3.4.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed redcarpet-3.3.4
+Updating rest-client
+Fetching: rest-client-2.0.0.gem (100%)
+Successfully installed rest-client-2.0.0
+Updating rubypants
+Fetching: rubypants-0.5.0.gem (100%)
+Successfully installed rubypants-0.5.0
+Updating sass
+Fetching: sass-3.4.22.gem (100%)
+Successfully installed sass-3.4.22
+Updating sass-globbing
+Fetching: sass-globbing-1.1.5.gem (100%)
+Successfully installed sass-globbing-1.1.5
+Updating sinatra
+Fetching: sinatra-1.4.7.gem (100%)
+Successfully installed sinatra-1.4.7
+Updating stringex
+Fetching: stringex-2.6.1.gem (100%)
+Successfully installed stringex-2.6.1
+Updating test-unit
+Fetching: power_assert-0.3.0.gem (100%)
+Successfully installed power_assert-0.3.0
+Fetching: test-unit-3.2.1.gem (100%)
+Successfully installed test-unit-3.2.1
+Updating tilt
+Fetching: tilt-2.0.5.gem (100%)
+Successfully installed tilt-2.0.5
+Gems updated: RedCloth bigdecimal blankslate bundler celluloid celluloid-essenti
+als celluloid-extras celluloid-fsm celluloid-pool celluloid-supervision timers c
+hunky_png classifier-reborn coffee-script coffee-script-source colorator domain_
+name execjs ffi gem-wrappers haml hitimes io-console forwardable-extended jekyll
+ liquid pathutil rouge addressable faraday jekyll-gist multipart-post octokit sa
+wyer jekyll-sass-converter jekyll-sitemap jekyll-watch listen rb-inotify json kr
+amdown mercenary mime-types mime-types-data mini_magick minitest multi_json octo
+press-date-format octopress-hooks parslet pdf-core posix-spawn prawn psych pygme
+nts.rb rack rake rb-fsevent rdoc redcarpet rest-client rubypants sass sass-globb
+ing sinatra stringex power_assert test-unit tilt
+[owner@localhost ~/blog2]$ jekyll serve
+Configuration file: /home/owner/blog2/_config.yml
+            Source: /home/owner/blog2
+       Destination: /home/owner/blog2/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 1.135 seconds.
+ Auto-regeneration: enabled for '/home/owner/blog2'
+Configuration file: /home/owner/blog2/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+[2016-08-18 19:19:37] ERROR `/favicon.ico' not found.
+</code></pre>
+</div>
+
+<p>Due to the error on <code class="highlighter-rouge">favicon.ico</code>, I made commit <a href="https://github.com/VincentTam/blog2/commit/4aafebe">4aafebe</a>.</p>
+
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/3/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/"/>Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>

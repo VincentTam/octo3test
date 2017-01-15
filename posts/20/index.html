@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blog 1</title>
+  <meta name="author" content="Vincent Tam">
+
+  
+  <meta name="description" content="
+  
+  
+  
+    
+      
+    
+      
+      
+	Non-breaking Spaces &#9733;
+      
+    
+    
+      
+        
+        
+           | Comments
+        
+	| &...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://vincenttam.github.io/posts/20/">
+  <link href="/favicon.png" rel="icon">
+  <link href="" rel="alternate" title="Blog 1" type="application/atom+xml">
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css">
+  <meta name="msvalidate.01" content="E421C0320103717D8EB0AD1FEC67709D" />
+
+<link href='/stylesheets/all-9dfcc26738eca28ea427f2f353c3fccd.css' media='all' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46788371-2', 'auto');
+      ga('send', 'pageview');
+
+  </script>
+</head>
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Blog 1</a></h1>
+  
+    <h2>Random Talk on Random Thoughts</h2>
+  
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="https://vincenttam.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">About</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="https://git.io/vtam">GitHub</a></li>
+  <li><a href="/presentations">Slides</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="https://github.com/gettalong/kramdown/issues/159">Non-breaking Spaces</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/14/non-breaking-spaces/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/14/non-breaking-spaces/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/14/non-breaking-spaces/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="why-use-them">Why use them?</h2>
+
+<p>This evening, when I was writing a post about an ImageMagick command that I’ve learnt, I used the unit “pixel” to describe the dimensions of an image.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  In a measurement, the quantity and the unit should be separated by a <em>non-breaking</em> space for the sake of readability.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<!-- more -->
+
+<p>To illustrate the effect of a non-breaking space, I’ll use some screenshots.</p>
+
+<h3 id="with-non-breaking-space">With non-breaking space</h3>
+
+<p><img class="fancybox" src="/images/posts/NBSP/nbsp1.png" width="900" alt="'Move the mouse to the right and click for the next image' ['nbsp1']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/NBSP/nbsp2.png" width="900" alt="'Move the mouse to the left and click for the previous image' ['nbsp2']" /></p>
+
+<h3 id="without-non-breaking-space"><em>Without</em> non-breaking space</h3>
+
+<p><img class="fancybox" src="/images/posts/NBSP/space1.png" width="900" alt="'Move the mouse to the right and click for the next image' ['space1']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/NBSP/space2.png" width="900" alt="'Move the mouse to the left and click for the previous image' ['space2']" /></p>
+
+<h2 id="how-to-use-them">How to use them?</h2>
+
+<p>Unlike <a href="http://johnmacfarlane.net/pandoc/" title="a universal document converter">pandoc</a> markdown, one <em>can’t</em> use <code class="highlighter-rouge">\ </code> for a non-breaking space.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<p>The external <abbr title="Uniform Resource Locator">URL</abbr> of this linklog has a link to a <em>Wikipedia</em> page which is cited in footnote 2.  From the table in the section “Keyboard entry methods”, I can directly insert the non-breaking space character using Linux compose key.<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="/blog/2014/09/14/5-imagemagick-command-line-examples-part-1/"><em>5 ImageMagick Command Line Examples–part 1</em></a> in Blog 1.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>Non-breaking space. (2014, September 4). In <em>Wikipedia, The Free Encyclopedia</em>. Retrieved 11:13, September 14, 2014, from <a href="http://en.wikipedia.org/w/index.php?title=Non-breaking_space&amp;oldid=624117646#Non-breaking_behavior">http://en.wikipedia.org/w/index.php?title=Non-breaking_space&amp;oldid=624117646#Non-breaking_behavior</a>&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p><a href="http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html#backslash-escapes"><em>Pandoc’s markdown</em></a> by John MacFarlane.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+
+      <p>For a list of Linux compose keys, see <a href="/blog/2014/08/02/linux-compose-keys-list/"><em>Linux Compose Keys List</em></a>.&nbsp;<a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title external"><a href="http://www.ioncannon.net/linux/81/5-imagemagick-command-line-examples-part-1/">5 ImageMagick command line examples–part 1</a> &#9733;</h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/14/5-imagemagick-command-line-examples-part-1/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/14/5-imagemagick-command-line-examples-part-1/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/14/5-imagemagick-command-line-examples-part-1/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the second example, the command only produces <em>one</em> image.  In the
+past, <em>without</em> knowing the use of <code class="highlighter-rouge">+[x-pos]+[y-pos]</code>, I got <em>more
+than one</em> image, and needed to delete them <em>except</em> the desired
+one.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>When I wrote a post about <code class="highlighter-rouge">screendump</code>, I took a screenshot of TTY1 so
+as to prove that the text that followed the screenshot was <em>really</em>
+contents in TTY1.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  The width and height of the screenshot was
+1280 px and 1024 px respectively.  I then used my old way to crop it
+to an image with width 520 px and height 230 px, and got similar error
+message described in ImageMagick’s examples.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>In “<a href="/blog/2014/06/30/basic-use-of-aptitude/#imagemagick-commands-learnt/">ImageMagick commands learnt</a>” in <em>Basic Use of
+Aptitude</em>, I got <em>four</em> images because I <em>didn’t</em> append <code class="highlighter-rouge">+0+0</code>
+after <code class="highlighter-rouge">640x512</code>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>There’s an image cropped with ImageMagick in “<a href="/blog/2014/09/14/record-linux-terminal/">Usage</a>” in
+<em>Record Linux Terminal</em>.</p>
+
+      <div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ convert src.png -crop 512x225+0+0 tty1.png
+</code></pre>
+      </div>
+      <p><a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p>In “<a href="http://www.imagemagick.org/Usage/crop/#crop_missed">The Missed Image (from a bad crop)</a>” in <em>Examples of
+ImageMagick Usage (version 6)</em>.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/14/kramdowns-markdown-attributes/">Kramdown's Markdown Attributes</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/14/kramdowns-markdown-attributes/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/14/kramdowns-markdown-attributes/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/14/kramdowns-markdown-attributes/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While writing a post about purging old Linux kernels, I made use of
+<a href="http://fancyapps.com/fancybox/">fancybox</a>’s plugin to show a popup window which contains some <abbr title="HyperText Markup Language">HTML</abbr>
+elements.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://goo.gl/rdMWNf</span><a class="code-highlight-caption-link" href="http://goo.gl/rdMWNf">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"list1"</span> <span class="na">class=</span><span class="s">"noscr"</span><span class="nt">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>The <span class="nt">&lt;strong&gt;</span>bolded<span class="nt">&lt;/strong&gt;</span> lines represent the packages that are
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">going to be completely removed.<span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">&lt;!-- omitted a pre tag --&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/div&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"list2"</span> <span class="na">class=</span><span class="s">"noscr"</span><span class="nt">&gt;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;p&gt;</span>There's <span class="nt">&lt;em&gt;</span>no<span class="nt">&lt;/em&gt;</span> lines beginning with <span class="nt">&lt;code&gt;</span>rc<span class="nt">&lt;/code&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">&lt;!-- omitted a pre tag --&gt;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/div&gt;</span></div></div></pre></div></figure>
+
+<p>I tried writing Markdown code inside these <code class="highlighter-rouge">&lt;div&gt;</code> containers, but the
+Markdown code <em>failed</em> to be changed to <abbr title="HyperText Markup Language">HTML</abbr>.  As a result, <em>not</em>
+being familiar with much of the Markdown syntax specified by
+<a href="http://kramdown.gettalong.org/" title="fast, pure-Ruby Markdown-superset converter">kramdown</a>, I simply write <abbr title="HyperText Markup Language">HTML</abbr> inside these <code class="highlighter-rouge">&lt;div&gt;</code> elements.</p>
+
+<p>Fancybox is great, but if I need to give up Markdown, then what’s the
+point of overcoming so many technical problems related to Octopress?
+<em>Without</em> <a href="http://daringfireball.net/projects/markdown/">Markdown</a> and <a href="http://www.vim.org"><abbr title="VIsual editor, iMproved">Vim</abbr></a>, blogging will be <em>incredibly</em>
+difficult for me.  For the former, when compared with <abbr title="HyperText Markup Language">HTML</abbr>, it’s much
+easier to read and write; for the latter, it offers an efficient text
+editing experience.</p>
+
+<p>Therefore, this afternoon, I browsed <em>kramdown Syntax</em> in kramdown’s
+official website, and found out that the <code class="highlighter-rouge">markdown="1"</code> attribute can
+solve this problem.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://goo.gl/53zo2d</span><a class="code-highlight-caption-link" href="http://goo.gl/53zo2d">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"list1"</span> <span class="na">class=</span><span class="s">"noscr"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">The **bolded** lines represent the packages that are going to be
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">completely removed.
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">&lt;!-- omitted a pre tag --&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/div&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"list2"</span> <span class="na">class=</span><span class="s">"noscr"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">There's *no* lines beginning with `rc`.
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">&lt;!-- omitted a pre tag --&gt;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/div&gt;</span></div></div></pre></div></figure>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="/blog/2014/09/13/completely-remove-linux-kernels/"><em>Completely Remove Linux Kernels</em></a> in Blog 1.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://kramdown.gettalong.org/syntax.html#html-blocks">HTML Blocks</a> in <em>kramdown Syntax</em>.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/14/record-linux-terminal/">Record Linux Terminal</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/14/record-linux-terminal/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/14/record-linux-terminal/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/14/record-linux-terminal/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="why">Why?</h2>
+
+<p>With detailed output from the terminal, other users can understand the
+problem better.  This helps them come up with a solution to the
+problem.</p>
+
+<p>Why don’t we use <code class="highlighter-rouge">&gt;</code> and <code class="highlighter-rouge">&gt;&gt;</code> to capture the standard output?</p>
+
+<p>Using <code class="highlighter-rouge">screendump</code>, one can record the commands <em>and</em> their output at
+<em>one</em> time; using <code class="highlighter-rouge">[cmd] &gt; output.txt</code>, <code class="highlighter-rouge">output.txt</code> only consists of
+the output of <code class="highlighter-rouge">[cmd]</code>, but <em>not</em> what he/she has typed.  (i.e.
+<code class="highlighter-rouge">[cmd]</code>)  The commands are often complicated and more than one line in
+length—copying and pasting text from the terminal are thus more
+difficult.  Therefore, <code class="highlighter-rouge">screendump</code> is useful.</p>
+
+<p>Why don’t we use <code class="highlighter-rouge">fbgrab</code> or <code class="highlighter-rouge">fbcat</code> to get a screenshot of the
+terminal?</p>
+
+<p>The goal is to let other know what’s in the terminal.   A screenshot
+of the terminal is easy to make.  However, its file size is <em>much</em>
+greater than the screen capture made of text.  Bitmaps <em>don’t</em> look
+good when one zooms in on them with a great magnification.  Therefore,
+to achieve the same goal, one may use text instead of images.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<!-- more -->
+
+<h2 id="usage">Usage</h2>
+
+<p>Suppose you want to record your TTY1.</p>
+
+<p><img src="/images/posts/Screendump/tty1.png" alt="'Screenshot of TTY 1 taken with fbgrab' ['tty1']" /></p>
+
+<p>The above screenshot is taken using <code class="highlighter-rouge">fbgrab -c 1 tty1.png</code>.  Even
+though it’s cropped, it still has thousands of bytes.  Nevertheless,
+if I show it using text, there’re only 337 bytes since the text only
+consists of 337 characters.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>Ubuntu 14.04.1 LTS owner-Inspiron-560s tty1
+
+owner-Inspiron-560s login: owner
+Password:
+Last login: Sat Sep 13 13:04:04 HKT 2014 on tty2
+Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-35-generic i686)
+
+ * Documentation:  https://help.ubuntu.com/
+
+owner@owner-Inspiron-560s:~$ cat &gt; /dev/null
+This is tty1.
+owner@owner-Inspiron-560s:~$
+</code></pre>
+</div>
+
+<p>The above text is captured with <code class="highlighter-rouge">screendump</code>.  How to use
+<code class="highlighter-rouge">screendump</code>?  There’s a manual page about this tool. The following
+examples save the time.</p>
+
+<h3 id="failed-commands">Failed commands</h3>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>owner@owner-Inspiron-560s:~$ screendump 1 tty1.png
+usage: screendump [n]
+owner@owner-Inspiron-560s:~$ screendump 1
+couldn't read /dev/vcsa1
+</code></pre>
+</div>
+
+<ol>
+  <li>Using <code class="highlighter-rouge">screendump</code> like <code class="highlighter-rouge">fbgrab</code> <em>doesn’t</em> work.</li>
+  <li>Just copying the suggested command <em>doesn’t</em> work either.</li>
+</ol>
+
+<h3 id="successful-examples">Successful examples</h3>
+
+<p>Suppose that each of TTY1-6 has 64 rows and 160 columns.</p>
+
+<p>After one issued the command <code class="highlighter-rouge">screendump 1</code> with <em>root</em> privilege in
+<em>another</em> <abbr title="TeleTYpewriter">TTY</abbr>, the <em>whole</em> TTY1 is printed on the <abbr title="TeleTYpewriter">TTY</abbr> that invoked
+<code class="highlighter-rouge">screendump</code>.  Since TTY1 has 64 rows, to view the first line of TTY1,
+one needs to use <code class="highlighter-rouge">&lt;C-Page Up&gt;</code> to scroll up the screen.  The cursor
+will be at the bottom.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>Ubuntu 14.04.1 LTS owner-Inspiron-560s tty1
+owner-Inspiron-560s login: owner
+Password:
+Last login: Sat Sep 13 13:04:04 HKT 2014 on tty2
+Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-35-generic i686)
+
+ * Documentation:  https://help.ubuntu.com/
+
+owner@owner-Inspiron-560s:~$ cat &gt; /dev/null
+This is tty1.
+owner@owner-Inspiron-560s:~$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+owner@owner-Inspiron-560s:~$
+</code></pre>
+</div>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization#eliminating-and-replacing-images">Eliminating the replacing images</a> in <em>Web
+Fundamentals</em> in Google Developers.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/13/completely-remove-linux-kernels/">Completely Remove Linux Kernels</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/13/completely-remove-linux-kernels/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/13/completely-remove-linux-kernels/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/13/completely-remove-linux-kernels/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I issued the following command and then rebooted the machine.</p>
+
+<div class="cliUB highlighter-rouge"><pre class="highlight"><code>$ sudo aptitude remove linux-headers-3.2.0-67-generic-pae \
+&gt; linux-image-3.2.0-67-generic-pae linux-headers-3.13.0-33-generic \
+&gt; linux-image-3.13.0-33-generic linux-image-extra-3.13.0-33-generic
+</code></pre>
+</div>
+
+<h2 id="problem">Problem</h2>
+
+<p>I checked the list of installed packages, and the above removed package was still there, though in the status of <code class="highlighter-rouge">rc</code>.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p><strong>How can that package disappear from the list?</strong></p>
+
+<!-- more -->
+
+<h2 id="solution">Solution</h2>
+
+<p>Use <code class="highlighter-rouge">purge</code> instead of <code class="highlighter-rouge">remove</code> in the above command.</p>
+
+<pre class="cli"><code class="UBMono">$ <span class="UBHLCode">sudo aptitude purge linux-image-3.2.0-67-generic-pae</span>
+[sudo] password for owner:
+The following packages will be REMOVED:
+  linux-image-3.2.0-67-generic-pae{p}
+0 packages upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
+Need to get 0 B of archives. After unpacking 0 B will be used.
+Do you want to continue? [Y/n/?] Y
+(Reading database ... 349931 files and directories currently installed.)
+Removing linux-image-3.2.0-67-generic-pae (3.2.0-67.101) ...
+Purging configuration files for linux-image-3.2.0-67-generic-pae (3.2.0-67.101) 
+...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 3.2.0-67-generic-pae /
+boot/vmlinuz-3.2.0-67-generic-pae
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 3.2.0-67-generic-pae /
+boot/vmlinuz-3.2.0-67-generic-pae
+$ <span class="UBHLCode">sudo aptitude purge linux-image-3.13.0-33-generic linux-image-extra-3.13.0-33-
+generic</span>
+The following packages will be REMOVED:
+  linux-image-3.13.0-33-generic{p} linux-image-extra-3.13.0-33-generic{p}
+0 packages upgraded, 0 newly installed, 2 to remove and 0 not upgraded.
+Need to get 0 B of archives. After unpacking 0 B will be used.
+Do you want to continue? [Y/n/?] Y
+(Reading database ... 349931 files and directories currently installed.)
+Removing linux-image-3.13.0-33-generic (3.13.0-33.58) ...
+Purging configuration files for linux-image-3.13.0-33-generic (3.13.0-33.58) ...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 3.13.0-33-generic /boo
+t/vmlinuz-3.13.0-33-generic
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 3.13.0-33-generic /boot
+/vmlinuz-3.13.0-33-generic
+Removing linux-image-extra-3.13.0-33-generic (3.13.0-33.58) ...
+Purging configuration files for linux-image-extra-3.13.0-33-generic (3.13.0-33.5
+8) ...
+Examining /etc/kernel/postrm.d .
+run-parts: executing /etc/kernel/postrm.d/initramfs-tools 3.13.0-33-generic /boo
+t/vmlinuz-3.13.0-33-generic
+run-parts: executing /etc/kernel/postrm.d/zz-update-grub 3.13.0-33-generic /boot
+/vmlinuz-3.13.0-33-generic
+</code></pre>
+
+<p>After running the above two commands, the above three removed Linux
+kernel images with status <code class="highlighter-rouge">rc</code> <em>shouldn’t</em> be seen in the list of
+packages anymore.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<hr />
+
+<div id="list1" class="noscr">
+  <p>The <strong>bold</strong> lines represent the packages that are going to be
+completely removed.</p>
+
+  <pre class="cli"><code class="UBMono">$ dpkg -l | grep linux
+ii  fonts-<span class="grep">linux</span>libertine                                  5.3.0-2                                             all          Linux Libertine family of fonts
+ii  libse<span class="grep">linux</span>1:i386                                      2.2.2-1ubuntu0.1                                    i386         SELinux runtime shared libraries
+ii  libv4l-0:i386                                         1.0.1-1                                             i386         Collection of video4<span class="grep">linux</span> support lib
+raries
+ii  libv4lconvert0:i386                                   1.0.1-1                                             i386         Video4<span class="grep">linux</span> frame format conversion l
+ibrary
+ii  <span class="grep">linux</span>-firmware                                        1.127.5                                             all          Firmware for Linux kernel drivers
+ii  <span class="grep">linux</span>-generic                                         3.13.0.35.42                                        i386         Complete Generic Linux kernel and hea
+ders
+ii  <span class="grep">linux</span>-generic-pae                                     3.13.0.35.42                                        i386         Transitional package.
+ii  <span class="grep">linux</span>-headers-3.13.0-34                               3.13.0-34.60                                        all          Header files related to Linux kernel
+version 3.13.0
+ii  <span class="grep">linux</span>-headers-3.13.0-34-generic                       3.13.0-34.60                                        i386         Linux kernel headers for version 3.13
+.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-headers-3.13.0-35                               3.13.0-35.62                                        all          Header files related to Linux kernel
+version 3.13.0
+ii  <span class="grep">linux</span>-headers-3.13.0-35-generic                       3.13.0-35.62                                        i386         Linux kernel headers for version 3.13
+.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-headers-generic                                 3.13.0.35.42                                        i386         Generic Linux kernel headers
+ii  <span class="grep">linux</span>-headers-generic-pae                             3.13.0.35.42                                        i386         Transitional package
+<span class="UBHLCode">rc  <span class="grep">linux</span>-image-3.13.0-33-generic                         3.13.0-33.58                                        i386         Linux kernel image for version 3.13.0
+on 32 bit x86 SMP</span>
+ii  <span class="grep">linux</span>-image-3.13.0-34-generic                         3.13.0-34.60                                        i386         Linux kernel image for version 3.13.0
+on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-3.13.0-35-generic                         3.13.0-35.62                                        i386         Linux kernel image for version 3.13.0
+on 32 bit x86 SMP
+<span class="UBHLCode">rc  <span class="grep">linux</span>-image-3.2.0-67-generic-pae                      3.2.0-67.101                                        i386         Linux kernel image for version 3.2.0
+on 32 bit x86 SMP</span>
+<span class="UBHLCode">rc  <span class="grep">linux</span>-image-extra-3.13.0-33-generic                   3.13.0-33.58                                        i386         Linux kernel extra modules for versio
+n 3.13.0 on 32 bit x86 SMP</span>
+ii  <span class="grep">linux</span>-image-extra-3.13.0-34-generic                   3.13.0-34.60                                        i386         Linux kernel extra modules for versio
+n 3.13.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-extra-3.13.0-35-generic                   3.13.0-35.62                                        i386         Linux kernel extra modules for versio
+n 3.13.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-generic                                   3.13.0.35.42                                        i386         Generic Linux kernel image
+ii  <span class="grep">linux</span>-image-generic-pae                               3.13.0.35.42                                        i386         Transitional package
+ii  <span class="grep">linux</span>-libc-dev:i386                                   3.13.0-35.62                                        i386         Linux Kernel Headers for development
+ii  <span class="grep">linux</span>-sound-base                                      1.0.25+dfsg-0ubuntu4                                all          base package for ALSA and OSS sound s
+ystems
+ii  pptp-<span class="grep">linux</span>                                            1.7.2-7                                             i386         Point-to-Point Tunneling Protocol (PP
+TP) Client
+ii  sys<span class="grep">linux</span>                                              3:4.05+dfsg-6+deb8u1                                i386         collection of boot loaders
+ii  sys<span class="grep">linux</span>-common                                       3:4.05+dfsg-6+deb8u1                                all          collection of boot loaders (common fi
+les)
+ii  sys<span class="grep">linux</span>-legacy                                       2:3.63+dfsg-2ubuntu5                                i386         Bootloader for Linux/i386 using MS-DO
+S floppies
+ii  util-<span class="grep">linux</span>                                            2.20.1-5.1ubuntu20.1                                i386         Miscellaneous system utilities
+</code></pre>
+</div>
+
+<div id="list2" class="noscr">
+  <p>There’s <em>no</em> lines beginning with <code class="highlighter-rouge">rc</code>.</p>
+
+  <pre class="cli"><code class="UBMono">$ dpkg -l | grep linux
+ii  fonts-<span class="grep">linux</span>libertine                                  5.3.0-2                                             all          Linux Libertine family of fonts
+ii  libse<span class="grep">linux</span>1:i386                                      2.2.2-1ubuntu0.1                                    i386         SELinux runtime shared libraries
+ii  libv4l-0:i386                                         1.0.1-1                                             i386         Collection of video4<span class="grep">linux</span> support lib
+raries
+ii  libv4lconvert0:i386                                   1.0.1-1                                             i386         Video4<span class="grep">linux</span> frame format conversion l
+ibrary
+ii  <span class="grep">linux</span>-firmware                                        1.127.5                                             all          Firmware for Linux kernel drivers
+ii  <span class="grep">linux</span>-generic                                         3.13.0.35.42                                        i386         Complete Generic Linux kernel and hea
+ders
+ii  <span class="grep">linux</span>-generic-pae                                     3.13.0.35.42                                        i386         Transitional package.
+ii  <span class="grep">linux</span>-headers-3.13.0-34                               3.13.0-34.60                                        all          Header files related to Linux kernel
+version 3.13.0
+ii  <span class="grep">linux</span>-headers-3.13.0-34-generic                       3.13.0-34.60                                        i386         Linux kernel headers for version 3.13
+.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-headers-3.13.0-35                               3.13.0-35.62                                        all          Header files related to Linux kernel
+version 3.13.0
+ii  <span class="grep">linux</span>-headers-3.13.0-35-generic                       3.13.0-35.62                                        i386         Linux kernel headers for version 3.13
+.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-headers-generic                                 3.13.0.35.42                                        i386         Generic Linux kernel headers
+ii  <span class="grep">linux</span>-headers-generic-pae                             3.13.0.35.42                                        i386         Transitional package
+ii  <span class="grep">linux</span>-image-3.13.0-34-generic                         3.13.0-34.60                                        i386         Linux kernel image for version 3.13.0
+ on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-3.13.0-35-generic                         3.13.0-35.62                                        i386         Linux kernel image for version 3.13.0
+ on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-extra-3.13.0-34-generic                   3.13.0-34.60                                        i386         Linux kernel extra modules for versio
+n 3.13.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-extra-3.13.0-35-generic                   3.13.0-35.62                                        i386         Linux kernel extra modules for versio
+n 3.13.0 on 32 bit x86 SMP
+ii  <span class="grep">linux</span>-image-generic                                   3.13.0.35.42                                        i386         Generic Linux kernel image
+ii  <span class="grep">linux</span>-image-generic-pae                               3.13.0.35.42                                        i386         Transitional package
+ii  <span class="grep">linux</span>-libc-dev:i386                                   3.13.0-35.62                                        i386         Linux Kernel Headers for development
+ii  <span class="grep">linux</span>-sound-base                                      1.0.25+dfsg-0ubuntu4                                all          base package for ALSA and OSS sound s
+ystems
+ii  pptp-<span class="grep">linux</span>                                            1.7.2-7                                             i386         Point-to-Point Tunneling Protocol (PP
+TP) Client
+ii  sys<span class="grep">linux</span>                                              3:4.05+dfsg-6+deb8u1                                i386         collection of boot loaders
+ii  sys<span class="grep">linux</span>-common                                       3:4.05+dfsg-6+deb8u1                                all          collection of boot loaders (common fi
+les)
+ii  sys<span class="grep">linux</span>-legacy                                       2:3.63+dfsg-2ubuntu5                                i386         Bootloader for Linux/i386 using MS-DO
+S floppies
+ii  util-<span class="grep">linux</span>                                            2.20.1-5.1ubuntu20.1                                i386         Miscellaneous system utilities
+</code></pre>
+</div>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="#list1" class="cliwide">View the terminal commands and output</a>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="#list2" class="cliwide">View the terminal commands and output</a>.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/13/i-slash-o-errors-during-removal-of-old-kernels/">I/O Errors during Removal of Old Kernels</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/13/i-slash-o-errors-during-removal-of-old-kernels/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/13/i-slash-o-errors-during-removal-of-old-kernels/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/13/i-slash-o-errors-during-removal-of-old-kernels/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="problem">Problem</h2>
+
+<p>I encountered some block I/O errors while deleting old Linux kernels.</p>
+
+<p><img class="fancybox" src="/images/posts/RmOldKer/err.png" width="900" alt="'Received errors in tty1' ['error messages']" /></p>
+
+<!-- more -->
+
+<p>As the error messages were just after the line <code class="highlighter-rouge">Found Fedora ...</code>, I
+booted into Fedora 17 out of curiousity.</p>
+
+<h2 id="cause">Cause</h2>
+
+<p>In Fedora’s file manager, I found the reason for the above error
+messages.</p>
+
+<p><img class="fancybox" src="/images/posts/RmOldKer/cause.png" width="900" alt="'Cause of the above error' ['Fedora file manager']" /></p>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/13/test-embedded-fancybox-inline-element/">Test Embedded Fancybox Inline Element</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/13/test-embedded-fancybox-inline-element/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/13/test-embedded-fancybox-inline-element/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/13/test-embedded-fancybox-inline-element/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="why">Why?</h2>
+
+<p>It’s because I’ve some code block/console input/output which have more
+than 80 characters and their width <em>can’t</em> be reduced.  For example,
+in <a href="/blog/2014/01/05/gnu-ddrescue-a-powerful-data-recovery-tool/"><em>GNU ddrescue—A Powerful Data Recovery Tool</em></a>, there’s a
+<code class="highlighter-rouge">&lt;pre&gt;</code> tag which is very wide.  There’s a scrollbar at the bottom,
+but it’s <em>hard</em> to see.</p>
+
+<p><img class="fancybox" src="/images/posts/FancyboxInline/scroll1.png" width="900" alt="'Move the mouse to the right and click for the next image' ['fig1']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/FancyboxInline/scroll2.png" width="900" alt="'Move the mouse to the right and click for the next image' ['fig2']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/FancyboxInline/scroll3.png" width="900" alt="'Move the mouse to the right and click for the next image' ['fig3']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/FancyboxInline/scroll4.png" width="900" alt="'Move the mouse to the right and click for the next image' ['fig4']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/FancyboxInline/scroll5.png" width="900" alt="'Move the mouse to the right and click for the next image' ['fig5']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/FancyboxInline/scroll6.png" width="900" alt="'Move the mouse to the right and click for the next image' ['fig6']" /></p>
+
+<p><img class="fancybox noscr nopr" src="/images/posts/FancyboxInline/scroll7.png" width="900" alt="'Move the mouse to the right and click to replay the slideshow' ['fig7']" /></p>
+
+<h2 id="result">Result</h2>
+
+<p>You may <a href="#eg1" class="cliwide">view the console message</a>, which has 160
+columns.  It’s so wide that putting it into a popup dialog can help.</p>
+
+<div id="eg1" class="noscr">
+<pre class="cli"><code class="UBMono">   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition's system id
+   u   change display/entry units
+   v   verify the partition table
+   w   write table to disk and exit
+   x   extra functionality (experts only)
+Command (m for help): l
+ 0  Empty            c  FAT32 LBA       1e  Hidd FAT16 LBA  52  CP/M            80  Minix &lt;1.4a     9f  BSD/OS          bf  Solaris         eb  BeOS fs
+ 1  FAT12            e  FAT16 LBA       24  NEC DOS         53  OnTrackDM6 Aux3 81  Minix &gt;1.4b     a0  Thinkpad hib    c1  DRDOS/2 FAT12   ee  GPT
+ 2  XENIX root       f  Extended LBA    39  Plan 9          54  OnTrack DM6     82  Linux swap      a5  FreeBSD         c4  DRDOS/2 smFAT16 ef  EFI FAT
+ 3  XENIX usr       10  OPUS            3c  PMagic recovery 55  EZ Drive        83  Linux           a6  OpenBSD         c6  DRDOS/2 FAT16   f0  Lnx/PA-RISC bt
+ 4  Small FAT16     11  Hidden FAT12    40  Venix 80286     56  Golden Bow      84  OS/2 hidden C:  a7  NeXTSTEP        c7  Syrinx          f1  SpeedStor
+ 5  Extended        12  Compaq diag     41  PPC PReP Boot   5c  Priam Edisk     85  Linux extended  a8  Darwin UFS      da  Non-FS data     f2  DOS secondary
+ 6  FAT16           14  Hidd Sm FAT16   42  SFS             61  SpeedStor       86  NTFS volume set a9  NetBSD          db  CP/M / CTOS     f4  SpeedStor
+ 7  HPFS/NTFS       16  Hidd FAT16      4d  QNX4.x          63  GNU HURD/SysV   87  NTFS volume set ab  Darwin boot     de  Dell Utility    fd  Lnx RAID auto
+ 8  AIX             17  Hidd HPFS/NTFS  4e  QNX4.x 2nd part 64  Netware 286     88  Linux plaintext b7  BSDI fs         df  BootIt          fe  LANstep
+ 9  AIX bootable    18  AST SmartSleep  4f  QNX4.x 3rd part 65  Netware 386     8e  Linux LVM       b8  BSDI swap       e1  DOS access      ff  XENIX BBT
+ a  OS/2 boot mgr   1b  Hidd FAT32      50  OnTrack DM      70  DiskSec MltBoot 93  Amoeba          bb  Boot Wizard Hid e3  DOS R/O
+ b  FAT32           1c  Hidd FAT32 LBA  51  OnTrackDM6 Aux1 75  PC/IX           94  Amoeba BBT      be  Solaris boot    e4  SpeedStor
+Command (m for help): x
+Expert command (m for help): m
+Command action
+   b   move beginning of data in a partition
+   c   change number of cylinders
+   e   list extended partitions
+   f   fix partition order
+   g   create an IRIX (SGI) partition table
+   h   change number of heads
+   m   print this menu
+   p   print the partition table
+   q   quit without saving changes
+   r   return to the main menu
+   s   change number of sectors/track
+   v   verify the partition table
+   w   write table to disk and exit
+Expert command (m for help): q
+root@ubuntu:~# <span class="err">ddrescue -r1 -n -S -v /dev/sdf1 /dev/sda5 backup1.log</span>
+ddrescue: Output file exists and is not a regular file.
+ddrescue: Use <span class="UBHLCode">`--force'</span> if you really want to overwrite it, but be
+ddrescue: aware that all existing data in output file will be lost.
+Try `ddrescue --help' for more information.
+root@ubuntu:~# ls
+root@ubuntu:~# ddrescue -r1 -n -S <span class="UBHLCode">-f</span> -v /dev/sdf1 /dev/sda5 backup1.log
+
+
+About to copy 3999 MBytes from /dev/sdf1 to /dev/sda5
+    Starting positions: infile = 0 B,  outfile = 0 B
+    Copy block size: 128 sectors
+Sector size: 512  bytes
+Max retries: 1
+Direct: no    Sparse: yes    Split: no    Truncate: no
+
+Press Ctrl-C to interrupt
+Initial status (read from logfile)
+rescued:         0 B,  errsize:       0 B,  errors:       0
+Current status
+rescued:   377286 kB,  errsize:    4096 B,  current rate:    2686 kB/s
+rescued:   594792 kB,  errsize:   12288 B,  current rate:    1179 kB/s
+   ipos:   594804 kB,   errors:       2,    average rate:     389 kB/s
+   opos:   594804 kB,     time from last successful read:       0 s
+Copying non-tried blocks...
+</code></pre>
+</div>
+
+<p>Unluckily, I <em>can’t</em> do anything about the horizontal scrollbar at the
+bottom.</p>
+
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/12/custom-javascripts-in-the-head-of-octopress-pages/">Custom JavaScripts in the Head of Octopress Pages</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/12/custom-javascripts-in-the-head-of-octopress-pages/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/12/custom-javascripts-in-the-head-of-octopress-pages/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/12/custom-javascripts-in-the-head-of-octopress-pages/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I set up <em>Blog 1</em> for MathJax and fancybox, I included some
+custom code in <code class="highlighter-rouge">source/_includes/custom/head.html</code>.  I moved them to
+<code class="highlighter-rouge">source/javascripts/MathJaxLocal.js</code> and
+<code class="highlighter-rouge">source/javascripts/FancyBoxLocal.js</code> because I <em>don’t</em> like
+JavaScript code inside HTML files.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>In the past, I put those code in <code class="highlighter-rouge">source/_includes/custom/head.html</code>
+because of Felix Chern’s post.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  However, there’s another better
+way.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>  Why is it better?  It saves thousands of lines of code.
+Apart from that, it’s a way to separate the behaviour of a document
+from the contents.<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></p>
+
+<p><img class="fancybox" src="/images/posts/OctHead/MasterPull.png" width="900" alt="'Statistics on the changes' ['git-diff --stat']" /></p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Commits <a href="https://github.com/VincentTam/vincenttam.github.io/commit/697d086" title="Moved javascript code from a HTML file">697d086</a> and <a href="https://github.com/VincentTam/vincenttam.github.io/commit/d6d3633" title="Added two new posts, and updated MathJax equations">d6d3633</a>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+
+      <p>See <a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/"><em>Writing Math Equations on Octopress</em></a> in Carpe Diem.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+
+      <p>See <a href="http://drz.ac/2013/01/03/blogging-with-math/"><em>Blogging With Math: Octopress, MathJax, and Pandoc</em></a> in
+DrZ.ac.&nbsp;<a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+
+      <p>See
+<a href="http://www.w3.org/2001/tag/doc/contentPresentation-26.html"><em>Separation of semantic and presentational markup, to the extent possible, is architecturally sound</em></a>
+in W3C.&nbsp;<a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/10/an-error-in-printing-equations-in-chrome/">An Error in Printing Equations in Chrome</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/10/an-error-in-printing-equations-in-chrome/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/10/an-error-in-printing-equations-in-chrome/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/10/an-error-in-printing-equations-in-chrome/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This afternoon, I found that when I preview the print layout of the
+posts in <a href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a>, some Mathjax block equations enclosed with
+<code class="highlighter-rouge">\begin{equation}</code> <em>weren’t</em> displayed properly.  I think it should be
+due to my settings in <code class="highlighter-rouge">sass/custom/_print.scss</code> because the contents
+in Mathjax’s official demo can be rendered properly in the print
+preview.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  Therefore, I deleted some obsolete lines of code in that
+SCSS file .<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>  Actually, since it takes time for loading MathJax, if
+I open the print preview before the block equations are ready, then I
+will see the source code of those equations.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+
+      <p>Refer to <a href="http://cdn.mathjax.org/mathjax/latest/test/sample-eqnum.html"><em>A Test of Equation Numbering</em></a> in MathJax
+Example Pages for details.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Commit <a href="https://github.com/VincentTam/vincenttam.github.io/commit/48b131c" title="Deleted obsolete CSS code for printing equations">48b131c</a>.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+    </article>
+  
+  
+    <article>
+      <header>
+    
+      <!-- This defines how Octopress will use posts with external-url. -->
+      
+	<h1 class="entry-title"><a href="/blog/2014/09/08/another-way-of-writing-piecewise-functions/">Another Way of Writing Piecewise Functions</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+        
+           | <a href="/blog/2014/09/08/another-way-of-writing-piecewise-functions/#disqus_thread/"
+             data-disqus-identifier="https://vincenttam.github.io/blog/2014/09/08/another-way-of-writing-piecewise-functions/">Comments</a>
+        
+	| <a rel="bookmark" href="/blog/2014/09/08/another-way-of-writing-piecewise-functions/" title="Permalink">&infin;</a>
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2 id="background">Background</h2>
+
+<p>I changed my way of writing block equations for RSS.[^1]  However, in
+my old post about the Contraction Mapping Principles, there’s an
+inequality on the rate of convergence of a point in a complete metric
+space to the unique fixed point of the Lipschitz mapping with a
+Lipschitz constant strictly less than one.[^2]</p>
+
+<p>\[
+\begin{aligned}
+d(x^*,x_n) =&amp; d\left( \lim_{k \to \infty} x_k,x_n\right) \\\<br />
+=&amp; \lim_{k \to \infty} d(x_k,x_n) \\\<br />
+\le&amp; \lim_{k \to \infty} \frac{q^n}{1 - q} d(x_1,x_0) \\\<br />
+=&amp; \frac{q^n}{1 - q} d(x_1,x_0)
+\end{aligned}
+\]</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Source code of the above block equation</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">\\[
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">\begin&#x7b;aligned&#x7d;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">d(x^\*,x\_n) =&amp; d\left( \lim\_&#x7b;k \to \infty&#x7d; x\_k,x\_n\right) \\\\\\\\
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">=&amp; \lim\_&#x7b;k \to \infty&#x7d; d(x\_k,x\_n) \\\\\\\\
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">\le&amp; \lim\_&#x7b;k \to \infty&#x7d; \frac&#x7b;q^n&#x7d;&#x7b;1 - q&#x7d; d(x\_1,x\_0) \qquad
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">  \text&#x7b;(by \eqref&#x7b;eq:finite_err&#x7d;)&#x7d; \\\\\\\\
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">=&amp; \frac&#x7b;q^n&#x7d;&#x7b;1 - q&#x7d; d(x\_1,x\_0)
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">\end&#x7b;aligned&#x7d;
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">\\]</div></div></pre></div></figure>
+
+<p>Starting from the second line in the above block equation, at the left
+of the binary relation symbols there’s a whitespace character.</p>
+
+<!-- more -->
+
+<h3 id="visual-effects-in-a-page-for-a-single-post">Visual effects in a page for a single post</h3>
+
+<p><img class="fancybox" src="/images/posts/MathJaxDisplay2/post.png" alt="'LaTeX code seen in post' ['fig1']" /></p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">$\rm \LaTeX$ code as seen in an individual post</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">d(x<span class="p">^</span>*,x<span class="p">_</span>n) =<span class="p">&amp;</span> d<span class="k">\left</span>( <span class="k">\lim</span><span class="p">_&#x7b;</span>k <span class="k">\to</span> <span class="k">\infty</span><span class="p">&#x7d;</span> x<span class="p">_</span>k,x<span class="p">_</span>n<span class="k">\right</span>) <span class="k">\\\</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">=<span class="p">&amp;</span> <span class="k">\lim</span><span class="p">_&#x7b;</span>k <span class="k">\to</span> <span class="k">\infty</span><span class="p">&#x7d;</span> d(x<span class="p">_</span>k,x<span class="p">_</span>n) <span class="k">\\\
+&lt;/div&gt;&lt;/div&gt;<div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">\le&lt;/span&gt;<span class="p">&amp;</span> <span class="k">\lim</span><span class="p">_&#x7b;</span>k <span class="k">\to</span> <span class="k">\infty</span><span class="p">&#x7d;</span> <span class="k">\frac</span><span class="p">&#x7b;</span>q<span class="p">^</span>n<span class="p">&#x7d;&#x7b;</span>1 - q<span class="p">&#x7d;</span> d(x<span class="p">_</span>1,x<span class="p">_</span>0) <span class="k">\qquad</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\text</span><span class="p">&#x7b;</span>(by <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:finite<span class="p">_</span>err<span class="p">&#x7d;</span>)<span class="p">&#x7d;</span> <span class="k">\\\</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">=<span class="p">&amp;</span> <span class="k">\frac</span><span class="p">&#x7b;</span>q<span class="p">^</span>n<span class="p">&#x7d;&#x7b;</span>1 - q<span class="p">&#x7d;</span> d(x<span class="p">_</span>1,x<span class="p">_</span>0)
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;aligned&#x7d;</span></div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+### Visual effects in pages under "/posts/" or the index page
+
+(Added on SEP 3RD, 2015)
+
+Note that due to the development of Octopress, I now see *three*
+backslashes in the "MathJax Equation Source".
+
+<img class="fancybox" src="/images/posts/MathJaxDisplay2/collection.png" alt="'LaTeX code seen in index page' ['fig2']" />
+
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">$\rm \LaTeX$ code as seen under "/posts/" or the index page</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\begin&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">d(x<span class="p">^</span>*,x<span class="p">_</span>n) =<span class="p">&amp;</span> d<span class="k">\left</span>( <span class="k">\lim</span><span class="p">_&#x7b;</span>k <span class="k">\to</span> <span class="k">\infty</span><span class="p">&#x7d;</span> x<span class="p">_</span>k,x<span class="p">_</span>n<span class="k">\right</span>) <span class="k">\\</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">=<span class="p">&amp;</span> <span class="k">\lim</span><span class="p">_&#x7b;</span>k <span class="k">\to</span> <span class="k">\infty</span><span class="p">&#x7d;</span> d(x<span class="p">_</span>k,x<span class="p">_</span>n) <span class="k">\\</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\le</span><span class="p">&amp;</span> <span class="k">\lim</span><span class="p">_&#x7b;</span>k <span class="k">\to</span> <span class="k">\infty</span><span class="p">&#x7d;</span> <span class="k">\frac</span><span class="p">&#x7b;</span>q<span class="p">^</span>n<span class="p">&#x7d;&#x7b;</span>1 - q<span class="p">&#x7d;</span> d(x<span class="p">_</span>1,x<span class="p">_</span>0) <span class="k">\qquad</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="k">\text</span><span class="p">&#x7b;</span>(by <span class="k">\eqref</span><span class="p">&#x7b;</span>eq:finite<span class="p">_</span>err<span class="p">&#x7d;</span>)<span class="p">&#x7d;</span> <span class="k">\\</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">=<span class="p">&amp;</span> <span class="k">\frac</span><span class="p">&#x7b;</span>q<span class="p">^</span>n<span class="p">&#x7d;&#x7b;</span>1 - q<span class="p">&#x7d;</span> d(x<span class="p">_</span>1,x<span class="p">_</span>0)
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">\end&#x7b;aligned&#x7d;</span></div></div></pre></div></figure>
+
+
+
+It *doesn't* matter much in block equations.
+
+Problem
+---
+
+However, it *does* matter if I have to define a piecewise function.
+Take one defined in one of my old posts as an example.[^3]
+
+---
+<del>(Added on DEC 12TH, 2014)</del>
+(Revised on SEP 3RD, 2015)
+
+<del>Note: As you can see from the above piecewise function, the
+problem is now *gone*.</del>
+
+---
+
+\\[
+f(x,y) =
+  \begin{cases}
+    0 &amp;\text{if } (x,y) \in \vect{I} \land y \ge x\\\\\\\\
+    1 &amp;\text{if } (x,y) \in \vect{I} \land y &lt; x
+  \end{cases}
+\\]
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Source code of the above block equation</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">\\[
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">f(x,y) =
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  \begin&#x7b;cases&#x7d;
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    0 &amp;\text&#x7b;if &#x7d; (x,y) \in \vect&#x7b;I&#x7d; \land y \ge x\\\\\\\\
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    1 &amp;\text&#x7b;if &#x7d; (x,y) \in \vect&#x7b;I&#x7d; \land y &lt; x
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">  \end&#x7b;cases&#x7d;
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">\\]</div></div></pre></div></figure>
+
+
+### Visual effects in a page for a single post
+
+<img class="fancybox" src="/images/posts/MathJaxDisplay2/cases3.png" alt="'LaTeX code seen in post' ['fig3']" />
+
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">$\rm \LaTeX$ code as seen in an individual post</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">f(x,y) =
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\begin&#x7b;cases&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    0 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span>if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y <span class="k">\ge</span> x<span class="k">\\\
+&lt;/div&gt;&lt;/div&gt;<div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    &lt;/span&gt;1 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span>if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y &lt; x
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;cases&#x7d;</span></div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+### Visual effects in pages under "/posts/" or the index page
+
+(Added on SEP 3RD, 2015)
+
+Note that due to the development of Octopress, I now see *three*
+backslashes in the "MathJax Equation Source".
+
+<img class="fancybox" src="/images/posts/MathJaxDisplay2/cases2.png" alt="'LaTeX code seen in index page' ['fig4']" />
+
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">$\rm \LaTeX$ code as seen under "/posts/" or the index page</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">f(x,y) =
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\begin&#x7b;cases&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    0 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span>if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y <span class="k">\ge</span> x<span class="k">\\</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    1 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span>if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y &lt; x
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;cases&#x7d;</span></div></div></pre></div></figure>
+
+
+
+Solution
+---
+
+---
+(Added on SEP 3RD, 2015)
+
+Now, I know [how to tell kramdown to ignore MathJax code][sol].  This
+is *much more convenient* than the method described below.
+
+---
+
+After I observed that the two equations, which are aligned by the
+`aligned` environment, at the bottom of the post cited in footnote #3,
+I used the $\rm \LaTeX$ commands `\left\\{` and `\right.` in the
+Markdown source file for posts to construct the left curly brace
+*only*.
+
+\\[
+f(x,y) = \left\\{
+  \begin{aligned}
+    0 &amp;\text{ if } (x,y) \in \vect{I} \land y \ge x\\\\\\\\
+    1 &amp;\text{ if } (x,y) \in \vect{I} \land y &lt; x,
+  \end{aligned}
+\right.
+\\]
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Source code of the above block equation</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">\\[
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">f(x,y) = \left\\&#x7b;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  \begin&#x7b;aligned&#x7d;
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    0 &amp;\text&#x7b; if &#x7d; (x,y) \in \vect&#x7b;I&#x7d; \land y \ge x\\\\\\\\
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    1 &amp;\text&#x7b; if &#x7d; (x,y) \in \vect&#x7b;I&#x7d; \land y &lt; x,
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">  \end&#x7b;aligned&#x7d;
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">\right.
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">\\]</div></div></pre></div></figure>
+
+
+### Visual effects in a page for a single post
+
+<img class="fancybox" src="/images/posts/MathJaxDisplay2/aligned3.png" alt="'LaTeX code seen in post' ['fig5']" />
+
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">$\rm \LaTeX$ code as seen in an individual post</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">f(x,y) = <span class="k">\left\&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\begin&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    0 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span> if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y <span class="k">\ge</span> x<span class="k">\\\
+&lt;/div&gt;&lt;/div&gt;<div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    &lt;/span&gt;1 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span> if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y &lt; x,
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\right</span>.</div></div>&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+### Visual effects in pages under "/posts/" or the index page
+
+(Added on SEP 3RD, 2015)
+
+Note that due to the development of Octopress, I now see *three*
+backslashes in the "MathJax Equation Source".
+
+<img class="fancybox" src="/images/posts/MathJaxDisplay2/aligned2.png" alt="'LaTeX code seen in index page' ['fig6']" />
+
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">$\rm \LaTeX$ code as seen under "/posts/" or the index page</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">f(x,y) = <span class="k">\left\&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\begin&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    0 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span> if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y <span class="k">\ge</span> x<span class="k">\\</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    1 <span class="p">&amp;</span><span class="k">\text</span><span class="p">&#x7b;</span> if <span class="p">&#x7d;</span> (x,y) <span class="k">\in</span> <span class="k">\vect</span><span class="p">&#x7b;</span>I<span class="p">&#x7d;</span> <span class="k">\land</span> y &lt; x,
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nt">\end&#x7b;aligned&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">\right</span>.</div></div></pre></div></figure>
+
+
+
+'0' and '1' in the above example are aligned.  Though in pages for
+each individual posts, the whitespace character preceeding '1' still
+exists, it *isn't* visible unless it's highlighted.  I'm quite
+satified with this alternative method of typesetting piecewise
+functions.
+
+---
+[^1]: See [*MathJax and RSS*][pp1] in Blog 1 for details.
+[^2]:
+    See
+    [*Error Bound of the Fixed Point of Contraction Mappings*][pp2] in
+    Blog 1 for details.
+
+[^3]:
+    See [*Archimedean Sequence of Partitions of a Square*][pp3] in
+    Blog 1 for details.
+
+[pp1]: /blog/2014/09/07/mathjax-and-rss/
+[pp2]: /blog/2014/08/11/error-bound-of-the-fixed-point-of-contraction-mappings/
+[pp3]: /blog/2014/06/19/archimedean-sequence-of-partitions-of-a-square/
+[sol]: /blog/2014/12/13/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-2/
+
+*[RSS]: Rich Site Summary
+</span></div></div></pre></div></figure></span></div></div></pre></div></figure></span></div></div></pre></div></figure>
+</div>
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/21/">&larr; Older</a>
+    
+    <a href="/blog/archives/">Blog Archives</a>
+    
+    <a class="next" href="/posts/19/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me (Brief)</h1>
+  <a href="http://stackexchange.com/users/3841408/gnu-supporter">
+    <img src="/images/flair.png" width="208" height="58"
+    alt="profile for GNU Supporter on Stack Exchange, a network of
+    free, community-driven Q&amp;A sites" title="profile for GNU
+    Supporter on Stack Exchange, a network of free, community-driven
+    Q&amp;A sites" /></a>
+  <p><a href="/about/">Here</a>'s a more detailed version.</p>
+  <ol>
+    <li>A free software supporter</li>
+    <li>A GNU/Linux user</li>
+    <li>Love text editing in Vim</li>
+    <li>Enjoy writing in Markdown</li>
+  </ol>
+</section>
+  
+
+  
+    <section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/android/'>Android (1)</a> <a href='/blog/categories/android/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (6)</a> <a href='/blog/categories/c-slash-c-plus-plus/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/css/'>CSS (4)</a> <a href='/blog/categories/css/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/emacs/'>Emacs (1)</a> <a href='/blog/categories/emacs/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/gimp/'>GIMP (2)</a> <a href='/blog/categories/gimp/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>Git (34)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/imagemagick/'>ImageMagick (4)</a> <a href='/blog/categories/imagemagick/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex/'>LaTeX (28)</a> <a href='/blog/categories/latex/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/latex-suite/'>LaTeX-Suite (7)</a> <a href='/blog/categories/latex-suite/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (56)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/m$-win-star/'>M$ Win* (41)</a> <a href='/blog/categories/m$-win-star/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>MathJax (16)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/mathjax/'>Mathjax (1)</a> <a href='/blog/categories/mathjax/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>MetaSE (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octave/'>Octave (4)</a> <a href='/blog/categories/octave/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (54)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/perl/'>Perl (2)</a> <a href='/blog/categories/perl/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (9)</a> <a href='/blog/categories/ruby/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/sql/'>SQL (2)</a> <a href='/blog/categories/sql/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/svg/'>SVG (8)</a> <a href='/blog/categories/svg/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/ultrablog-dot-vim/'>UltraBlog.vim (7)</a> <a href='/blog/categories/ultrablog-dot-vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (41)</a> <a href='/blog/categories/vim/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/blogging/'>blogging (20)</a> <a href='/blog/categories/blogging/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/git/'>git (1)</a> <a href='/blog/categories/git/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/hardware/'>hardware (5)</a> <a href='/blog/categories/hardware/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/health/'>health (2)</a> <a href='/blog/categories/health/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/information-security/'>information security (15)</a> <a href='/blog/categories/information-security/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/kramdown/'>kramdown (7)</a> <a href='/blog/categories/kramdown/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/linux/'>linux (1)</a> <a href='/blog/categories/linux/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/math/'>math (56)</a> <a href='/blog/categories/math/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/metase/'>metase (2)</a> <a href='/blog/categories/metase/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (2)</a> <a href='/blog/categories/octopress/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/online-code-highlighter/'>online code highlighter (9)</a> <a href='/blog/categories/online-code-highlighter/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/pandoc/'>pandoc (4)</a> <a href='/blog/categories/pandoc/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/template/'>template (10)</a> <a href='/blog/categories/template/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+<li class='category'><a href='/blog/categories/web-technologies/'>web technologies (32)</a> <a href='/blog/categories/web-technologies/atom.xml'><img title = 'Category Atom Feed' src='/images/rss.png' class='nobd' alt='Category Atom Feed' height='15' width ='15'/></a></li>
+
+  </ul>
+</section>
+  
+
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/ubuntu-on-windows-10-custom-display/">Ubuntu on Windows 10 Custom Display</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/windows-10-time-sync-error/">Windows 10 Time Sync Error</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/shortened-github-urls-for-this-site/">Shortened GitHub URLs for this Site</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/11/a-quick-markdown-syntax-error-detection-for-writing-mathjax-equations-in-octopress-posts-5/">A Quick Markdown Syntax Error Detection for Writing MathJax Equations in Octopress Posts (5)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/10/octopress-config-for-ruby-2-dot-3-on-windows-10/">Octopress Config for Ruby 2.3 on Windows 10</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" src="/images/CC-BY-SA-icon.png" height="31" width="88"/></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br/>
+<span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p></footer>
+  <script type="text/javascript">
+      var disqus_shortname = 'blogueun';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("/javascripts/modernizr-2.0.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/javascripts/MathJaxLocal.js",function() {});
+
+    getScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",function(){
+      getScript("/javascripts/octopress.js",function() {});
+      getScript("/fancybox/source/jquery.fancybox.pack.js?v=2.1.5", function() {
+	getScript("/fancybox/source/helpers/all.js", function() {
+	  getScript("/javascripts/FancyBoxLocal.js", function() {});
+	  });
+	});
+      });
+})();
+
+var cb = function() {
+  var h = document.getElementsByTagName('head')[0];
+
+  // Fonts from Google's Web font directory at http://google.com/webfonts
+  var font1 = document.createElement("link");
+  font1.href = "//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic";
+  font1.rel = "stylesheet";
+  font1.type = "text/css";
+  h.parentNode.insertBefore(font1, h);
+
+  var font2 = document.createElement("link");
+  font2.href = "//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic";
+  font2.rel = "stylesheet";
+  font2.type = "text/css";
+  h.parentNode.insertBefore(font2, h);
+
+  var fontub = document.createElement("link");
+  fontub.href = "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700";
+  fontub.rel = "stylesheet";
+  fontub.type = "text/css";
+  h.parentNode.insertBefore(fontub, h);
+
+  // screen.css
+  var l = document.createElement("link");
+  l.href = "/stylesheets/screen.css";
+  l.media = "screen, projection";
+  l.rel = "stylesheet";
+  l.type = "text/css";
+  h.parentNode.insertBefore(l, h);
+
+  // table css
+  var tcss = document.createElement("link");
+  tcss.href = "/stylesheets/data-table.css";
+  tcss.media = "screen, projection";
+  tcss.rel = "stylesheet";
+  tcss.type = "text/css";
+  h.parentNode.insertBefore(tcss, h);
+
+  // CSS files for FancyBox
+  var fbcss = document.createElement("link");
+  fbcss.href = "/fancybox/source/jquery.fancybox.css?v=2.1.5";
+  fbcss.rel = "stylesheet";
+  fbcss.type = "text/css";
+  fbcss.media = "screen, projection";
+  document.body.appendChild(fbcss);
+  var fbbtncss = document.createElement("link");
+  fbbtncss.href = "/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5";
+  fbbtncss.rel = "stylesheet";
+  fbbtncss.type = "text/css";
+  fbbtncss.media = "screen, projection";
+  document.body.appendChild(fbbtncss);
+  var fbthmcss = document.createElement("link");
+  fbthmcss.href = "/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7";
+  fbthmcss.rel = "stylesheet";
+  fbthmcss.type = "text/css";
+  fbthmcss.media = "screen, projection";
+  document.body.appendChild(fbthmcss);
+};
+
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+    webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
+</body>
+</html>
