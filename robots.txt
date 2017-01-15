@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /404.html
-
-Sitemap: https://vincenttam.github.io/sitemap.xml 

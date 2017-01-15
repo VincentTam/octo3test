@@ -1,5 +1,0 @@
-<ruleset name="My GitHub Page">
-    <target host="vincenttam.github.io" />
-    <rule from="^https://vincenttam\.github\.io/"
-	to="http://vincenttam.github.io/" downgrade="1" />
-</ruleset>
