@@ -24,15 +24,15 @@ $ sudo updatedb
 user@OWNER-PC:~$ fg
 sudo updatedb
 $ locate stdio.h
-/mnt/c/Perl/lib/CORE/nostdio.h
-/mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h
-/mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h
-/mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h
-/mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h
-/usr/include/stdio.h
-/usr/include/c++/4.8/tr1/stdio.h
-/usr/include/x86_64-linux-gnu/bits/stdio.h
-/usr/lib/perl/5.18.2/CORE/nostdio.h
+//mnt/c/Perl/lib/CORE/nostdio.h
+//mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h
+//mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h
+//mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h
+//mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h
+//usr/include/stdio.h
+//usr/include/c++/4.8/tr1/stdio.h
+//usr/include/x86_64-linux-gnu/bits/stdio.h
+//usr/lib/perl/5.18.2/CORE/nostdio.h
 {% endterminal %}
 
 [26191]: http://unix.stackexchange.com/a/26191/165042
