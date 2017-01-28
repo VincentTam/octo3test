@@ -2,6 +2,7 @@
 layout: post
 title: "Jekyll-terminal Test Page"
 date: 2017-01-28T12:19:49+01:00
+categories: blogging
 ---
 
 I typed this sentence quickly.
