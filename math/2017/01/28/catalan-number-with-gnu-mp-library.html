@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Testing Octopress 3</title>
-  <meta name="description" content="My memory dump">
+  <title>Catalan Number With GNU MP Library</title>
+  <meta name="description" content="I have written some programs in C so that Catalan numbers and binomial coefficients can be calculated.">
 
   <link rel="stylesheet" href="/octo3test/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/octo3test/">
+  <link rel="canonical" href="http://localhost:4000/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library.html">
   <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
   
   
@@ -57,44 +57,28 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Catalan Number With GNU MP Library</h1>
+    <p class="post-meta"><time datetime="2017-01-28T00:58:30+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I have written some programs in C so that Catalan numbers and binomial
+coefficients can be calculated.</p>
+
+<script src="https://gist.github.com/VincentTam/985de63d527e04301da01d2b10c0b228.js"></script>
+
+<p>The program <code class="highlighter-rouge">catalan.c</code> does <em>not</em> work after $N = 17$ since too much
+memory is consumed.  This has inspired me to write <code class="highlighter-rouge">catalan-mul.c</code>.</p>
+
+<p>I have chosen C due to its speed.</p>
+
+  </div>
+
   
-  
-
-
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jan 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/octo3test/linux/2017/01/28/c-stdlib-location-failure.html">C Stdlib Location Failure</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/octo3test/blogging/2017/01/28/keep-blogging.html">Keep Blogging</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library.html">Catalan Number With GNU MP Library</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/octo3test/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </main>
