@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-01-28T02:52:07+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump
-</subtitle><entry><title type="html">C Stdlib Location Failure</title><link href="http://localhost:4000/octo3test/linux/2017/01/28/c-stdlib-location-failure.html" rel="alternate" type="text/html" title="C Stdlib Location Failure" /><published>2017-01-28T02:26:18+01:00</published><updated>2017-01-28T02:26:18+01:00</updated><id>http://localhost:4000/octo3test/linux/2017/01/28/c-stdlib-location-failure</id><content type="html" xml:base="http://localhost:4000/octo3test/linux/2017/01/28/c-stdlib-location-failure.html">&lt;p&gt;I expect that the following command return the absolute path of
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://vincenttam.github.io/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://vincenttam.github.io/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vincenttam.github.io/octo3test/" rel="alternate" type="text/html" /><updated>2017-01-28T03:04:47+01:00</updated><id>https://vincenttam.github.io/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump
+</subtitle><entry><title type="html">C Stdlib Location Failure</title><link href="https://vincenttam.github.io/octo3test/linux/2017/01/28/c-stdlib-location-failure.html" rel="alternate" type="text/html" title="C Stdlib Location Failure" /><published>2017-01-28T02:26:18+01:00</published><updated>2017-01-28T02:26:18+01:00</updated><id>https://vincenttam.github.io/octo3test/linux/2017/01/28/c-stdlib-location-failure</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/linux/2017/01/28/c-stdlib-location-failure.html">&lt;p&gt;I expect that the following command return the absolute path of
 &lt;code class=&quot;highlighter-rouge&quot;&gt;stdio.h&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;locate stdio.h
@@ -7,11 +7,31 @@ locate: can not stat &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span cl
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;I will try a &lt;a href=&quot;http://unix.stackexchange.com/a/26191/165042&quot;&gt;database update&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">I expect that the following command return the absolute path of
-stdio.h.</summary></entry><entry><title type="html">Keep Blogging</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging.html" rel="alternate" type="text/html" title="Keep Blogging" /><published>2017-01-28T02:02:37+01:00</published><updated>2017-01-28T02:02:37+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging.html">&lt;p&gt;External-url: &lt;a href=&quot;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&quot;&gt;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&quot;http://unix.stackexchange.com/a/26191/165042&quot;&gt;database update&lt;/a&gt; worked, though it took several minutes.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;sudo updatedb
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;sudo] password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user:
+
+^Z
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]+  Stopped                 sudo updatedb
+&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;fg
+&lt;/span&gt;sudo updatedb
+&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;locate stdio.h
+/mnt/c/Perl/lib/CORE/nostdio.h
+/mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h
+/mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h
+/mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h
+/mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h
+/usr/include/stdio.h
+/usr/include/c++/4.8/tr1/stdio.h
+/usr/include/x86_64-linux-gnu/bits/stdio.h
+/usr/lib/perl/5.18.2/CORE/nostdio.h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><summary type="html">I expect that the following command return the absolute path of
+stdio.h.</summary></entry><entry><title type="html">Keep Blogging</title><link href="https://vincenttam.github.io/octo3test/blogging/2017/01/28/keep-blogging.html" rel="alternate" type="text/html" title="Keep Blogging" /><published>2017-01-28T02:02:37+01:00</published><updated>2017-01-28T02:02:37+01:00</updated><id>https://vincenttam.github.io/octo3test/blogging/2017/01/28/keep-blogging</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/blogging/2017/01/28/keep-blogging.html">&lt;p&gt;External-url: &lt;a href=&quot;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&quot;&gt;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This article explains why I keep posting something that interest few
-netizens.&lt;/p&gt;</content><summary type="html">External-url: http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/</summary></entry><entry><title type="html">Catalan Number With GNU MP Library</title><link href="http://localhost:4000/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library.html" rel="alternate" type="text/html" title="Catalan Number With GNU MP Library" /><published>2017-01-28T00:58:30+01:00</published><updated>2017-01-28T00:58:30+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library.html">&lt;p&gt;I have written some programs in C so that Catalan numbers and binomial
+netizens.&lt;/p&gt;</content><summary type="html">External-url: http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/</summary></entry><entry><title type="html">Catalan Number With GNU MP Library</title><link href="https://vincenttam.github.io/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library.html" rel="alternate" type="text/html" title="Catalan Number With GNU MP Library" /><published>2017-01-28T00:58:30+01:00</published><updated>2017-01-28T00:58:30+01:00</updated><id>https://vincenttam.github.io/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/math/2017/01/28/catalan-number-with-gnu-mp-library.html">&lt;p&gt;I have written some programs in C so that Catalan numbers and binomial
 coefficients can be calculated.&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/VincentTam/985de63d527e04301da01d2b10c0b228.js&quot;&gt;&lt;/script&gt;
