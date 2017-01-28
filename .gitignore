@@ -1,4 +1,6 @@
 _site/
+.code-highlighter-cache/
+.gist-cache/
 .sass-cache
 .jekyll-metadata
 _deploy.yml
