@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gist test</title>
+  <meta name="description" content="Last night, Jekyll’s Gist tag didn’t work during preview.">
+
+  <link rel="stylesheet" href="/octo3test/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/octo3test/blogging/2017/01/28/gist-test.html">
+  <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
+  
+  
+  <link href='/octo3test/stylesheets/all-7f6570d7ee27cedcaf780105c45c00e2.css' media='all' rel='stylesheet' type='text/css'>
+</head>
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/octo3test/">Testing Octopress 3</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/octo3test/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Gist test</h1>
+    <p class="post-meta"><time datetime="2017-01-28T09:57:34+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Last night, Jekyll’s Gist tag <em>didn’t</em> work during preview.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">_vimrc</span><a class="code-highlight-caption-link" href="https://gist.github.com/abc1cbd2b2181ad69165">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">set nocompatible
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">source $VIMRUNTIME/vimrc_example.vim
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">"source $VIMRUNTIME/mswin.vim
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">"behave mswin
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">set diffexpr=MyDiff()
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">function! MyDiff()
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">  let opt = '-a --binary '
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">  if &amp;diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">  if &amp;diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">  let arg1 = v:fname_in
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">  let arg2 = v:fname_new
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">  let arg3 = v:fname_out
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">  let eq = ''
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">  if $VIMRUNTIME =~ ' '
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    if &amp;sh =~ '\&lt;cmd'
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">      let cmd = '""' . $VIMRUNTIME . '\diff"'
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">      let eq = '"'
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">    else
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">    endif
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">  else
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">    let cmd = $VIMRUNTIME . '\diff'
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">  endif
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' &gt; ' . arg3 . eq
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">endfunction
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">" ---END OF DEFAULT SETTINGS ---
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">" Vundle settings
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">"set nocompatible              " be iMproved, required
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">filetype off                   " required
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">" set the runtime path to include Vundle and initialize
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">"call vundle#begin()
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">" alternatively, pass a path where Vundle should install plugins
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">call vundle#begin('$HOME/vimfiles/bundle/')
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">" let Vundle manage Vundle, required
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'VundleVim/Vundle.vim'
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">" The following are examples of different formats supported.
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">" Keep Plugin commands between vundle#begin/end.
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line">" plugin on GitHub repo
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'tpope/vim-fugitive'
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'brookhong/cscope.vim.git'
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'scrooloose/nerdtree'
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'FromtonRouge/OmniCppComplete'
+</div></div><div data-line="52" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'tomtom/tlib_vim'
+</div></div><div data-line="53" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'MarcWeber/vim-addon-mw-utils'
+</div></div><div data-line="54" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'junegunn/vim-easy-align'
+</div></div><div data-line="55" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'Lokaltog/vim-easymotion'
+</div></div><div data-line="56" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'vim-latex/vim-latex'
+</div></div><div data-line="57" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'plasticboy/vim-markdown'
+</div></div><div data-line="58" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'xolox/vim-misc'
+</div></div><div data-line="59" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'tangledhelix/vim-octopress'
+</div></div><div data-line="60" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'tpope/vim-repeat'
+</div></div><div data-line="61" class="code-highlight-row numbered"><div class="code-highlight-line">"Plugin 'xolox/vim-session'
+</div></div><div data-line="62" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'garbas/vim-snipmate'
+</div></div><div data-line="63" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'honza/vim-snippets'
+</div></div><div data-line="64" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'tpope/vim-surround'
+</div></div><div data-line="65" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'kana/vim-textobj-lastpat'
+</div></div><div data-line="66" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'kana/vim-textobj-user'
+</div></div><div data-line="67" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'rbonvall/vim-textobj-latex'
+</div></div><div data-line="68" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'tpope/vim-unimpaired'
+</div></div><div data-line="69" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'bronson/vim-visual-star-search'
+</div></div><div data-line="70" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'mattn/webapi-vim'
+</div></div><div data-line="71" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'mattn/gist-vim'
+</div></div><div data-line="72" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'sgur/vim-textobj-parameter'
+</div></div><div data-line="73" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'thinca/vim-textobj-between'
+</div></div><div data-line="74" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="75" class="code-highlight-row numbered"><div class="code-highlight-line">" plugin from http://vim-scripts.org/vim/scripts.html
+</div></div><div data-line="76" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'a.vim'
+</div></div><div data-line="77" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'c.vim'
+</div></div><div data-line="78" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'DrawIt'
+</div></div><div data-line="79" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'FuzzyFinder'
+</div></div><div data-line="80" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'L9'
+</div></div><div data-line="81" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'loremipsum'
+</div></div><div data-line="82" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'taglist.vim'
+</div></div><div data-line="83" class="code-highlight-row numbered"><div class="code-highlight-line">Plugin 'visualrepeat'
+</div></div><div data-line="84" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="85" class="code-highlight-row numbered"><div class="code-highlight-line">" All of your Plugins must be added before the following line
+</div></div><div data-line="86" class="code-highlight-row numbered"><div class="code-highlight-line">call vundle#end()            " required
+</div></div><div data-line="87" class="code-highlight-row numbered"><div class="code-highlight-line">filetype plugin indent on    " required
+</div></div><div data-line="88" class="code-highlight-row numbered"><div class="code-highlight-line">" End of Vundle settings
+</div></div><div data-line="89" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="90" class="code-highlight-row numbered"><div class="code-highlight-line">" General settings
+</div></div><div data-line="91" class="code-highlight-row numbered"><div class="code-highlight-line">set hlsearch " highlight search
+</div></div><div data-line="92" class="code-highlight-row numbered"><div class="code-highlight-line">set incsearch " incremental search
+</div></div><div data-line="93" class="code-highlight-row numbered"><div class="code-highlight-line">set ignorecase " ignorecase
+</div></div><div data-line="94" class="code-highlight-row numbered"><div class="code-highlight-line">"set linebreak " for soft word wrap (131212: use modeline instead)
+</div></div><div data-line="95" class="code-highlight-row numbered"><div class="code-highlight-line">set smartindent
+</div></div><div data-line="96" class="code-highlight-row numbered"><div class="code-highlight-line">set expandtab " use whitespaces instead of tabs
+</div></div><div data-line="97" class="code-highlight-row numbered"><div class="code-highlight-line">set shiftwidth=4 " indent 4 space char
+</div></div><div data-line="98" class="code-highlight-row numbered"><div class="code-highlight-line">set tabstop=8 " 140228: changing tabstop isn't good
+</div></div><div data-line="99" class="code-highlight-row numbered"><div class="code-highlight-line">set softtabstop=4 " 140228
+</div></div><div data-line="100" class="code-highlight-row numbered"><div class="code-highlight-line">set encoding=utf-8
+</div></div><div data-line="101" class="code-highlight-row numbered"><div class="code-highlight-line">set fileformat=unix
+</div></div><div data-line="102" class="code-highlight-row numbered"><div class="code-highlight-line">set history=200 " memory has become much cheaper
+</div></div><div data-line="103" class="code-highlight-row numbered"><div class="code-highlight-line">set mousehide " Hide the mouse when typing text
+</div></div><div data-line="104" class="code-highlight-row numbered"><div class="code-highlight-line">set sessionoptions+=resize,unix,slash
+</div></div><div data-line="105" class="code-highlight-row numbered"><div class="code-highlight-line">set sessionoptions-=options
+</div></div><div data-line="106" class="code-highlight-row numbered"><div class="code-highlight-line">set guifont=Inconsolata:h12
+</div></div><div data-line="107" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="108" class="code-highlight-row numbered"><div class="code-highlight-line">augroup textCompletion
+</div></div><div data-line="109" class="code-highlight-row numbered"><div class="code-highlight-line">  au!
+</div></div><div data-line="110" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; (     ()&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="111" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; ((    (
+</div></div><div data-line="112" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; ()    ()&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="113" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; [     []&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="114" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; [[    [
+</div></div><div data-line="115" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; []    []&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="116" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; &#x7b;     &#x7b;&#x7d;&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="117" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; &#x7b;&#x7b;    &#x7b;
+</div></div><div data-line="118" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; &#x7b;&#x7d;    &#x7b;&#x7d;&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="119" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; ''    ''&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="120" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; ""    ""&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="121" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; &lt;     &lt;&lt;Left&gt;&lt;Right&gt;&gt;&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="122" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype html,markdown,text inoremap &lt;buffer&gt; &lt;&lt;    &lt;
+</div></div><div data-line="123" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="124" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype markdown inoremap &lt;buffer&gt; ``    ``&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="125" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype markdown inoremap &lt;buffer&gt; **    **&lt;++&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;&lt;Left&gt;
+</div></div><div data-line="126" class="code-highlight-row numbered"><div class="code-highlight-line">augroup END
+</div></div><div data-line="127" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="128" class="code-highlight-row numbered"><div class="code-highlight-line">augroup specIndent
+</div></div><div data-line="129" class="code-highlight-row numbered"><div class="code-highlight-line">  au!
+</div></div><div data-line="130" class="code-highlight-row numbered"><div class="code-highlight-line">  au Filetype tex,markdown,css,scss,html,javascript,vim setlocal shiftwidth=2
+</div></div><div data-line="131" class="code-highlight-row numbered"><div class="code-highlight-line">augroup END
+</div></div><div data-line="132" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="133" class="code-highlight-row numbered"><div class="code-highlight-line">nnoremap &lt;F3&gt; :NERDTreeToggle %:p:h&lt;CR&gt;
+</div></div><div data-line="134" class="code-highlight-row numbered"><div class="code-highlight-line">set pastetoggle=&lt;F5&gt; " Practical Vim Tip 63
+</div></div><div data-line="135" class="code-highlight-row numbered"><div class="code-highlight-line">nnoremap &lt;F12&gt; :TlistToggle&lt;CR&gt;
+</div></div><div data-line="136" class="code-highlight-row numbered"><div class="code-highlight-line">" Press Space to turn off highlighting and clear any message already displayed.
+</div></div><div data-line="137" class="code-highlight-row numbered"><div class="code-highlight-line">nnoremap &lt;silent&gt; &lt;Space&gt; :nohlsearch&lt;Bar&gt;:echo&lt;CR&gt;
+</div></div><div data-line="138" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="139" class="code-highlight-row numbered"><div class="code-highlight-line">" Practical Vim Tip 34: Avoid cursors when rcl'g cmd from hist
+</div></div><div data-line="140" class="code-highlight-row numbered"><div class="code-highlight-line">cnoremap &lt;C-p&gt; &lt;Up&gt;
+</div></div><div data-line="141" class="code-highlight-row numbered"><div class="code-highlight-line">cnoremap &lt;C-n&gt; &lt;Down&gt;
+</div></div><div data-line="142" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="143" class="code-highlight-row numbered"><div class="code-highlight-line">" 160221: Fix the space in "C:\Program Files" in the path of Git Bash
+</div></div><div data-line="144" class="code-highlight-row numbered"><div class="code-highlight-line">if match(&amp;shell,' ') &gt; -1
+</div></div><div data-line="145" class="code-highlight-row numbered"><div class="code-highlight-line">  set shell=C:\PROGRA~1\Git\usr\bin\bash.exe
+</div></div><div data-line="146" class="code-highlight-row numbered"><div class="code-highlight-line">endif
+</div></div><div data-line="147" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="148" class="code-highlight-row numbered"><div class="code-highlight-line">" C/C++ settings
+</div></div><div data-line="149" class="code-highlight-row numbered"><div class="code-highlight-line">set makeprg=mingw32-make
+</div></div><div data-line="150" class="code-highlight-row numbered"><div class="code-highlight-line">" 131211: Testing OmniCppComplete
+</div></div><div data-line="151" class="code-highlight-row numbered"><div class="code-highlight-line">" http://carl830.pixnet.net/blog/post/67681043-vim-omnicppcomplete%2Bstl-support
+</div></div><div data-line="152" class="code-highlight-row numbered"><div class="code-highlight-line">set tags+=C:/Users/Owner/.vim/tags/cpp
+</div></div><div data-line="153" class="code-highlight-row numbered"><div class="code-highlight-line">" build tags of your own project with Ctrl-F12
+</div></div><div data-line="154" class="code-highlight-row numbered"><div class="code-highlight-line">" Vim-Wikia: http://vim.wikia.com/wiki/C%2B%2B_code_completion
+</div></div><div data-line="155" class="code-highlight-row numbered"><div class="code-highlight-line">map &lt;C-F12&gt; :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .&lt;CR&gt;
+</div></div><div data-line="156" class="code-highlight-row numbered"><div class="code-highlight-line">" OmniCppComplete
+</div></div><div data-line="157" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_NamespaceSearch = 1
+</div></div><div data-line="158" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_GlobalScopeSearch = 1
+</div></div><div data-line="159" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_ShowAccess = 1
+</div></div><div data-line="160" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+</div></div><div data-line="161" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+</div></div><div data-line="162" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_MayCompleteArrow = 1 " autocomplete after -&gt;
+</div></div><div data-line="163" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+</div></div><div data-line="164" class="code-highlight-row numbered"><div class="code-highlight-line">let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+</div></div><div data-line="165" class="code-highlight-row numbered"><div class="code-highlight-line">" automatically open and close the popup menu / preview window
+</div></div><div data-line="166" class="code-highlight-row numbered"><div class="code-highlight-line">au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+</div></div><div data-line="167" class="code-highlight-row numbered"><div class="code-highlight-line">set completeopt=menuone,menu,longest,preview
+</div></div><div data-line="168" class="code-highlight-row numbered"><div class="code-highlight-line">" C/C++ settings end
+</div></div><div data-line="169" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="170" class="code-highlight-row numbered"><div class="code-highlight-line">" LaTeX-Suite settings
+</div></div><div data-line="171" class="code-highlight-row numbered"><div class="code-highlight-line">" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+</div></div><div data-line="172" class="code-highlight-row numbered"><div class="code-highlight-line">"filetype plugin on
+</div></div><div data-line="173" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="174" class="code-highlight-row numbered"><div class="code-highlight-line">" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+</div></div><div data-line="175" class="code-highlight-row numbered"><div class="code-highlight-line">" can be called correctly.
+</div></div><div data-line="176" class="code-highlight-row numbered"><div class="code-highlight-line">set shellslash
+</div></div><div data-line="177" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="178" class="code-highlight-row numbered"><div class="code-highlight-line">" IMPORTANT: grep will sometimes skip displaying the file name if you
+</div></div><div data-line="179" class="code-highlight-row numbered"><div class="code-highlight-line">" search in a singe file. This will confuse Latex-Suite. Set your grep
+</div></div><div data-line="180" class="code-highlight-row numbered"><div class="code-highlight-line">" program to always generate a file-name.
+</div></div><div data-line="181" class="code-highlight-row numbered"><div class="code-highlight-line">set grepprg=grep\ -nH\ $*
+</div></div><div data-line="182" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="183" class="code-highlight-row numbered"><div class="code-highlight-line">" OPTIONAL: This enables automatic indentation as you type.
+</div></div><div data-line="184" class="code-highlight-row numbered"><div class="code-highlight-line">"filetype indent on
+</div></div><div data-line="185" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="186" class="code-highlight-row numbered"><div class="code-highlight-line">" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+</div></div><div data-line="187" class="code-highlight-row numbered"><div class="code-highlight-line">" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+</div></div><div data-line="188" class="code-highlight-row numbered"><div class="code-highlight-line">" The following changes the default filetype back to 'tex':
+</div></div><div data-line="189" class="code-highlight-row numbered"><div class="code-highlight-line">let g:tex_flavor='latex'
+</div></div><div data-line="190" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="191" class="code-highlight-row numbered"><div class="code-highlight-line">" 131001: change default output format
+</div></div><div data-line="192" class="code-highlight-row numbered"><div class="code-highlight-line">" http://superuser.com/questions/186283/compile-tex-files-to-pdf-as-default-in-gvim-with-latexsuite-plugin
+</div></div><div data-line="193" class="code-highlight-row numbered"><div class="code-highlight-line">let g:Tex_DefaultTargetFormat='pdf'
+</div></div><div data-line="194" class="code-highlight-row numbered"><div class="code-highlight-line">let g:Tex_MultipleCompileFormats='pdf'
+</div></div><div data-line="195" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="196" class="code-highlight-row numbered"><div class="code-highlight-line">" 131210: switched to a free PDF viewer
+</div></div><div data-line="197" class="code-highlight-row numbered"><div class="code-highlight-line">" Setting full path doesn't work for SumatraPDF, PATH env var needed
+</div></div><div data-line="198" class="code-highlight-row numbered"><div class="code-highlight-line">" Assume that XeLaTeX is used
+</div></div><div data-line="199" class="code-highlight-row numbered"><div class="code-highlight-line">" Setting g:Tex_ViewRuleComplete_dvi doesn't work for SumatraPDF
+</div></div><div data-line="200" class="code-highlight-row numbered"><div class="code-highlight-line">" 131212: add dir to $PATH for runtime to avoid too long $PATH in other prog
+</div></div><div data-line="201" class="code-highlight-row numbered"><div class="code-highlight-line">let $PATH .= ';C:\Program Files\SumatraPDF'
+</div></div><div data-line="202" class="code-highlight-row numbered"><div class="code-highlight-line">let g:Tex_ViewRule_pdf='SumatraPDF'
+</div></div><div data-line="203" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="204" class="code-highlight-row numbered"><div class="code-highlight-line">" 131204: For better Chin and Unicode support
+</div></div><div data-line="205" class="code-highlight-row numbered"><div class="code-highlight-line">let g:Tex_CompileRule_pdf='xelatex -interaction=nonstopmode $*'
+</div></div><div data-line="206" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="207" class="code-highlight-row numbered"><div class="code-highlight-line">" for Chin. support
+</div></div><div data-line="208" class="code-highlight-row numbered"><div class="code-highlight-line">"let $LANG="zh_TW.UTF-8"
+</div></div><div data-line="209" class="code-highlight-row numbered"><div class="code-highlight-line">"set langmenu=zh_tw.utf-8
+</div></div><div data-line="210" class="code-highlight-row numbered"><div class="code-highlight-line">"set encoding=utf8
+</div></div><div data-line="211" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="212" class="code-highlight-row numbered"><div class="code-highlight-line">"reload menu with UTF-8 encoding
+</div></div><div data-line="213" class="code-highlight-row numbered"><div class="code-highlight-line">"source $VIMRUNTIME/delmenu.vim
+</div></div><div data-line="214" class="code-highlight-row numbered"><div class="code-highlight-line">"source $VIMRUNTIME/menu.vim
+</div></div><div data-line="215" class="code-highlight-row numbered"><div class="code-highlight-line">" for Chin. support ends
+</div></div><div data-line="216" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="217" class="code-highlight-row numbered"><div class="code-highlight-line">"(TEMP) Set vim-latex compile rule for texcount
+</div></div><div data-line="218" class="code-highlight-row numbered"><div class="code-highlight-line">"let g:Tex_CompileRule_pdf='pdflatex --enable-write18 -interaction=nonstopmode $*'
+</div></div><div data-line="219" class="code-highlight-row numbered"><div class="code-highlight-line">" LaTeX-Suite settings end
+</div></div><div data-line="220" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="221" class="code-highlight-row numbered"><div class="code-highlight-line">" Gist settings start
+</div></div><div data-line="222" class="code-highlight-row numbered"><div class="code-highlight-line">let g:github_user = 'VincentTam'
+</div></div><div data-line="223" class="code-highlight-row numbered"><div class="code-highlight-line">let g:gist_get_multiplefile = 1
+</div></div><div data-line="224" class="code-highlight-row numbered"><div class="code-highlight-line">" Gist settings end
+</div></div><div data-line="225" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="226" class="code-highlight-row numbered"><div class="code-highlight-line">" vim-easy-algin settings start
+</div></div><div data-line="227" class="code-highlight-row numbered"><div class="code-highlight-line">" Start interactive EasyAlign in visual mode
+</div></div><div data-line="228" class="code-highlight-row numbered"><div class="code-highlight-line">vmap &lt;Enter&gt; &lt;Plug&gt;(EasyAlign)
+</div></div><div data-line="229" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="230" class="code-highlight-row numbered"><div class="code-highlight-line">" Start interactive EasyAlign with a Vim movement
+</div></div><div data-line="231" class="code-highlight-row numbered"><div class="code-highlight-line">nmap &lt;Leader&gt;a &lt;Plug&gt;(EasyAlign)
+</div></div><div data-line="232" class="code-highlight-row numbered"><div class="code-highlight-line">" vim-easy-algin settings end
+</div></div><div data-line="233" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="234" class="code-highlight-row numbered"><div class="code-highlight-line">" Use the console colors in gvim (source: Vim Wikia)
+</div></div><div data-line="235" class="code-highlight-row numbered"><div class="code-highlight-line">set background=dark
+</div></div><div data-line="236" class="code-highlight-row numbered"><div class="code-highlight-line">hi SpecialKey guifg=Blue
+</div></div><div data-line="237" class="code-highlight-row numbered"><div class="code-highlight-line">hi MoreMsg guifg=Green
+</div></div><div data-line="238" class="code-highlight-row numbered"><div class="code-highlight-line">hi Visual guifg=NONE guibg=NONE
+</div></div><div data-line="239" class="code-highlight-row numbered"><div class="code-highlight-line">hi Folded ctermbg=4 guibg=Blue
+</div></div><div data-line="240" class="code-highlight-row numbered"><div class="code-highlight-line">hi FoldColumn ctermbg=7
+</div></div><div data-line="241" class="code-highlight-row numbered"><div class="code-highlight-line">hi DiffAdd guibg=Blue
+</div></div><div data-line="242" class="code-highlight-row numbered"><div class="code-highlight-line">hi DiffChange guibg=Magenta
+</div></div><div data-line="243" class="code-highlight-row numbered"><div class="code-highlight-line">hi DiffDelete guibg=Cyan
+</div></div><div data-line="244" class="code-highlight-row numbered"><div class="code-highlight-line">hi Normal guifg=Gray guibg=Black
+</div></div><div data-line="245" class="code-highlight-row numbered"><div class="code-highlight-line">hi Cursor guibg=White
+</div></div><div data-line="246" class="code-highlight-row numbered"><div class="code-highlight-line">hi lCursor guibg=White
+</div></div><div data-line="247" class="code-highlight-row numbered"><div class="code-highlight-line">hi Comment guifg=Cyan
+</div></div><div data-line="248" class="code-highlight-row numbered"><div class="code-highlight-line">hi Constant guifg=Magenta
+</div></div><div data-line="249" class="code-highlight-row numbered"><div class="code-highlight-line">hi Special guifg=Red
+</div></div><div data-line="250" class="code-highlight-row numbered"><div class="code-highlight-line">hi Identifier guifg=Cyan
+</div></div><div data-line="251" class="code-highlight-row numbered"><div class="code-highlight-line">hi Statement guifg=Yellow
+</div></div><div data-line="252" class="code-highlight-row numbered"><div class="code-highlight-line">hi PreProc guifg=Blue
+</div></div><div data-line="253" class="code-highlight-row numbered"><div class="code-highlight-line">hi Type guifg=Green
+</div></div><div data-line="254" class="code-highlight-row numbered"><div class="code-highlight-line">hi Underlined guifg=Blue
+</div></div><div data-line="255" class="code-highlight-row numbered"><div class="code-highlight-line">hi Todo guifg=Black</div></div></pre></div></figure>
+
+<p>This morning, I tried using <code class="highlighter-rouge">git bisect</code> to figure out the cause of
+this problem.  It turns out that it <em>isn’t</em> a problem of Octopress’
+Gist tag.  It’s actually a problem of my code highlighter and gist
+cache.</p>
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Testing Octopress 3</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Testing Octopress 3
+            
+            </li>
+            
+            <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/VincentTam"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg></span><span class="username">VincentTam</span></a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jekyllrb"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg></span><span class="username">jekyllrb</span></a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>My memory dump
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,/octo3test/assets/js/MathJaxLocal.js",function() {});
+})();
+</script>
+
+  </body>
+
+</html>
