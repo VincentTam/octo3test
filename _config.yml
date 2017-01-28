@@ -14,12 +14,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Testing Octopress 3
-email: your-email@domain.com
+subtitle: Continued from Blog 1
+email:
 description: > # this means to ignore newlines until "baseurl:"
   My memory dump
 baseurl: "/octo3test" # the subpath of your site, e.g. /blog
 url: "https://vincenttam.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
+twitter_username:
 github_username:  VincentTam
 
 # Build settings
