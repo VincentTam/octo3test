@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Git Binary Object Reconstruction</title>
+  <meta name="description" content="Background">
+
+  <link rel="stylesheet" href="/octo3test/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/octo3test/git/ruby/2017/01/28/git-binary-object-reconstruction.html">
+  <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
+  
+  
+  <link href='/octo3test/stylesheets/all-7f6570d7ee27cedcaf780105c45c00e2.css' media='all' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='/octo3test/css/terminal.css'>
+</head>
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/octo3test/">Testing Octopress 3</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/octo3test/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Git Binary Object Reconstruction</h1>
+    <p class="post-meta"><time datetime="2017-01-28T20:34:37+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="background">Background</h2>
+
+<p>Last evening, I used a Linux Mint 17.5 desktop <em>without</em> sudo
+privileges and <a href="https://git-scm.com">Git</a> installed.</p>
+
+<h2 id="problem">Problem</h2>
+
+<p>On my USB key, the Git repos are <em>bare</em> ones.  I <em>couldn’t</em> retrieve
+the files stored inside because the <a href="https://github.com/sheabunge/GitPortable">Git Portable</a> on my
+USB is for Windows.</p>
+
+<h2 id="construction-of-git-binary-objects">Construction of Git binary objects</h2>
+
+<p>Try to run the commands on the <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_object_storage">Git online book</a> on the
+official Git site in order to understand how they are constructed.
+The <code class="highlighter-rouge">deflate</code> method obviously has an inverse method <code class="highlighter-rouge">inflate</code>.  One
+can make such a guess <em>without</em> knowing any <a href="https://www.ruby-lang.org">Ruby</a>.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>To understand how to reconstruct a file from a blob, I used
+<a href="https://github.com/vincenttam/octo3test">this blog’s Git repo</a> as an example.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Reconstruction of .gitignore with Ruby</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="err">$</span> <span class="n">cd</span> <span class="p">.</span><span class="nf">git</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="err">$</span> <span class="n">export</span> <span class="n">myfp</span><span class="o">=</span><span class="s2">"objects/"</span><span class="sb">`cat HEAD | awk '&#x7b;print $NF&#x7d;' | xargs cat | sed 's|..|&amp;/|'`</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="err">$</span> <span class="n">echo</span> <span class="vg">$myfp</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">objects</span><span class="o">/</span><span class="mi">49</span><span class="o">/</span><span class="mi">1</span><span class="n">b3bd3458cc8045c6de109a96ccb870e07154a</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="err">$</span> <span class="n">irb</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">require</span> <span class="s1">'zlib'</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="kp">true</span>
+</div></div><div data-line="8" class="code-highlight-row numbered marked-line start-marked-line"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">zc</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s1">'myfp'</span><span class="p">],</span><span class="s2">"rb"</span><span class="p">).</span><span class="nf">read</span>
+</div></div><div data-line="9" class="code-highlight-row numbered marked-line"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"x</span><span class="se">\x01\x95\xCE\xC1</span><span class="s2">j</span><span class="se">\xC3</span><span class="s2">0</span><span class="se">\f\x00\xD0\x9D\xFD\x15\xBA\x17\x86\xA2\xD8\x8E\x02</span><span class="s2">c</span><span class="se">\xF4\xDA\xFB\xE8</span><span class="s2">]</span><span class="se">\xB6\xA5</span><span class="s2">5</span><span class="se">\xB4</span><span class="s2">I</span><span class="se">\x8A\xED\x16\xF6\xF7</span><span class="s2">e</span><span class="se">\xFB\x83</span><span class="s2">&#x7d;</span><span class="se">\xC0\x83\x97\xF7</span><span class="s2">u]:</span><span class="se">\xD0\xC8</span><span class="s2">o</span><span class="se">\xBD\xAA\x02</span><span class="s2">j</span><span class="se">\x8A\x96</span><span class="s2">F/SQ.D</span><span class="se">\x9E</span><span class="s2">8</span><span class="se">\x86\x10</span><span class="s2">p</span><span class="se">\x12\x9B</span><span class="s2">=</span><span class="se">\xA3\xB7\x98</span><span class="s2">uN</span><span class="se">\x8C\xEE</span><span class="s2">.U</span><span class="se">\xB7\x0E</span><span class="s2">E</span><span class="se">\x8B</span><span class="s2">E</span><span class="se">\xA5</span><span class="s2">P</span><span class="se">\x06\xCB\x84\x1A</span><span class="s2">&#x7d;</span><span class="se">\xA2\x99</span><span class="s2">=</span><span class="se">\x8E</span><span class="s2">c</span><span class="se">\x9A</span><span class="s2">2</span><span class="se">\x93\x98\xF9\xC0</span><span class="s2">:</span><span class="se">\a</span><span class="s2">r</span><span class="se">\xF2\xE8\x97\xBD\xC2</span><span class="s2">y</span><span class="se">\xD9\xF2\xAF\xFB\x92\x15</span><span class="s2">&gt;</span><span class="se">\x9A</span><span class="s2">V=</span><span class="se">\xDE\x96\xA7\xBE</span><span class="s2">_</span><span class="se">\xAE\x9F</span><span class="s2">0x</span><span class="se">\x0E\x91\xFC\x10\x10\x0E</span><span class="s2">8 </span><span class="se">\xBA\xFC</span><span class="s2">w</span><span class="se">\xEB\xFA</span><span class="s2">?</span><span class="se">\xE5</span><span class="s2">N</span><span class="se">\xDF\xDB</span><span class="s2">^</span><span class="se">\x15\xDA</span><span class="s2">O</span><span class="se">\xEB\xBA</span><span class="s2">B</span><span class="se">\x92</span><span class="s2">|&#x7d;</span><span class="se">\xDC\xC1\x96\x9B</span><span class="s2">6</span><span class="se">\x90\xAD</span><span class="s2">@</span><span class="se">\xA9</span><span class="s2">b</span><span class="se">\xBD\xB9\x17\x1F</span><span class="s2">9K</span><span class="se">\x8D</span><span class="s2">"</span>
+</div></div><div data-line="10" class="code-highlight-row numbered marked-line"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="no">Zlib</span><span class="o">::</span><span class="no">Inflate</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">zc</span><span class="p">)</span>
+</div></div><div data-line="11" class="code-highlight-row numbered marked-line end-marked-line"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"commit 238</span><span class="se">\x00</span><span class="s2">tree 0eb6fb34a7de8d22428655507af94804f6ce9b80</span><span class="se">\n</span><span class="s2">parent dedf6e25d1fc20e64b2984033b7c82aff458e952</span><span class="se">\n</span><span class="s2">author Vincent Tam &lt;sere@live.hk&gt; 1485624150 +0100</span><span class="se">\n</span><span class="s2">committer Vincent Tam &lt;sere@live.hk&gt; 1485624150 +0100</span><span class="se">\n\n</span><span class="s2">Ignore system backup files and drafts</span><span class="se">\n</span><span class="s2">"</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">tp</span> <span class="o">=</span> <span class="s2">"objects/"</span> <span class="o">+</span> <span class="n">c</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sr">/(?&lt;=tree ).*(?=\n)/</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nf">sub</span><span class="p">(</span><span class="sr">/../</span><span class="p">,</span><span class="s1">'\0/'</span><span class="p">)</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"objects/0e/b6fb34a7de8d22428655507af94804f6ce9b80"</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">005</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">ztc</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span><span class="s2">"rb"</span><span class="p">).</span><span class="nf">read</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"x</span><span class="se">\x01</span><span class="s2">+)JMU06</span><span class="se">\xB5</span><span class="s2">`040031Q</span><span class="se">\xD0</span><span class="s2">K</span><span class="se">\xCF</span><span class="s2">,</span><span class="se">\xC9</span><span class="s2">L</span><span class="se">\xCF\xCB</span><span class="s2">/Je</span><span class="se">\b</span><span class="s2">t6Z</span><span class="se">\xEB\x12</span><span class="s2">s</span><span class="se">\xB2\xC9\xAF\xA1</span><span class="s2">z</span><span class="se">\x0E\xB7</span><span class="s2">^</span><span class="se">\xEA\x84</span><span class="s2">_</span><span class="se">\xE5\xAB\xF4\xA1\xAA\xDC</span><span class="s2">Ss</span><span class="se">\xD3</span><span class="s2">2sR</span><span class="se">\x19</span><span class="s2">~</span><span class="se">\x16</span><span class="s2">&lt;</span><span class="se">\xE9</span><span class="s2">a[X</span><span class="se">\xFE\xCC</span><span class="s2">N</span><span class="se">\xFC</span><span class="s2">ok</span><span class="se">\x16\xD7\x84</span><span class="s2">Y%S</span><span class="se">\xDB</span><span class="s2">.A</span><span class="se">\x95\xC4</span><span class="s2">'</span><span class="se">\xE7\xE7\xA5</span><span class="s2">e</span><span class="se">\xA6\xEB</span><span class="s2">U</span><span class="se">\xE6\xE6</span><span class="s2">00</span><span class="se">\xE8</span><span class="s2">N</span><span class="se">\xEC\xE1</span><span class="s2">9</span><span class="se">\x9B</span><span class="s2">[:Y6</span><span class="se">\xED</span><span class="s2">?[</span><span class="se">\xB1\xC8\x9E</span><span class="s2">@</span><span class="se">\xEE</span><span class="s2">xa</span><span class="se">\x13\x03</span><span class="s2"> P</span><span class="se">\x88\xCF\xCC</span><span class="s2">K</span><span class="se">\xCE</span><span class="s2">)MI-fH]</span><span class="se">\xDC\xDC\xB5\x9A\xEF\x91</span><span class="s2">|</span><span class="se">\xA6</span><span class="s2">U</span><span class="se">\xE3\r\xEB\xC8</span><span class="s2">9</span><span class="se">\xF9\xD7\x96</span><span class="s2">d</span><span class="se">\xBD\x85\xAA</span><span class="s2">)</span><span class="se">\xC8</span><span class="s2">)M</span><span class="se">\xCF\xCC</span><span class="s2">+f(</span><span class="se">\xBB</span><span class="s2">r</span><span class="se">\xD8\xF1\\\xFF\xB1\xE9\x82\xCC\xA1</span><span class="s2">9</span><span class="se">\xCF\xCE\x88\x1E</span><span class="s2">;</span><span class="se">\x10\x12\xD3\x04</span><span class="s2">S</span><span class="se">\x92</span><span class="s2">_</span><span class="se">\\</span><span class="s2">R</span><span class="se">\xCC</span><span class="s2">p</span><span class="se">\xF3</span><span class="s2">ND</span><span class="se">\x9B\xF7\x8A\x89\x9B\xB6\xAF</span><span class="s2">vb</span><span class="se">\xD0\x8E\x7F</span><span class="s2">1</span><span class="se">\xE7\xD1</span><span class="s2">d&amp;</span><span class="se">\x06\xA8\x82\x92\xD4\xDC\x82\x9C\xC4\x12\xA0</span><span class="s2">E&amp;</span><span class="se">\xF9\e\xE6\xDC</span><span class="s2">N</span><span class="se">\xDA\xBD</span><span class="s2">*Ub</span><span class="se">\xEA\xA4</span><span class="s2">y</span><span class="se">\xD7</span><span class="s2">E</span><span class="se">\xCA\xEE\xAE\xF9\xA4\x04</span><span class="s2">usbR~i</span><span class="se">\x89</span><span class="s2">^n</span><span class="se">\n\x83</span><span class="s2">^</span><span class="se">\xF6\xA7\xF8\xF6\xB2\xB0\x87</span><span class="s2">3b</span><span class="se">\xCE</span><span class="s2">O</span><span class="se">\x9F\xFD\xBB\xE6</span><span class="s2">r:</span><span class="se">\xE3\xDC\xE3\x10\x83\x12\x8B\x8B</span><span class="s2">S</span><span class="se">\x81</span><span class="s2">6</span><span class="se">\xCD\x15</span><span class="s2">SS</span><span class="se">\x97\xEF\xBB</span><span class="s2">f</span><span class="se">\xF2\xBD</span><span class="s2">|</span><span class="se">\xDF\xC5\xB3\xCC\xAB\x03\x1D</span><span class="s2">7</span><span class="se">\xDD</span><span class="s2">Y</span><span class="se">\x06</span><span class="s2">5$3/%</span><span class="se">\xB5\x02</span><span class="s2">d</span><span class="se">\x88\xDC\xD6</span><span class="s2">kE</span><span class="se">\xBE\xB6\xE9\x7F</span><span class="s2">*2s</span><span class="se">\x9B\xAF</span><span class="s2">$|</span><span class="se">\x95\xBC\x9E\xF9\xF3\x04\x00</span><span class="s2">g</span><span class="se">\xAB\x94</span><span class="s2">8"</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">006</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">tc</span> <span class="o">=</span> <span class="no">Zlib</span><span class="o">::</span><span class="no">Inflate</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">ztc</span><span class="p">)</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"tree 358</span><span class="se">\x00</span><span class="s2">100644 .gitignore</span><span class="se">\x00</span><span class="s2">QC2</span><span class="se">\xAD</span><span class="s2">D</span><span class="se">\\\xC9\x82</span><span class="s2">N</span><span class="se">\x80</span><span class="s2">&#x7b;</span><span class="se">\x9C\v</span><span class="s2">.e</span><span class="se">\x90\xFA</span><span class="s2">w</span><span class="se">\xAA</span><span class="s2">/100644 Gemfile</span><span class="se">\x00\xF9</span><span class="s2">p</span><span class="se">\xE4\x8C\x06\xA1</span><span class="s2">w</span><span class="se">\xE6</span><span class="s2">&gt;</span><span class="se">\x17\xFD\x85</span><span class="s2">j</span><span class="se">\n\x90\x9A</span><span class="s2">t</span><span class="se">\x95\x86\xD2</span><span class="s2">100644 _config.yml</span><span class="se">\x00\x00</span><span class="s2">-</span><span class="se">\x91\x8C\f\xCD</span><span class="s2">mu</span><span class="se">\x93\x1D</span><span class="s2">f</span><span class="se">\xFF\x06</span><span class="s2">s</span><span class="se">\x14\xBC</span><span class="s2">Q</span><span class="se">\v</span><span class="s2">_</span><span class="se">\x13</span><span class="s2">40000 _includes</span><span class="se">\x00</span><span class="s2">e</span><span class="se">\xA3\x83\x8A\xAB\x0E\xE2\x1F</span><span class="s2">i:</span><span class="se">\x81\xD8</span><span class="s2">;Y</span><span class="se">\x9C</span><span class="s2">o</span><span class="se">\xD6\xA4</span><span class="s2">j</span><span class="se">\xED</span><span class="s2">40000 _plugins</span><span class="se">\x00</span><span class="s2">v</span><span class="se">\xD4\xC3</span><span class="s2">A</span><span class="se">\xCE\x8F\xC6\x97\x11\x03</span><span class="s2">Ul</span><span class="se">\xE6\xCC\x15\xC6\xC0</span><span class="s2">T</span><span class="se">\\\x82</span><span class="s2">40000 _posts</span><span class="se">\x00\xD9\xDC</span><span class="s2">X</span><span class="se">\x86</span><span class="s2">K</span><span class="se">\xA8\x91\xB2\xB7\xAB</span><span class="s2">B</span><span class="se">\x00</span><span class="s2">+_</span><span class="se">\xE8\x9C\xE2\x93\x02\x00</span><span class="s2">40000 _templates</span><span class="se">\x00</span><span class="s2">4o</span><span class="se">\xB0\x9C\xDB</span><span class="s2">b</span><span class="se">\xBB\xAA</span><span class="s2">e</span><span class="se">\x18\x95\x92\x9E\xD7\x14</span><span class="s2">v</span><span class="se">\xDD\xAC\xF2\"</span><span class="s2">100644 about.md</span><span class="se">\x00</span><span class="s2">.k</span><span class="se">\xF2</span><span class="s2">_</span><span class="se">\x87</span><span class="s2">vV</span><span class="se">\xE1\x98\\\xCF\x97\x9B\xFB</span><span class="s2">|</span><span class="se">\xD3</span><span class="s2">g</span><span class="se">\x01\x9D\xC7</span><span class="s2">40000 assets</span><span class="se">\x00\x9D\x16</span><span class="s2">&amp;'</span><span class="se">\x1F\x8E\xD6</span><span class="s2">4</span><span class="se">\xF7</span><span class="s2">w</span><span class="se">\xBE\xD1\xCD\x03\xAB</span><span class="s2">QA</span><span class="se">\xB2\xDC\xA6</span><span class="s2">100644 index.md</span><span class="se">\x00\x1E\xB5\xD6</span><span class="s2">rM=g</span><span class="se">\xFC</span><span class="s2">xim</span><span class="se">\x83\xD4</span><span class="s2">`</span><span class="se">\xF5\x19\xD7</span><span class="s2">i</span><span class="se">\xF9\xC8</span><span class="s2">"</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">system</span><span class="p">(</span><span class="s2">"ls objects/1e"</span><span class="p">)</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">b5d6724d3d67fc78696d83d460f519d769f9c8</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="kp">true</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">bp</span> <span class="o">=</span> <span class="s2">"objects/1e/b5d6724d3d67fc78696d83d460f519d769f9c8"</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"objects/1e/b5d6724d3d67fc78696d83d460f519d769f9c8"</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">011</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">bzc</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span><span class="s2">"rb"</span><span class="p">).</span><span class="nf">read</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"x</span><span class="se">\x01</span><span class="s2">%</span><span class="se">\x8F</span><span class="s2">1n</span><span class="se">\xC3</span><span class="s2">0</span><span class="se">\x10\x04</span><span class="s2">S</span><span class="se">\xEB\x15\v\xB8</span><span class="s2">p</span><span class="se">\x13\x9A</span><span class="s2">H</span><span class="se">\xD2\xB9\xCF\v</span><span class="s2">R</span><span class="se">\xB9\xA4\xC4\x95\xC9\x98\xE4\t\xBA</span><span class="s2">S</span><span class="se">\x02\xFD\xDE\xB4</span><span class="s2">]</span><span class="se">\xDE</span><span class="s2">bv</span><span class="se">\x16</span><span class="s2">7</span><span class="se">\x16\x19\xF1\xF9\xF1\xF5\xE6\x9C\e\x0E\xB8\xC8\x86</span><span class="s2">(</span><span class="se">\xED</span><span class="s2">hhd</span><span class="se">\x84\t\x18\xB3\xC1</span><span class="s2">RV</span><span class="se">\xCC\xB9\xF0\x1D\xD9\x8E\n\xD6\xC5</span><span class="s2">vH</span><span class="se">\xC3\xB2\xAD\x8B</span><span class="s2">(O</span><span class="se">\xBD\xFA\xFD\x02</span><span class="s2">Y</span><span class="se">\xD9\x81</span><span class="s2">$</span><span class="se">\x95</span><span class="s2">(a</span><span class="se">\x97\xCD\x90\x9B\x1A</span><span class="s2">CD</span><span class="se">\x9E\xD1</span><span class="s2">o</span><span class="se">\xFC\x87\xD6\x02</span><span class="s2">j</span><span class="se">\xB8\x11\xFA\xA0\xA6\x14\xDA\x95\xDA\r</span><span class="s2">?</span><span class="se">\xE4\x19\xC9</span><span class="s2">l</span><span class="se">\xD1\xB3\xF7\xBF\xBC\xED\xA5\xAC\xE3</span><span class="s2">i</span><span class="se">\x92\xEA\xA3</span><span class="s2">L</span><span class="se">\xEA</span><span class="s2">-u</span><span class="se">\xB7\xFA\x83\xFC</span><span class="s2">q]s</span><span class="se">\xCC\xED\xEA\x9E\x91\x8B\x9C\xC3</span><span class="s2">VL</span><span class="se">\x87\xD7</span><span class="s2">`wt</span><span class="se">\xEF\xF0</span><span class="s2">x</span><span class="se">\xE8\x0E</span><span class="s2">(</span><span class="se">\xEE</span><span class="s2">K</span><span class="se">\xC4</span><span class="s2">"</span>
+</div></div><div data-line="25" class="code-highlight-row numbered marked-line start-marked-line"><div class="code-highlight-line"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">9</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="n">bc</span> <span class="o">=</span> <span class="no">Zlib</span><span class="o">::</span><span class="no">Inflate</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="n">bzc</span><span class="p">)</span>
+</div></div><div data-line="26" class="code-highlight-row numbered marked-line end-marked-line"><div class="code-highlight-line"><span class="o">=&gt;</span> <span class="s2">"blob 213</span><span class="se">\x00</span><span class="s2">---</span><span class="se">\n</span><span class="s2"># You don't need to edit this file, it's empty on purpose.</span><span class="se">\n</span><span class="s2"># Edit theme's home layout instead if you wanna make some changes</span><span class="se">\n</span><span class="s2"># See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults</span><span class="se">\n</span><span class="s2">layout: home</span><span class="se">\n</span><span class="s2">---</span><span class="se">\n</span><span class="s2">"</span></div></div></pre></div></figure>
+
+<ul>
+  <li><code class="highlighter-rouge">c</code> stands for contents</li>
+  <li><code class="highlighter-rouge">z</code> stands for “zipped”</li>
+  <li><code class="highlighter-rouge">t</code> stands for “tree object”</li>
+  <li><code class="highlighter-rouge">b</code> stands for “blob object”</li>
+</ul>
+
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Testing Octopress 3</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Testing Octopress 3
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/VincentTam"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg></span><span class="username">VincentTam</span></a>
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>My memory dump
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,/octo3test/assets/js/MathJaxLocal.js",function() {});
+})();
+</script>
+
+  </body>
+
+</html>
