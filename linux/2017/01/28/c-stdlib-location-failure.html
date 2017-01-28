@@ -15,6 +15,7 @@
   
   
   <link href='/octo3test/stylesheets/all-7f6570d7ee27cedcaf780105c45c00e2.css' media='all' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='/octo3test/css/terminal.css'>
 </head>
 
   <body>
@@ -48,6 +49,8 @@
         
           
         
+          
+        
       </div>
     </nav>
 
@@ -68,31 +71,47 @@
     <p>I expect that the following command return the absolute path of
 <code class="highlighter-rouge">stdio.h</code>.</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">user@OWNER-PC:~$ </span>locate stdio.h
-locate: can not stat <span class="o">()</span> <span class="sb">`</span>/var/lib/mlocate/mlocate.db<span class="s1">': No such file or directory
-</span></code></pre>
+<div class="terminal">
+  <nav>
+    <a href="#" class="close">close</a>
+    <a href="#" class="minimize">minimize</a>
+    <a href="#" class="deactivate">deactivate</a>
+  </nav>
+  <h3 class="title">Terminal</h3>
+  <pre>
+<span class="command">locate stdio.h</span>
+<span class="output">locate: can not stat () `/var/lib/mlocate/mlocate.db&#39;: No such file or directory</span>
+  </pre>
 </div>
 
 <p>A <a href="http://unix.stackexchange.com/a/26191/165042">database update</a> worked, though it took several minutes.</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">user@OWNER-PC:~$ </span>sudo updatedb
-<span class="o">[</span>sudo] password <span class="k">for </span>user:
-
-^Z
-<span class="o">[</span>1]+  Stopped                 sudo updatedb
-<span class="gp">user@OWNER-PC:~$ </span><span class="nb">fg
-</span>sudo updatedb
-<span class="gp">user@OWNER-PC:~$ </span>locate stdio.h
-/mnt/c/Perl/lib/CORE/nostdio.h
-/mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h
-/mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h
-/mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h
-/mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h
-/usr/include/stdio.h
-/usr/include/c++/4.8/tr1/stdio.h
-/usr/include/x86_64-linux-gnu/bits/stdio.h
-/usr/lib/perl/5.18.2/CORE/nostdio.h
-</code></pre>
+<div class="terminal">
+  <nav>
+    <a href="#" class="close">close</a>
+    <a href="#" class="minimize">minimize</a>
+    <a href="#" class="deactivate">deactivate</a>
+  </nav>
+  <h3 class="title">Terminal</h3>
+  <pre>
+<span class="command">sudo updatedb</span>
+<span class="output">[sudo] password for user:</span>
+<span class="output"></span>
+<span class="output">^Z</span>
+<span class="output">[1]+  Stopped                 sudo updatedb</span>
+<span class="output">user@OWNER-PC:~$ fg</span>
+<span class="output">sudo updatedb</span>
+<span class="command">locate stdio.h</span>
+<span class="continuation">mnt/c/Perl/lib/CORE/nostdio.h</span>
+<span class="continuation">mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h</span>
+<span class="continuation">mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h</span>
+<span class="continuation">mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h</span>
+<span class="continuation">mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h</span>
+<span class="continuation">usr/include/stdio.h</span>
+<span class="continuation">usr/include/c++/4.8/tr1/stdio.h</span>
+<span class="continuation">usr/include/x86_64-linux-gnu/bits/stdio.h</span>
+<span class="continuation">usr/lib/perl/5.18.2/CORE/nostdio.h</span>
+  </pre>
 </div>
 
 
@@ -119,8 +138,6 @@ locate: can not stat <span class="o">()</span> <span class="sb">`</span>/var/lib
             
             </li>
             
-            <li><a href="mailto:your-email@domain.com">your-email@domain.com</a></li>
-            
         </ul>
       </div>
 
@@ -132,10 +149,6 @@ locate: can not stat <span class="o">()</span> <span class="sb">`</span>/var/lib
           </li>
           
 
-          
-          <li>
-            <a href="https://twitter.com/jekyllrb"><span class="icon icon--twitter"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg></span><span class="username">jekyllrb</span></a>
-          </li>
           
         </ul>
       </div>

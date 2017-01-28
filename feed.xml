@@ -1,5 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-01-28T11:33:54+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump
-</subtitle><entry><title type="html">Gist test</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/gist-test.html" rel="alternate" type="text/html" title="Gist test" /><published>2017-01-28T09:57:34+01:00</published><updated>2017-01-28T09:57:34+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/gist-test</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/gist-test.html">&lt;p&gt;Last night, &lt;a href=&quot;https://jekyllrb.com/docs/templates/#gist&quot;&gt;Jekyll’s Gist tag&lt;/a&gt; &lt;em&gt;didn’t&lt;/em&gt; work during
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-01-28T12:30:22+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump
+</subtitle><entry><title type="html">Jekyll-terminal Test Page</title><link href="http://localhost:4000/octo3test/2017/01/28/jekyll-terminal-test-page.html" rel="alternate" type="text/html" title="Jekyll-terminal Test Page" /><published>2017-01-28T12:19:49+01:00</published><updated>2017-01-28T12:19:49+01:00</updated><id>http://localhost:4000/octo3test/2017/01/28/jekyll-terminal-test-page</id><content type="html" xml:base="http://localhost:4000/octo3test/2017/01/28/jekyll-terminal-test-page.html">&lt;p&gt;I typed this sentence quickly.&lt;/p&gt;
+
+&lt;div class=&quot;terminal&quot;&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;#&quot; class=&quot;close&quot;&gt;close&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;minimize&quot;&gt;minimize&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;deactivate&quot;&gt;deactivate&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;h3 class=&quot;title&quot;&gt;Terminal&lt;/h3&gt;
+  &lt;pre&gt;
+&lt;span class=&quot;command&quot;&gt;date&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;samedi 28 janvier 2017, 12:22:23 (UTC+0100)&lt;/span&gt;
+&lt;span class=&quot;command&quot;&gt;export LANG=en_US.UTF8&lt;/span&gt;
+&lt;span class=&quot;command&quot;&gt;date&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;Sat Jan 28 12:23:33 STD 2017&lt;/span&gt;
+  &lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This tag works with &lt;a href=&quot;https://github.com/octopress/octopress&quot;&gt;Octopress 3&lt;/a&gt;.&lt;/p&gt;</content><summary type="html">I typed this sentence quickly.</summary></entry><entry><title type="html">Gist test</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/gist-test.html" rel="alternate" type="text/html" title="Gist test" /><published>2017-01-28T09:57:34+01:00</published><updated>2017-01-28T09:57:34+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/gist-test</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/gist-test.html">&lt;p&gt;Last night, &lt;a href=&quot;https://jekyllrb.com/docs/templates/#gist&quot;&gt;Jekyll’s Gist tag&lt;/a&gt; &lt;em&gt;didn’t&lt;/em&gt; work during
 preview.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;My VIMRC for GVIM on Win 7&lt;/span&gt;&lt;a class=&quot;code-highlight-caption-link&quot; href=&quot;https://gist.github.com/abc1cbd2b2181ad69165&quot;&gt;link&lt;/a&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;136&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&quot; Press Space to turn off highlighting and clear any message already displayed.
@@ -20,31 +38,47 @@ multiple files.&lt;/p&gt;</content><summary type="html">Last night, Jekyll’s G
 preview.</summary></entry><entry><title type="html">C Stdlib Location Failure</title><link href="http://localhost:4000/octo3test/linux/2017/01/28/c-stdlib-location-failure.html" rel="alternate" type="text/html" title="C Stdlib Location Failure" /><published>2017-01-28T02:26:18+01:00</published><updated>2017-01-28T02:26:18+01:00</updated><id>http://localhost:4000/octo3test/linux/2017/01/28/c-stdlib-location-failure</id><content type="html" xml:base="http://localhost:4000/octo3test/linux/2017/01/28/c-stdlib-location-failure.html">&lt;p&gt;I expect that the following command return the absolute path of
 &lt;code class=&quot;highlighter-rouge&quot;&gt;stdio.h&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;locate stdio.h
-locate: can not stat &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;/var/lib/mlocate/mlocate.db&lt;span class=&quot;s1&quot;&gt;': No such file or directory
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;terminal&quot;&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;#&quot; class=&quot;close&quot;&gt;close&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;minimize&quot;&gt;minimize&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;deactivate&quot;&gt;deactivate&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;h3 class=&quot;title&quot;&gt;Terminal&lt;/h3&gt;
+  &lt;pre&gt;
+&lt;span class=&quot;command&quot;&gt;locate stdio.h&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;locate: can not stat () `/var/lib/mlocate/mlocate.db&amp;#39;: No such file or directory&lt;/span&gt;
+  &lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;A &lt;a href=&quot;http://unix.stackexchange.com/a/26191/165042&quot;&gt;database update&lt;/a&gt; worked, though it took several minutes.&lt;/p&gt;
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;sudo updatedb
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;sudo] password &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;user:
-
-^Z
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]+  Stopped                 sudo updatedb
-&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;fg
-&lt;/span&gt;sudo updatedb
-&lt;span class=&quot;gp&quot;&gt;user@OWNER-PC:~$ &lt;/span&gt;locate stdio.h
-/mnt/c/Perl/lib/CORE/nostdio.h
-/mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h
-/mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h
-/mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h
-/mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h
-/usr/include/stdio.h
-/usr/include/c++/4.8/tr1/stdio.h
-/usr/include/x86_64-linux-gnu/bits/stdio.h
-/usr/lib/perl/5.18.2/CORE/nostdio.h
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;terminal&quot;&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;#&quot; class=&quot;close&quot;&gt;close&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;minimize&quot;&gt;minimize&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;deactivate&quot;&gt;deactivate&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;h3 class=&quot;title&quot;&gt;Terminal&lt;/h3&gt;
+  &lt;pre&gt;
+&lt;span class=&quot;command&quot;&gt;sudo updatedb&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;[sudo] password for user:&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;^Z&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;[1]+  Stopped                 sudo updatedb&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;user@OWNER-PC:~$ fg&lt;/span&gt;
+&lt;span class=&quot;output&quot;&gt;sudo updatedb&lt;/span&gt;
+&lt;span class=&quot;command&quot;&gt;locate stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;mnt/c/Perl/lib/CORE/nostdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;usr/include/stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;usr/include/c++/4.8/tr1/stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;usr/include/x86_64-linux-gnu/bits/stdio.h&lt;/span&gt;
+&lt;span class=&quot;continuation&quot;&gt;usr/lib/perl/5.18.2/CORE/nostdio.h&lt;/span&gt;
+  &lt;/pre&gt;
 &lt;/div&gt;</content><summary type="html">I expect that the following command return the absolute path of
 stdio.h.</summary></entry><entry><title type="html">Keep Blogging</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging.html" rel="alternate" type="text/html" title="Keep Blogging" /><published>2017-01-28T02:02:37+01:00</published><updated>2017-01-28T02:02:37+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging.html">&lt;p&gt;External-url: &lt;a href=&quot;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&quot;&gt;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&lt;/a&gt;&lt;/p&gt;
 

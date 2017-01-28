@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gist test</title>
-  <meta name="description" content="Last night, Jekyll’s Gist tag didn’t work during preview.">
+  <title>Jekyll-terminal Test Page</title>
+  <meta name="description" content="I typed this sentence quickly.">
 
   <link rel="stylesheet" href="/octo3test/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/octo3test/blogging/2017/01/28/gist-test.html">
+  <link rel="canonical" href="http://localhost:4000/octo3test/2017/01/28/jekyll-terminal-test-page.html">
   <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
   
   
@@ -63,29 +63,30 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Gist test</h1>
-    <p class="post-meta"><time datetime="2017-01-28T09:57:34+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
+    <h1 class="post-title" itemprop="name headline">Jekyll-terminal Test Page</h1>
+    <p class="post-meta"><time datetime="2017-01-28T12:19:49+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Last night, <a href="https://jekyllrb.com/docs/templates/#gist">Jekyll’s Gist tag</a> <em>didn’t</em> work during
-preview.</p>
+    <p>I typed this sentence quickly.</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">My VIMRC for GVIM on Win 7</span><a class="code-highlight-caption-link" href="https://gist.github.com/abc1cbd2b2181ad69165">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="136" class="code-highlight-row numbered"><div class="code-highlight-line">" Press Space to turn off highlighting and clear any message already displayed.
-</div></div><div data-line="137" class="code-highlight-row numbered marked-line start-marked-line end-marked-line"><div class="code-highlight-line">nnoremap &lt;silent&gt; &lt;Space&gt; :nohlsearch&lt;Bar&gt;:echo&lt;CR&gt;
-</div></div><div data-line="138" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="139" class="code-highlight-row numbered"><div class="code-highlight-line">" Practical Vim Tip 34: Avoid cursors when rcl'g cmd from hist
-</div></div><div data-line="140" class="code-highlight-row numbered marked-line start-marked-line"><div class="code-highlight-line">cnoremap &lt;C-p&gt; &lt;Up&gt;
-</div></div><div data-line="141" class="code-highlight-row numbered marked-line end-marked-line"><div class="code-highlight-line">cnoremap &lt;C-n&gt; &lt;Down&gt;
-</div></div><div data-line="142" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="143" class="code-highlight-row numbered"><div class="code-highlight-line">" 160221: Fix the space in "C:\Program Files" in the path of Git Bash
-</div></div><div data-line="144" class="code-highlight-row numbered"><div class="code-highlight-line">if match(&amp;shell,' ') &gt; -1
-</div></div><div data-line="145" class="code-highlight-row numbered"><div class="code-highlight-line">  set shell=C:\PROGRA~1\Git\usr\bin\bash.exe
-</div></div><div data-line="146" class="code-highlight-row numbered"><div class="code-highlight-line">endif
-</div></div></pre></div></figure>
+<div class="terminal">
+  <nav>
+    <a href="#" class="close">close</a>
+    <a href="#" class="minimize">minimize</a>
+    <a href="#" class="deactivate">deactivate</a>
+  </nav>
+  <h3 class="title">Terminal</h3>
+  <pre>
+<span class="command">date</span>
+<span class="output">samedi 28 janvier 2017, 12:22:23 (UTC+0100)</span>
+<span class="command">export LANG=en_US.UTF8</span>
+<span class="command">date</span>
+<span class="output">Sat Jan 28 12:23:33 STD 2017</span>
+  </pre>
+</div>
 
-<p>This morning, I tried using <code class="highlighter-rouge">git bisect</code> to figure out the cause of this
-problem.  It turns out that it <em>is</em> a problem of my installed version of
-<a href="https://github.com/octopress/gist">Octopress’ Gist tag</a> while handling Gists with
-multiple files.</p>
+<p>This tag works with <a href="https://github.com/octopress/octopress">Octopress 3</a>.</p>
 
 
   </div>
