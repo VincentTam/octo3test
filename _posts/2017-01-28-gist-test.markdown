@@ -5,11 +5,15 @@ date: 2017-01-28T09:57:34+01:00
 categories: blogging
 ---
 
-Last night, Jekyll's Gist tag *didn't* work during preview.
+Last night, [Jekyll's Gist tag][jekyll_gist_tag] *didn't* work during
+preview.
 
-{% gist abc1cbd2b2181ad69165 %}
+{% gist abc1cbd2b2181ad69165 title:"My VIMRC for GVIM on Win 7" range:136-146  mark:137,140-141 %}
 
-This morning, I tried using `git bisect` to figure out the cause of
-this problem.  It turns out that it *isn't* a problem of Octopress'
-Gist tag.  It's actually a problem of my code highlighter and gist
-cache.
+This morning, I tried using `git bisect` to figure out the cause of this
+problem.  It turns out that it *is* a problem of my installed version of
+[Octopress' Gist tag][octopress_gist_tag] while handling Gists with
+multiple files.
+
+[jekyll_gist_tag]: https://jekyllrb.com/docs/templates/#gist
+[octopress_gist_tag]: https://github.com/octopress/gist
