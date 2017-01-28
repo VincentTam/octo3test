@@ -26,6 +26,8 @@ github_username:  VincentTam
 # Build settings
 markdown: kramdown
 theme: minima
+terminal:
+  tag_name: 'h3'  # the tag used for the Terminal's title
 gems:
   - jekyll-feed
 exclude:

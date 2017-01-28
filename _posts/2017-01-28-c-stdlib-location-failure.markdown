@@ -8,22 +8,22 @@ categories: Linux
 I expect that the following command return the absolute path of
 `stdio.h`.
 
-``` sh
-user@OWNER-PC:~$ locate stdio.h
+{% terminal %}
+$ locate stdio.h
 locate: can not stat () `/var/lib/mlocate/mlocate.db': No such file or directory
-```
+{% endterminal %}
 
 A [database update][26191] worked, though it took several minutes.
 
-``` sh
-user@OWNER-PC:~$ sudo updatedb
+{% terminal %}
+$ sudo updatedb
 [sudo] password for user:
 
 ^Z
 [1]+  Stopped                 sudo updatedb
 user@OWNER-PC:~$ fg
 sudo updatedb
-user@OWNER-PC:~$ locate stdio.h
+$ locate stdio.h
 /mnt/c/Perl/lib/CORE/nostdio.h
 /mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h
 /mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h
@@ -33,6 +33,6 @@ user@OWNER-PC:~$ locate stdio.h
 /usr/include/c++/4.8/tr1/stdio.h
 /usr/include/x86_64-linux-gnu/bits/stdio.h
 /usr/lib/perl/5.18.2/CORE/nostdio.h
-```
+{% endterminal %}
 
 [26191]: http://unix.stackexchange.com/a/26191/165042

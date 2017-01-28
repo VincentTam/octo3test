@@ -27,6 +27,7 @@ group :jekyll_plugins do
    #gem 'octopress-codefence'
    gem 'octopress-gist'
    gem 'octopress-solarized'
+   gem 'jekyll-terminal'
    gem 'jekyll-paginate'
    gem 'jekyll-feed'
 end
