@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Definition of Lower Semicontinuous Function</title>
-  <meta name="description" content="Testing LocalMJ $0 \in \R$.">
+  <meta name="description" content="Background">
 
   <link rel="stylesheet" href="/octo3test/assets/main.css">
-  <link rel="canonical" href="https://vincenttam.github.io/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function.html">
+  <link rel="canonical" href="http://localhost:4000/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function.html">
   <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
   
   
@@ -68,7 +68,89 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Testing LocalMJ $0 \in \R$.</p>
+    <h2 id="background">Background</h2>
+
+<p>I know this $\delta$-$\epsilon$ criterion of lower semicontinuity
+(l.s.c) of $f: E \subseteq \Bbb R \to \Bbb R$ at point $x_0$:</p>
+
+<blockquote>
+  <script type="math/tex; mode=display">\forall \epsilon > 0, \exists \delta > 0,
+\forall x \in B(x_0,\delta), f(x) > f(x_0) - \epsilon.</script>
+</blockquote>
+
+<h2 id="problem">Problem</h2>
+
+<p>I want to use this definition to show that the supremum of a family of
+l.s.c. functions $(f_i)_{i \in I}$ defined on $E$</p>
+
+<script type="math/tex; mode=display">f(x) = \sup_{i \in I} f_i (x)</script>
+
+<p>is l.s.c, but for each $i \in I$, $\delta = \delta(i)$.  I <em>can’t</em>
+take the infimum of $\delta$ like in the proof for the l.s.c of the
+sum $f_1 + f_2$ of two l.s.c functions $f_1$ and $f_2$.</p>
+
+<p>I confuse myself by writing something like</p>
+
+<script type="math/tex; mode=display">\forall i \in I, \forall \epsilon > 0, \exists \delta_i > 0,
+\forall x \in B(x_0,\delta_i), f_i (x) > f_i (x_0) - \epsilon.</script>
+
+<p>One <em>can’t</em> directly take supremum on both sides since $x$ depends on
+$\delta_i$.  One <em>can’t</em> say that the intersection</p>
+
+<script type="math/tex; mode=display">\bigcap_{i \in I} B(x_0,\delta_i) \ne \varnothing.</script>
+
+<h2 id="a-method-to-pass-over-this">A method to pass over this</h2>
+
+<p>I digress to show an alternative proof of the l.s.c. for
+$f(x) = \sup\limits_{i \in I} f_i (x)$.</p>
+
+<p>Sublevel sets can be used to solved this problem.  Recall that l.s.c
+of $f$ is equivalent to the closedness of</p>
+
+<script type="math/tex; mode=display">S_\lambda = \lbrace x \in E \mid f(x) \le \lambda \rbrace \forall
+\lambda \in \Bbb R.</script>
+
+<p>Therefore, we fix $\lambda \in \Bbb R$.  For each $f_i$, we have</p>
+
+<script type="math/tex; mode=display">S_i = \lbrace x \in E \mid f_i (x) \le \lambda \rbrace</script>
+
+<p>Since the arbitrary intersection of closed sets $S_i$’s is closed,</p>
+
+<script type="math/tex; mode=display">S = \bigcap_{i \in I} S_i
+= \lbrace x \in E \mid f (x) \le \lambda \rbrace</script>
+
+<p>is closed.  Since the choice of $\lambda$ is arbitrary, we use the
+equivalence between closed sublevel sets and l.s.c. of a function to
+conclude that $f$ is l.s.c.</p>
+
+<h2 id="a-direct-proof">A direct proof</h2>
+
+<p>Refer to <a href="http://math.stackexchange.com/a/1662824/290189">komorebi’s answer on Math.SE</a>.</p>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<ol>
+  <li>
+    <p>The definition of l.s.c. of $f$ at $x_0$ in the linked answer</p>
+
+    <blockquote>
+      <script type="math/tex; mode=display">% <![CDATA[
+\forall y < f(x_0), \exists \delta > 0,
+\forall x \in B(x_0,\delta), f(x) > y %]]></script>
+    </blockquote>
+
+    <p>is <em>much better</em> than mine.  Actually, by replacing $f(x_0) -
+ \epsilon$ by an aribrary <em>fixed</em> $y &lt; f(x_0)$,
+ <a href="#problem">the above confusion</a> about the supremum over $i \in I$
+ no longer exists.</p>
+  </li>
+  <li>
+    <p>This simplified definition helps us understand the equivalence
+between <a href="http://math.stackexchange.com/a/468984/290189">closed epigraph and l.s.c. functon</a> <em>without</em>
+using sublevel sets.</p>
+  </li>
+</ol>
+
 
   </div>
 
@@ -140,7 +222,7 @@
         head.appendChild(script);
     }
 
-    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,/octo3test/assets/js/MathJaxLocal.js",function() {});
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/octo3test/assets/js/MathJaxLocal.js",function() {});
 })();
 </script>
 
