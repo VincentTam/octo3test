@@ -32,7 +32,7 @@ Solution
 To understand how to reconstruct a file from a blob, I used
 [this blog's Git repo][blog-repo] as an example.
 
-{% codeblock lang:ruby title:"Reconstruction of .gitignore with Ruby" linenos:true mark:8-11,25-26 %}
+{% codeblock lang:ruby title:"Reconstruction of .gitignore with Ruby" linenos:false mark:8-11,25-26 %}
 $ cd .git
 $ export myfp="objects/"`cat HEAD | awk '{print $NF}' | xargs cat | sed 's|..|&/|'`
 $ echo $myfp
@@ -61,10 +61,23 @@ irb(main):009:0> bc = Zlib::Inflate.inflate(bzc)
 => "blob 213\x00---\n# You don't need to edit this file, it's empty on purpose.\n# Edit theme's home layout instead if you wanna make some changes\n# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults\nlayout: home\n---\n"
 {% endcodeblock %}
 
+Variables within irb:
+
 - `c` stands for contents
 - `z` stands for "zipped"
 - `t` stands for "tree object"
 - `b` stands for "blob object"
+
+Explanation for commands
+
+- `export` enables irb to access shell variables through `ENV['myfp']`
+- `mystr.sub(/pat/,'rempl')` vs `mystr.gsub(/pat/,'rempl')` is like
+    `:s/pat/rempl/` vs `:%s/pat/rempl/`.
+- option `rb` in `File.open()` means "read binary".  *Without* `b`,
+    the string read will be different, and it will cause error in
+    `inflate(zc)`.
+- I *don't* have time to find out how to read the hex values of
+    unicode characters, and to remove the header of a blob.
 
 [Git]: https://git-scm.com
 [git-portb]: https://github.com/sheabunge/GitPortable
