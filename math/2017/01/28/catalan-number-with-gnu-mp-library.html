@@ -78,6 +78,32 @@ memory is consumed.  This has inspired me to write <code class="highlighter-roug
 
 <p>I have chosen C due to its speed.</p>
 
+<h2 id="learnt">Learnt</h2>
+
+<ol>
+  <li><code class="highlighter-rouge">scanf("%d", &amp;i)</code> stores the input string to the <em>adress</em> of <code class="highlighter-rouge">i</code>.</li>
+  <li>Formatted string in <code class="highlighter-rouge">printf()</code>
+    <ul>
+      <li><code class="highlighter-rouge">%d</code> or <code class="highlighter-rouge">%i</code>: integers</li>
+      <li><code class="highlighter-rouge">%f</code>: float</li>
+      <li>Ref: <a href="https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm">Tutorials Point <code class="highlighter-rouge">printf()</code> function</a></li>
+    </ul>
+  </li>
+  <li>GNU MP library
+    <ul>
+      <li><code class="highlighter-rouge">#include &lt;gmp.h&gt;</code> at the top and compile with <code class="highlighter-rouge">-lgmp</code></li>
+      <li>declare variable <code class="highlighter-rouge">mpz_t var[2017]</code> first</li>
+      <li><code class="highlighter-rouge">mpz_init(myvar)</code> set it to zero</li>
+      <li><code class="highlighter-rouge">mpz_init_set_str(myvar, mystr)</code> can save a step</li>
+      <li><code class="highlighter-rouge">ui</code> in <code class="highlighter-rouge">mpz_set_ui(myvar, myint)</code> means “unsigned int”</li>
+      <li>use for loop to initialize an array of GMP bignum</li>
+      <li>methods for manipulating GMP bignums have <code class="highlighter-rouge">void</code> return type in
+  general.</li>
+    </ul>
+  </li>
+</ol>
+
+
   </div>
 
   
