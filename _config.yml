@@ -36,3 +36,7 @@ exclude:
   - .bundle
   - bin
   - vendor
+  - quik-prv.sh~
+  - script.html~
+  - temp.html~
+  - tempmj.html~
