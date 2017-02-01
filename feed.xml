@@ -1,4 +1,309 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-01-31T22:53:44+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump</subtitle><author><name>Vincent Tam</name></author><entry><title type="html">De Méré’s Problem Without Calculators</title><link href="http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html" rel="alternate" type="text/html" title="De Méré's Problem Without Calculators" /><published>2017-01-31T20:42:28+01:00</published><updated>2017-01-31T20:42:28+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html">&lt;p&gt;The solution can be found in many books since
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-02-01T17:43:40+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump</subtitle><author><name>Vincent Tam</name></author><entry><title type="html">A Finite Probability Space Example</title><link href="http://localhost:4000/octo3test/math/2017/01/31/a-finite-probability-space-example.html" rel="alternate" type="text/html" title="A Finite Probability Space Example" /><published>2017-01-31T23:52:01+01:00</published><updated>2017-01-31T23:52:01+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/31/a-finite-probability-space-example</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/31/a-finite-probability-space-example.html">&lt;h2 id=&quot;assumptions&quot;&gt;Assumptions&lt;/h2&gt;
+
+&lt;p&gt;Suppose that Mr. Smith has two credit cards
+&lt;i class=&quot;fa fa-credit-card fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fa fa-credit-card fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;.
+They are either MasterCard
+&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; or
+Visa
+&lt;i class=&quot;fa fa-cc-visa fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+with &lt;em&gt;equal&lt;/em&gt; probability.  Their colours can be
+&lt;i class=&quot;fa fa-credit-card fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-credit-card fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-credit-card fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-credit-card fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+also with &lt;em&gt;equal&lt;/em&gt; probability.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;One day, I saw Mr. Smith paying with a blue MasterCard
+&lt;i class=&quot;fa fa-cc-mastercard fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+in a supermarket.
+What is the probability that he possesses two MasterCards
+&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;?&lt;/p&gt;
+
+&lt;h2 id=&quot;wrong-argument&quot;&gt;Wrong argument&lt;/h2&gt;
+
+&lt;p&gt;We draw a table to see the four cases.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;1 \ 2&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;I mistakenly thought that the answer should be $\frac13$ due to the
+&lt;em&gt;wrong&lt;/em&gt; intuition that the colors (
+&lt;i class=&quot;fa fa-square fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+) are independent of the card type. (
+&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-cc-visa fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; )&lt;/p&gt;
+
+&lt;h2 id=&quot;correction&quot;&gt;Correction&lt;/h2&gt;
+
+&lt;p&gt;$\Omega$ represents the sample space.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;✗: $\Omega = \lbrace (\unicode{x1f4b3}_1,\unicode{x1f4b3}_2)
+\mid \unicode{x1f4b3}_i \in \left \lbrace \class{fa fa-cc-mastercard
+fa-lg}{}, \class{fa fa-cc-visa fa-lg}{} \right \rbrace, i \in \lbrace
+1,2 \rbrace \rbrace$&lt;/li&gt;
+  &lt;li&gt;✓: $\Omega = \lbrace
+(\unicode{x1f4b3}_1,\square_1,\unicode{x1f4b3}_2, \square_2) \mid
+\unicode{x1f4b3}_i \in \left \lbrace \class{fa fa-cc-mastercard
+fa-lg}{}, \class{fa fa-cc-visa fa-lg}{} \right \rbrace,
+\square_i \in \lbrace \color{blue}{\blacksquare},
+\color{red}{\blacksquare}, \color{grey}{\blacksquare},
+\color{brown}{\blacksquare} \rbrace, i \in \lbrace 1,2 \rbrace
+\rbrace$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Right table&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;1 \ 2&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-mastercard fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-check-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;i class=&quot;fa fa-cc-visa fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;i class=&quot;fa fa-square-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The target event $E$ is&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\left \lbrace (\unicode{x1f4b3}_1,\unicode{x1f4b3}_2) \mid
+  \unicode{x1f4b3}_i = \;\class{fa fa-cc-mastercard fa-lg}{},
+  i \in \lbrace 1,2 \rbrace \right \rbrace.&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The given conditiion $G$ is that Mr. Smith possess at least one
+  &lt;i class=&quot;fa fa-cc-mastercard fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;.
+  This is represented by the set&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\left \lbrace
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg rouge}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg gris}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg maron}{} \right ), \\
+
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-visa fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-visa fa-lg rouge}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-visa fa-lg gris}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-visa fa-lg maron}{} \right ), \\
+
+  \left (\class{fa fa-cc-mastercard fa-lg rouge}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg gris}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg maron}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ), \\
+
+  \left (\class{fa fa-cc-visa fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-visa fa-lg rouge}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-visa fa-lg gris}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-visa fa-lg maron}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right )
+  \right \rbrace.&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$E \cap G$ is&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\left \lbrace
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg rouge}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg gris}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg bleu}{},
+  \class{fa fa-cc-mastercard fa-lg maron}{} \right ), \\
+
+  \left (\class{fa fa-cc-mastercard fa-lg rouge}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg gris}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right ),
+  \left (\class{fa fa-cc-mastercard fa-lg maron}{},
+  \class{fa fa-cc-mastercard fa-lg bleu}{} \right )
+  \right \rbrace.&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Therefore, the required probability is&lt;/p&gt;
+
+&lt;div&gt;
+\begin{align*}
+&amp;amp; P(E \mid G) \\
+=&amp;amp; \frac{P(E \cap G)}{P(G)} \\
+=&amp;amp; \frac{7}{15}.
+\end{align*}
+&lt;/div&gt;
+
+&lt;h2 id=&quot;why-is-the-intuition-wrong&quot;&gt;Why is the intuition wrong?&lt;/h2&gt;
+
+&lt;p&gt;Even though the above table illustrates the conditiional probability
+well, it’s good to know the reason for the failure of the above
+intuition.  It’s true that &lt;em&gt;without&lt;/em&gt; any constraints, the colors (
+&lt;i class=&quot;fa fa-square fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+) are independent of the card type. (
+&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-cc-visa fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; )  However, the
+given condition specifies the color and the card type of one of Mr.
+Smith’s cards, thus builds up some relation between
+&lt;i class=&quot;fa fa-square fa-lg bleu&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg rouge&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg gris&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-square fa-lg maron&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+and
+&lt;i class=&quot;fa fa-cc-mastercard fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;,
+&lt;i class=&quot;fa fa-cc-visa fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;.  As a result,
+$E$ is no longer independent of $G$.&lt;/p&gt;
+
+&lt;h2 id=&quot;learnt&quot;&gt;Learnt&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Insert &lt;a href=&quot;http://docs.mathjax.org/en/latest/tex.html?highlight=unicode#unicode-support&quot;&gt;Unicode characters in MathJax&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Insert &lt;a href=&quot;http://stackoverflow.com/a/41381609/3184351&quot;&gt;Font Awesome icons in MathJax&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Setting up the correct set for the sample space is important.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+.bleu {color: blue;} .rouge {color: red;} .gris {color: grey;}
+.maron {color: brown}
+&lt;/style&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Assumptions</summary></entry><entry><title type="html">De Méré’s Problem Without Calculators</title><link href="http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html" rel="alternate" type="text/html" title="De Méré's Problem Without Calculators" /><published>2017-01-31T20:42:28+01:00</published><updated>2017-01-31T20:42:28+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html">&lt;p&gt;The solution can be found in many books since
 &lt;a href=&quot;http://mathworld.wolfram.com/deMeresProblem.html&quot;&gt;de Méré’s problem&lt;/a&gt; was proposed more than three centuries ago.
 &lt;em&gt;Without&lt;/em&gt; calculators, comparing $\left( \frac56 \right)^4$ and
 $\left( \frac{35}{36} \right)^{24}$ could be a problem.&lt;/p&gt;
@@ -481,7 +786,4 @@ preview.</summary></entry><entry><title type="html">C Stdlib Location Failure</t
 &lt;span class=&quot;continuation&quot;&gt;/usr/lib/perl/5.18.2/CORE/nostdio.h&lt;/span&gt;
   &lt;/pre&gt;
 &lt;/div&gt;</content><author><name>Vincent Tam</name></author><summary type="html">I expect that the following command return the absolute path of
-stdio.h.</summary></entry><entry><title type="html">Keep Blogging</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging.html" rel="alternate" type="text/html" title="Keep Blogging" /><published>2017-01-28T02:02:37+01:00</published><updated>2017-01-28T02:02:37+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/keep-blogging.html">&lt;p&gt;External-url: &lt;a href=&quot;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&quot;&gt;http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This article explains why I keep posting something that interest few
-netizens.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">External-url: http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/</summary></entry></feed>
+stdio.h.</summary></entry></feed>
