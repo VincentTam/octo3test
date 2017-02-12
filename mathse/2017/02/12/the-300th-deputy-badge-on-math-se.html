@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>C Stdlib Location Failure</title>
-  <meta name="description" content="I expect that the following command return the absolute path of stdio.h.">
+  <title>The 300th Deputy Badge on Math.SE</title>
+  <meta name="description" content="I was awarded the 300th Deputy badge tonight.">
 
   <link rel="stylesheet" href="/octo3test/assets/main.css">
-  <link rel="canonical" href="https://vincenttam.github.io/octo3test/linux/2017/01/28/c-stdlib-location-failure.html">
+  <link rel="canonical" href="https://vincenttam.github.io/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se.html">
   <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
   
   
@@ -64,56 +64,14 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">C Stdlib Location Failure</h1>
-    <p class="post-meta"><time datetime="2017-01-28T02:26:18+01:00" itemprop="datePublished">Jan 28, 2017</time></p>
+    <h1 class="post-title" itemprop="name headline">The 300th Deputy Badge on Math.SE</h1>
+    <p class="post-meta"><time datetime="2017-02-12T21:39:16+01:00" itemprop="datePublished">Feb 12, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>I expect that the following command return the absolute path of
-<code class="highlighter-rouge">stdio.h</code>.</p>
+    <p>I was awarded the 300th <a href="http://math.stackexchange.com/help/badges">Deputy badge</a> tonight.</p>
 
-<div class="terminal">
-  <nav>
-    <a href="#" class="close">close</a>
-    <a href="#" class="minimize">minimize</a>
-    <a href="#" class="deactivate">deactivate</a>
-  </nav>
-  <h3 class="title">Terminal</h3>
-  <pre>
-<span class="command">locate stdio.h</span>
-<span class="output">locate: can not stat () `/var/lib/mlocate/mlocate.db&#39;: No such file or directory</span>
-  </pre>
-</div>
-
-<p>A <a href="http://unix.stackexchange.com/a/26191/165042">database update</a> worked, though it took several minutes.</p>
-
-<div class="terminal">
-  <nav>
-    <a href="#" class="close">close</a>
-    <a href="#" class="minimize">minimize</a>
-    <a href="#" class="deactivate">deactivate</a>
-  </nav>
-  <h3 class="title">Terminal</h3>
-  <pre>
-<span class="command">sudo updatedb</span>
-<span class="output">[sudo] password for user:</span>
-<span class="output"></span>
-<span class="output">^Z</span>
-<span class="output">[1]+  Stopped                 sudo updatedb</span>
-<span class="output">user@OWNER-PC:~$ fg</span>
-<span class="output">sudo updatedb</span>
-<span class="command">locate stdio.h</span>
-<span class="continuation">/mnt/c/Perl/lib/CORE/nostdio.h</span>
-<span class="continuation">/mnt/c/RubyDevKit/lib/perl5/5.8/msys/CORE/nostdio.h</span>
-<span class="continuation">/mnt/c/RubyDevKit/mingw/include/c++/4.7.2/tr1/stdio.h</span>
-<span class="continuation">/mnt/c/RubyDevKit/mingw/lib/gcc/x86_64-w64-mingw32/4.7.2/include/ssp/stdio.h</span>
-<span class="continuation">/mnt/c/RubyDevKit/mingw/x86_64-w64-mingw32/include/stdio.h</span>
-<span class="continuation">/usr/include/stdio.h</span>
-<span class="continuation">/usr/include/c++/4.8/tr1/stdio.h</span>
-<span class="continuation">/usr/include/x86_64-linux-gnu/bits/stdio.h</span>
-<span class="continuation">/usr/lib/perl/5.18.2/CORE/nostdio.h</span>
-  </pre>
-</div>
+<p><img src="/assets/deputy300.png" alt="300th deputy badge" title="My recent badge" /></p>
 
 
   </div>
