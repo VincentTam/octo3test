@@ -7,6 +7,6 @@ categories: MathSE
 
 I was awarded the 300th [Deputy badge][mathse_badges] tonight.
 
-{% img /assets/deputy300.png "300th deputy badge" title:"My recent badge" %}
+{% img {{ site.baseurl }}/assets/deputy300.png "300th deputy badge" title:"My recent badge" %}
 
 [mathse_badges]: http://math.stackexchange.com/help/badges
