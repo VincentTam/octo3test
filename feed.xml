@@ -1,6 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://vincenttam.github.io/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://vincenttam.github.io/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vincenttam.github.io/octo3test/" rel="alternate" type="text/html" /><updated>2017-02-12T21:54:07+01:00</updated><id>https://vincenttam.github.io/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump</subtitle><author><name>Vincent Tam</name></author><entry><title type="html">The 300th Deputy Badge on Math.SE</title><link href="https://vincenttam.github.io/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se.html" rel="alternate" type="text/html" title="The 300th Deputy Badge on Math.SE" /><published>2017-02-12T21:39:16+01:00</published><updated>2017-02-12T21:39:16+01:00</updated><id>https://vincenttam.github.io/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se.html">&lt;p&gt;I was awarded the 300th &lt;a href=&quot;http://math.stackexchange.com/help/badges&quot;&gt;Deputy badge&lt;/a&gt; tonight.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/octo3test/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/octo3test/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/octo3test/" rel="alternate" type="text/html" /><updated>2017-02-17T01:24:17+01:00</updated><id>http://localhost:4000/octo3test//</id><title type="html">Testing Octopress 3</title><subtitle>My memory dump</subtitle><author><name>Vincent Tam</name></author><entry><title type="html">Simplex Tableau Generation With GNU Octave</title><link href="http://localhost:4000/octo3test/math/2017/02/17/simplex-tableau-generation-with-gnu-octave.html" rel="alternate" type="text/html" title="Simplex Tableau Generation With GNU Octave" /><published>2017-02-17T00:04:07+01:00</published><updated>2017-02-17T00:04:07+01:00</updated><id>http://localhost:4000/octo3test/math/2017/02/17/simplex-tableau-generation-with-gnu-octave</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/02/17/simplex-tableau-generation-with-gnu-octave.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/octo3test/assets/deputy300.png&quot; alt=&quot;300th deputy badge&quot; title=&quot;My recent badge&quot; /&gt;&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">I was awarded the 300th Deputy badge tonight.</summary></entry><entry><title type="html">A Finite Probability Space Example</title><link href="https://vincenttam.github.io/octo3test/math/2017/01/31/a-finite-probability-space-example.html" rel="alternate" type="text/html" title="A Finite Probability Space Example" /><published>2017-01-31T23:52:01+01:00</published><updated>2017-01-31T23:52:01+01:00</updated><id>https://vincenttam.github.io/octo3test/math/2017/01/31/a-finite-probability-space-example</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/math/2017/01/31/a-finite-probability-space-example.html">&lt;h2 id=&quot;assumptions&quot;&gt;Assumptions&lt;/h2&gt;
+&lt;p&gt;I encountered a &lt;a href=&quot;http://math.stackexchange.com/q/2144734/290189&quot;&gt;linear programming problem&lt;/a&gt; on math.SE.  I
+used &lt;a href=&quot;https://git.io/vD9m7&quot;&gt;my Octave simplex code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;http://math.stackexchange.com/a/1605301/290189&lt;/span&gt;&lt;a class=&quot;code-highlight-caption-link&quot; href=&quot;http://math.stackexchange.com/a/1605301/290189&quot;&gt;link&lt;/a&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;format rat;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;c = [-1 2 -3 -1 0 0 0]'; b = [4 2 1]';
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;A = [
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;1 -1 -2 -1 1 0 0
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;2 0 1 -4 0 1 0
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;-2 1 0 1 0 0 1];
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;basis = 5:7;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;8&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;B = A(:,basis); cB = c(basis); T = [B\A B\b; cB'*(B\A)-c' cB'*(B\b)]
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;9&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;T =
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          1         -1         -2         -1          1          0          0          4
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          2          0          1         -4          0          1          0          2
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;         -2          1          0          1          0          0          1          1
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;         -1          2          3          1          0          0          0          0&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;It’s tedious to identify the right pivot element by naked eye.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;I wrote several lines of code to find the right row and column indices.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;Automatic selection of pivot element&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;zrow = T(end,:); nv = find(zrow==min(zrow(zrow&amp;lt;=0)));
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r&amp;gt;0)));
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;disp([ovp nv])
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;2          1
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;basis(ovp) = nv;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;B = A(:,basis); cB = c(basis); T = [B\A B\b; cB'*(B\A)-c' cB'*(B\b)]
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;T =
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;8&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;9&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          0         -1       -5/2          1          1       -1/2          0          3
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          1          0        1/2         -2          0        1/2          0          1
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          0          1          1         -3          0          1          1          3
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          0          2        7/2         -1          0        1/2          0          1
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;zrow = T(end,:); nv = find(zrow==min(zrow(zrow&amp;lt;=0)));
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;15&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r&amp;gt;0)));
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;16&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;disp([ovp nv])
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;17&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          1          4
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;18&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;basis(ovp) = nv;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;19&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;B = A(:,basis); cB = c(basis); T = [B\A B\b; cB'*(B\A)-c' cB'*(B\b)]
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;20&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;T =
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;21&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;22&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;         -0         -1       -5/2          1          1       -1/2         -0          3
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;23&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          1         -2       -9/2         -0          2       -1/2         -0          7
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;24&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          0         -2      -13/2          0          3       -1/2          1         12
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;25&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;          0          1          1          0          1          0          0          4&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here, I use&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zrow&lt;/code&gt;: objective function row&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r&lt;/code&gt;: ratio for pivot selection (an $n$-row column vector)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;nv&lt;/code&gt;: new/entering variable&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ovp&lt;/code&gt;: old/leaving variable &lt;em&gt;position&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;I used &lt;code class=&quot;highlighter-rouge&quot;&gt;ov&lt;/code&gt; at first, but I got a logic error with
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;basis(find(basis==ov)) = nv&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;In fact, the function &lt;code class=&quot;highlighter-rouge&quot;&gt;find(r==min(r(r&amp;gt;0)))&lt;/code&gt; returns the row
+  number (i.e. position) of the leaving variable.  We have to
+  pass this position to &lt;code class=&quot;highlighter-rouge&quot;&gt;basis&lt;/code&gt; so as to get the actual number
+  representing the leaving variable.
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r = r .* (r &amp;gt; 0)&lt;/code&gt; &lt;em&gt;didn’t&lt;/em&gt; work since 0 is selected as
+  &lt;code class=&quot;highlighter-rouge&quot;&gt;min(r)&lt;/code&gt;.&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r(r&amp;gt;0)&lt;/code&gt; alters the indices and the size of positive
+  elements.&lt;/li&gt;
+          &lt;li&gt;So I have to use &lt;code class=&quot;highlighter-rouge&quot;&gt;find(r==...)&lt;/code&gt; to get the right indices.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lessons-learnt&quot;&gt;Lessons learnt&lt;/h2&gt;
+
+&lt;p&gt;Some Octave syntax for finding (non-negative minimum) elements in an
+one-dimensional array.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find(vect==val)&lt;/code&gt; returns an array of indices of matching elements.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vect(cond)&lt;/code&gt; extracts the elements satisfying &lt;code class=&quot;highlighter-rouge&quot;&gt;cond&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;vect&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;issues&quot;&gt;Issues&lt;/h2&gt;
+
+&lt;p&gt;If there’re two or more matches for the most negative entry at the
+$z$-row or the ratio vector, &lt;a href=&quot;https://www.gnu.org/software/octave/doc/v4.0.3/Finding-Elements-and-Checking-Conditions.html&quot;&gt;GNU Octave’s &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt; function&lt;/a&gt;
+returns an array.  Then the variables &lt;code class=&quot;highlighter-rouge&quot;&gt;nv&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ovp&lt;/code&gt; will be &lt;em&gt;wrong&lt;/em&gt;.
+I’ll fix it if I have time in the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;unexpected-discovery&quot;&gt;Unexpected discovery&lt;/h2&gt;
+
+&lt;p&gt;An excellent &lt;a href=&quot;http://math.uww.edu/~mcfarlat/s-prob.htm&quot;&gt;introduction to simplex method&lt;/a&gt; with detailed
+steps, illustrations and explanation for the impatient.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">The 300th Deputy Badge on Math.SE</title><link href="http://localhost:4000/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se.html" rel="alternate" type="text/html" title="The 300th Deputy Badge on Math.SE" /><published>2017-02-12T21:39:16+01:00</published><updated>2017-02-12T21:39:16+01:00</updated><id>http://localhost:4000/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se</id><content type="html" xml:base="http://localhost:4000/octo3test/mathse/2017/02/12/the-300th-deputy-badge-on-math-se.html">&lt;p&gt;I was awarded the 300th &lt;a href=&quot;http://math.stackexchange.com/help/badges&quot;&gt;Deputy badge&lt;/a&gt; tonight.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/octo3test/assets/deputy300.png&quot; alt=&quot;300th deputy badge&quot; title=&quot;My recent badge&quot; /&gt;&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">I was awarded the 300th Deputy badge tonight.</summary></entry><entry><title type="html">A Finite Probability Space Example</title><link href="http://localhost:4000/octo3test/math/2017/01/31/a-finite-probability-space-example.html" rel="alternate" type="text/html" title="A Finite Probability Space Example" /><published>2017-01-31T23:52:01+01:00</published><updated>2017-01-31T23:52:01+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/31/a-finite-probability-space-example</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/31/a-finite-probability-space-example.html">&lt;h2 id=&quot;assumptions&quot;&gt;Assumptions&lt;/h2&gt;
 
 &lt;p&gt;Suppose that Mr. Smith has two credit cards
 &lt;i class=&quot;fa fa-credit-card fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
@@ -305,7 +401,7 @@ $E$ is no longer independent of $G$.&lt;/p&gt;
 &lt;style type=&quot;text/css&quot;&gt;
 .bleu {color: blue;} .rouge {color: red;} .gris {color: grey;}
 .maron {color: brown}
-&lt;/style&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Assumptions</summary></entry><entry><title type="html">De Méré’s Problem Without Calculators</title><link href="https://vincenttam.github.io/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html" rel="alternate" type="text/html" title="De Méré's Problem Without Calculators" /><published>2017-01-31T20:42:28+01:00</published><updated>2017-01-31T20:42:28+01:00</updated><id>https://vincenttam.github.io/octo3test/math/2017/01/31/de-mrs-problem-without-calculators</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html">&lt;p&gt;The solution can be found in many books since
+&lt;/style&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Assumptions</summary></entry><entry><title type="html">De Méré’s Problem Without Calculators</title><link href="http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html" rel="alternate" type="text/html" title="De Méré's Problem Without Calculators" /><published>2017-01-31T20:42:28+01:00</published><updated>2017-01-31T20:42:28+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/31/de-mrs-problem-without-calculators.html">&lt;p&gt;The solution can be found in many books since
 &lt;a href=&quot;http://mathworld.wolfram.com/deMeresProblem.html&quot;&gt;de Méré’s problem&lt;/a&gt; was proposed more than three centuries ago.
 &lt;em&gt;Without&lt;/em&gt; calculators, comparing $\left( \frac56 \right)^4$ and
 $\left( \frac{35}{36} \right)^{24}$ could be a problem.&lt;/p&gt;
@@ -486,7 +582,7 @@ delicate treatment since one &lt;em&gt;can’t&lt;/em&gt; make any conclusion fr
 &lt;p&gt;Therefore, \eqref{2} is simpler than \eqref{1}.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">The solution can be found in many books since
 de Méré’s problem was proposed more than three centuries ago.
 Without calculators, comparing $\left( \frac56 \right)^4$ and
-$\left( \frac{35}{36} \right)^{24}$ could be a problem.</summary></entry><entry><title type="html">Definition of Lower Semicontinuous Function</title><link href="https://vincenttam.github.io/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function.html" rel="alternate" type="text/html" title="Definition of Lower Semicontinuous Function" /><published>2017-01-29T22:48:01+01:00</published><updated>2017-01-29T22:48:01+01:00</updated><id>https://vincenttam.github.io/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+$\left( \frac{35}{36} \right)^{24}$ could be a problem.</summary></entry><entry><title type="html">Definition of Lower Semicontinuous Function</title><link href="http://localhost:4000/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function.html" rel="alternate" type="text/html" title="Definition of Lower Semicontinuous Function" /><published>2017-01-29T22:48:01+01:00</published><updated>2017-01-29T22:48:01+01:00</updated><id>http://localhost:4000/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function</id><content type="html" xml:base="http://localhost:4000/octo3test/math/2017/01/29/definition-of-lower-semicontinuous-function.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;I know this $\delta$-$\epsilon$ criterion of lower semicontinuity
 (l.s.c) of $f: E \subseteq \Bbb R \to \Bbb R$ at point $x_0$:&lt;/p&gt;
@@ -567,7 +663,7 @@ conclude that $f$ is l.s.c.&lt;/p&gt;
 between &lt;a href=&quot;http://math.stackexchange.com/a/468984/290189&quot;&gt;closed epigraph and l.s.c. functon&lt;/a&gt; &lt;em&gt;without&lt;/em&gt;
 using sublevel sets.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">My Ruby Setup on Windows 10</title><link href="https://vincenttam.github.io/octo3test/windows/2017/01/28/my-ruby-setup-on-windows-10.html" rel="alternate" type="text/html" title="My Ruby Setup on Windows 10" /><published>2017-01-28T23:19:21+01:00</published><updated>2017-01-28T23:19:21+01:00</updated><id>https://vincenttam.github.io/octo3test/windows/2017/01/28/my-ruby-setup-on-windows-10</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/windows/2017/01/28/my-ruby-setup-on-windows-10.html">&lt;h2 id=&quot;goal&quot;&gt;Goal&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">My Ruby Setup on Windows 10</title><link href="http://localhost:4000/octo3test/windows/2017/01/28/my-ruby-setup-on-windows-10.html" rel="alternate" type="text/html" title="My Ruby Setup on Windows 10" /><published>2017-01-28T23:19:21+01:00</published><updated>2017-01-28T23:19:21+01:00</updated><id>http://localhost:4000/octo3test/windows/2017/01/28/my-ruby-setup-on-windows-10</id><content type="html" xml:base="http://localhost:4000/octo3test/windows/2017/01/28/my-ruby-setup-on-windows-10.html">&lt;h2 id=&quot;goal&quot;&gt;Goal&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;To satisfy the dependency requirements for my Octopress blog&lt;/li&gt;
@@ -584,7 +680,7 @@ though.&lt;/p&gt;
 &lt;h2 id=&quot;result&quot;&gt;Result&lt;/h2&gt;
 
 &lt;p&gt;I installed Ruby Linux bash on Windows so that it’s possible to have
-&lt;em&gt;multiple&lt;/em&gt; versions of Ruby for running different apps.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Goal</summary></entry><entry><title type="html">Vimperator on Firefox 51</title><link href="https://vincenttam.github.io/octo3test/web/2017/01/28/vimperator-on-firefox-51.html" rel="alternate" type="text/html" title="Vimperator on Firefox 51" /><published>2017-01-28T22:55:40+01:00</published><updated>2017-01-28T22:55:40+01:00</updated><id>https://vincenttam.github.io/octo3test/web/2017/01/28/vimperator-on-firefox-51</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/web/2017/01/28/vimperator-on-firefox-51.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;em&gt;multiple&lt;/em&gt; versions of Ruby for running different apps.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Goal</summary></entry><entry><title type="html">Vimperator on Firefox 51</title><link href="http://localhost:4000/octo3test/web/2017/01/28/vimperator-on-firefox-51.html" rel="alternate" type="text/html" title="Vimperator on Firefox 51" /><published>2017-01-28T22:55:40+01:00</published><updated>2017-01-28T22:55:40+01:00</updated><id>http://localhost:4000/octo3test/web/2017/01/28/vimperator-on-firefox-51</id><content type="html" xml:base="http://localhost:4000/octo3test/web/2017/01/28/vimperator-on-firefox-51.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;Firefox automatically upgraded to v.51 this morning.&lt;/p&gt;
 
@@ -595,7 +691,7 @@ which enables efficient web browsing with &lt;a href=&quot;http://www.vim.org&qu
 &lt;em&gt;broken&lt;/em&gt; since the upgrade.&lt;/p&gt;
 
 &lt;p&gt;This will be fixed in a year or two, so it’s &lt;em&gt;not&lt;/em&gt; worth the effort to
-look into this &lt;a href=&quot;https://git.io/vDUIc&quot;&gt;Vimperator compatibility issue&lt;/a&gt;&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">Migrated From Octopress 2.0</title><link href="https://vincenttam.github.io/octo3test/blogging/2017/01/28/migrated-from-octopress-2-0.html" rel="alternate" type="text/html" title="Migrated From Octopress 2.0" /><published>2017-01-28T21:50:44+01:00</published><updated>2017-01-28T21:50:44+01:00</updated><id>https://vincenttam.github.io/octo3test/blogging/2017/01/28/migrated-from-octopress-2-0</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/blogging/2017/01/28/migrated-from-octopress-2-0.html">&lt;p&gt;Original blog: &lt;a href=&quot;https://git.io/vtblog&quot;&gt;https://git.io/vtblog&lt;/a&gt;&lt;/p&gt;
+look into this &lt;a href=&quot;https://git.io/vDUIc&quot;&gt;Vimperator compatibility issue&lt;/a&gt;&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">Migrated From Octopress 2.0</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/migrated-from-octopress-2-0.html" rel="alternate" type="text/html" title="Migrated From Octopress 2.0" /><published>2017-01-28T21:50:44+01:00</published><updated>2017-01-28T21:50:44+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/migrated-from-octopress-2-0</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/migrated-from-octopress-2-0.html">&lt;p&gt;Original blog: &lt;a href=&quot;https://git.io/vtblog&quot;&gt;https://git.io/vtblog&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;improvements&quot;&gt;Improvements&lt;/h2&gt;
 
@@ -637,7 +733,7 @@ look into this &lt;a href=&quot;https://git.io/vDUIc&quot;&gt;Vimperator compati
   &lt;li&gt;[X] configure my vimrc&lt;/li&gt;
   &lt;li&gt;[X] set up a blog which enables writing in Vim for note taking&lt;/li&gt;
   &lt;li&gt;[X] upload my dotfiles for easier migration&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Original blog: https://git.io/vtblog</summary></entry><entry><title type="html">Git Binary Object Reconstruction</title><link href="https://vincenttam.github.io/octo3test/git/2017/01/28/git-binary-object-reconstruction.html" rel="alternate" type="text/html" title="Git Binary Object Reconstruction" /><published>2017-01-28T20:34:37+01:00</published><updated>2017-01-28T20:34:37+01:00</updated><id>https://vincenttam.github.io/octo3test/git/2017/01/28/git-binary-object-reconstruction</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/git/2017/01/28/git-binary-object-reconstruction.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Original blog: https://git.io/vtblog</summary></entry><entry><title type="html">Git Binary Object Reconstruction</title><link href="http://localhost:4000/octo3test/git/2017/01/28/git-binary-object-reconstruction.html" rel="alternate" type="text/html" title="Git Binary Object Reconstruction" /><published>2017-01-28T20:34:37+01:00</published><updated>2017-01-28T20:34:37+01:00</updated><id>http://localhost:4000/octo3test/git/2017/01/28/git-binary-object-reconstruction</id><content type="html" xml:base="http://localhost:4000/octo3test/git/2017/01/28/git-binary-object-reconstruction.html">&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;Last evening, I used a Linux Mint 17.5 desktop &lt;em&gt;without&lt;/em&gt; sudo
 privileges and &lt;a href=&quot;https://git-scm.com&quot;&gt;Git&lt;/a&gt; installed.&lt;/p&gt;
@@ -707,7 +803,7 @@ can make such a guess &lt;em&gt;without&lt;/em&gt; knowing any &lt;a href=&quot;
   &lt;code class=&quot;highlighter-rouge&quot;&gt;inflate(zc)&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;I &lt;em&gt;don’t&lt;/em&gt; have time to find out how to read the hex values of
   unicode characters, and to remove the header of a blob.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">Jekyll-terminal Test Page</title><link href="https://vincenttam.github.io/octo3test/blogging/2017/01/28/jekyll-terminal-test-page.html" rel="alternate" type="text/html" title="Jekyll-terminal Test Page" /><published>2017-01-28T12:19:49+01:00</published><updated>2017-01-28T12:19:49+01:00</updated><id>https://vincenttam.github.io/octo3test/blogging/2017/01/28/jekyll-terminal-test-page</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/blogging/2017/01/28/jekyll-terminal-test-page.html">&lt;p&gt;I typed this sentence quickly.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Background</summary></entry><entry><title type="html">Jekyll-terminal Test Page</title><link href="http://localhost:4000/octo3test/blogging/2017/01/28/jekyll-terminal-test-page.html" rel="alternate" type="text/html" title="Jekyll-terminal Test Page" /><published>2017-01-28T12:19:49+01:00</published><updated>2017-01-28T12:19:49+01:00</updated><id>http://localhost:4000/octo3test/blogging/2017/01/28/jekyll-terminal-test-page</id><content type="html" xml:base="http://localhost:4000/octo3test/blogging/2017/01/28/jekyll-terminal-test-page.html">&lt;p&gt;I typed this sentence quickly.&lt;/p&gt;
 
 &lt;div class=&quot;terminal&quot;&gt;
   &lt;nav&gt;
@@ -725,22 +821,4 @@ can make such a guess &lt;em&gt;without&lt;/em&gt; knowing any &lt;a href=&quot;
   &lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;This tag works with &lt;a href=&quot;https://github.com/octopress/octopress&quot;&gt;Octopress 3&lt;/a&gt;.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">I typed this sentence quickly.</summary></entry><entry><title type="html">Gist test</title><link href="https://vincenttam.github.io/octo3test/blogging/2017/01/28/gist-test.html" rel="alternate" type="text/html" title="Gist test" /><published>2017-01-28T09:57:34+01:00</published><updated>2017-01-28T09:57:34+01:00</updated><id>https://vincenttam.github.io/octo3test/blogging/2017/01/28/gist-test</id><content type="html" xml:base="https://vincenttam.github.io/octo3test/blogging/2017/01/28/gist-test.html">&lt;p&gt;Last night, &lt;a href=&quot;https://jekyllrb.com/docs/templates/#gist&quot;&gt;Jekyll’s Gist tag&lt;/a&gt; &lt;em&gt;didn’t&lt;/em&gt; work during
-preview.&lt;/p&gt;
-
-&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;My VIMRC for GVIM on Win 7&lt;/span&gt;&lt;a class=&quot;code-highlight-caption-link&quot; href=&quot;https://gist.github.com/abc1cbd2b2181ad69165&quot;&gt;link&lt;/a&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;136&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&quot; Press Space to turn off highlighting and clear any message already displayed.
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;137&quot; class=&quot;code-highlight-row numbered marked-line start-marked-line end-marked-line&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;nnoremap &amp;lt;silent&amp;gt; &amp;lt;Space&amp;gt; :nohlsearch&amp;lt;Bar&amp;gt;:echo&amp;lt;CR&amp;gt;
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;138&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;139&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&quot; Practical Vim Tip 34: Avoid cursors when rcl'g cmd from hist
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;140&quot; class=&quot;code-highlight-row numbered marked-line start-marked-line&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cnoremap &amp;lt;C-p&amp;gt; &amp;lt;Up&amp;gt;
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;141&quot; class=&quot;code-highlight-row numbered marked-line end-marked-line&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cnoremap &amp;lt;C-n&amp;gt; &amp;lt;Down&amp;gt;
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;142&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;143&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&quot; 160221: Fix the space in &quot;C:\Program Files&quot; in the path of Git Bash
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;144&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;if match(&amp;amp;shell,' ') &amp;gt; -1
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;145&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  set shell=C:\PROGRA~1\Git\usr\bin\bash.exe
-&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;146&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;endif
-&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
-
-&lt;p&gt;This morning, I tried using &lt;code class=&quot;highlighter-rouge&quot;&gt;git bisect&lt;/code&gt; to figure out the cause of this
-problem.  It turns out that it &lt;em&gt;is&lt;/em&gt; a problem of my installed version of
-&lt;a href=&quot;https://github.com/octopress/gist&quot;&gt;Octopress’ Gist tag&lt;/a&gt; while handling Gists with
-multiple files.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">Last night, Jekyll’s Gist tag didn’t work during
-preview.</summary></entry></feed>
+&lt;p&gt;This tag works with &lt;a href=&quot;https://github.com/octopress/octopress&quot;&gt;Octopress 3&lt;/a&gt;.&lt;/p&gt;</content><author><name>Vincent Tam</name></author><summary type="html">I typed this sentence quickly.</summary></entry></feed>

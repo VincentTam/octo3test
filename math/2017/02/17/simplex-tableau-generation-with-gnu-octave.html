@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Simplex Tableau Generation With GNU Octave</title>
+  <meta name="description" content="Background">
+
+  <link rel="stylesheet" href="/octo3test/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/octo3test/math/2017/02/17/simplex-tableau-generation-with-gnu-octave.html">
+  <link rel="alternate" type="application/rss+xml" title="Testing Octopress 3" href="/octo3test/feed.xml">
+  
+  
+  <script src="https://use.fontawesome.com/0f0964214c.js"></script>
+  <link href='/octo3test/stylesheets/all-7f6570d7ee27cedcaf780105c45c00e2.css' media='all' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='/octo3test/css/terminal.css'>
+</head>
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/octo3test/">Testing Octopress 3</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/octo3test/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Simplex Tableau Generation With GNU Octave</h1>
+    <p class="post-meta"><time datetime="2017-02-17T00:04:07+01:00" itemprop="datePublished">Feb 17, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="background">Background</h2>
+
+<p>I encountered a <a href="http://math.stackexchange.com/q/2144734/290189">linear programming problem</a> on math.SE.  I
+used <a href="https://git.io/vD9m7">my Octave simplex code</a>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">http://math.stackexchange.com/a/1605301/290189</span><a class="code-highlight-caption-link" href="http://math.stackexchange.com/a/1605301/290189">link</a></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">format rat;
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">c = [-1 2 -3 -1 0 0 0]'; b = [4 2 1]';
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">A = [
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">1 -1 -2 -1 1 0 0
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">2 0 1 -4 0 1 0
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">-2 1 0 1 0 0 1];
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">basis = 5:7;
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">B = A(:,basis); cB = c(basis); T = [B\A B\b; cB'*(B\A)-c' cB'*(B\b)]
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">T =
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">          1         -1         -2         -1          1          0          0          4
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">          2          0          1         -4          0          1          0          2
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">         -2          1          0          1          0          0          1          1
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">         -1          2          3          1          0          0          0          0</div></div></pre></div></figure>
+
+<h2 id="problem">Problem</h2>
+
+<p>It’s tedious to identify the right pivot element by naked eye.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>I wrote several lines of code to find the right row and column indices.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Automatic selection of pivot element</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">zrow = T(end,:); nv = find(zrow==min(zrow(zrow&lt;=0)));
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r&gt;0)));
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">disp([ovp nv])
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">2          1
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">basis(ovp) = nv;
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">B = A(:,basis); cB = c(basis); T = [B\A B\b; cB'*(B\A)-c' cB'*(B\b)]
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">T =
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">          0         -1       -5/2          1          1       -1/2          0          3
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">          1          0        1/2         -2          0        1/2          0          1
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">          0          1          1         -3          0          1          1          3
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">          0          2        7/2         -1          0        1/2          0          1
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">zrow = T(end,:); nv = find(zrow==min(zrow(zrow&lt;=0)));
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r&gt;0)));
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">disp([ovp nv])
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">          1          4
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">basis(ovp) = nv;
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">B = A(:,basis); cB = c(basis); T = [B\A B\b; cB'*(B\A)-c' cB'*(B\b)]
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">T =
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">         -0         -1       -5/2          1          1       -1/2         -0          3
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">          1         -2       -9/2         -0          2       -1/2         -0          7
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">          0         -2      -13/2          0          3       -1/2          1         12
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">          0          1          1          0          1          0          0          4</div></div></pre></div></figure>
+
+<p>Here, I use</p>
+
+<ul>
+  <li><code class="highlighter-rouge">zrow</code>: objective function row</li>
+  <li><code class="highlighter-rouge">r</code>: ratio for pivot selection (an $n$-row column vector)</li>
+  <li><code class="highlighter-rouge">nv</code>: new/entering variable</li>
+  <li><code class="highlighter-rouge">ovp</code>: old/leaving variable <em>position</em>
+    <ul>
+      <li>I used <code class="highlighter-rouge">ov</code> at first, but I got a logic error with
+  <code class="highlighter-rouge">basis(find(basis==ov)) = nv</code>.</li>
+      <li>In fact, the function <code class="highlighter-rouge">find(r==min(r(r&gt;0)))</code> returns the row
+  number (i.e. position) of the leaving variable.  We have to
+  pass this position to <code class="highlighter-rouge">basis</code> so as to get the actual number
+  representing the leaving variable.
+        <ul>
+          <li><code class="highlighter-rouge">r = r .* (r &gt; 0)</code> <em>didn’t</em> work since 0 is selected as
+  <code class="highlighter-rouge">min(r)</code>.</li>
+          <li><code class="highlighter-rouge">r(r&gt;0)</code> alters the indices and the size of positive
+  elements.</li>
+          <li>So I have to use <code class="highlighter-rouge">find(r==...)</code> to get the right indices.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lessons-learnt">Lessons learnt</h2>
+
+<p>Some Octave syntax for finding (non-negative minimum) elements in an
+one-dimensional array.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">find(vect==val)</code> returns an array of indices of matching elements.</li>
+  <li><code class="highlighter-rouge">vect(cond)</code> extracts the elements satisfying <code class="highlighter-rouge">cond</code> from <code class="highlighter-rouge">vect</code>.</li>
+</ul>
+
+<h2 id="issues">Issues</h2>
+
+<p>If there’re two or more matches for the most negative entry at the
+$z$-row or the ratio vector, <a href="https://www.gnu.org/software/octave/doc/v4.0.3/Finding-Elements-and-Checking-Conditions.html">GNU Octave’s <code class="highlighter-rouge">find</code> function</a>
+returns an array.  Then the variables <code class="highlighter-rouge">nv</code> and <code class="highlighter-rouge">ovp</code> will be <em>wrong</em>.
+I’ll fix it if I have time in the future.</p>
+
+<h2 id="unexpected-discovery">Unexpected discovery</h2>
+
+<p>An excellent <a href="http://math.uww.edu/~mcfarlat/s-prob.htm">introduction to simplex method</a> with detailed
+steps, illustrations and explanation for the impatient.</p>
+
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Testing Octopress 3</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Vincent Tam
+            
+          </li>
+          
+          <li>
+          
+            Continued from <a href="https://git.io/vtblog">Blog 1</a>
+          
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/VincentTam"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg></span><span class="username">VincentTam</span></a>
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>My memory dump</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<!-- Defer loading of JavaScripts -->
+<script type="text/javascript" charset="utf-8">
+(function() {
+    function getScript(url,success){
+        var script=document.createElement('script');
+        script.src=url;
+        var head=document.getElementsByTagName('head')[0],
+        done=false;
+        script.onload=script.onreadystatechange = function(){
+        if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+            done=true;
+            success();
+            script.onload = script.onreadystatechange = null;
+            head.removeChild(script);
+        }
+        };
+        head.appendChild(script);
+    }
+
+    getScript("https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,https://vincenttam.github.io/octo3test/assets/js/MathJaxLocal.js",function() {});
+})();
+</script>
+
+  </body>
+
+</html>
