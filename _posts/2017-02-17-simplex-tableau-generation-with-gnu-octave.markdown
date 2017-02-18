@@ -11,7 +11,7 @@ Background
 I encountered a [linear programming problem][2144734] on math.SE.  I
 used [my Octave simplex code][op].
 
-{% codeblock Generate simplex tableau lang:octave http://math.stackexchange.com/a/1605301/290189 %}
+{% codeblock lang:octave title:"Generate simplex tableau "Generate simplex tableau http://math.stackexchange.com/a/1605301/290189 %}
 format rat;
 c = [-1 2 -3 -1 0 0 0]'; b = [4 2 1]';
 A = [
@@ -38,9 +38,9 @@ Solution
 
 I wrote several lines of code to find the right row and column indices.
 
-{% codeblock Automatic selection of pivot element lang:octave %}
-zrow = T(end,:); nv = find(zrow==min(zrow(zrow<=0)));
-r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r>0)));
+{% codeblock lang:octave title:"Automatic selection of pivot element " %}
+zrow = T(end,:); nv = find(zrow==min(zrow(zrow<0)))(1);
+r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r>0)))(1);
 disp([ovp nv])
 2          1
 basis(ovp) = nv;
@@ -52,8 +52,8 @@ T =
           0          1          1         -3          0          1          1          3
           0          2        7/2         -1          0        1/2          0          1
 
-zrow = T(end,:); nv = find(zrow==min(zrow(zrow<=0)));
-r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r>0)));
+zrow = T(end,:); nv = find(zrow==min(zrow(zrow<0)))(1);
+r = T(1:end-1,end)./T(1:end-1,nv); ovp = find(r==min(r(r>0)))(1);
 disp([ovp nv])
           1          4
 basis(ovp) = nv;
@@ -99,7 +99,8 @@ Issues
 If there're two or more matches for the most negative entry at the
 $z$-row or the ratio vector, [GNU Octave's `find` function][find]
 returns an array.  Then the variables `nv` and `ovp` will be *wrong*.
-I'll fix it if I have time in the future.
+<del>I'll fix it if I have time in the future.</del>  Therefore, the
+first element is extracted.  In fact, any element works.
 
 Unexpected discovery
 ---
